@@ -1,0 +1,25 @@
+index,en,fr,de,es,it,kana,ko,pt
+0,What to do with %<box>s?,Que faire avec la boîte %<box>s ?,,,,,,What to do with %<box>s?
+1,What to do with %<name>s?,Que faire avec %<name>s ?,,,,,,What to do with %<name>s?
+2,What to do with %<count>d Pokémon?,Que faire avec ces %<count>d Pokémon ?,,,,,,What to do with %<count>d Pokémon?
+3,ADD BOX,Ajouter une boîte,,,,,,ADD BOX
+4,How to rename %<box>s?,Quel nom donner à la boîte %<box>s ?,,,,,,How to rename %<box>s?
+5,Choose the theme for %<box>s.,Choisissez un thème pour la boite %<box>s.,,,,,,Choose the theme for %<box>s.
+6,Choose a name for the new box.,Choisissez un nom pour la nouvelle boîte.,,,,,,Choose a name for the new box.
+7,Box %<id>d,Boîte %<id>d,,,,,,Box %<id>d
+8,Remove %<box>s?,Retirer la boîte %<box>s ?,,,,,,Remove %<box>s?
+9,Choose where to move %<name>s.,Choisissez où déplacer %<name>s.,,,,,,Choose where to move %<name>s.
+10,Choose where to move %<count>d Pokemon.,Choisissez où déplacer ces %<count>d Pokémon.,,,,,,Choose where to move %<count>d Pokemon.
+11,Do you want to release %<name>s?,Souhaitez-vous relâcher %<name>s ?,,,,,,Do you want to release %<name>s?
+12,Do you want to release %<count>d Pokemon?,Souhaitez-vous relâcher ces %<count>d Pokémon ?,,,,,,Do you want to release %<count>d Pokemon?
+13,Choose a Pokémon to trade.,Choisissez un Pokémon à échanger.,,,,,,Choose a Pokémon to trade.
+14,: Select,: Sélect.,,,,,,: Select
+15,: Quit,: Quitter,,,,,,: Quit
+16,: Details,: Résumé,,,,,,: Details
+17,: Swap,: Échanger,,,,,,: Swap
+18,: Previous,: Précédent,,,,,,: Previous
+19,: Next,: Suivant,,,,,,: Next
+20,: Clear,: Effacer,,,,,,: Clear
+21,: Options,: Options,,,,,,: Options
+22,: Cancel,: Retour,,,,,,: Cancel
+23,: Move,: Déplacer,,,,,,: Move

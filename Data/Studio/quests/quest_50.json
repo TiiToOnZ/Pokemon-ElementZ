@@ -1,0 +1,61 @@
+{
+  "klass": "Quest",
+  "id": 50,
+  "dbSymbol": "quest_50",
+  "isPrimary": false,
+  "resolution": "default",
+  "objectives": [
+    {
+      "objectiveMethodName": "objective_see_pokemon",
+      "objectiveMethodArgs": [
+        "kyogre",
+        1
+      ],
+      "textFormatMethodName": "text_see_pokemon",
+      "hiddenByDefault": false
+    },
+    {
+      "objectiveMethodName": "objective_see_pokemon",
+      "objectiveMethodArgs": [
+        "groudon",
+        1
+      ],
+      "textFormatMethodName": "text_see_pokemon",
+      "hiddenByDefault": false
+    },
+    {
+      "objectiveMethodName": "objective_see_pokemon",
+      "objectiveMethodArgs": [
+        "rayquaza",
+        1
+      ],
+      "textFormatMethodName": "text_see_pokemon",
+      "hiddenByDefault": false
+    }
+  ],
+  "earnings": [
+    {
+      "earningMethodName": "earning_money",
+      "earningArgs": [
+        1000
+      ],
+      "textFormatMethodName": "text_earn_money"
+    },
+    {
+      "earningMethodName": "earning_item",
+      "earningArgs": [
+        "blue_orb",
+        1
+      ],
+      "textFormatMethodName": "text_earn_item"
+    },
+    {
+      "earningMethodName": "earning_item",
+      "earningArgs": [
+        "red_orb",
+        1
+      ],
+      "textFormatMethodName": "text_earn_item"
+    }
+  ]
+}

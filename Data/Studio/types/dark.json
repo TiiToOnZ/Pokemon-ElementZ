@@ -1,0 +1,33 @@
+{
+  "klass": "Type",
+  "id": 17,
+  "dbSymbol": "dark",
+  "textId": 16,
+  "damageTo": [
+    {
+      "defensiveType": "fighting",
+      "factor": 0.5
+    },
+    {
+      "defensiveType": "psychic",
+      "factor": 2
+    },
+    {
+      "defensiveType": "ghost",
+      "factor": 2
+    },
+    {
+      "defensiveType": "dark",
+      "factor": 0.5
+    },
+    {
+      "defensiveType": "fairy",
+      "factor": 0.5
+    },
+    {
+      "defensiveType": "lumiere",
+      "factor": 2
+    }
+  ],
+  "color": "#a7acbe"
+}

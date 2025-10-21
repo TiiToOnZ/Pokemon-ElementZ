@@ -1,0 +1,45 @@
+{
+  "klass": "Quest",
+  "id": 52,
+  "dbSymbol": "quest_52",
+  "isPrimary": false,
+  "resolution": "default",
+  "objectives": [
+    {
+      "objectiveMethodName": "objective_see_pokemon",
+      "objectiveMethodArgs": [
+        "terrakion",
+        1
+      ],
+      "textFormatMethodName": "text_see_pokemon",
+      "hiddenByDefault": false
+    },
+    {
+      "objectiveMethodName": "objective_see_pokemon",
+      "objectiveMethodArgs": [
+        "virizion",
+        1
+      ],
+      "textFormatMethodName": "text_see_pokemon",
+      "hiddenByDefault": false
+    },
+    {
+      "objectiveMethodName": "objective_see_pokemon",
+      "objectiveMethodArgs": [
+        "cobalion",
+        1
+      ],
+      "textFormatMethodName": "text_see_pokemon",
+      "hiddenByDefault": false
+    }
+  ],
+  "earnings": [
+    {
+      "earningMethodName": "earning_money",
+      "earningArgs": [
+        1000
+      ],
+      "textFormatMethodName": "text_earn_money"
+    }
+  ]
+}

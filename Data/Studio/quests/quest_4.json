@@ -1,0 +1,44 @@
+{
+  "klass": "Quest",
+  "id": 4,
+  "dbSymbol": "quest_4",
+  "isPrimary": false,
+  "resolution": "default",
+  "objectives": [
+    {
+      "objectiveMethodName": "objective_obtain_item",
+      "objectiveMethodArgs": [
+        "chaussures",
+        1
+      ],
+      "textFormatMethodName": "text_obtain_item",
+      "hiddenByDefault": false
+    },
+    {
+      "objectiveMethodName": "objective_speak_to",
+      "objectiveMethodArgs": [
+        0,
+        "Enfant de la famille Légodas"
+      ],
+      "textFormatMethodName": "text_speak_to",
+      "hiddenByDefault": false
+    }
+  ],
+  "earnings": [
+    {
+      "earningMethodName": "earning_money",
+      "earningArgs": [
+        1000
+      ],
+      "textFormatMethodName": "text_earn_money"
+    },
+    {
+      "earningMethodName": "earning_item",
+      "earningArgs": [
+        "chaussures_de_courses",
+        1
+      ],
+      "textFormatMethodName": "text_earn_item"
+    }
+  ]
+}

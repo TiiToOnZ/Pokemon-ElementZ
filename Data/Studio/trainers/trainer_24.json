@@ -1,0 +1,25 @@
+{
+  "klass": "TrainerBattleSetup",
+  "id": 24,
+  "dbSymbol": "trainer_24",
+  "vsType": 2,
+  "isCouple": false,
+  "baseMoney": 37,
+  "ai": 3,
+  "party": [],
+  "bagEntries": [],
+  "battleId": 0,
+  "resources": {
+    "artworkFull": "",
+    "artworkSmall": "",
+    "character": "",
+    "musics": {
+      "bgm": "",
+      "defeat": "",
+      "encounter": "",
+      "victory": ""
+    },
+    "sprite": ""
+  },
+  "additionalDialogs": []
+}

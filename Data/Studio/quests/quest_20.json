@@ -1,0 +1,27 @@
+{
+  "klass": "Quest",
+  "id": 20,
+  "dbSymbol": "quest_20",
+  "isPrimary": true,
+  "resolution": "default",
+  "objectives": [
+    {
+      "objectiveMethodName": "objective_speak_to",
+      "objectiveMethodArgs": [
+        0,
+        "TiiToOnZ Poketoonz"
+      ],
+      "textFormatMethodName": "text_speak_to",
+      "hiddenByDefault": false
+    }
+  ],
+  "earnings": [
+    {
+      "earningMethodName": "earning_money",
+      "earningArgs": [
+        500
+      ],
+      "textFormatMethodName": "text_earn_money"
+    }
+  ]
+}

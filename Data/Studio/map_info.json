@@ -1,0 +1,690 @@
+{
+  "0": {
+    "id": 0,
+    "children": [
+      23,
+      24,
+      29,
+      33,
+      39,
+      32,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21
+    ],
+    "hasChildren": true,
+    "isExpanded": true,
+    "data": {
+      "klass": "MapInfoRoot"
+    }
+  },
+  "1": {
+    "id": 1,
+    "children": [],
+    "hasChildren": false,
+    "isExpanded": false,
+    "data": {
+      "klass": "MapInfoMap",
+      "mapDbSymbol": "map001",
+      "parentId": 23
+    }
+  },
+  "2": {
+    "id": 2,
+    "children": [],
+    "hasChildren": false,
+    "isExpanded": false,
+    "data": {
+      "klass": "MapInfoMap",
+      "mapDbSymbol": "map002",
+      "parentId": 23
+    }
+  },
+  "3": {
+    "id": 3,
+    "children": [],
+    "hasChildren": false,
+    "isExpanded": false,
+    "data": {
+      "klass": "MapInfoMap",
+      "mapDbSymbol": "map003",
+      "parentId": 0
+    }
+  },
+  "4": {
+    "id": 4,
+    "children": [],
+    "hasChildren": false,
+    "isExpanded": false,
+    "data": {
+      "klass": "MapInfoMap",
+      "mapDbSymbol": "map004",
+      "parentId": 0
+    }
+  },
+  "5": {
+    "id": 5,
+    "children": [],
+    "hasChildren": false,
+    "isExpanded": false,
+    "data": {
+      "klass": "MapInfoMap",
+      "mapDbSymbol": "map005",
+      "parentId": 0
+    }
+  },
+  "6": {
+    "id": 6,
+    "children": [],
+    "hasChildren": false,
+    "isExpanded": false,
+    "data": {
+      "klass": "MapInfoMap",
+      "mapDbSymbol": "map006",
+      "parentId": 0
+    }
+  },
+  "7": {
+    "id": 7,
+    "children": [],
+    "hasChildren": false,
+    "isExpanded": false,
+    "data": {
+      "klass": "MapInfoMap",
+      "mapDbSymbol": "map007",
+      "parentId": 0
+    }
+  },
+  "8": {
+    "id": 8,
+    "children": [],
+    "hasChildren": false,
+    "isExpanded": false,
+    "data": {
+      "klass": "MapInfoMap",
+      "mapDbSymbol": "map008",
+      "parentId": 0
+    }
+  },
+  "9": {
+    "id": 9,
+    "children": [],
+    "hasChildren": false,
+    "isExpanded": false,
+    "data": {
+      "klass": "MapInfoMap",
+      "mapDbSymbol": "map009",
+      "parentId": 0
+    }
+  },
+  "10": {
+    "id": 10,
+    "children": [],
+    "hasChildren": false,
+    "isExpanded": false,
+    "data": {
+      "klass": "MapInfoMap",
+      "mapDbSymbol": "map010",
+      "parentId": 0
+    }
+  },
+  "11": {
+    "id": 11,
+    "children": [],
+    "hasChildren": false,
+    "isExpanded": false,
+    "data": {
+      "klass": "MapInfoMap",
+      "mapDbSymbol": "map011",
+      "parentId": 0
+    }
+  },
+  "12": {
+    "id": 12,
+    "children": [],
+    "hasChildren": false,
+    "isExpanded": false,
+    "data": {
+      "klass": "MapInfoMap",
+      "mapDbSymbol": "map012",
+      "parentId": 0
+    }
+  },
+  "13": {
+    "id": 13,
+    "children": [
+      22
+    ],
+    "hasChildren": true,
+    "isExpanded": false,
+    "data": {
+      "klass": "MapInfoMap",
+      "mapDbSymbol": "map013",
+      "parentId": 25
+    }
+  },
+  "14": {
+    "id": 14,
+    "children": [],
+    "hasChildren": false,
+    "isExpanded": false,
+    "data": {
+      "klass": "MapInfoMap",
+      "mapDbSymbol": "map014",
+      "parentId": 0
+    }
+  },
+  "15": {
+    "id": 15,
+    "children": [],
+    "hasChildren": false,
+    "isExpanded": false,
+    "data": {
+      "klass": "MapInfoMap",
+      "mapDbSymbol": "map015",
+      "parentId": 0
+    }
+  },
+  "16": {
+    "id": 16,
+    "children": [],
+    "hasChildren": false,
+    "isExpanded": false,
+    "data": {
+      "klass": "MapInfoMap",
+      "mapDbSymbol": "map016",
+      "parentId": 0
+    }
+  },
+  "17": {
+    "id": 17,
+    "children": [],
+    "hasChildren": false,
+    "isExpanded": false,
+    "data": {
+      "klass": "MapInfoMap",
+      "mapDbSymbol": "map017",
+      "parentId": 0
+    }
+  },
+  "18": {
+    "id": 18,
+    "children": [],
+    "hasChildren": false,
+    "isExpanded": false,
+    "data": {
+      "klass": "MapInfoMap",
+      "mapDbSymbol": "map018",
+      "parentId": 0
+    }
+  },
+  "19": {
+    "id": 19,
+    "children": [],
+    "hasChildren": false,
+    "isExpanded": false,
+    "data": {
+      "klass": "MapInfoMap",
+      "mapDbSymbol": "map019",
+      "parentId": 0
+    }
+  },
+  "20": {
+    "id": 20,
+    "children": [],
+    "hasChildren": false,
+    "isExpanded": false,
+    "data": {
+      "klass": "MapInfoMap",
+      "mapDbSymbol": "map020",
+      "parentId": 0
+    }
+  },
+  "21": {
+    "id": 21,
+    "children": [],
+    "hasChildren": false,
+    "isExpanded": false,
+    "data": {
+      "klass": "MapInfoMap",
+      "mapDbSymbol": "map021",
+      "parentId": 0
+    }
+  },
+  "22": {
+    "id": 22,
+    "children": [],
+    "hasChildren": false,
+    "isExpanded": false,
+    "data": {
+      "klass": "MapInfoMap",
+      "mapDbSymbol": "map022",
+      "parentId": 13
+    }
+  },
+  "23": {
+    "id": 23,
+    "children": [
+      1,
+      2
+    ],
+    "hasChildren": true,
+    "isExpanded": false,
+    "data": {
+      "klass": "MapInfoFolder",
+      "textId": 0
+    }
+  },
+  "24": {
+    "id": 24,
+    "children": [
+      25,
+      27,
+      28,
+      26,
+      54
+    ],
+    "hasChildren": true,
+    "isExpanded": true,
+    "data": {
+      "klass": "MapInfoFolder",
+      "textId": 1
+    }
+  },
+  "25": {
+    "id": 25,
+    "children": [
+      13,
+      35,
+      36,
+      37,
+      38
+    ],
+    "hasChildren": true,
+    "isExpanded": false,
+    "data": {
+      "klass": "MapInfoMap",
+      "mapDbSymbol": "map023",
+      "parentId": 24
+    }
+  },
+  "26": {
+    "id": 26,
+    "children": [
+      53,
+      50
+    ],
+    "hasChildren": true,
+    "isExpanded": false,
+    "data": {
+      "klass": "MapInfoMap",
+      "mapDbSymbol": "map024",
+      "parentId": 24
+    }
+  },
+  "27": {
+    "id": 27,
+    "children": [
+      43,
+      44,
+      45,
+      48,
+      49,
+      46,
+      47
+    ],
+    "hasChildren": true,
+    "isExpanded": true,
+    "data": {
+      "klass": "MapInfoMap",
+      "mapDbSymbol": "map025",
+      "parentId": 24
+    }
+  },
+  "28": {
+    "id": 28,
+    "children": [
+      51,
+      52
+    ],
+    "hasChildren": true,
+    "isExpanded": true,
+    "data": {
+      "klass": "MapInfoMap",
+      "mapDbSymbol": "map026",
+      "parentId": 24
+    }
+  },
+  "29": {
+    "id": 29,
+    "children": [
+      30,
+      31
+    ],
+    "hasChildren": true,
+    "isExpanded": true,
+    "data": {
+      "klass": "MapInfoFolder",
+      "textId": 2
+    }
+  },
+  "30": {
+    "id": 30,
+    "children": [],
+    "hasChildren": false,
+    "isExpanded": false,
+    "data": {
+      "klass": "MapInfoMap",
+      "mapDbSymbol": "map027",
+      "parentId": 29
+    }
+  },
+  "31": {
+    "id": 31,
+    "children": [],
+    "hasChildren": false,
+    "isExpanded": false,
+    "data": {
+      "klass": "MapInfoMap",
+      "mapDbSymbol": "map028",
+      "parentId": 29
+    }
+  },
+  "32": {
+    "id": 32,
+    "children": [
+      41,
+      42
+    ],
+    "hasChildren": true,
+    "isExpanded": true,
+    "data": {
+      "klass": "MapInfoFolder",
+      "textId": 3
+    }
+  },
+  "33": {
+    "id": 33,
+    "children": [
+      34,
+      56
+    ],
+    "hasChildren": true,
+    "isExpanded": true,
+    "data": {
+      "klass": "MapInfoFolder",
+      "textId": 4
+    }
+  },
+  "34": {
+    "id": 34,
+    "children": [],
+    "hasChildren": false,
+    "isExpanded": false,
+    "data": {
+      "klass": "MapInfoMap",
+      "mapDbSymbol": "map029",
+      "parentId": 33
+    }
+  },
+  "35": {
+    "id": 35,
+    "children": [],
+    "hasChildren": false,
+    "isExpanded": false,
+    "data": {
+      "klass": "MapInfoMap",
+      "mapDbSymbol": "map030",
+      "parentId": 25
+    }
+  },
+  "36": {
+    "id": 36,
+    "children": [],
+    "hasChildren": false,
+    "isExpanded": false,
+    "data": {
+      "klass": "MapInfoMap",
+      "mapDbSymbol": "map031",
+      "parentId": 25
+    }
+  },
+  "37": {
+    "id": 37,
+    "children": [],
+    "hasChildren": false,
+    "isExpanded": false,
+    "data": {
+      "klass": "MapInfoMap",
+      "mapDbSymbol": "map032",
+      "parentId": 25
+    }
+  },
+  "38": {
+    "id": 38,
+    "children": [],
+    "hasChildren": false,
+    "isExpanded": false,
+    "data": {
+      "klass": "MapInfoMap",
+      "mapDbSymbol": "map033",
+      "parentId": 25
+    }
+  },
+  "39": {
+    "id": 39,
+    "children": [
+      40
+    ],
+    "hasChildren": true,
+    "isExpanded": true,
+    "data": {
+      "klass": "MapInfoFolder",
+      "textId": 5
+    }
+  },
+  "40": {
+    "id": 40,
+    "children": [],
+    "hasChildren": false,
+    "isExpanded": false,
+    "data": {
+      "klass": "MapInfoMap",
+      "mapDbSymbol": "map034",
+      "parentId": 39
+    }
+  },
+  "41": {
+    "id": 41,
+    "children": [],
+    "hasChildren": false,
+    "isExpanded": false,
+    "data": {
+      "klass": "MapInfoMap",
+      "mapDbSymbol": "map035",
+      "parentId": 32
+    }
+  },
+  "42": {
+    "id": 42,
+    "children": [],
+    "hasChildren": false,
+    "isExpanded": false,
+    "data": {
+      "klass": "MapInfoMap",
+      "mapDbSymbol": "map036",
+      "parentId": 32
+    }
+  },
+  "43": {
+    "id": 43,
+    "children": [],
+    "hasChildren": false,
+    "isExpanded": false,
+    "data": {
+      "klass": "MapInfoMap",
+      "mapDbSymbol": "map037",
+      "parentId": 27
+    }
+  },
+  "44": {
+    "id": 44,
+    "children": [],
+    "hasChildren": false,
+    "isExpanded": false,
+    "data": {
+      "klass": "MapInfoMap",
+      "mapDbSymbol": "map038",
+      "parentId": 27
+    }
+  },
+  "45": {
+    "id": 45,
+    "children": [],
+    "hasChildren": false,
+    "isExpanded": false,
+    "data": {
+      "klass": "MapInfoMap",
+      "mapDbSymbol": "map039",
+      "parentId": 27
+    }
+  },
+  "46": {
+    "id": 46,
+    "children": [],
+    "hasChildren": false,
+    "isExpanded": false,
+    "data": {
+      "klass": "MapInfoMap",
+      "mapDbSymbol": "map040",
+      "parentId": 27
+    }
+  },
+  "47": {
+    "id": 47,
+    "children": [],
+    "hasChildren": false,
+    "isExpanded": false,
+    "data": {
+      "klass": "MapInfoMap",
+      "mapDbSymbol": "map041",
+      "parentId": 27
+    }
+  },
+  "48": {
+    "id": 48,
+    "children": [],
+    "hasChildren": false,
+    "isExpanded": false,
+    "data": {
+      "klass": "MapInfoMap",
+      "mapDbSymbol": "map042",
+      "parentId": 27
+    }
+  },
+  "49": {
+    "id": 49,
+    "children": [],
+    "hasChildren": false,
+    "isExpanded": false,
+    "data": {
+      "klass": "MapInfoMap",
+      "mapDbSymbol": "map043",
+      "parentId": 27
+    }
+  },
+  "50": {
+    "id": 50,
+    "children": [],
+    "hasChildren": false,
+    "isExpanded": false,
+    "data": {
+      "klass": "MapInfoMap",
+      "mapDbSymbol": "map044",
+      "parentId": 26
+    }
+  },
+  "51": {
+    "id": 51,
+    "children": [],
+    "hasChildren": false,
+    "isExpanded": false,
+    "data": {
+      "klass": "MapInfoMap",
+      "mapDbSymbol": "map045",
+      "parentId": 28
+    }
+  },
+  "52": {
+    "id": 52,
+    "children": [],
+    "hasChildren": false,
+    "isExpanded": false,
+    "data": {
+      "klass": "MapInfoMap",
+      "mapDbSymbol": "map046",
+      "parentId": 28
+    }
+  },
+  "53": {
+    "id": 53,
+    "children": [],
+    "hasChildren": false,
+    "isExpanded": false,
+    "data": {
+      "klass": "MapInfoMap",
+      "mapDbSymbol": "map047",
+      "parentId": 26
+    }
+  },
+  "54": {
+    "id": 54,
+    "children": [
+      55
+    ],
+    "hasChildren": true,
+    "isExpanded": false,
+    "data": {
+      "klass": "MapInfoMap",
+      "mapDbSymbol": "map048",
+      "parentId": 24
+    }
+  },
+  "55": {
+    "id": 55,
+    "children": [],
+    "hasChildren": false,
+    "isExpanded": false,
+    "data": {
+      "klass": "MapInfoMap",
+      "mapDbSymbol": "map049",
+      "parentId": 54
+    }
+  },
+  "56": {
+    "id": 56,
+    "children": [],
+    "hasChildren": false,
+    "isExpanded": false,
+    "data": {
+      "klass": "MapInfoMap",
+      "mapDbSymbol": "map050",
+      "parentId": 33
+    }
+  }
+}

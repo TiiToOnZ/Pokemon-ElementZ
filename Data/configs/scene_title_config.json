@@ -1,0 +1,11 @@
+{
+  "klass": "Configs::Project::SceneTitle",
+  "introMovieMapId": 1,
+  "bgmName": "audio/bgm/ending.ogg",
+  "bgmDuration": 4418000,
+  "isLanguageSelectionEnabled": true,
+  "additionalSplashes": [
+    "pokemon_elementz"
+  ],
+  "controlWaitTime": 0.5
+}

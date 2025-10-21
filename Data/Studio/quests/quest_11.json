@@ -1,0 +1,46 @@
+{
+  "klass": "Quest",
+  "id": 11,
+  "dbSymbol": "quest_11",
+  "isPrimary": true,
+  "resolution": "default",
+  "objectives": [
+    {
+      "objectiveMethodName": "objective_speak_to",
+      "objectiveMethodArgs": [
+        0,
+        "Prof. Chen"
+      ],
+      "textFormatMethodName": "text_speak_to",
+      "hiddenByDefault": false
+    },
+    {
+      "objectiveMethodName": "objective_beat_npc",
+      "objectiveMethodArgs": [
+        0,
+        "Premier de la classe",
+        1
+      ],
+      "textFormatMethodName": "text_beat_npc",
+      "hiddenByDefault": false
+    },
+    {
+      "objectiveMethodName": "objective_speak_to",
+      "objectiveMethodArgs": [
+        1,
+        "Prof. Charme"
+      ],
+      "textFormatMethodName": "text_speak_to",
+      "hiddenByDefault": false
+    }
+  ],
+  "earnings": [
+    {
+      "earningMethodName": "earning_money",
+      "earningArgs": [
+        500
+      ],
+      "textFormatMethodName": "text_earn_money"
+    }
+  ]
+}

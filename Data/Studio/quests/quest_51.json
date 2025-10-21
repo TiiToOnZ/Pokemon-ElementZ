@@ -1,0 +1,45 @@
+{
+  "klass": "Quest",
+  "id": 51,
+  "dbSymbol": "quest_51",
+  "isPrimary": false,
+  "resolution": "default",
+  "objectives": [
+    {
+      "objectiveMethodName": "objective_see_pokemon",
+      "objectiveMethodArgs": [
+        "uxie",
+        1
+      ],
+      "textFormatMethodName": "text_see_pokemon",
+      "hiddenByDefault": false
+    },
+    {
+      "objectiveMethodName": "objective_see_pokemon",
+      "objectiveMethodArgs": [
+        "mesprit",
+        1
+      ],
+      "textFormatMethodName": "text_see_pokemon",
+      "hiddenByDefault": false
+    },
+    {
+      "objectiveMethodName": "objective_see_pokemon",
+      "objectiveMethodArgs": [
+        "azelf",
+        1
+      ],
+      "textFormatMethodName": "text_see_pokemon",
+      "hiddenByDefault": false
+    }
+  ],
+  "earnings": [
+    {
+      "earningMethodName": "earning_money",
+      "earningArgs": [
+        1000
+      ],
+      "textFormatMethodName": "text_earn_money"
+    }
+  ]
+}

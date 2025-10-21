@@ -1,0 +1,92 @@
+{
+  "klass": "TrainerBattleSetup",
+  "id": 16,
+  "dbSymbol": "trainer_16",
+  "vsType": 1,
+  "isCouple": false,
+  "baseMoney": 15,
+  "bagEntries": [],
+  "battleId": 10,
+  "ai": 1,
+  "party": [
+    {
+      "specie": "minccino",
+      "form": 0,
+      "shinySetup": {
+        "kind": "automatic",
+        "rate": -1
+      },
+      "levelSetup": {
+        "kind": "fixed",
+        "level": 5
+      },
+      "randomEncounterChance": 1,
+      "expandPokemonSetup": [
+        {
+          "type": "evs",
+          "value": {
+            "hp": 0,
+            "atk": 0,
+            "dfe": 0,
+            "spd": 0,
+            "ats": 0,
+            "dfs": 0
+          }
+        },
+        {
+          "type": "ivs",
+          "value": {
+            "hp": 1,
+            "atk": 1,
+            "dfe": 1,
+            "spd": 1,
+            "ats": 1,
+            "dfs": 1
+          }
+        },
+        {
+          "type": "loyalty",
+          "value": 70
+        },
+        {
+          "type": "moves",
+          "value": [
+            "pound",
+            "baby_doll_eyes",
+            "__remove__",
+            "__remove__"
+          ]
+        },
+        {
+          "type": "originalTrainerName",
+          "value": "Sanupiat"
+        },
+        {
+          "type": "originalTrainerId",
+          "value": 0
+        },
+        {
+          "type": "ability",
+          "value": "skill_link"
+        },
+        {
+          "type": "nature",
+          "value": "modest"
+        }
+      ]
+    }
+  ],
+  "resources": {
+    "sprite": "dp_scientist_F",
+    "artworkFull": "126_big",
+    "artworkSmall": "126_sma",
+    "character": "npc_Scientist-F-2",
+    "musics": {
+      "encounter": "",
+      "victory": "",
+      "defeat": "",
+      "bgm": ""
+    }
+  },
+  "additionalDialogs": []
+}

@@ -1,0 +1,9 @@
+{
+  "klass": "Quest",
+  "id": 47,
+  "dbSymbol": "quest_47",
+  "isPrimary": true,
+  "resolution": "default",
+  "objectives": [],
+  "earnings": []
+}

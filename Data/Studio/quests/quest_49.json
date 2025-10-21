@@ -1,0 +1,67 @@
+{
+  "klass": "Quest",
+  "id": 49,
+  "dbSymbol": "quest_49",
+  "isPrimary": false,
+  "resolution": "default",
+  "objectives": [
+    {
+      "objectiveMethodName": "objective_speak_to",
+      "objectiveMethodArgs": [
+        0,
+        "Prof. Charme"
+      ],
+      "textFormatMethodName": "text_speak_to",
+      "hiddenByDefault": false
+    }
+  ],
+  "earnings": [
+    {
+      "earningMethodName": "earning_money",
+      "earningArgs": [
+        1000
+      ],
+      "textFormatMethodName": "text_earn_money"
+    },
+    {
+      "earningMethodName": "earning_item",
+      "earningArgs": [
+        "poke_ball",
+        5
+      ],
+      "textFormatMethodName": "text_earn_item"
+    },
+    {
+      "earningMethodName": "earning_item",
+      "earningArgs": [
+        "potion",
+        2
+      ],
+      "textFormatMethodName": "text_earn_item"
+    },
+    {
+      "earningMethodName": "earning_item",
+      "earningArgs": [
+        "antidote",
+        1
+      ],
+      "textFormatMethodName": "text_earn_item"
+    },
+    {
+      "earningMethodName": "earning_item",
+      "earningArgs": [
+        "paralyze_heal",
+        1
+      ],
+      "textFormatMethodName": "text_earn_item"
+    },
+    {
+      "earningMethodName": "earning_item",
+      "earningArgs": [
+        "awakening",
+        1
+      ],
+      "textFormatMethodName": "text_earn_item"
+    }
+  ]
+}

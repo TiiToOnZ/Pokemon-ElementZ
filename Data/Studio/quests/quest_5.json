@@ -1,0 +1,58 @@
+{
+  "klass": "Quest",
+  "id": 5,
+  "dbSymbol": "quest_5",
+  "isPrimary": true,
+  "resolution": "default",
+  "objectives": [
+    {
+      "objectiveMethodName": "objective_speak_to",
+      "objectiveMethodArgs": [
+        0,
+        "Gertrude"
+      ],
+      "textFormatMethodName": "text_speak_to",
+      "hiddenByDefault": false
+    },
+    {
+      "objectiveMethodName": "objective_catch_pokemon",
+      "objectiveMethodArgs": [
+        [
+          {
+            "type": "pokemon",
+            "value": "bunnelby"
+          }
+        ],
+        1
+      ],
+      "textFormatMethodName": "text_catch_pokemon",
+      "hiddenByDefault": false
+    },
+    {
+      "objectiveMethodName": "objective_speak_to",
+      "objectiveMethodArgs": [
+        1,
+        "Grand-Mère"
+      ],
+      "textFormatMethodName": "text_speak_to",
+      "hiddenByDefault": false
+    }
+  ],
+  "earnings": [
+    {
+      "earningMethodName": "earning_money",
+      "earningArgs": [
+        500
+      ],
+      "textFormatMethodName": "text_earn_money"
+    },
+    {
+      "earningMethodName": "earning_item",
+      "earningArgs": [
+        "poke_ball",
+        4
+      ],
+      "textFormatMethodName": "text_earn_item"
+    }
+  ]
+}

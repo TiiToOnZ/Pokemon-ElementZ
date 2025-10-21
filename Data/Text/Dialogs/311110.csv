@@ -1,0 +1,8 @@
+en,fr,it,de,es,ko,kana
+Would you like to save your adventure so far? Previous data will be overwritten.,Souhaitez-vous sauvegarder votre progression ? Les données précédentes seront écrasées.,,,,,
+Yes !,Oui !,,,,,
+No.,Non.,,,,,
+\n[1] saved the game.,\n[1] a sauvegardé la partie.,,,,,
+This save is corrupted. You cannot play on it.,Cette sauvegarde est corrompue. Vous ne pouvez pas y jouer.,,,,,
+"If you wish to restore the previous save, check for a .bak file. This serves as a backup of your previous save.","Si vous souhaitez restaurer la sauvegarde précédente, recherchez un fichier .bak. Il sert de copie de secours de votre sauvegarde précédente.",,,,,
+Would you like to start a new game?,Souhaitez-vous commencer une nouvelle partie ?,,,,,

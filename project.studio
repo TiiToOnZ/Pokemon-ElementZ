@@ -1,0 +1,36 @@
+{
+  "title": "Pokemon ElementZ",
+  "studioVersion": "2.7.0",
+  "iconPath": "game.png",
+  "isTiledMode": true,
+  "languagesTranslation": [
+    {
+      "code": "en",
+      "name": "English"
+    },
+    {
+      "code": "fr",
+      "name": "French"
+    },
+    {
+      "code": "es",
+      "name": "Spanish"
+    },
+    {
+      "code": "de",
+      "name": "Allemand"
+    },
+    {
+      "code": "it",
+      "name": "Italian"
+    },
+    {
+      "code": "ko",
+      "name": "Korean"
+    },
+    {
+      "code": "kana",
+      "name": "Japanese"
+    }
+  ]
+}
