@@ -54,11 +54,10 @@
         "__undef__"
       ],
       "frontOffsetY": 0,
-      "moveSet": [],
       "resources": {
         "icon": "",
         "iconShiny": "",
-        "front": "FloralgarFace96x96",
+        "front": "001",
         "frontShiny": "",
         "back": "",
         "backShiny": "",
@@ -69,7 +68,8 @@
         "iconEgg": "",
         "cry": "",
         "hasFemale": false
-      }
+      },
+      "moveSet": []
     }
   ]
 }

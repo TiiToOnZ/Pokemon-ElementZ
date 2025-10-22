@@ -1,0 +1,146 @@
+{
+  "klass": "TrainerBattleSetup",
+  "id": 32,
+  "dbSymbol": "trainer_32",
+  "vsType": 2,
+  "isCouple": false,
+  "baseMoney": 10,
+  "ai": 1,
+  "party": [
+    {
+      "specie": "dustox",
+      "form": 0,
+      "shinySetup": {
+        "kind": "automatic",
+        "rate": -1
+      },
+      "levelSetup": {
+        "kind": "fixed",
+        "level": 10
+      },
+      "randomEncounterChance": 1,
+      "expandPokemonSetup": [
+        {
+          "type": "evs",
+          "value": {
+            "hp": 0,
+            "atk": 0,
+            "dfe": 0,
+            "spd": 0,
+            "ats": 0,
+            "dfs": 0
+          }
+        },
+        {
+          "type": "ivs",
+          "value": {
+            "hp": 15,
+            "atk": 15,
+            "dfe": 15,
+            "spd": 15,
+            "ats": 15,
+            "dfs": 15
+          }
+        },
+        {
+          "type": "loyalty",
+          "value": 70
+        },
+        {
+          "type": "moves",
+          "value": [
+            "gust",
+            "confusion",
+            "__remove__",
+            "__remove__"
+          ]
+        },
+        {
+          "type": "originalTrainerName",
+          "value": "Sammy"
+        },
+        {
+          "type": "originalTrainerId",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "specie": "beautifly",
+      "form": 0,
+      "shinySetup": {
+        "kind": "automatic",
+        "rate": -1
+      },
+      "levelSetup": {
+        "kind": "fixed",
+        "level": 10
+      },
+      "randomEncounterChance": 1,
+      "expandPokemonSetup": [
+        {
+          "type": "evs",
+          "value": {
+            "hp": 0,
+            "atk": 0,
+            "dfe": 0,
+            "spd": 0,
+            "ats": 0,
+            "dfs": 0
+          }
+        },
+        {
+          "type": "ivs",
+          "value": {
+            "hp": 15,
+            "atk": 15,
+            "dfe": 15,
+            "spd": 15,
+            "ats": 15,
+            "dfs": 15
+          }
+        },
+        {
+          "type": "loyalty",
+          "value": 70
+        },
+        {
+          "type": "moves",
+          "value": [
+            "gust",
+            "absorb",
+            "__remove__",
+            "__remove__"
+          ]
+        },
+        {
+          "type": "originalTrainerName",
+          "value": "Sammy"
+        },
+        {
+          "type": "originalTrainerId",
+          "value": 0
+        },
+        {
+          "type": "ability",
+          "value": "rivalry"
+        }
+      ]
+    }
+  ],
+  "bagEntries": [],
+  "battleId": 0,
+  "resources": {
+    "artworkFull": "027_big",
+    "artworkSmall": "027_sma",
+    "character": "",
+    "musics": {
+      "bgm": "",
+      "defeat": "",
+      "encounter": "",
+      "victory": ""
+    },
+    "sprite": ""
+  },
+  "additionalDialogs": []
+}

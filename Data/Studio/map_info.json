@@ -349,7 +349,7 @@
       47
     ],
     "hasChildren": true,
-    "isExpanded": true,
+    "isExpanded": false,
     "data": {
       "klass": "MapInfoMap",
       "mapDbSymbol": "map025",
