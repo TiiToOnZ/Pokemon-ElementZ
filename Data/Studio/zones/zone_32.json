@@ -1,0 +1,26 @@
+{
+  "klass": "Zone",
+  "id": 32,
+  "dbSymbol": "zone_32",
+  "maps": [
+    36
+  ],
+  "worldmaps": [],
+  "panelId": 6,
+  "warp": {
+    "x": null,
+    "y": null
+  },
+  "position": {
+    "x": null,
+    "y": null
+  },
+  "isFlyAllowed": true,
+  "isWarpDisallowed": false,
+  "forcedWeather": 5,
+  "wildGroups": [
+    "group_39",
+    "group_32",
+    "group_31"
+  ]
+}

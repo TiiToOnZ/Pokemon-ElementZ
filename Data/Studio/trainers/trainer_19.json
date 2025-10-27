@@ -5,7 +5,14 @@
   "vsType": 2,
   "isCouple": false,
   "baseMoney": 81,
-  "ai": 5,
+  "bagEntries": [
+    {
+      "dbSymbol": "potion",
+      "amount": 1
+    }
+  ],
+  "battleId": 0,
+  "ai": 6,
   "party": [
     {
       "specie": "butterfree",
@@ -132,24 +139,17 @@
       ]
     }
   ],
-  "bagEntries": [
-    {
-      "dbSymbol": "potion",
-      "amount": 1
-    }
-  ],
-  "battleId": 0,
   "resources": {
-    "artworkFull": "",
-    "artworkSmall": "",
-    "character": "",
+    "sprite": "",
+    "artworkFull": "048_big",
+    "artworkSmall": "048_sma",
+    "character": "npc_Bug-Catcher-HGSS",
     "musics": {
-      "bgm": "",
-      "defeat": "",
       "encounter": "",
-      "victory": ""
-    },
-    "sprite": ""
+      "victory": "",
+      "defeat": "",
+      "bgm": "xy_trainer_battle.ogg"
+    }
   },
   "additionalDialogs": []
 }

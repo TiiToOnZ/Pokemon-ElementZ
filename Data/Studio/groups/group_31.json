@@ -5,6 +5,7 @@
   "systemTag": "HeadButt",
   "terrainTag": 0,
   "tool": null,
+  "vsType": "simple",
   "customConditions": [
     {
       "type": "mapId",
@@ -27,9 +28,14 @@
       "relationWithPreviousCondition": "OR"
     },
     {
-      "type": "enabledSwitch",
-      "value": 13,
-      "relationWithPreviousCondition": "AND"
+      "type": "mapId",
+      "value": 35,
+      "relationWithPreviousCondition": "OR"
+    },
+    {
+      "type": "mapId",
+      "relationWithPreviousCondition": "OR",
+      "value": 36
     }
   ],
   "encounters": [
@@ -47,7 +53,7 @@
           "maximumLevel": 11
         }
       },
-      "randomEncounterChance": 3,
+      "randomEncounterChance": 30,
       "expandPokemonSetup": [
         {
           "type": "evs",
@@ -89,7 +95,7 @@
           "maximumLevel": 11
         }
       },
-      "randomEncounterChance": 1,
+      "randomEncounterChance": 30,
       "expandPokemonSetup": [
         {
           "type": "evs",
@@ -131,7 +137,7 @@
           "maximumLevel": 11
         }
       },
-      "randomEncounterChance": 1,
+      "randomEncounterChance": 10,
       "expandPokemonSetup": [
         {
           "type": "evs",
@@ -173,7 +179,7 @@
           "maximumLevel": 11
         }
       },
-      "randomEncounterChance": 1,
+      "randomEncounterChance": 10,
       "expandPokemonSetup": [
         {
           "type": "evs",
@@ -215,49 +221,7 @@
           "maximumLevel": 11
         }
       },
-      "randomEncounterChance": 1,
-      "expandPokemonSetup": [
-        {
-          "type": "evs",
-          "value": {
-            "hp": 0,
-            "atk": 0,
-            "dfe": 0,
-            "spd": 0,
-            "ats": 0,
-            "dfs": 0
-          }
-        },
-        {
-          "type": "loyalty",
-          "value": 70
-        },
-        {
-          "type": "moves",
-          "value": [
-            "__undef__",
-            "__undef__",
-            "__undef__",
-            "__undef__"
-          ]
-        }
-      ]
-    },
-    {
-      "specie": "pinsir",
-      "form": 0,
-      "shinySetup": {
-        "kind": "automatic",
-        "rate": -1
-      },
-      "levelSetup": {
-        "kind": "minmax",
-        "level": {
-          "minimumLevel": 9,
-          "maximumLevel": 11
-        }
-      },
-      "randomEncounterChance": 1,
+      "randomEncounterChance": 10,
       "expandPokemonSetup": [
         {
           "type": "evs",
@@ -299,49 +263,7 @@
           "maximumLevel": 11
         }
       },
-      "randomEncounterChance": 2,
-      "expandPokemonSetup": [
-        {
-          "type": "evs",
-          "value": {
-            "hp": 0,
-            "atk": 0,
-            "dfe": 0,
-            "spd": 0,
-            "ats": 0,
-            "dfs": 0
-          }
-        },
-        {
-          "type": "loyalty",
-          "value": 70
-        },
-        {
-          "type": "moves",
-          "value": [
-            "__undef__",
-            "__undef__",
-            "__undef__",
-            "__undef__"
-          ]
-        }
-      ]
-    },
-    {
-      "specie": "cherubi",
-      "form": 0,
-      "shinySetup": {
-        "kind": "automatic",
-        "rate": -1
-      },
-      "levelSetup": {
-        "kind": "minmax",
-        "level": {
-          "minimumLevel": 9,
-          "maximumLevel": 11
-        }
-      },
-      "randomEncounterChance": 1,
+      "randomEncounterChance": 10,
       "expandPokemonSetup": [
         {
           "type": "evs",
@@ -370,6 +292,5 @@
       ]
     }
   ],
-  "stepsAverage": 0,
-  "vsType": "simple"
+  "stepsAverage": 0
 }

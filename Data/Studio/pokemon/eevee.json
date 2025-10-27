@@ -127,6 +127,18 @@
               "value": "dawn_stone"
             }
           ]
+        },
+        {
+          "dbSymbol": "infectali",
+          "form": 0,
+          "conditions": [
+            {
+              "type": "maps",
+              "value": [
+                35
+              ]
+            }
+          ]
         }
       ],
       "experienceType": 1,

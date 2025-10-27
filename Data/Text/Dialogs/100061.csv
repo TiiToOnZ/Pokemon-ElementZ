@@ -30,15 +30,15 @@ Lac enchanté (Matin),Lac des Esprits (Matin),Lac enchanté (Matin),Lac enchant�
 Lac des Esprits (Jour),Lac des Esprits (Jour),Lac des Esprits (Jour),Lac des Esprits (Jour),Lac des Esprits (Jour),Lac des Esprits (Jour),Lac des Esprits (Jour),Lac des Esprits (Jour)
 Lac des Esprits (Soir),Lac des Esprits (Soir),Lac des Esprits (Soir),Lac des Esprits (Soir),Lac des Esprits (Soir),Lac des Esprits (Soir),Lac des Esprits (Soir),Lac des Esprits (Soir)
 Lac des Esprits (Nuit),Lac des Esprits (Nuit),Lac des Esprits (Nuit),Lac des Esprits (Nuit),Lac des Esprits (Nuit),Lac des Esprits (Nuit),Lac des Esprits (Nuit),Lac des Esprits (Nuit)
-Coup s'Boule,Coup d'Boule (Matin),Coup s'Boule,Coup s'Boule,Coup s'Boule,Coup s'Boule,Coup s'Boule,Coup s'Boule
-Coup d'Boule (Jour),Coup d'Boule (Jour),Coup d'Boule (Jour),Coup d'Boule (Jour),Coup d'Boule (Jour),Coup d'Boule (Jour),Coup d'Boule (Jour),Coup d'Boule (Jour)
-Coup d'Boule (Soir),Coup d'Boule (Soir),Coup d'Boule (Soir),Coup d'Boule (Soir),Coup d'Boule (Soir),Coup d'Boule (Soir),Coup d'Boule (Soir),Coup d'Boule (Soir)
+Coup s'Boule,Coup d'Boule,Coup s'Boule,Coup s'Boule,Coup s'Boule,Coup s'Boule,Coup s'Boule,Coup s'Boule
+Coup d'Boule (Jour),Forêt Hantée (Duo),Coup d'Boule (Jour),Coup d'Boule (Jour),Coup d'Boule (Jour),Coup d'Boule (Jour),Coup d'Boule (Jour),Coup d'Boule (Jour)
+Coup d'Boule (Soir),Forêt Enchantée (Duo),Coup d'Boule (Soir),Coup d'Boule (Soir),Coup d'Boule (Soir),Coup d'Boule (Soir),Coup d'Boule (Soir),Coup d'Boule (Soir)
 Coup d'Boule,Coup d'Boule (Nuit),Coup d'Boule,Coup d'Boule,Coup d'Boule,Coup d'Boule,Coup d'Boule,Coup d'Boule
 Grotte Cristalline,Grotte Cristalline (RDC1),Grotte Cristalline,Grotte Cristalline,Grotte Cristalline,Grotte Cristalline,Grotte Cristalline,Grotte Cristalline
-Forêt Enchantée,Forêt Enchantée (Claire - Matin),Forêt Enchantée,Forêt Enchantée,Forêt Enchantée,Forêt Enchantée,Forêt Enchantée,Forêt Enchantée
+Forêt Enchantée,Forêt Enchantée (Solo),Forêt Enchantée,Forêt Enchantée,Forêt Enchantée,Forêt Enchantée,Forêt Enchantée,Forêt Enchantée
 Route 2,Route 2 (Matin),Route 2,Route 2,Route 2,Route 2,Route 2,Route 2
 Canne,Canne (Lac),Canne,Canne,Canne,Canne,Canne,Canne
-Forêt Enchantée (Sombre),Forêt Enchantée (Sombre - Matin),Forêt Enchantée (Sombre),Forêt Enchantée (Sombre),Forêt Enchantée (Sombre),Forêt Enchantée (Sombre),Forêt Enchantée (Sombre),Forêt Enchantée (Sombre)
+Forêt Enchantée (Sombre),Forêt Hantée (Solo) ,Forêt Enchantée (Sombre),Forêt Enchantée (Sombre),Forêt Enchantée (Sombre),Forêt Enchantée (Sombre),Forêt Enchantée (Sombre),Forêt Enchantée (Sombre)
 Super Canne,Super Canne (Lac),Super Canne,Super Canne,Super Canne,Super Canne,Super Canne,Super Canne
 Mega Canne,Mega Canne,Mega Canne,Mega Canne,Mega Canne,Mega Canne,Mega Canne,Mega Canne
 Route 3,Route 3,Route 3,Route 3,Route 3,Route 3,Route 3,Route 3
@@ -49,8 +49,11 @@ Forêt Enchatée (Claire - Jour),Forêt Enchatée (Claire - Jour),Forêt Enchat�
 Mine,Mine Cristalline,Mine,Mine,Mine,Mine,Mine,Mine
 Eclate-Roc,Eclate-Roc,Eclate-Roc,Eclate-Roc,Eclate-Roc,Eclate-Roc,Eclate-Roc,Eclate-Roc
 yy,Forêt Enchantée (Claire - Soir),yy,yy,yy,yy,yy,yy
-Forêt Enchantée (Claire - Nuit),Forêt Enchantée (Claire - Nuit),Forêt Enchantée (Claire - Nuit),Forêt Enchantée (Claire - Nuit),Forêt Enchantée (Claire - Nuit),Forêt Enchantée (Claire - Nuit),Forêt Enchantée (Claire - Nuit),Forêt Enchantée (Claire - Nuit)
+Forêt Enchantée (Claire - Nuit),Forêt Enchantée (Claire - Nuit - Solo),Forêt Enchantée (Claire - Nuit),Forêt Enchantée (Claire - Nuit),Forêt Enchantée (Claire - Nuit),Forêt Enchantée (Claire - Nuit),Forêt Enchantée (Claire - Nuit),Forêt Enchantée (Claire - Nuit)
 Forêt Enchantée (Sombre - Jour),Forêt Enchantée (Sombre - Jour),Forêt Enchantée (Sombre - Jour),Forêt Enchantée (Sombre - Jour),Forêt Enchantée (Sombre - Jour),Forêt Enchantée (Sombre - Jour),Forêt Enchantée (Sombre - Jour),Forêt Enchantée (Sombre - Jour)
 Forêt Enchantée (Sombre - Soir),Forêt Enchantée (Sombre - Soir),Forêt Enchantée (Sombre - Soir),Forêt Enchantée (Sombre - Soir),Forêt Enchantée (Sombre - Soir),Forêt Enchantée (Sombre - Soir),Forêt Enchantée (Sombre - Soir),Forêt Enchantée (Sombre - Soir)
 Forêt Enchantée (Sombre - Nuit),Forêt Enchantée (Sombre - Nuit),Forêt Enchantée (Sombre - Nuit),Forêt Enchantée (Sombre - Nuit),Forêt Enchantée (Sombre - Nuit),Forêt Enchantée (Sombre - Nuit),Forêt Enchantée (Sombre - Nuit),Forêt Enchantée (Sombre - Nuit)
 Ruine,Ruine,Ruine,Ruine,Ruine,Ruine,Ruine,Ruine
+Grotte Cristalline (RDC1) (Nuit),Grotte Cristalline (RDC1) (Nuit),Grotte Cristalline (RDC1) (Nuit),Grotte Cristalline (RDC1) (Nuit),Grotte Cristalline (RDC1) (Nuit),Grotte Cristalline (RDC1) (Nuit),Grotte Cristalline (RDC1) (Nuit),Grotte Cristalline (RDC1) (Nuit)
+Grotte Cristalline (RDC1) (Jour),Grotte Cristalline (RDC1) (Jour),Grotte Cristalline (RDC1) (Jour),Grotte Cristalline (RDC1) (Jour),Grotte Cristalline (RDC1) (Jour),Grotte Cristalline (RDC1) (Jour),Grotte Cristalline (RDC1) (Jour),Grotte Cristalline (RDC1) (Jour)
+Grotte Cristalline (RDC1) (Soir),Grotte Cristalline (RDC1) (Soir),Grotte Cristalline (RDC1) (Soir),Grotte Cristalline (RDC1) (Soir),Grotte Cristalline (RDC1) (Soir),Grotte Cristalline (RDC1) (Soir),Grotte Cristalline (RDC1) (Soir),Grotte Cristalline (RDC1) (Soir)

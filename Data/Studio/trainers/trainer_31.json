@@ -2,13 +2,13 @@
   "klass": "TrainerBattleSetup",
   "id": 31,
   "dbSymbol": "trainer_31",
-  "vsType": 3,
+  "vsType": 2,
   "isCouple": false,
   "baseMoney": 10,
-  "ai": 1,
+  "ai": 7,
   "party": [
     {
-      "specie": "weedle",
+      "specie": "torkoal",
       "form": 0,
       "shinySetup": {
         "kind": "automatic",
@@ -16,7 +16,7 @@
       },
       "levelSetup": {
         "kind": "fixed",
-        "level": 8
+        "level": 23
       },
       "randomEncounterChance": 1,
       "expandPokemonSetup": [
@@ -34,13 +34,17 @@
         {
           "type": "ivs",
           "value": {
-            "hp": 15,
-            "atk": 15,
-            "dfe": 15,
-            "spd": 15,
-            "ats": 15,
-            "dfs": 15
+            "hp": 31,
+            "atk": 31,
+            "dfe": 31,
+            "spd": 31,
+            "ats": 31,
+            "dfs": 31
           }
+        },
+        {
+          "type": "itemHeld",
+          "value": "heat_rock"
         },
         {
           "type": "loyalty",
@@ -49,73 +53,15 @@
         {
           "type": "moves",
           "value": [
-            "poison_sting",
-            "__remove__",
-            "__remove__",
-            "__remove__"
+            "flame_wheel",
+            "fire_spin",
+            "smog",
+            "smokescreen"
           ]
         },
         {
           "type": "originalTrainerName",
-          "value": "Arthur"
-        },
-        {
-          "type": "originalTrainerId",
-          "value": 0
-        }
-      ]
-    },
-    {
-      "specie": "venipede",
-      "form": 0,
-      "shinySetup": {
-        "kind": "automatic",
-        "rate": -1
-      },
-      "levelSetup": {
-        "kind": "fixed",
-        "level": 8
-      },
-      "randomEncounterChance": 1,
-      "expandPokemonSetup": [
-        {
-          "type": "evs",
-          "value": {
-            "hp": 0,
-            "atk": 0,
-            "dfe": 0,
-            "spd": 0,
-            "ats": 0,
-            "dfs": 0
-          }
-        },
-        {
-          "type": "ivs",
-          "value": {
-            "hp": 15,
-            "atk": 15,
-            "dfe": 15,
-            "spd": 15,
-            "ats": 15,
-            "dfs": 15
-          }
-        },
-        {
-          "type": "loyalty",
-          "value": 70
-        },
-        {
-          "type": "moves",
-          "value": [
-            "poison_sting",
-            "rollout",
-            "__remove__",
-            "__remove__"
-          ]
-        },
-        {
-          "type": "originalTrainerName",
-          "value": "Arthur"
+          "value": "Pierre"
         },
         {
           "type": "originalTrainerId",
@@ -123,20 +69,24 @@
         },
         {
           "type": "ability",
-          "value": "poison_point"
+          "value": "drought"
+        },
+        {
+          "type": "nature",
+          "value": "relaxed"
         }
       ]
     },
     {
-      "specie": "weedle",
-      "form": 0,
+      "specie": "geodude",
+      "form": 1,
       "shinySetup": {
         "kind": "automatic",
         "rate": -1
       },
       "levelSetup": {
         "kind": "fixed",
-        "level": 8
+        "level": 22
       },
       "randomEncounterChance": 1,
       "expandPokemonSetup": [
@@ -154,12 +104,12 @@
         {
           "type": "ivs",
           "value": {
-            "hp": 15,
-            "atk": 15,
-            "dfe": 15,
-            "spd": 15,
-            "ats": 15,
-            "dfs": 15
+            "hp": 31,
+            "atk": 31,
+            "dfe": 31,
+            "spd": 31,
+            "ats": 31,
+            "dfs": 31
           }
         },
         {
@@ -169,29 +119,178 @@
         {
           "type": "moves",
           "value": [
-            "poison_sting",
-            "__remove__",
-            "__remove__",
-            "__remove__"
+            "take_down",
+            "smack_down",
+            "thunder_punch",
+            "rock_throw"
           ]
         },
         {
           "type": "originalTrainerName",
-          "value": "Arthur"
+          "value": "Pierre"
         },
         {
           "type": "originalTrainerId",
           "value": 0
+        },
+        {
+          "type": "ability",
+          "value": "galvanize"
+        },
+        {
+          "type": "itemHeld",
+          "value": "focus_band"
+        }
+      ]
+    },
+    {
+      "specie": "onix",
+      "form": 0,
+      "shinySetup": {
+        "kind": "automatic",
+        "rate": -1
+      },
+      "levelSetup": {
+        "kind": "fixed",
+        "level": 22
+      },
+      "randomEncounterChance": 1,
+      "expandPokemonSetup": [
+        {
+          "type": "evs",
+          "value": {
+            "hp": 0,
+            "atk": 0,
+            "dfe": 0,
+            "spd": 0,
+            "ats": 0,
+            "dfs": 0
+          }
+        },
+        {
+          "type": "ivs",
+          "value": {
+            "hp": 31,
+            "atk": 31,
+            "dfe": 31,
+            "spd": 31,
+            "ats": 31,
+            "dfs": 31
+          }
+        },
+        {
+          "type": "itemHeld",
+          "value": "rocky_helmet"
+        },
+        {
+          "type": "loyalty",
+          "value": 70
+        },
+        {
+          "type": "moves",
+          "value": [
+            "headbutt",
+            "stealth_rock",
+            "rock_tomb",
+            "dig"
+          ]
+        },
+        {
+          "type": "originalTrainerName",
+          "value": "Pierre"
+        },
+        {
+          "type": "originalTrainerId",
+          "value": 0
+        },
+        {
+          "type": "ability",
+          "value": "sturdy"
+        }
+      ]
+    },
+    {
+      "specie": "golbat",
+      "form": 0,
+      "shinySetup": {
+        "kind": "automatic",
+        "rate": -1
+      },
+      "levelSetup": {
+        "kind": "fixed",
+        "level": 23
+      },
+      "randomEncounterChance": 1,
+      "expandPokemonSetup": [
+        {
+          "type": "evs",
+          "value": {
+            "hp": 0,
+            "atk": 0,
+            "dfe": 0,
+            "spd": 0,
+            "ats": 0,
+            "dfs": 0
+          }
+        },
+        {
+          "type": "ivs",
+          "value": {
+            "hp": 31,
+            "atk": 31,
+            "dfe": 31,
+            "spd": 31,
+            "ats": 31,
+            "dfs": 31
+          }
+        },
+        {
+          "type": "loyalty",
+          "value": 70
+        },
+        {
+          "type": "moves",
+          "value": [
+            "bite",
+            "wing_attack",
+            "confuse_ray",
+            "swift"
+          ]
+        },
+        {
+          "type": "originalTrainerName",
+          "value": "Pierre"
+        },
+        {
+          "type": "originalTrainerId",
+          "value": 0
+        },
+        {
+          "type": "ability",
+          "value": "inner_focus"
+        },
+        {
+          "type": "itemHeld",
+          "value": "black_sludge"
+        },
+        {
+          "type": "nature",
+          "value": "jolly"
         }
       ]
     }
   ],
-  "bagEntries": [],
+  "bagEntries": [
+    {
+      "dbSymbol": "super_potion",
+      "amount": 1
+    }
+  ],
   "battleId": 0,
   "resources": {
-    "artworkFull": "027_big",
-    "artworkSmall": "027_sma",
-    "character": "",
+    "artworkFull": "Pierre_big",
+    "artworkSmall": "Pierre",
+    "character": "npc_Brock",
     "musics": {
       "bgm": "",
       "defeat": "",

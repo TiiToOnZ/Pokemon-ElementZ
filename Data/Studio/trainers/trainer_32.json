@@ -2,13 +2,20 @@
   "klass": "TrainerBattleSetup",
   "id": 32,
   "dbSymbol": "trainer_32",
-  "vsType": 2,
+  "vsType": 3,
   "isCouple": false,
   "baseMoney": 10,
-  "ai": 1,
+  "bagEntries": [
+    {
+      "dbSymbol": "potion",
+      "amount": 2
+    }
+  ],
+  "battleId": 0,
+  "ai": 7,
   "party": [
     {
-      "specie": "dustox",
+      "specie": "torkoal",
       "form": 0,
       "shinySetup": {
         "kind": "automatic",
@@ -16,7 +23,7 @@
       },
       "levelSetup": {
         "kind": "fixed",
-        "level": 10
+        "level": 18
       },
       "randomEncounterChance": 1,
       "expandPokemonSetup": [
@@ -34,13 +41,17 @@
         {
           "type": "ivs",
           "value": {
-            "hp": 15,
-            "atk": 15,
-            "dfe": 15,
-            "spd": 15,
-            "ats": 15,
-            "dfs": 15
+            "hp": 31,
+            "atk": 31,
+            "dfe": 31,
+            "spd": 31,
+            "ats": 31,
+            "dfs": 31
           }
+        },
+        {
+          "type": "itemHeld",
+          "value": "heat_rock"
         },
         {
           "type": "loyalty",
@@ -49,73 +60,15 @@
         {
           "type": "moves",
           "value": [
-            "gust",
-            "confusion",
-            "__remove__",
-            "__remove__"
+            "flame_wheel",
+            "fire_spin",
+            "smog",
+            "smokescreen"
           ]
         },
         {
           "type": "originalTrainerName",
-          "value": "Sammy"
-        },
-        {
-          "type": "originalTrainerId",
-          "value": 0
-        }
-      ]
-    },
-    {
-      "specie": "beautifly",
-      "form": 0,
-      "shinySetup": {
-        "kind": "automatic",
-        "rate": -1
-      },
-      "levelSetup": {
-        "kind": "fixed",
-        "level": 10
-      },
-      "randomEncounterChance": 1,
-      "expandPokemonSetup": [
-        {
-          "type": "evs",
-          "value": {
-            "hp": 0,
-            "atk": 0,
-            "dfe": 0,
-            "spd": 0,
-            "ats": 0,
-            "dfs": 0
-          }
-        },
-        {
-          "type": "ivs",
-          "value": {
-            "hp": 15,
-            "atk": 15,
-            "dfe": 15,
-            "spd": 15,
-            "ats": 15,
-            "dfs": 15
-          }
-        },
-        {
-          "type": "loyalty",
-          "value": 70
-        },
-        {
-          "type": "moves",
-          "value": [
-            "gust",
-            "absorb",
-            "__remove__",
-            "__remove__"
-          ]
-        },
-        {
-          "type": "originalTrainerName",
-          "value": "Sammy"
+          "value": "Pierre"
         },
         {
           "type": "originalTrainerId",
@@ -123,24 +76,228 @@
         },
         {
           "type": "ability",
-          "value": "rivalry"
+          "value": "drought"
+        },
+        {
+          "type": "nature",
+          "value": "relaxed"
+        }
+      ]
+    },
+    {
+      "specie": "geodude",
+      "form": 1,
+      "shinySetup": {
+        "kind": "automatic",
+        "rate": -1
+      },
+      "levelSetup": {
+        "kind": "fixed",
+        "level": 18
+      },
+      "randomEncounterChance": 1,
+      "expandPokemonSetup": [
+        {
+          "type": "evs",
+          "value": {
+            "hp": 0,
+            "atk": 0,
+            "dfe": 0,
+            "spd": 0,
+            "ats": 0,
+            "dfs": 0
+          }
+        },
+        {
+          "type": "ivs",
+          "value": {
+            "hp": 31,
+            "atk": 31,
+            "dfe": 31,
+            "spd": 31,
+            "ats": 31,
+            "dfs": 31
+          }
+        },
+        {
+          "type": "loyalty",
+          "value": 70
+        },
+        {
+          "type": "moves",
+          "value": [
+            "take_down",
+            "smack_down",
+            "spark",
+            "rock_throw"
+          ]
+        },
+        {
+          "type": "originalTrainerName",
+          "value": "Pierre"
+        },
+        {
+          "type": "originalTrainerId",
+          "value": 0
+        },
+        {
+          "type": "ability",
+          "value": "galvanize"
+        },
+        {
+          "type": "itemHeld",
+          "value": "focus_band"
+        }
+      ]
+    },
+    {
+      "specie": "onix",
+      "form": 0,
+      "shinySetup": {
+        "kind": "automatic",
+        "rate": -1
+      },
+      "levelSetup": {
+        "kind": "fixed",
+        "level": 16
+      },
+      "randomEncounterChance": 1,
+      "expandPokemonSetup": [
+        {
+          "type": "evs",
+          "value": {
+            "hp": 0,
+            "atk": 0,
+            "dfe": 0,
+            "spd": 0,
+            "ats": 0,
+            "dfs": 0
+          }
+        },
+        {
+          "type": "ivs",
+          "value": {
+            "hp": 31,
+            "atk": 31,
+            "dfe": 31,
+            "spd": 31,
+            "ats": 31,
+            "dfs": 31
+          }
+        },
+        {
+          "type": "itemHeld",
+          "value": "rocky_helmet"
+        },
+        {
+          "type": "loyalty",
+          "value": 70
+        },
+        {
+          "type": "moves",
+          "value": [
+            "headbutt",
+            "stealth_rock",
+            "rock_tomb",
+            "dig"
+          ]
+        },
+        {
+          "type": "originalTrainerName",
+          "value": "Pierre"
+        },
+        {
+          "type": "originalTrainerId",
+          "value": 0
+        },
+        {
+          "type": "ability",
+          "value": "sturdy"
+        }
+      ]
+    },
+    {
+      "specie": "zubat",
+      "form": 0,
+      "shinySetup": {
+        "kind": "automatic",
+        "rate": -1
+      },
+      "levelSetup": {
+        "kind": "fixed",
+        "level": 17
+      },
+      "randomEncounterChance": 1,
+      "expandPokemonSetup": [
+        {
+          "type": "evs",
+          "value": {
+            "hp": 0,
+            "atk": 0,
+            "dfe": 0,
+            "spd": 0,
+            "ats": 0,
+            "dfs": 0
+          }
+        },
+        {
+          "type": "ivs",
+          "value": {
+            "hp": 31,
+            "atk": 31,
+            "dfe": 31,
+            "spd": 31,
+            "ats": 31,
+            "dfs": 31
+          }
+        },
+        {
+          "type": "loyalty",
+          "value": 70
+        },
+        {
+          "type": "moves",
+          "value": [
+            "bite",
+            "wing_attack",
+            "confuse_ray",
+            "__remove__"
+          ]
+        },
+        {
+          "type": "originalTrainerName",
+          "value": "Pierre"
+        },
+        {
+          "type": "originalTrainerId",
+          "value": 0
+        },
+        {
+          "type": "ability",
+          "value": "inner_focus"
+        },
+        {
+          "type": "itemHeld",
+          "value": "black_sludge"
+        },
+        {
+          "type": "nature",
+          "value": "jolly"
         }
       ]
     }
   ],
-  "bagEntries": [],
-  "battleId": 0,
   "resources": {
-    "artworkFull": "027_big",
-    "artworkSmall": "027_sma",
-    "character": "",
+    "sprite": "",
+    "artworkFull": "Pierre_big",
+    "artworkSmall": "Pierre",
+    "character": "npc_Brock",
     "musics": {
-      "bgm": "",
-      "defeat": "",
       "encounter": "",
-      "victory": ""
-    },
-    "sprite": ""
+      "victory": "",
+      "defeat": "",
+      "bgm": ""
+    }
   },
   "additionalDialogs": []
 }

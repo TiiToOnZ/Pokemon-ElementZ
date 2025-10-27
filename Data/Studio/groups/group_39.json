@@ -5,266 +5,15 @@
   "systemTag": "Grass",
   "terrainTag": 0,
   "tool": null,
+  "vsType": "simple",
   "customConditions": [
     {
-      "type": "enabledSwitch",
-      "value": 13,
-      "relationWithPreviousCondition": "AND"
+      "type": "mapId",
+      "relationWithPreviousCondition": "AND",
+      "value": 36
     }
   ],
   "encounters": [
-    {
-      "specie": "ralts",
-      "form": 0,
-      "shinySetup": {
-        "kind": "automatic",
-        "rate": -1
-      },
-      "levelSetup": {
-        "kind": "minmax",
-        "level": {
-          "minimumLevel": 6,
-          "maximumLevel": 8
-        }
-      },
-      "randomEncounterChance": 5,
-      "expandPokemonSetup": [
-        {
-          "type": "evs",
-          "value": {
-            "hp": 0,
-            "atk": 0,
-            "dfe": 0,
-            "spd": 0,
-            "ats": 0,
-            "dfs": 0
-          }
-        },
-        {
-          "type": "loyalty",
-          "value": 70
-        },
-        {
-          "type": "moves",
-          "value": [
-            "__undef__",
-            "__undef__",
-            "__undef__",
-            "__undef__"
-          ]
-        }
-      ]
-    },
-    {
-      "specie": "murkrow",
-      "form": 0,
-      "shinySetup": {
-        "kind": "automatic",
-        "rate": -1
-      },
-      "levelSetup": {
-        "kind": "minmax",
-        "level": {
-          "minimumLevel": 6,
-          "maximumLevel": 8
-        }
-      },
-      "randomEncounterChance": 5,
-      "expandPokemonSetup": [
-        {
-          "type": "evs",
-          "value": {
-            "hp": 0,
-            "atk": 0,
-            "dfe": 0,
-            "spd": 0,
-            "ats": 0,
-            "dfs": 0
-          }
-        },
-        {
-          "type": "loyalty",
-          "value": 70
-        },
-        {
-          "type": "moves",
-          "value": [
-            "__undef__",
-            "__undef__",
-            "__undef__",
-            "__undef__"
-          ]
-        }
-      ]
-    },
-    {
-      "specie": "misdreavus",
-      "form": 0,
-      "shinySetup": {
-        "kind": "automatic",
-        "rate": -1
-      },
-      "levelSetup": {
-        "kind": "minmax",
-        "level": {
-          "minimumLevel": 6,
-          "maximumLevel": 8
-        }
-      },
-      "randomEncounterChance": 5,
-      "expandPokemonSetup": [
-        {
-          "type": "evs",
-          "value": {
-            "hp": 0,
-            "atk": 0,
-            "dfe": 0,
-            "spd": 0,
-            "ats": 0,
-            "dfs": 0
-          }
-        },
-        {
-          "type": "loyalty",
-          "value": 70
-        },
-        {
-          "type": "moves",
-          "value": [
-            "__undef__",
-            "__undef__",
-            "__undef__",
-            "__undef__"
-          ]
-        }
-      ]
-    },
-    {
-      "specie": "drifloon",
-      "form": 0,
-      "shinySetup": {
-        "kind": "automatic",
-        "rate": -1
-      },
-      "levelSetup": {
-        "kind": "minmax",
-        "level": {
-          "minimumLevel": 6,
-          "maximumLevel": 8
-        }
-      },
-      "randomEncounterChance": 15,
-      "expandPokemonSetup": [
-        {
-          "type": "evs",
-          "value": {
-            "hp": 0,
-            "atk": 0,
-            "dfe": 0,
-            "spd": 0,
-            "ats": 0,
-            "dfs": 0
-          }
-        },
-        {
-          "type": "loyalty",
-          "value": 70
-        },
-        {
-          "type": "moves",
-          "value": [
-            "__undef__",
-            "__undef__",
-            "__undef__",
-            "__undef__"
-          ]
-        }
-      ]
-    },
-    {
-      "specie": "paras",
-      "form": 0,
-      "shinySetup": {
-        "kind": "automatic",
-        "rate": -1
-      },
-      "levelSetup": {
-        "kind": "minmax",
-        "level": {
-          "minimumLevel": 6,
-          "maximumLevel": 8
-        }
-      },
-      "randomEncounterChance": 5,
-      "expandPokemonSetup": [
-        {
-          "type": "evs",
-          "value": {
-            "hp": 0,
-            "atk": 0,
-            "dfe": 0,
-            "spd": 0,
-            "ats": 0,
-            "dfs": 0
-          }
-        },
-        {
-          "type": "loyalty",
-          "value": 70
-        },
-        {
-          "type": "moves",
-          "value": [
-            "__undef__",
-            "__undef__",
-            "__undef__",
-            "__undef__"
-          ]
-        }
-      ]
-    },
-    {
-      "specie": "venipede",
-      "form": 0,
-      "shinySetup": {
-        "kind": "automatic",
-        "rate": -1
-      },
-      "levelSetup": {
-        "kind": "minmax",
-        "level": {
-          "minimumLevel": 6,
-          "maximumLevel": 8
-        }
-      },
-      "randomEncounterChance": 5,
-      "expandPokemonSetup": [
-        {
-          "type": "evs",
-          "value": {
-            "hp": 0,
-            "atk": 0,
-            "dfe": 0,
-            "spd": 0,
-            "ats": 0,
-            "dfs": 0
-          }
-        },
-        {
-          "type": "loyalty",
-          "value": 70
-        },
-        {
-          "type": "moves",
-          "value": [
-            "__undef__",
-            "__undef__",
-            "__undef__",
-            "__undef__"
-          ]
-        }
-      ]
-    },
     {
       "specie": "wurmple",
       "form": 0,
@@ -279,7 +28,7 @@
           "maximumLevel": 6
         }
       },
-      "randomEncounterChance": 5,
+      "randomEncounterChance": 16,
       "expandPokemonSetup": [
         {
           "type": "evs",
@@ -321,7 +70,7 @@
           "maximumLevel": 8
         }
       },
-      "randomEncounterChance": 15,
+      "randomEncounterChance": 16,
       "expandPokemonSetup": [
         {
           "type": "evs",
@@ -363,133 +112,7 @@
           "maximumLevel": 6
         }
       },
-      "randomEncounterChance": 15,
-      "expandPokemonSetup": [
-        {
-          "type": "evs",
-          "value": {
-            "hp": 0,
-            "atk": 0,
-            "dfe": 0,
-            "spd": 0,
-            "ats": 0,
-            "dfs": 0
-          }
-        },
-        {
-          "type": "loyalty",
-          "value": 70
-        },
-        {
-          "type": "moves",
-          "value": [
-            "__undef__",
-            "__undef__",
-            "__undef__",
-            "__undef__"
-          ]
-        }
-      ]
-    },
-    {
-      "specie": "scatterbug",
-      "form": 0,
-      "shinySetup": {
-        "kind": "automatic",
-        "rate": -1
-      },
-      "levelSetup": {
-        "kind": "minmax",
-        "level": {
-          "minimumLevel": 6,
-          "maximumLevel": 8
-        }
-      },
-      "randomEncounterChance": 5,
-      "expandPokemonSetup": [
-        {
-          "type": "evs",
-          "value": {
-            "hp": 0,
-            "atk": 0,
-            "dfe": 0,
-            "spd": 0,
-            "ats": 0,
-            "dfs": 0
-          }
-        },
-        {
-          "type": "loyalty",
-          "value": 70
-        },
-        {
-          "type": "moves",
-          "value": [
-            "__undef__",
-            "__undef__",
-            "__undef__",
-            "__undef__"
-          ]
-        }
-      ]
-    },
-    {
-      "specie": "vullaby",
-      "form": 0,
-      "shinySetup": {
-        "kind": "automatic",
-        "rate": -1
-      },
-      "levelSetup": {
-        "kind": "minmax",
-        "level": {
-          "minimumLevel": 6,
-          "maximumLevel": 8
-        }
-      },
-      "randomEncounterChance": 5,
-      "expandPokemonSetup": [
-        {
-          "type": "evs",
-          "value": {
-            "hp": 0,
-            "atk": 0,
-            "dfe": 0,
-            "spd": 0,
-            "ats": 0,
-            "dfs": 0
-          }
-        },
-        {
-          "type": "loyalty",
-          "value": 70
-        },
-        {
-          "type": "moves",
-          "value": [
-            "__undef__",
-            "__undef__",
-            "__undef__",
-            "__undef__"
-          ]
-        }
-      ]
-    },
-    {
-      "specie": "drowzee",
-      "form": 0,
-      "shinySetup": {
-        "kind": "automatic",
-        "rate": -1
-      },
-      "levelSetup": {
-        "kind": "minmax",
-        "level": {
-          "minimumLevel": 6,
-          "maximumLevel": 8
-        }
-      },
-      "randomEncounterChance": 5,
+      "randomEncounterChance": 16,
       "expandPokemonSetup": [
         {
           "type": "evs",
@@ -531,7 +154,7 @@
           "maximumLevel": 8
         }
       },
-      "randomEncounterChance": 3,
+      "randomEncounterChance": 4,
       "expandPokemonSetup": [
         {
           "type": "evs",
@@ -573,7 +196,7 @@
           "maximumLevel": 9
         }
       },
-      "randomEncounterChance": 2,
+      "randomEncounterChance": 4,
       "expandPokemonSetup": [
         {
           "type": "evs",
@@ -615,7 +238,7 @@
           "maximumLevel": 12
         }
       },
-      "randomEncounterChance": 1,
+      "randomEncounterChance": 2,
       "expandPokemonSetup": [
         {
           "type": "evs",
@@ -661,7 +284,7 @@
           "maximumLevel": 10
         }
       },
-      "randomEncounterChance": 1,
+      "randomEncounterChance": 2,
       "expandPokemonSetup": [
         {
           "type": "evs",
@@ -703,7 +326,7 @@
           "maximumLevel": 8
         }
       },
-      "randomEncounterChance": 3,
+      "randomEncounterChance": 4,
       "expandPokemonSetup": [
         {
           "type": "evs",
@@ -745,7 +368,7 @@
           "maximumLevel": 10
         }
       },
-      "randomEncounterChance": 1,
+      "randomEncounterChance": 2,
       "expandPokemonSetup": [
         {
           "type": "evs",
@@ -787,7 +410,91 @@
           "maximumLevel": 10
         }
       },
-      "randomEncounterChance": 1,
+      "randomEncounterChance": 2,
+      "expandPokemonSetup": [
+        {
+          "type": "evs",
+          "value": {
+            "hp": 0,
+            "atk": 0,
+            "dfe": 0,
+            "spd": 0,
+            "ats": 0,
+            "dfs": 0
+          }
+        },
+        {
+          "type": "loyalty",
+          "value": 70
+        },
+        {
+          "type": "moves",
+          "value": [
+            "__undef__",
+            "__undef__",
+            "__undef__",
+            "__undef__"
+          ]
+        }
+      ]
+    },
+    {
+      "specie": "misdreavus",
+      "form": 0,
+      "shinySetup": {
+        "kind": "automatic",
+        "rate": -1
+      },
+      "levelSetup": {
+        "kind": "minmax",
+        "level": {
+          "minimumLevel": 6,
+          "maximumLevel": 8
+        }
+      },
+      "randomEncounterChance": 16,
+      "expandPokemonSetup": [
+        {
+          "type": "evs",
+          "value": {
+            "hp": 0,
+            "atk": 0,
+            "dfe": 0,
+            "spd": 0,
+            "ats": 0,
+            "dfs": 0
+          }
+        },
+        {
+          "type": "loyalty",
+          "value": 70
+        },
+        {
+          "type": "moves",
+          "value": [
+            "__undef__",
+            "__undef__",
+            "__undef__",
+            "__undef__"
+          ]
+        }
+      ]
+    },
+    {
+      "specie": "ralts",
+      "form": 0,
+      "shinySetup": {
+        "kind": "automatic",
+        "rate": -1
+      },
+      "levelSetup": {
+        "kind": "minmax",
+        "level": {
+          "minimumLevel": 6,
+          "maximumLevel": 8
+        }
+      },
+      "randomEncounterChance": 16,
       "expandPokemonSetup": [
         {
           "type": "evs",
@@ -816,6 +523,5 @@
       ]
     }
   ],
-  "stepsAverage": 0,
-  "vsType": "simple"
+  "stepsAverage": 18
 }

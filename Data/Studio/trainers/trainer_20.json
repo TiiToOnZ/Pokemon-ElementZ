@@ -5,7 +5,9 @@
   "vsType": 1,
   "isCouple": false,
   "baseMoney": 37,
-  "ai": 2,
+  "bagEntries": [],
+  "battleId": 0,
+  "ai": 3,
   "party": [
     {
       "specie": "pikachu",
@@ -70,19 +72,17 @@
       ]
     }
   ],
-  "bagEntries": [],
-  "battleId": 0,
   "resources": {
-    "artworkFull": "",
-    "artworkSmall": "",
-    "character": "",
+    "sprite": "",
+    "artworkFull": "028_big",
+    "artworkSmall": "028_sma",
+    "character": "npc_Schoolkid-M",
     "musics": {
-      "bgm": "",
-      "defeat": "",
       "encounter": "",
-      "victory": ""
-    },
-    "sprite": ""
+      "victory": "",
+      "defeat": "",
+      "bgm": "xy_trainer_battle.ogg"
+    }
   },
   "additionalDialogs": []
 }

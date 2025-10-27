@@ -5,6 +5,8 @@
   "vsType": 1,
   "isCouple": false,
   "baseMoney": 37,
+  "bagEntries": [],
+  "battleId": 0,
   "ai": 3,
   "party": [
     {
@@ -70,19 +72,17 @@
       ]
     }
   ],
-  "bagEntries": [],
-  "battleId": 0,
   "resources": {
-    "artworkFull": "",
-    "artworkSmall": "",
-    "character": "",
+    "sprite": "",
+    "artworkFull": "031_big",
+    "artworkSmall": "031_sma",
+    "character": "npc_Camper-F",
     "musics": {
-      "bgm": "",
-      "defeat": "",
       "encounter": "",
-      "victory": ""
-    },
-    "sprite": ""
+      "victory": "",
+      "defeat": "",
+      "bgm": "xy_trainer_battle.ogg"
+    }
   },
   "additionalDialogs": []
 }

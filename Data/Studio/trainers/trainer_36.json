@@ -1,0 +1,84 @@
+{
+  "klass": "TrainerBattleSetup",
+  "id": 36,
+  "dbSymbol": "trainer_36",
+  "vsType": 1,
+  "isCouple": false,
+  "baseMoney": 10,
+  "ai": 3,
+  "party": [
+    {
+      "specie": "gastly",
+      "form": 0,
+      "shinySetup": {
+        "kind": "automatic",
+        "rate": -1
+      },
+      "levelSetup": {
+        "kind": "fixed",
+        "level": 8
+      },
+      "randomEncounterChance": 1,
+      "expandPokemonSetup": [
+        {
+          "type": "evs",
+          "value": {
+            "hp": 0,
+            "atk": 0,
+            "dfe": 0,
+            "spd": 0,
+            "ats": 0,
+            "dfs": 0
+          }
+        },
+        {
+          "type": "ivs",
+          "value": {
+            "hp": 15,
+            "atk": 15,
+            "dfe": 15,
+            "spd": 15,
+            "ats": 15,
+            "dfs": 15
+          }
+        },
+        {
+          "type": "loyalty",
+          "value": 70
+        },
+        {
+          "type": "moves",
+          "value": [
+            "lick",
+            "hypnosis",
+            "__remove__",
+            "__remove__"
+          ]
+        },
+        {
+          "type": "originalTrainerName",
+          "value": "Raven"
+        },
+        {
+          "type": "originalTrainerId",
+          "value": 0
+        }
+      ]
+    }
+  ],
+  "bagEntries": [],
+  "battleId": 0,
+  "resources": {
+    "artworkFull": "051_big",
+    "artworkSmall": "051_sma",
+    "character": "npc_Psychic",
+    "musics": {
+      "bgm": "xy_trainer_battle.ogg",
+      "defeat": "",
+      "encounter": "",
+      "victory": ""
+    },
+    "sprite": ""
+  },
+  "additionalDialogs": []
+}

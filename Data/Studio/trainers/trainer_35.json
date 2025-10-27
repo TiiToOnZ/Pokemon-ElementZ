@@ -1,0 +1,303 @@
+{
+  "klass": "TrainerBattleSetup",
+  "id": 35,
+  "dbSymbol": "trainer_35",
+  "vsType": 3,
+  "isCouple": false,
+  "baseMoney": 10,
+  "bagEntries": [
+    {
+      "dbSymbol": "super_potion",
+      "amount": 1
+    }
+  ],
+  "battleId": 0,
+  "ai": 7,
+  "party": [
+    {
+      "specie": "torkoal",
+      "form": 0,
+      "shinySetup": {
+        "kind": "automatic",
+        "rate": -1
+      },
+      "levelSetup": {
+        "kind": "fixed",
+        "level": 23
+      },
+      "randomEncounterChance": 1,
+      "expandPokemonSetup": [
+        {
+          "type": "evs",
+          "value": {
+            "hp": 0,
+            "atk": 0,
+            "dfe": 0,
+            "spd": 0,
+            "ats": 0,
+            "dfs": 0
+          }
+        },
+        {
+          "type": "ivs",
+          "value": {
+            "hp": 31,
+            "atk": 31,
+            "dfe": 31,
+            "spd": 31,
+            "ats": 31,
+            "dfs": 31
+          }
+        },
+        {
+          "type": "itemHeld",
+          "value": "heat_rock"
+        },
+        {
+          "type": "loyalty",
+          "value": 70
+        },
+        {
+          "type": "moves",
+          "value": [
+            "flame_wheel",
+            "fire_spin",
+            "smog",
+            "smokescreen"
+          ]
+        },
+        {
+          "type": "originalTrainerName",
+          "value": "Pierre"
+        },
+        {
+          "type": "originalTrainerId",
+          "value": 0
+        },
+        {
+          "type": "ability",
+          "value": "drought"
+        },
+        {
+          "type": "nature",
+          "value": "relaxed"
+        }
+      ]
+    },
+    {
+      "specie": "geodude",
+      "form": 1,
+      "shinySetup": {
+        "kind": "automatic",
+        "rate": -1
+      },
+      "levelSetup": {
+        "kind": "fixed",
+        "level": 22
+      },
+      "randomEncounterChance": 1,
+      "expandPokemonSetup": [
+        {
+          "type": "evs",
+          "value": {
+            "hp": 0,
+            "atk": 0,
+            "dfe": 0,
+            "spd": 0,
+            "ats": 0,
+            "dfs": 0
+          }
+        },
+        {
+          "type": "ivs",
+          "value": {
+            "hp": 31,
+            "atk": 31,
+            "dfe": 31,
+            "spd": 31,
+            "ats": 31,
+            "dfs": 31
+          }
+        },
+        {
+          "type": "loyalty",
+          "value": 70
+        },
+        {
+          "type": "moves",
+          "value": [
+            "take_down",
+            "smack_down",
+            "thunder_punch",
+            "rock_throw"
+          ]
+        },
+        {
+          "type": "originalTrainerName",
+          "value": "Pierre"
+        },
+        {
+          "type": "originalTrainerId",
+          "value": 0
+        },
+        {
+          "type": "ability",
+          "value": "galvanize"
+        },
+        {
+          "type": "itemHeld",
+          "value": "focus_band"
+        }
+      ]
+    },
+    {
+      "specie": "onix",
+      "form": 0,
+      "shinySetup": {
+        "kind": "automatic",
+        "rate": -1
+      },
+      "levelSetup": {
+        "kind": "fixed",
+        "level": 22
+      },
+      "randomEncounterChance": 1,
+      "expandPokemonSetup": [
+        {
+          "type": "evs",
+          "value": {
+            "hp": 0,
+            "atk": 0,
+            "dfe": 0,
+            "spd": 0,
+            "ats": 0,
+            "dfs": 0
+          }
+        },
+        {
+          "type": "ivs",
+          "value": {
+            "hp": 31,
+            "atk": 31,
+            "dfe": 31,
+            "spd": 31,
+            "ats": 31,
+            "dfs": 31
+          }
+        },
+        {
+          "type": "itemHeld",
+          "value": "rocky_helmet"
+        },
+        {
+          "type": "loyalty",
+          "value": 70
+        },
+        {
+          "type": "moves",
+          "value": [
+            "headbutt",
+            "stealth_rock",
+            "rock_tomb",
+            "dig"
+          ]
+        },
+        {
+          "type": "originalTrainerName",
+          "value": "Pierre"
+        },
+        {
+          "type": "originalTrainerId",
+          "value": 0
+        },
+        {
+          "type": "ability",
+          "value": "sturdy"
+        }
+      ]
+    },
+    {
+      "specie": "golbat",
+      "form": 0,
+      "shinySetup": {
+        "kind": "automatic",
+        "rate": -1
+      },
+      "levelSetup": {
+        "kind": "fixed",
+        "level": 23
+      },
+      "randomEncounterChance": 1,
+      "expandPokemonSetup": [
+        {
+          "type": "evs",
+          "value": {
+            "hp": 0,
+            "atk": 0,
+            "dfe": 0,
+            "spd": 0,
+            "ats": 0,
+            "dfs": 0
+          }
+        },
+        {
+          "type": "ivs",
+          "value": {
+            "hp": 31,
+            "atk": 31,
+            "dfe": 31,
+            "spd": 31,
+            "ats": 31,
+            "dfs": 31
+          }
+        },
+        {
+          "type": "loyalty",
+          "value": 70
+        },
+        {
+          "type": "moves",
+          "value": [
+            "bite",
+            "wing_attack",
+            "confuse_ray",
+            "swift"
+          ]
+        },
+        {
+          "type": "originalTrainerName",
+          "value": "Pierre"
+        },
+        {
+          "type": "originalTrainerId",
+          "value": 0
+        },
+        {
+          "type": "ability",
+          "value": "inner_focus"
+        },
+        {
+          "type": "itemHeld",
+          "value": "black_sludge"
+        },
+        {
+          "type": "nature",
+          "value": "jolly"
+        }
+      ]
+    }
+  ],
+  "resources": {
+    "sprite": "",
+    "artworkFull": "Pierre_big",
+    "artworkSmall": "Pierre",
+    "character": "npc_Brock",
+    "musics": {
+      "encounter": "",
+      "victory": "",
+      "defeat": "",
+      "bgm": ""
+    }
+  },
+  "additionalDialogs": []
+}

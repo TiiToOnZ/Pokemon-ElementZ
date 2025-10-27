@@ -1,19 +1,24 @@
 ================================Erreur de script================================
 Message :
-undefined local variable or method `nill' for #<Interpreter:0x2c875800>
+(eval):2: syntax error, unexpected local variable or method, expecting ')'
+...comme un caillou et tu as l'air mou comme une chic !\nlCOMBA...
+...                            ^~~
+(eval):2: syntax error, unexpected backslash
+... as l'air mou comme une chic !\nlCOMBAT !')
+...                              ^
+(eval):4: unterminated string meets end of file
+(eval):4: syntax error, unexpected end-of-input, expecting `end'
 
-Type : NameError
-Script : (eval) (RMXP)
-Ligne : 2
-Date : 21/10/2025 16:47:36
+Type : SyntaxError
+Script : tools/GameLoader/z_eval_killer.rb (PSDK)
+Ligne : 30
+Date : 26/10/2025 23:18:01
 Game Version : 1
 Logiciel : PSDK 26.48
-Script used by eval command : 
-call_battle_wild(:floralgar,nill,nill,nill)
-
-
 ===================================Backtraces===================================
-[24] : (eval) (RMXP) | ligne 2 eval_X5
+[26] : tools/GameLoader/z_eval_killer.rb (PSDK) | ligne 30 class_eval
+[25] : tools/GameLoader/z_eval_killer.rb (PSDK) | ligne 30 build_method
+[24] : tools/GameLoader/z_eval_killer.rb (PSDK) | ligne 23 resolve_method_symbol
 [23] : 1_RMXP_Scripts.rb (PSDK) | ligne 2099 eval_script
 [22] : 1_RMXP_Scripts.rb (PSDK) | ligne 2091 command_355
 [21] : 1_RMXP_Scripts.rb (PSDK) | ligne 1075 execute_command

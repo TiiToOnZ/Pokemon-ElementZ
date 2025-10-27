@@ -5,7 +5,14 @@
   "vsType": 2,
   "isCouple": false,
   "baseMoney": 81,
-  "ai": 5,
+  "bagEntries": [
+    {
+      "dbSymbol": "potion",
+      "amount": 1
+    }
+  ],
+  "battleId": 0,
+  "ai": 6,
   "party": [
     {
       "specie": "beautifly",
@@ -132,24 +139,17 @@
       ]
     }
   ],
-  "bagEntries": [
-    {
-      "dbSymbol": "potion",
-      "amount": 1
-    }
-  ],
-  "battleId": 0,
   "resources": {
-    "artworkFull": "",
-    "artworkSmall": "",
-    "character": "",
+    "sprite": "",
+    "artworkFull": "027_big",
+    "artworkSmall": "027_sma",
+    "character": "npc_Bug-Catcher-01",
     "musics": {
-      "bgm": "",
-      "defeat": "",
       "encounter": "",
-      "victory": ""
-    },
-    "sprite": ""
+      "victory": "",
+      "defeat": "",
+      "bgm": "xy_trainer_battle.ogg"
+    }
   },
   "additionalDialogs": []
 }

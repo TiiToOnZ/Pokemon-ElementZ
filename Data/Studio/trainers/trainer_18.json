@@ -5,10 +5,12 @@
   "vsType": 1,
   "isCouple": false,
   "baseMoney": 37,
+  "bagEntries": [],
+  "battleId": 0,
   "ai": 3,
   "party": [
     {
-      "specie": "emolga",
+      "specie": "petilil",
       "form": 0,
       "shinySetup": {
         "kind": "automatic",
@@ -16,7 +18,7 @@
       },
       "levelSetup": {
         "kind": "fixed",
-        "level": 9
+        "level": 10
       },
       "randomEncounterChance": 1,
       "expandPokemonSetup": [
@@ -49,9 +51,9 @@
         {
           "type": "moves",
           "value": [
-            "thunder_shock",
-            "quick_attack",
-            "__remove__",
+            "sleep_powder",
+            "leech_seed",
+            "absorb",
             "__remove__"
           ]
         },
@@ -65,24 +67,22 @@
         },
         {
           "type": "ability",
-          "value": "static"
+          "value": "own_tempo"
         }
       ]
     }
   ],
-  "bagEntries": [],
-  "battleId": 0,
   "resources": {
-    "artworkFull": "",
-    "artworkSmall": "",
-    "character": "",
+    "sprite": "",
+    "artworkFull": "030_big",
+    "artworkSmall": "030_sma",
+    "character": "npc_Camper-M",
     "musics": {
-      "bgm": "",
-      "defeat": "",
       "encounter": "",
-      "victory": ""
-    },
-    "sprite": ""
+      "victory": "",
+      "defeat": "",
+      "bgm": "xy_trainer_battle.ogg"
+    }
   },
   "additionalDialogs": []
 }
