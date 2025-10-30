@@ -25,7 +25,9 @@
       "evSpd": 1,
       "evAts": 1,
       "evDfs": 0,
-      "evolutions": [],
+      "evolutions": [
+
+      ],
       "experienceType": 1,
       "baseExperience": 185,
       "baseLoyalty": 70,
@@ -66,8 +68,8 @@
         "characterShiny": "666s_0",
         "cry": "666cry.ogg",
         "hasFemale": false,
-        "egg": "egg",
-        "iconEgg": "egg"
+        "egg": "egg0664",
+        "iconEgg": "egg0664"
       },
       "moveSet": [
         {
@@ -345,7 +347,9 @@
       "evSpd": 1,
       "evAts": 1,
       "evDfs": 0,
-      "evolutions": [],
+      "evolutions": [
+
+      ],
       "experienceType": 1,
       "baseExperience": 185,
       "baseLoyalty": 70,
@@ -665,7 +669,9 @@
       "evSpd": 1,
       "evAts": 1,
       "evDfs": 0,
-      "evolutions": [],
+      "evolutions": [
+
+      ],
       "experienceType": 1,
       "baseExperience": 185,
       "baseLoyalty": 70,
@@ -985,7 +991,9 @@
       "evSpd": 1,
       "evAts": 1,
       "evDfs": 0,
-      "evolutions": [],
+      "evolutions": [
+
+      ],
       "experienceType": 1,
       "baseExperience": 185,
       "baseLoyalty": 70,
@@ -1305,7 +1313,9 @@
       "evSpd": 1,
       "evAts": 1,
       "evDfs": 0,
-      "evolutions": [],
+      "evolutions": [
+
+      ],
       "experienceType": 1,
       "baseExperience": 185,
       "baseLoyalty": 70,
@@ -1625,7 +1635,9 @@
       "evSpd": 1,
       "evAts": 1,
       "evDfs": 0,
-      "evolutions": [],
+      "evolutions": [
+
+      ],
       "experienceType": 1,
       "baseExperience": 185,
       "baseLoyalty": 70,
@@ -1945,7 +1957,9 @@
       "evSpd": 1,
       "evAts": 1,
       "evDfs": 0,
-      "evolutions": [],
+      "evolutions": [
+
+      ],
       "experienceType": 1,
       "baseExperience": 185,
       "baseLoyalty": 70,
@@ -2265,7 +2279,9 @@
       "evSpd": 1,
       "evAts": 1,
       "evDfs": 0,
-      "evolutions": [],
+      "evolutions": [
+
+      ],
       "experienceType": 1,
       "baseExperience": 185,
       "baseLoyalty": 70,
@@ -2585,7 +2601,9 @@
       "evSpd": 1,
       "evAts": 1,
       "evDfs": 0,
-      "evolutions": [],
+      "evolutions": [
+
+      ],
       "experienceType": 1,
       "baseExperience": 185,
       "baseLoyalty": 70,
@@ -2905,7 +2923,9 @@
       "evSpd": 1,
       "evAts": 1,
       "evDfs": 0,
-      "evolutions": [],
+      "evolutions": [
+
+      ],
       "experienceType": 1,
       "baseExperience": 185,
       "baseLoyalty": 70,
@@ -3225,7 +3245,9 @@
       "evSpd": 1,
       "evAts": 1,
       "evDfs": 0,
-      "evolutions": [],
+      "evolutions": [
+
+      ],
       "experienceType": 1,
       "baseExperience": 185,
       "baseLoyalty": 70,
@@ -3545,7 +3567,9 @@
       "evSpd": 1,
       "evAts": 1,
       "evDfs": 0,
-      "evolutions": [],
+      "evolutions": [
+
+      ],
       "experienceType": 1,
       "baseExperience": 185,
       "baseLoyalty": 70,
@@ -3865,7 +3889,9 @@
       "evSpd": 1,
       "evAts": 1,
       "evDfs": 0,
-      "evolutions": [],
+      "evolutions": [
+
+      ],
       "experienceType": 1,
       "baseExperience": 185,
       "baseLoyalty": 70,
@@ -4185,7 +4211,9 @@
       "evSpd": 1,
       "evAts": 1,
       "evDfs": 0,
-      "evolutions": [],
+      "evolutions": [
+
+      ],
       "experienceType": 1,
       "baseExperience": 185,
       "baseLoyalty": 70,
@@ -4505,7 +4533,9 @@
       "evSpd": 1,
       "evAts": 1,
       "evDfs": 0,
-      "evolutions": [],
+      "evolutions": [
+
+      ],
       "experienceType": 1,
       "baseExperience": 185,
       "baseLoyalty": 70,
@@ -4825,7 +4855,9 @@
       "evSpd": 1,
       "evAts": 1,
       "evDfs": 0,
-      "evolutions": [],
+      "evolutions": [
+
+      ],
       "experienceType": 1,
       "baseExperience": 185,
       "baseLoyalty": 70,
@@ -5145,7 +5177,9 @@
       "evSpd": 1,
       "evAts": 1,
       "evDfs": 0,
-      "evolutions": [],
+      "evolutions": [
+
+      ],
       "experienceType": 1,
       "baseExperience": 185,
       "baseLoyalty": 70,
@@ -5465,7 +5499,9 @@
       "evSpd": 1,
       "evAts": 1,
       "evDfs": 0,
-      "evolutions": [],
+      "evolutions": [
+
+      ],
       "experienceType": 1,
       "baseExperience": 185,
       "baseLoyalty": 70,
@@ -5785,7 +5821,9 @@
       "evSpd": 1,
       "evAts": 1,
       "evDfs": 0,
-      "evolutions": [],
+      "evolutions": [
+
+      ],
       "experienceType": 1,
       "baseExperience": 185,
       "baseLoyalty": 70,
@@ -6105,7 +6143,9 @@
       "evSpd": 1,
       "evAts": 1,
       "evDfs": 0,
-      "evolutions": [],
+      "evolutions": [
+
+      ],
       "experienceType": 1,
       "baseExperience": 185,
       "baseLoyalty": 70,

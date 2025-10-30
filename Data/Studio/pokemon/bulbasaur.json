@@ -67,7 +67,7 @@
       "frontOffsetY": 0,
       "resources": {
         "icon": "001",
-        "iconShiny": "",
+        "iconShiny": "001s",
         "front": "001",
         "frontShiny": "001",
         "back": "001",
@@ -75,10 +75,10 @@
         "footprint": "001",
         "character": "001_0",
         "characterShiny": "001s_0",
+        "egg": "egg0001",
+        "iconEgg": "egg0001",
         "cry": "001cry.ogg",
-        "hasFemale": false,
-        "egg": "egg",
-        "iconEgg": "egg"
+        "hasFemale": false
       },
       "moveSet": [
         {

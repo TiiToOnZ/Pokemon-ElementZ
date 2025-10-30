@@ -76,8 +76,8 @@
         "characterShiny": "531s_0",
         "cry": "531cry.ogg",
         "hasFemale": false,
-        "egg": "egg",
-        "iconEgg": "egg"
+        "egg": "egg0531",
+        "iconEgg": "egg0531"
       },
       "moveSet": [
         {
@@ -553,7 +553,9 @@
       "evSpd": 0,
       "evAts": 0,
       "evDfs": 0,
-      "evolutions": [],
+      "evolutions": [
+
+      ],
       "experienceType": 0,
       "baseExperience": 425,
       "baseLoyalty": 70,
@@ -594,8 +596,8 @@
         "characterShiny": "531s_30",
         "cry": "531_30cry.ogg",
         "hasFemale": false,
-        "egg": "egg",
-        "iconEgg": "egg"
+        "egg": "egg0531",
+        "iconEgg": "egg0531"
       },
       "moveSet": [
         {

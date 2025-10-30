@@ -77,8 +77,8 @@
         "characterShiny": "767s_0",
         "cry": "767cry.ogg",
         "hasFemale": false,
-        "egg": "egg",
-        "iconEgg": "egg"
+        "egg": "egg0767",
+        "iconEgg": "egg0767"
       },
       "moveSet": [
         {
@@ -286,7 +286,9 @@
         "egg": "egg",
         "iconEgg": "egg"
       },
-      "moveSet": []
+      "moveSet": [
+
+      ]
     },
     {
       "form": 2,
@@ -365,7 +367,9 @@
         "egg": "egg",
         "iconEgg": "egg"
       },
-      "moveSet": []
+      "moveSet": [
+
+      ]
     },
     {
       "form": 3,
@@ -444,7 +448,9 @@
         "egg": "egg",
         "iconEgg": "egg"
       },
-      "moveSet": []
+      "moveSet": [
+
+      ]
     },
     {
       "form": 4,
@@ -523,7 +529,9 @@
         "egg": "egg",
         "iconEgg": "egg"
       },
-      "moveSet": []
+      "moveSet": [
+
+      ]
     }
   ]
 }

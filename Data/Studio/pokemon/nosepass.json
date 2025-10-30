@@ -29,7 +29,9 @@
         {
           "dbSymbol": "probopass",
           "form": 0,
-          "conditions": []
+          "conditions": [
+
+          ]
         }
       ],
       "experienceType": 1,
@@ -72,8 +74,8 @@
         "characterShiny": "299s_0",
         "cry": "299cry.ogg",
         "hasFemale": false,
-        "egg": "egg",
-        "iconEgg": "egg"
+        "egg": "egg0299",
+        "iconEgg": "egg0299"
       },
       "moveSet": [
         {

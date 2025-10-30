@@ -78,8 +78,8 @@
         "characterShiny": "460s_0",
         "cry": "460cry.ogg",
         "hasFemale": true,
-        "egg": "egg",
-        "iconEgg": "egg"
+        "egg": "egg0459",
+        "iconEgg": "egg0459"
       },
       "moveSet": [
         {
@@ -393,7 +393,9 @@
       "evSpd": 0,
       "evAts": 1,
       "evDfs": 0,
-      "evolutions": [],
+      "evolutions": [
+
+      ],
       "experienceType": 2,
       "baseExperience": 208,
       "baseLoyalty": 70,
@@ -436,8 +438,8 @@
         "characterShiny": "460s_30",
         "cry": "460_30cry.ogg",
         "hasFemale": false,
-        "egg": "egg",
-        "iconEgg": "egg"
+        "egg": "egg0459",
+        "iconEgg": "egg0459"
       },
       "moveSet": [
         {

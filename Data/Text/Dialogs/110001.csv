@@ -1,0 +1,17 @@
+en,fr
+A wild [VAR PKNAME(0000)] appeared!,Un [VAR PKNAME(0000)] sauvage apparaît !
+The boss [VAR PKNAME(0000)] appeared!,Le boss [VAR PKNAME(0000)] apparaît !
+
+A wild [VAR PKNAME(0000)] and [VAR PKNAME(0001)] appeared!,Un [VAR PKNAME(0000)] et un [VAR PKNAME(0001)] sauvages apparaissent !
+The boss [VAR PKNAME(0000)] and a wild [VAR PKNAME(0001)] appeared!,Le boss [VAR PKNAME(0000)] apparaît accompagné d'un [VAR PKNAME(0001)] sauvage !
+The boss [VAR PKNAME(0000)] and a wild [VAR PKNAME(0001)] appeared!,Le boss [VAR PKNAME(0001)] apparaît accompagné d'un [VAR PKNAME(0000)] sauvage !
+The boss [VAR PKNAME(0000)] and [VAR PKNAME(0001)] appeared!,Les boss [VAR PKNAME(0000)] et [VAR PKNAME(0001)] apparaissent !
+
+"A wild [VAR PKNAME(0000)], [VAR PKNAME(0001)] and [VAR PKNAME(0002)] appeared!","Un [VAR PKNAME(0000)], un [VAR PKNAME(0001)] et un [VAR PKNAME(0002)] sauvages apparaissent !"
+"The boss [VAR PKNAME(0000)] and wild [VAR PKNAME(0001)] and [VAR PKNAME(0002)] appeared!","Le boss [VAR PKNAME(0000)] apparaît accompagné d'un [VAR PKNAME(0001)] et d'un [VAR PKNAME(0002)] sauvages !"
+"The boss [VAR PKNAME(0000)] and wild [VAR PKNAME(0001)] and [VAR PKNAME(0002)] appeared!","Le boss [VAR PKNAME(0001)] apparaît accompagné d'un [VAR PKNAME(0000)] et d'un [VAR PKNAME(0002)] sauvages !"
+"The boss [VAR PKNAME(0000)] and wild [VAR PKNAME(0001)] and [VAR PKNAME(0002)] appeared!","Le boss [VAR PKNAME(0002)] apparaît accompagné d'un [VAR PKNAME(0000)] et d'un [VAR PKNAME(0001)] sauvages !"
+"The boss [VAR PKNAME(0000)] and [VAR PKNAME(0002)] and wild [VAR PKNAME(0001)] appeared!","Les boss [VAR PKNAME(0000)] et [VAR PKNAME(0001)] apparaissent accompagnés d'un [VAR PKNAME(0002)] sauvage !"
+"The boss [VAR PKNAME(0000)] and [VAR PKNAME(0002)] and wild [VAR PKNAME(0001)] appeared!","Les boss [VAR PKNAME(0001)] et [VAR PKNAME(0002)] apparaissent accompagnés d'un [VAR PKNAME(0000)] sauvage !"
+"The boss [VAR PKNAME(0000)] and [VAR PKNAME(0002)] and wild [VAR PKNAME(0001)] appeared!","Les boss [VAR PKNAME(0002)] et [VAR PKNAME(0000)] apparaissent accompagnés d'un [VAR PKNAME(0001)] sauvage !"
+"The boss [VAR PKNAME(0000)], [VAR PKNAME(0001)] and [VAR PKNAME(0002)] appeared!","Les boss [VAR PKNAME(0000)], [VAR PKNAME(0001)] et [VAR PKNAME(0002)] apparaissent !"

@@ -25,7 +25,9 @@
       "evSpd": 0,
       "evAts": 0,
       "evDfs": 0,
-      "evolutions": [],
+      "evolutions": [
+
+      ],
       "experienceType": 1,
       "baseExperience": 170,
       "baseLoyalty": 70,
@@ -66,8 +68,8 @@
         "characterShiny": "745s_0",
         "cry": "745cry.ogg",
         "hasFemale": false,
-        "egg": "egg",
-        "iconEgg": "egg"
+        "egg": "egg0744",
+        "iconEgg": "egg0744"
       },
       "moveSet": [
         {
@@ -366,7 +368,9 @@
       "evSpd": 0,
       "evAts": 0,
       "evDfs": 0,
-      "evolutions": [],
+      "evolutions": [
+
+      ],
       "experienceType": 1,
       "baseExperience": 170,
       "baseLoyalty": 70,
@@ -739,7 +743,9 @@
       "evSpd": 0,
       "evAts": 0,
       "evDfs": 0,
-      "evolutions": [],
+      "evolutions": [
+
+      ],
       "experienceType": 1,
       "baseExperience": 170,
       "baseLoyalty": 70,

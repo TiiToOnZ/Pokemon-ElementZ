@@ -25,7 +25,9 @@
       "evSpd": 0,
       "evAts": 0,
       "evDfs": 0,
-      "evolutions": [],
+      "evolutions": [
+
+      ],
       "experienceType": 4,
       "baseExperience": 184,
       "baseLoyalty": 70,
@@ -57,15 +59,15 @@
       "resources": {
         "icon": "aeroli_petit",
         "iconShiny": "",
-        "front": "aeroli_test74",
+        "front": "1026",
         "frontShiny": "",
-        "back": "810",
+        "back": "1026",
         "backShiny": "",
         "footprint": "",
         "character": "810_0",
         "characterShiny": "",
-        "egg": "egg",
-        "iconEgg": "egg",
+        "egg": "egg0133",
+        "iconEgg": "egg0133",
         "cry": "",
         "hasFemale": false
       },

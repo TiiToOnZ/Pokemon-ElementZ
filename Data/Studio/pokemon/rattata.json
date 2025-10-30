@@ -79,8 +79,8 @@
         "footprint": "019",
         "character": "019_0",
         "characterShiny": "019s_0",
-        "egg": "egg",
-        "iconEgg": "egg",
+        "egg": "egg0019",
+        "iconEgg": "egg0019",
         "cry": "019cry.ogg",
         "hasFemale": true
       },
@@ -444,10 +444,10 @@
         "footprint": "019",
         "character": "",
         "characterShiny": "",
-        "egg": "egg",
-        "iconEgg": "egg",
+        "egg": "egg0019_01",
+        "iconEgg": "egg0019_01",
         "cry": "019cry.ogg",
-        "hasFemale": true
+        "hasFemale": false
       },
       "moveSet": [
         {

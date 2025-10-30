@@ -141,7 +141,7 @@
       ]
     },
     {
-      "specie": "bellsprout",
+      "specie": "fomantis",
       "form": 0,
       "shinySetup": {
         "kind": "automatic",
@@ -225,7 +225,7 @@
       ]
     },
     {
-      "specie": "oddish",
+      "specie": "bounsweet",
       "form": 0,
       "shinySetup": {
         "kind": "automatic",
@@ -519,5 +519,5 @@
       ]
     }
   ],
-  "stepsAverage": 18
+  "stepsAverage": 12
 }

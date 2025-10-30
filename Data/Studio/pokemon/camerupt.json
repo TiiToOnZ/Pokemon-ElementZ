@@ -80,8 +80,8 @@
         "characterShiny": "323s_0",
         "cry": "323cry.ogg",
         "hasFemale": true,
-        "egg": "egg",
-        "iconEgg": "egg"
+        "egg": "egg0322",
+        "iconEgg": "egg0322"
       },
       "moveSet": [
         {
@@ -392,7 +392,9 @@
       "evSpd": 0,
       "evAts": 1,
       "evDfs": 0,
-      "evolutions": [],
+      "evolutions": [
+
+      ],
       "experienceType": 1,
       "baseExperience": 196,
       "baseLoyalty": 70,
@@ -437,8 +439,8 @@
         "characterShiny": "323s_30",
         "cry": "323_30cry.ogg",
         "hasFemale": false,
-        "egg": "egg",
-        "iconEgg": "egg"
+        "egg": "egg0322",
+        "iconEgg": "egg0322"
       },
       "moveSet": [
         {

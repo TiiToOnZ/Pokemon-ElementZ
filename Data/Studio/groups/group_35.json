@@ -74,7 +74,7 @@
           "maximumLevel": 6
         }
       },
-      "randomEncounterChance": 10,
+      "randomEncounterChance": 11,
       "expandPokemonSetup": [
         {
           "type": "evs",
@@ -116,7 +116,7 @@
           "maximumLevel": 6
         }
       },
-      "randomEncounterChance": 10,
+      "randomEncounterChance": 11,
       "expandPokemonSetup": [
         {
           "type": "evs",
@@ -200,7 +200,7 @@
           "maximumLevel": 6
         }
       },
-      "randomEncounterChance": 10,
+      "randomEncounterChance": 11,
       "expandPokemonSetup": [
         {
           "type": "evs",
@@ -288,7 +288,7 @@
           "maximumLevel": 6
         }
       },
-      "randomEncounterChance": 10,
+      "randomEncounterChance": 11,
       "expandPokemonSetup": [
         {
           "type": "evs",
@@ -372,7 +372,7 @@
           "maximumLevel": 6
         }
       },
-      "randomEncounterChance": 10,
+      "randomEncounterChance": 11,
       "expandPokemonSetup": [
         {
           "type": "evs",
@@ -401,7 +401,7 @@
       ]
     },
     {
-      "specie": "paras",
+      "specie": "aron",
       "form": 0,
       "shinySetup": {
         "kind": "automatic",
@@ -414,7 +414,7 @@
           "maximumLevel": 6
         }
       },
-      "randomEncounterChance": 10,
+      "randomEncounterChance": 5,
       "expandPokemonSetup": [
         {
           "type": "evs",

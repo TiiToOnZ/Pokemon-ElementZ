@@ -25,7 +25,9 @@
       "evSpd": 0,
       "evAts": 0,
       "evDfs": 0,
-      "evolutions": [],
+      "evolutions": [
+
+      ],
       "experienceType": 0,
       "baseExperience": 170,
       "baseLoyalty": 70,
@@ -66,8 +68,8 @@
         "characterShiny": "518s_0",
         "cry": "518cry.ogg",
         "hasFemale": false,
-        "egg": "egg",
-        "iconEgg": "egg"
+        "egg": "egg0517",
+        "iconEgg": "egg0517"
       },
       "moveSet": [
         {
@@ -327,7 +329,9 @@
       "evSpd": 0,
       "evAts": 0,
       "evDfs": 0,
-      "evolutions": [],
+      "evolutions": [
+
+      ],
       "experienceType": 0,
       "baseExperience": 170,
       "baseLoyalty": 70,

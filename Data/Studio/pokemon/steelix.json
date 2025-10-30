@@ -82,8 +82,8 @@
         "characterShinyF": "208fs_0",
         "cry": "208cry.ogg",
         "hasFemale": true,
-        "egg": "egg",
-        "iconEgg": "egg"
+        "egg": "egg0095",
+        "iconEgg": "egg0095"
       },
       "moveSet": [
         {
@@ -447,7 +447,9 @@
       "evSpd": 0,
       "evAts": 0,
       "evDfs": 0,
-      "evolutions": [],
+      "evolutions": [
+
+      ],
       "experienceType": 1,
       "baseExperience": 214,
       "baseLoyalty": 70,
@@ -492,8 +494,8 @@
         "characterShiny": "208s_30",
         "cry": "208_30cry.ogg",
         "hasFemale": false,
-        "egg": "egg",
-        "iconEgg": "egg"
+        "egg": "egg0095",
+        "iconEgg": "egg0095"
       },
       "moveSet": [
         {

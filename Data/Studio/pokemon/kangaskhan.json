@@ -83,8 +83,8 @@
         "characterShinyF": "115s_0",
         "cry": "115cry.ogg",
         "hasFemale": true,
-        "egg": "egg",
-        "iconEgg": "egg"
+        "egg": "egg0115",
+        "iconEgg": "egg0115"
       },
       "moveSet": [
         {
@@ -502,7 +502,9 @@
       "evSpd": 0,
       "evAts": 0,
       "evDfs": 0,
-      "evolutions": [],
+      "evolutions": [
+
+      ],
       "experienceType": 1,
       "baseExperience": 207,
       "baseLoyalty": 70,
@@ -550,8 +552,8 @@
         "characterShinyF": "115s_30",
         "cry": "115_30cry.ogg",
         "hasFemale": true,
-        "egg": "egg",
-        "iconEgg": "egg"
+        "egg": "egg0115",
+        "iconEgg": "egg0115"
       },
       "moveSet": [
         {

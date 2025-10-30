@@ -24,6 +24,15 @@
       "hiddenByDefault": false
     },
     {
+      "objectiveMethodName": "objective_custom",
+      "objectiveMethodArgs": [
+        0,
+        1
+      ],
+      "textFormatMethodName": "text_custom",
+      "hiddenByDefault": false
+    },
+    {
       "objectiveMethodName": "objective_speak_to",
       "objectiveMethodArgs": [
         0,
@@ -33,12 +42,21 @@
       "hiddenByDefault": false
     },
     {
-      "objectiveMethodName": "objective_custom",
+      "objectiveMethodName": "objective_beat_pokemon",
       "objectiveMethodArgs": [
-        0,
-        0
+        "onix",
+        1
       ],
-      "textFormatMethodName": "text_custom",
+      "textFormatMethodName": "text_beat_pokemon",
+      "hiddenByDefault": true
+    },
+    {
+      "objectiveMethodName": "objective_speak_to",
+      "objectiveMethodArgs": [
+        1,
+        "Pierre Rochard (Directeur du musée))"
+      ],
+      "textFormatMethodName": "text_speak_to",
       "hiddenByDefault": false
     }
   ],
@@ -49,6 +67,14 @@
         1000
       ],
       "textFormatMethodName": "text_earn_money"
+    },
+    {
+      "earningMethodName": "earning_item",
+      "earningArgs": [
+        "explorer_kit",
+        1
+      ],
+      "textFormatMethodName": "text_earn_item"
     }
   ]
 }

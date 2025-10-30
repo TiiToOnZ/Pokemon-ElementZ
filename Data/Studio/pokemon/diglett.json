@@ -77,8 +77,8 @@
         "characterShiny": "050s_0",
         "cry": "050cry.ogg",
         "hasFemale": false,
-        "egg": "egg",
-        "iconEgg": "egg"
+        "egg": "egg0050",
+        "iconEgg": "egg0050"
       },
       "moveSet": [
         {
@@ -407,8 +407,8 @@
         "characterShiny": "",
         "cry": "050cry.ogg",
         "hasFemale": false,
-        "egg": "egg",
-        "iconEgg": "egg"
+        "egg": "egg0050_01",
+        "iconEgg": "egg0050_01"
       },
       "moveSet": [
         {

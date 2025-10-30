@@ -25,7 +25,9 @@
       "evSpd": 0,
       "evAts": 1,
       "evDfs": 0,
-      "evolutions": [],
+      "evolutions": [
+
+      ],
       "experienceType": 3,
       "baseExperience": 166,
       "baseLoyalty": 35,
@@ -68,8 +70,8 @@
         "characterShiny": "332s_0",
         "cry": "332cry.ogg",
         "hasFemale": true,
-        "egg": "egg",
-        "iconEgg": "egg"
+        "egg": "egg0331",
+        "iconEgg": "egg0331"
       },
       "moveSet": [
         {

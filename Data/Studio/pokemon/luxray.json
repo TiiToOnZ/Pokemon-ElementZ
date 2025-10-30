@@ -25,7 +25,9 @@
       "evSpd": 0,
       "evAts": 0,
       "evDfs": 0,
-      "evolutions": [],
+      "evolutions": [
+
+      ],
       "experienceType": 3,
       "baseExperience": 235,
       "baseLoyalty": 70,
@@ -70,8 +72,8 @@
         "characterShiny": "405s_0",
         "cry": "405cry.ogg",
         "hasFemale": true,
-        "egg": "egg",
-        "iconEgg": "egg"
+        "egg": "egg0403",
+        "iconEgg": "egg0403"
       },
       "moveSet": [
         {

@@ -77,8 +77,8 @@
         "characterShiny": "023s_0",
         "cry": "023cry.ogg",
         "hasFemale": false,
-        "egg": "egg",
-        "iconEgg": "egg"
+        "egg": "egg0023",
+        "iconEgg": "egg0023"
       },
       "moveSet": [
         {

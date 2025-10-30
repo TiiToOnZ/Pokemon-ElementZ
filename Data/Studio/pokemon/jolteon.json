@@ -25,7 +25,9 @@
       "evSpd": 2,
       "evAts": 0,
       "evDfs": 0,
-      "evolutions": [],
+      "evolutions": [
+
+      ],
       "experienceType": 4,
       "baseExperience": 184,
       "baseLoyalty": 70,
@@ -64,8 +66,8 @@
         "footprint": "135",
         "character": "135_0",
         "characterShiny": "135s_0",
-        "egg": "egg",
-        "iconEgg": "egg",
+        "egg": "egg0133",
+        "iconEgg": "egg0133",
         "cry": "135cry.ogg",
         "hasFemale": false
       },

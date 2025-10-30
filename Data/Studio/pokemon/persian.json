@@ -25,7 +25,9 @@
       "evSpd": 2,
       "evAts": 0,
       "evDfs": 0,
-      "evolutions": [],
+      "evolutions": [
+
+      ],
       "experienceType": 1,
       "baseExperience": 154,
       "baseLoyalty": 70,
@@ -66,8 +68,8 @@
         "characterShiny": "053s_0",
         "cry": "053cry.ogg",
         "hasFemale": false,
-        "egg": "egg",
-        "iconEgg": "egg"
+        "egg": "egg0052",
+        "iconEgg": "egg0052"
       },
       "moveSet": [
         {
@@ -410,7 +412,9 @@
       "evSpd": 2,
       "evAts": 0,
       "evDfs": 0,
-      "evolutions": [],
+      "evolutions": [
+
+      ],
       "experienceType": 1,
       "baseExperience": 154,
       "baseLoyalty": 70,
@@ -451,8 +455,8 @@
         "characterShiny": "053s_1",
         "cry": "053cry.ogg",
         "hasFemale": false,
-        "egg": "egg",
-        "iconEgg": "egg"
+        "egg": "egg0052_01",
+        "iconEgg": "egg0052_01"
       },
       "moveSet": [
         {
