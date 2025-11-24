@@ -1,8 +1,9 @@
 {
+  "textId": 9,
   "klass": "Type",
   "id": 2,
   "dbSymbol": "fire",
-  "textId": 9,
+  "color": "#ee9474",
   "damageTo": [
     {
       "defensiveType": "fire",
@@ -35,11 +36,6 @@
     {
       "defensiveType": "steel",
       "factor": 2
-    },
-    {
-      "defensiveType": "lumiere",
-      "factor": 0.5
     }
-  ],
-  "color": "#ee9474"
+  ]
 }

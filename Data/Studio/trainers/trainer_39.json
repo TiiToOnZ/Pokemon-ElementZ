@@ -1,0 +1,217 @@
+{
+  "klass": "TrainerBattleSetup",
+  "id": 39,
+  "dbSymbol": "trainer_39",
+  "vsType": 3,
+  "isCouple": false,
+  "baseMoney": 10,
+  "bagEntries": [
+    {
+      "dbSymbol": "potion",
+      "amount": 3
+    }
+  ],
+  "battleId": 0,
+  "ai": 1,
+  "party": [
+    {
+      "specie": "venonat",
+      "form": 0,
+      "shinySetup": {
+        "kind": "automatic",
+        "rate": -1
+      },
+      "levelSetup": {
+        "kind": "fixed",
+        "level": 1
+      },
+      "randomEncounterChance": 1,
+      "expandPokemonSetup": [
+        {
+          "type": "evs",
+          "value": {
+            "hp": 0,
+            "atk": 0,
+            "dfe": 0,
+            "spd": 0,
+            "ats": 0,
+            "dfs": 0
+          }
+        },
+        {
+          "type": "ivs",
+          "value": {
+            "hp": 15,
+            "atk": 15,
+            "dfe": 15,
+            "spd": 15,
+            "ats": 15,
+            "dfs": 15
+          }
+        },
+        {
+          "type": "loyalty",
+          "value": 70
+        },
+        {
+          "type": "moves",
+          "value": [
+            "psybeam",
+            "poison_powder",
+            "supersonic",
+            "__remove__"
+          ]
+        },
+        {
+          "type": "originalTrainerName",
+          "value": "Obscur"
+        },
+        {
+          "type": "originalTrainerId",
+          "value": 0
+        },
+        {
+          "type": "ability",
+          "value": "tinted_lens"
+        },
+        {
+          "type": "nature",
+          "value": "modest"
+        }
+      ]
+    },
+    {
+      "specie": "oddish",
+      "form": 0,
+      "shinySetup": {
+        "kind": "automatic",
+        "rate": -1
+      },
+      "levelSetup": {
+        "kind": "fixed",
+        "level": 1
+      },
+      "randomEncounterChance": 1,
+      "expandPokemonSetup": [
+        {
+          "type": "evs",
+          "value": {
+            "hp": 0,
+            "atk": 0,
+            "dfe": 0,
+            "spd": 0,
+            "ats": 0,
+            "dfs": 0
+          }
+        },
+        {
+          "type": "ivs",
+          "value": {
+            "hp": 15,
+            "atk": 15,
+            "dfe": 15,
+            "spd": 15,
+            "ats": 15,
+            "dfs": 15
+          }
+        },
+        {
+          "type": "loyalty",
+          "value": 70
+        },
+        {
+          "type": "moves",
+          "value": [
+            "acid",
+            "poison_powder",
+            "sleep_powder",
+            "stun_spore"
+          ]
+        },
+        {
+          "type": "originalTrainerName",
+          "value": "Rocket"
+        },
+        {
+          "type": "originalTrainerId",
+          "value": 0
+        },
+        {
+          "type": "nature",
+          "value": "modest"
+        }
+      ]
+    },
+    {
+      "specie": "sandshrew",
+      "form": 0,
+      "shinySetup": {
+        "kind": "automatic",
+        "rate": -1
+      },
+      "levelSetup": {
+        "kind": "fixed",
+        "level": 1
+      },
+      "randomEncounterChance": 1,
+      "expandPokemonSetup": [
+        {
+          "type": "evs",
+          "value": {
+            "hp": 0,
+            "atk": 0,
+            "dfe": 0,
+            "spd": 0,
+            "ats": 0,
+            "dfs": 0
+          }
+        },
+        {
+          "type": "ivs",
+          "value": {
+            "hp": 15,
+            "atk": 15,
+            "dfe": 15,
+            "spd": 15,
+            "ats": 15,
+            "dfs": 15
+          }
+        },
+        {
+          "type": "loyalty",
+          "value": 70
+        },
+        {
+          "type": "moves",
+          "value": [
+            "magnitude",
+            "swift",
+            "fury_cutter",
+            "rollout"
+          ]
+        },
+        {
+          "type": "originalTrainerName",
+          "value": "Obscur"
+        },
+        {
+          "type": "originalTrainerId",
+          "value": 0
+        }
+      ]
+    }
+  ],
+  "resources": {
+    "sprite": "",
+    "artworkFull": "185_Team_Rocket_Trio_HGSS_big",
+    "artworkSmall": "185_Team_Rocket_Trio_HGSS_sma",
+    "character": "",
+    "musics": {
+      "encounter": "",
+      "victory": "",
+      "defeat": "",
+      "bgm": ""
+    }
+  },
+  "additionalDialogs": []
+}

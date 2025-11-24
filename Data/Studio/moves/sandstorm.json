@@ -34,7 +34,7 @@
   "isSoundAttack": false,
   "isSlicingAttack": false,
   "isUnfreeze": false,
-  "isWind": false,
+  "isWind": true,
   "battleEngineAimedTarget": "all_pokemon",
   "battleStageMod": [],
   "moveStatus": [],

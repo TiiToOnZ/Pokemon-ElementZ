@@ -5,7 +5,7 @@
   "stepsAverage": 30,
   "bgm": {
     "name": "Canalave City (Night).ogg",
-    "volume": 100,
+    "volume": 70,
     "pitch": 100
   },
   "bgs": {
@@ -14,7 +14,7 @@
     "pitch": 100
   },
   "tiledFilename": "027 Tartatin",
-  "mtime": 1761581261783,
+  "mtime": 1761820778362,
   "sha1": "c8f2a70d917fd4993427e28ed30bc2f5afaf589f",
   "tileMetadata": {
     "width": 66,

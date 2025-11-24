@@ -11,8 +11,10 @@
   "isHoldable": true,
   "isAllowingMega": false,
   "flingPower": 10,
-  "klass": "HealingItem",
-  "loyaltyMalus": -2,
+  "klass": "EVBoostItem",
+  "loyaltyMalus": -10,
+  "count": -10,
+  "stat": "SPD",
   "isBerry": true,
   "berryData": {
     "size": 20,

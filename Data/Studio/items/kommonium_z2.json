@@ -1,9 +1,9 @@
 {
-  "id": 932,
+  "id": 1123,
   "dbSymbol": "kommonium_z2",
-  "icon": "932",
+  "icon": "1123",
   "price": 0,
-  "socket": 7,
+  "socket": 5,
   "position": 0,
   "isBattleUsable": false,
   "isMapUsable": false,

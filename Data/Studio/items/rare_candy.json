@@ -10,9 +10,9 @@
   "isLimited": true,
   "isHoldable": true,
   "isAllowingMega": false,
-  "flingPower": 0,
+  "flingPower": 30,
   "klass": "LevelIncreaseItem",
-  "loyaltyMalus": 0,
+  "loyaltyMalus": -5,
   "levelCount": 1,
   "isBerry": false
 }

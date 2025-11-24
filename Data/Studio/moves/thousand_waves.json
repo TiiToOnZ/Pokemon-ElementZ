@@ -35,7 +35,7 @@
   "isSlicingAttack": false,
   "isUnfreeze": false,
   "isWind": false,
-  "battleEngineAimedTarget": "adjacent_pokemon",
+  "battleEngineAimedTarget": "adjacent_all_foe",
   "battleStageMod": [],
   "moveStatus": [],
   "effectChance": 100,

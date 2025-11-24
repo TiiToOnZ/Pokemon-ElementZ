@@ -24,7 +24,7 @@
   "isKingRockUtility": false,
   "isMagicCoatAffected": false,
   "isMental": false,
-  "isMirrorMove": true,
+  "isMirrorMove": false,
   "isNonSkyBattle": false,
   "isPowder": false,
   "isPulse": false,

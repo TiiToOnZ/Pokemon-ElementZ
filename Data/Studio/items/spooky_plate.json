@@ -11,8 +11,6 @@
   "isHoldable": true,
   "isAllowingMega": false,
   "flingPower": 90,
-  "klass": "StatusHealItem",
-  "loyaltyMalus": 0,
-  "statusList": [],
+  "klass": "Item",
   "isBerry": false
 }

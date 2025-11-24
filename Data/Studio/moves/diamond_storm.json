@@ -39,11 +39,11 @@
   "battleStageMod": [
     {
       "battleStage": "DFE_STAGE",
-      "modificator": 1
+      "modificator": 2
     }
   ],
   "moveStatus": [],
-  "effectChance": 20,
+  "effectChance": 50,
   "condition": "beautiful",
   "appeal": 3,
   "jam": 0,

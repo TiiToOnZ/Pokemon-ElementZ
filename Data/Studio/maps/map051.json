@@ -5,7 +5,7 @@
   "stepsAverage": 30,
   "bgm": {
     "name": "01 glittering cave.ogg",
-    "volume": 100,
+    "volume": 70,
     "pitch": 100
   },
   "bgs": {
@@ -13,9 +13,9 @@
     "volume": 100,
     "pitch": 100
   },
+  "tiledFilename": "044 Ruine_Antediluvienne",
   "mtime": 1761245270960,
   "sha1": "286c8b49267f24ca0cb04c851bab2d4070912f3c",
-  "tiledFilename": "044 Ruine_Antediluvienne",
   "tileMetadata": {
     "width": 47,
     "height": 60,

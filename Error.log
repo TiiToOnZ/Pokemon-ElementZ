@@ -1,37 +1,37 @@
 ================================Erreur de script================================
 Message :
-(eval):2: syntax error, unexpected local variable or method, expecting ')'
-...comme un caillou et tu as l'air mou comme une chic !\nlCOMBA...
-...                            ^~~
-(eval):2: syntax error, unexpected backslash
-... as l'air mou comme une chic !\nlCOMBAT !')
-...                              ^
-(eval):4: unterminated string meets end of file
-(eval):4: syntax error, unexpected end-of-input, expecting `end'
+439: unexpected token at ']
+}'
 
-Type : SyntaxError
-Script : tools/GameLoader/z_eval_killer.rb (PSDK)
-Ligne : 30
-Date : 26/10/2025 23:18:01
+Type : JSON::ParserError
+Script : /lib/ruby/3.0.0/json/common.rb (ruby)
+Ligne : 216
+Date : 17/11/2025 09:24:23
 Game Version : 1
-Logiciel : PSDK 26.48
+Logiciel : PSDK 26.49
 ===================================Backtraces===================================
-[26] : tools/GameLoader/z_eval_killer.rb (PSDK) | ligne 30 class_eval
-[25] : tools/GameLoader/z_eval_killer.rb (PSDK) | ligne 30 build_method
-[24] : tools/GameLoader/z_eval_killer.rb (PSDK) | ligne 23 resolve_method_symbol
-[23] : 1_RMXP_Scripts.rb (PSDK) | ligne 2099 eval_script
-[22] : 1_RMXP_Scripts.rb (PSDK) | ligne 2091 command_355
-[21] : 1_RMXP_Scripts.rb (PSDK) | ligne 1075 execute_command
-[20] : 1_RMXP_Scripts.rb (PSDK) | ligne 955 update
-[19] : 1_RMXP_Scripts.rb (PSDK) | ligne 936 loop
-[18] : 1_RMXP_Scripts.rb (PSDK) | ligne 936 update
-[17] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9079 auto_transfert_update
-[16] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9077 loop
-[15] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9077 auto_transfert_update
-[14] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 8949 update
-[13] : 0_Dependencies.rb (PSDK) | ligne 1350 times
-[12] : 0_Dependencies.rb (PSDK) | ligne 1350 run
-[11] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 8949 update
+[32] : /lib/ruby/3.0.0/json/common.rb (ruby) | ligne 216 parse
+[31] : /lib/ruby/3.0.0/json/common.rb (ruby) | ligne 216 parse
+[30] : 000_a_root.rb (PSDK) | ligne 335 load_config_data
+[29] : 000_a_root.rb (PSDK) | ligne 314 load_file_data
+[28] : 000_a_root.rb (PSDK) | ligne 296 register
+[27] : 4_Systems_105_Options.rb (PSDK) | ligne 470 initialize
+[26] : 4_Systems_000_General_2_GamePlay__Base.rb (PSDK) | ligne 174 new
+[25] : 4_Systems_000_General_2_GamePlay__Base.rb (PSDK) | ligne 174 call_scene
+[24] : 4_Systems_000_General.rb (PSDK) | ligne 302 open_options
+[23] : 4_Systems_100_Menu.rb (PSDK) | ligne 254 open_option
+[22] : 4_Systems_100_Menu.rb (PSDK) | ligne 217 action
+[21] : 4_Systems_100_Menu.rb (PSDK) | ligne 70 update_inputs
+[20] : 4_Systems_000_General_2_GamePlay__Base.rb (PSDK) | ligne 433 update
+[19] : 4_Systems_000_General_2_GamePlay__Base.rb (PSDK) | ligne 236 main_process
+[18] : 4_Systems_000_General_2_GamePlay__Base.rb (PSDK) | ligne 144 main
+[17] : 4_Systems_000_General_2_GamePlay__Base.rb (PSDK) | ligne 175 call_scene
+[16] : 4_Systems_000_General.rb (PSDK) | ligne 130 open_menu
+[15] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9383 call_menu
+[14] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9313 update_scene_calling
+[13] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9311 each
+[12] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9311 update_scene_calling
+[11] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9098 update
 [10] : 4_Systems_000_General_2_GamePlay__Base.rb (PSDK) | ligne 236 main_process
 [9] : 4_Systems_000_General_2_GamePlay__Base.rb (PSDK) | ligne 144 main
 [8] : tools/GameLoader/Z_main.rb (PSDK) | ligne 18 <top (required)>

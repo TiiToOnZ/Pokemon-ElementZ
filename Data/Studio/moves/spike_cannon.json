@@ -38,7 +38,7 @@
   "battleEngineAimedTarget": "adjacent_pokemon",
   "battleStageMod": [],
   "moveStatus": [],
-  "effectChance": 100,
+  "effectChance": 0,
   "condition": "cool",
   "appeal": 1,
   "jam": 0,

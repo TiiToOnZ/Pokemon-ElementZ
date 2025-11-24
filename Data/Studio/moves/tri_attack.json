@@ -3,7 +3,7 @@
   "id": 161,
   "dbSymbol": "tri_attack",
   "mapUse": 0,
-  "battleEngineMethod": "s_basic",
+  "battleEngineMethod": "s_tri_attack",
   "type": "normal",
   "power": 80,
   "accuracy": 100,
@@ -21,7 +21,7 @@
   "isEffectChance": false,
   "isGravity": false,
   "isHeal": false,
-  "isKingRockUtility": false,
+  "isKingRockUtility": true,
   "isMagicCoatAffected": false,
   "isMental": false,
   "isMirrorMove": true,
@@ -37,21 +37,8 @@
   "isWind": false,
   "battleEngineAimedTarget": "adjacent_pokemon",
   "battleStageMod": [],
-  "moveStatus": [
-    {
-      "status": "BURN",
-      "luckRate": 33
-    },
-    {
-      "status": "FROZEN",
-      "luckRate": 33
-    },
-    {
-      "status": "PARALYZED",
-      "luckRate": 33
-    }
-  ],
-  "effectChance": 20,
+  "moveStatus": [],
+  "effectChance": 0,
   "condition": "beautiful",
   "appeal": 1,
   "jam": 0,

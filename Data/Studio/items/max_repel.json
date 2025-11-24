@@ -10,7 +10,7 @@
   "isLimited": true,
   "isHoldable": true,
   "isAllowingMega": false,
-  "flingPower": 0,
+  "flingPower": 30,
   "klass": "RepelItem",
   "repelCount": 250,
   "isBerry": false

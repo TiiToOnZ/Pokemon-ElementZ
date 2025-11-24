@@ -2,7 +2,7 @@
   "id": 256,
   "dbSymbol": "lucky_punch",
   "icon": "256",
-  "price": 500,
+  "price": 1000,
   "socket": 1,
   "position": 0,
   "isBattleUsable": false,

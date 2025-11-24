@@ -9,7 +9,7 @@
   "accuracy": 100,
   "pp": 10,
   "category": "special",
-  "movecriticalRate": 1,
+  "movecriticalRate": 2,
   "priority": 0,
   "isAuthentic": false,
   "isBallistics": false,

@@ -3,7 +3,7 @@
   "id": 601,
   "dbSymbol": "geomancy",
   "mapUse": 0,
-  "battleEngineMethod": "s_geomancy",
+  "battleEngineMethod": "s_2turns",
   "type": "fairy",
   "power": 0,
   "accuracy": 0,
@@ -36,7 +36,20 @@
   "isUnfreeze": false,
   "isWind": false,
   "battleEngineAimedTarget": "user",
-  "battleStageMod": [],
+  "battleStageMod": [
+    {
+      "battleStage": "ATS_STAGE",
+      "modificator": 2
+    },
+    {
+      "battleStage": "DFS_STAGE",
+      "modificator": 2
+    },
+    {
+      "battleStage": "SPD_STAGE",
+      "modificator": 2
+    }
+  ],
   "moveStatus": [],
   "effectChance": 0,
   "condition": "beautiful",

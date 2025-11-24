@@ -1,8 +1,9 @@
 {
+  "textId": 11,
   "klass": "Type",
   "id": 5,
   "dbSymbol": "grass",
-  "textId": 11,
+  "color": "#28bc75",
   "damageTo": [
     {
       "defensiveType": "fire",
@@ -43,11 +44,6 @@
     {
       "defensiveType": "steel",
       "factor": 0.5
-    },
-    {
-      "defensiveType": "lumiere",
-      "factor": 0.5
     }
-  ],
-  "color": "#28bc75"
+  ]
 }

@@ -1,8 +1,9 @@
 {
+  "textId": 16,
   "klass": "Type",
   "id": 17,
   "dbSymbol": "dark",
-  "textId": 16,
+  "color": "#a7acbe",
   "damageTo": [
     {
       "defensiveType": "fighting",
@@ -23,11 +24,6 @@
     {
       "defensiveType": "fairy",
       "factor": 0.5
-    },
-    {
-      "defensiveType": "lumiere",
-      "factor": 2
     }
-  ],
-  "color": "#a7acbe"
+  ]
 }

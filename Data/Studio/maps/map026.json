@@ -5,7 +5,7 @@
   "stepsAverage": 30,
   "bgm": {
     "name": "pkmrb-viridian.mid",
-    "volume": 100,
+    "volume": 70,
     "pitch": 100
   },
   "bgs": {
@@ -14,7 +14,7 @@
     "pitch": 100
   },
   "tiledFilename": "028 Bouillabaisse_sur_Mer",
-  "mtime": 1761573141123,
+  "mtime": 1761820778370,
   "sha1": "af4110de3a2990eadb9fefb9ba302199a9cb0c6f",
   "tileMetadata": {
     "width": 80,

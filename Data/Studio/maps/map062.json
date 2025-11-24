@@ -1,0 +1,19 @@
+{
+  "klass": "Map",
+  "id": 62,
+  "dbSymbol": "map062",
+  "stepsAverage": 30,
+  "bgm": {
+    "name": "",
+    "volume": 100,
+    "pitch": 100
+  },
+  "bgs": {
+    "name": "",
+    "volume": 100,
+    "pitch": 100
+  },
+  "mtime": 1,
+  "sha1": "",
+  "tiledFilename": ""
+}

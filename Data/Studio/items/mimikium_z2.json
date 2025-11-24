@@ -1,9 +1,9 @@
 {
-  "id": 930,
+  "id": 1121,
   "dbSymbol": "mimikium_z2",
-  "icon": "930",
+  "icon": "1121",
   "price": 0,
-  "socket": 7,
+  "socket": 5,
   "position": 0,
   "isBattleUsable": false,
   "isMapUsable": false,

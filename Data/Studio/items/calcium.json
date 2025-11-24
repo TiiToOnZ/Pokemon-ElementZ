@@ -12,8 +12,8 @@
   "isAllowingMega": false,
   "flingPower": 30,
   "klass": "EVBoostItem",
-  "loyaltyMalus": 0,
-  "count": 1,
+  "loyaltyMalus": -5,
+  "count": 10,
   "stat": "ATS",
   "isBerry": false
 }

@@ -21,7 +21,7 @@
   "isEffectChance": false,
   "isGravity": false,
   "isHeal": false,
-  "isKingRockUtility": true,
+  "isKingRockUtility": false,
   "isMagicCoatAffected": false,
   "isMental": false,
   "isMirrorMove": true,
@@ -34,7 +34,7 @@
   "isSoundAttack": false,
   "isSlicingAttack": false,
   "isUnfreeze": false,
-  "isWind": false,
+  "isWind": true,
   "battleEngineAimedTarget": "adjacent_all_foe",
   "battleStageMod": [],
   "moveStatus": [

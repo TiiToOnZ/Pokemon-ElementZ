@@ -3,7 +3,7 @@
   "dbSymbol": "steelium_z2",
   "icon": "823",
   "price": 0,
-  "socket": 7,
+  "socket": 5,
   "position": 5,
   "isBattleUsable": false,
   "isMapUsable": false,

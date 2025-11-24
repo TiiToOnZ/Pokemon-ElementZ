@@ -4,6 +4,46 @@
   "dbSymbol": "quest_39",
   "isPrimary": false,
   "resolution": "default",
-  "objectives": [],
-  "earnings": []
+  "objectives": [
+    {
+      "objectiveMethodName": "objective_catch_pokemon",
+      "objectiveMethodArgs": [
+        [
+          {
+            "type": "pokemon",
+            "value": "magikarp"
+          }
+        ],
+        1
+      ],
+      "textFormatMethodName": "text_catch_pokemon",
+      "hiddenByDefault": false
+    },
+    {
+      "objectiveMethodName": "objective_speak_to",
+      "objectiveMethodArgs": [
+        0,
+        "Pêcheur"
+      ],
+      "textFormatMethodName": "text_speak_to",
+      "hiddenByDefault": false
+    }
+  ],
+  "earnings": [
+    {
+      "earningMethodName": "earning_money",
+      "earningArgs": [
+        1000
+      ],
+      "textFormatMethodName": "text_earn_money"
+    },
+    {
+      "earningMethodName": "earning_item",
+      "earningArgs": [
+        "good_rod",
+        1
+      ],
+      "textFormatMethodName": "text_earn_item"
+    }
+  ]
 }

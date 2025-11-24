@@ -2,7 +2,7 @@
   "id": 63,
   "dbSymbol": "poke_doll",
   "icon": "063",
-  "price": 1000,
+  "price": 100,
   "socket": 1,
   "position": 0,
   "isBattleUsable": true,

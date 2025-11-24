@@ -1,0 +1,24 @@
+{
+  "spriteFilename": "ball_1",
+  "catchRate": 1,
+  "color": {
+    "red": 255,
+    "green": 0,
+    "blue": 0,
+    "alpha": 255
+  },
+  "klass": "BallItem",
+  "id": 867,
+  "dbSymbol": "shrink_ball",
+  "icon": "Mini_Ball",
+  "price": 0,
+  "socket": 2,
+  "position": 0,
+  "isBattleUsable": true,
+  "isMapUsable": false,
+  "isLimited": true,
+  "isHoldable": true,
+  "isAllowingMega": false,
+  "isBerry": false,
+  "flingPower": 30
+}

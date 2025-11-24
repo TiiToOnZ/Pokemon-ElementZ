@@ -2,7 +2,7 @@
   "id": 570,
   "dbSymbol": "swift_feather",
   "icon": "570",
-  "price": 3000,
+  "price": 300,
   "socket": 6,
   "position": 0,
   "isBattleUsable": false,
@@ -12,8 +12,8 @@
   "isAllowingMega": false,
   "flingPower": 20,
   "klass": "EVBoostItem",
-  "loyaltyMalus": 0,
-  "count": 10,
+  "loyaltyMalus": -3,
+  "count": 1,
   "stat": "SPD",
   "isBerry": false
 }

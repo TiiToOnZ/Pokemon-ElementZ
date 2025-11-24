@@ -1,8 +1,9 @@
 {
+  "textId": 10,
   "klass": "Type",
   "id": 3,
   "dbSymbol": "water",
-  "textId": 10,
+  "color": "#4596ed",
   "damageTo": [
     {
       "defensiveType": "fire",
@@ -27,11 +28,6 @@
     {
       "defensiveType": "dragon",
       "factor": 0.5
-    },
-    {
-      "defensiveType": "lumiere",
-      "factor": 0.5
     }
-  ],
-  "color": "#4596ed"
+  ]
 }

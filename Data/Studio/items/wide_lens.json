@@ -11,9 +11,6 @@
   "isHoldable": true,
   "isAllowingMega": false,
   "flingPower": 10,
-  "klass": "StatBoostItem",
-  "loyaltyMalus": 0,
-  "count": 1,
-  "stat": "ACC_STAGE",
+  "klass": "Item",
   "isBerry": false
 }

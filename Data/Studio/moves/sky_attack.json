@@ -21,7 +21,7 @@
   "isEffectChance": false,
   "isGravity": false,
   "isHeal": false,
-  "isKingRockUtility": true,
+  "isKingRockUtility": false,
   "isMagicCoatAffected": false,
   "isMental": false,
   "isMirrorMove": true,
@@ -40,7 +40,7 @@
   "moveStatus": [
     {
       "status": "FLINCH",
-      "luckRate": 30
+      "luckRate": 100
     }
   ],
   "effectChance": 30,

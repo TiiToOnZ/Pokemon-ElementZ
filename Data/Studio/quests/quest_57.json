@@ -1,0 +1,88 @@
+{
+  "klass": "Quest",
+  "id": 57,
+  "dbSymbol": "quest_57",
+  "isPrimary": false,
+  "resolution": "default",
+  "objectives": [
+    {
+      "objectiveMethodName": "objective_obtain_item",
+      "objectiveMethodArgs": [
+        "black_apricorn",
+        1
+      ],
+      "textFormatMethodName": "text_obtain_item",
+      "hiddenByDefault": false
+    },
+    {
+      "objectiveMethodName": "objective_obtain_item",
+      "objectiveMethodArgs": [
+        "pink_apricorn",
+        1
+      ],
+      "textFormatMethodName": "text_obtain_item",
+      "hiddenByDefault": false
+    },
+    {
+      "objectiveMethodName": "objective_obtain_item",
+      "objectiveMethodArgs": [
+        "blue_apricorn",
+        1
+      ],
+      "textFormatMethodName": "text_obtain_item",
+      "hiddenByDefault": false
+    },
+    {
+      "objectiveMethodName": "objective_obtain_item",
+      "objectiveMethodArgs": [
+        "oran_berry",
+        5
+      ],
+      "textFormatMethodName": "text_obtain_item",
+      "hiddenByDefault": false
+    },
+    {
+      "objectiveMethodName": "objective_obtain_item",
+      "objectiveMethodArgs": [
+        "aspear_berry",
+        5
+      ],
+      "textFormatMethodName": "text_obtain_item",
+      "hiddenByDefault": false
+    },
+    {
+      "objectiveMethodName": "objective_speak_to",
+      "objectiveMethodArgs": [
+        0,
+        "Fargas"
+      ],
+      "textFormatMethodName": "text_speak_to",
+      "hiddenByDefault": false
+    }
+  ],
+  "earnings": [
+    {
+      "earningMethodName": "earning_item",
+      "earningArgs": [
+        "shrink_ball",
+        5
+      ],
+      "textFormatMethodName": "text_earn_item"
+    },
+    {
+      "earningMethodName": "earning_money",
+      "earningArgs": [
+        1000
+      ],
+      "textFormatMethodName": "text_earn_money"
+    },
+    {
+      "earningMethodName": "earning_item",
+      "earningArgs": [
+        "freeze_ball",
+        5
+      ],
+      "textFormatMethodName": "text_earn_item"
+    }
+  ]
+}

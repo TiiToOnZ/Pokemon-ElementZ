@@ -1,9 +1,9 @@
 {
-  "id": 928,
+  "id": 1119,
   "dbSymbol": "lunalium_z2",
-  "icon": "928",
+  "icon": "1119",
   "price": 0,
-  "socket": 7,
+  "socket": 5,
   "position": 0,
   "isBattleUsable": false,
   "isMapUsable": false,

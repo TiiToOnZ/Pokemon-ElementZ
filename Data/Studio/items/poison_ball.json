@@ -1,0 +1,16 @@
+{
+  "klass": "Item",
+  "id": 875,
+  "dbSymbol": "poison_ball",
+  "icon": "Poison_Ball",
+  "price": 0,
+  "socket": 2,
+  "position": 0,
+  "isBattleUsable": true,
+  "isMapUsable": false,
+  "isLimited": true,
+  "isHoldable": true,
+  "isAllowingMega": false,
+  "isBerry": false,
+  "flingPower": 30
+}
