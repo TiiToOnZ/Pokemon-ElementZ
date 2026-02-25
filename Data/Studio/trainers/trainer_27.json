@@ -2,23 +2,23 @@
   "klass": "TrainerBattleSetup",
   "id": 27,
   "dbSymbol": "trainer_27",
-  "vsType": 1,
+  "vsType": 2,
   "isCouple": false,
   "baseMoney": 10,
   "bagEntries": [],
   "battleId": 0,
-  "ai": 4,
+  "ai": 5,
   "party": [
     {
-      "specie": "dedenne",
-      "form": 0,
+      "specie": "meowth",
+      "form": 1,
       "shinySetup": {
         "kind": "automatic",
         "rate": -1
       },
       "levelSetup": {
         "kind": "fixed",
-        "level": 8
+        "level": 10
       },
       "randomEncounterChance": 1,
       "expandPokemonSetup": [
@@ -51,10 +51,10 @@
         {
           "type": "moves",
           "value": [
-            "thunder_shock",
-            "tail_whip",
-            "tackle",
-            "__remove__"
+            "__undef__",
+            "__undef__",
+            "__undef__",
+            "__undef__"
           ]
         },
         {
@@ -67,7 +67,7 @@
         },
         {
           "type": "ability",
-          "value": "cheek_pouch"
+          "value": "technician"
         },
         {
           "type": "itemHeld",
@@ -76,7 +76,7 @@
       ]
     },
     {
-      "specie": "lillipup",
+      "specie": "zubat",
       "form": 0,
       "shinySetup": {
         "kind": "automatic",
@@ -133,15 +133,15 @@
         },
         {
           "type": "ability",
-          "value": "vital_spirit"
+          "value": "inner_focus"
         }
       ]
     }
   ],
   "resources": {
     "sprite": "",
-    "artworkFull": "029_big",
-    "artworkSmall": "029_sma",
+    "artworkFull": "084_big",
+    "artworkSmall": "084_sma",
     "character": "",
     "musics": {
       "encounter": "",

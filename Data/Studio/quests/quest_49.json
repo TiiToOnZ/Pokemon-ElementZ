@@ -38,30 +38,6 @@
         2
       ],
       "textFormatMethodName": "text_earn_item"
-    },
-    {
-      "earningMethodName": "earning_item",
-      "earningArgs": [
-        "antidote",
-        1
-      ],
-      "textFormatMethodName": "text_earn_item"
-    },
-    {
-      "earningMethodName": "earning_item",
-      "earningArgs": [
-        "paralyze_heal",
-        1
-      ],
-      "textFormatMethodName": "text_earn_item"
-    },
-    {
-      "earningMethodName": "earning_item",
-      "earningArgs": [
-        "awakening",
-        1
-      ],
-      "textFormatMethodName": "text_earn_item"
     }
   ]
 }

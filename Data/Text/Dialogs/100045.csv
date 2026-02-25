@@ -11,13 +11,13 @@ The regrets of a ghost,Les regrets d'un fantôme,[~ 2],[~ 2],[~ 2],[~ 2],[~ 2],T
 [~ 9],Le monstre rouge !,[~ 9],[~ 9],[~ 9],[~ 9],[~ 9],[~ 9]
 [~ 10],Facteur en roue libre !,[~ 10],[~ 10],[~ 10],[~ 10],[~ 10],[~ 10]
 [~ 11],"Les bases, c'est vital !",[~ 11],[~ 11],[~ 11],[~ 11],[~ 11],[~ 11]
-[~ 12],Vinci !! Oui c'est bien lui !!,[~ 12],[~ 12],[~ 12],[~ 12],[~ 12],[~ 12]
+[~ 12],"Vinci ! Oui, c'est bien lui !",[~ 12],[~ 12],[~ 12],[~ 12],[~ 12],[~ 12]
 [~ 13],PokeTV ! Le feuilleton de la soirée !,[~ 13],[~ 13],[~ 13],[~ 13],[~ 13],[~ 13]
 [~ 14],Attrapez-les tous ! [Chercheur Niv. 2],[~ 14],[~ 14],[~ 14],[~ 14],[~ 14],[~ 14]
 [~ 15],Attrapez-les tous ! [Chercheur Niv. 3],[~ 15],[~ 15],[~ 15],[~ 15],[~ 15],[~ 15]
 [~ 16],Attrapez-les tous ! [Chercheur Niv. 4],[~ 16],[~ 16],[~ 16],[~ 16],[~ 16],[~ 16]
 [~ 17],Attrapez-les tous ! [Chercheur Niv. 5],[~ 17],[~ 17],[~ 17],[~ 17],[~ 17],[~ 17]
-[~ 18],Attrapez-les tous ! [Chercheur Niv. 6],[~ 18],[~ 18],[~ 18],[~ 18],[~ 18],[~ 18]
+[~ 18],Attrapez-les tous ! [Chercheur Niv. 5.5],[~ 18],[~ 18],[~ 18],[~ 18],[~ 18],[~ 18]
 [~ 19],Les malfrats débarquent !,[~ 19],[~ 19],[~ 19],[~ 19],[~ 19],[~ 19]
 [~ 20],Des bribes de souvenirs...,[~ 20],[~ 20],[~ 20],[~ 20],[~ 20],[~ 20]
 [~ 21],A la recherche du premier artefact !,[~ 21],[~ 21],[~ 21],[~ 21],[~ 21],[~ 21]
@@ -43,7 +43,7 @@ The regrets of a ghost,Les regrets d'un fantôme,[~ 2],[~ 2],[~ 2],[~ 2],[~ 2],T
 [~ 41],A la recherche du premier artefact !!!,[~ 41],[~ 41],[~ 41],[~ 41],[~ 41],[~ 41]
 [~ 42],Prions les divinités !,[~ 42],[~ 42],[~ 42],[~ 42],[~ 42],[~ 42]
 Sauvetage en mer !,Sauvetage en mer !,Sauvetage en mer !,Sauvetage en mer !,Sauvetage en mer !,Sauvetage en mer !,Sauvetage en mer !,Sauvetage en mer !
-La technique de l'homme saoul !!,La technique de l'homme saoul !!,La technique de l'homme saoul !!,La technique de l'homme saoul !!,La technique de l'homme saoul !!,La technique de l'homme saoul !!,La technique de l'homme saoul !!,La technique de l'homme saoul !!
+La technique de l'homme saoul !!,La technique de l'homme saoul ! (Partie 2),La technique de l'homme saoul !!,La technique de l'homme saoul !!,La technique de l'homme saoul !!,La technique de l'homme saoul !!,La technique de l'homme saoul !!,La technique de l'homme saoul !!
 A la quete d'une porte...,A la quete d'une porte...,A la quete d'une porte...,A la quete d'une porte...,A la quete d'une porte...,A la quete d'une porte...,A la quete d'une porte...,A la quete d'une porte...
 Prions les divinités !!,Prions les divinités !!,Prions les divinités !!,Prions les divinités !!,Prions les divinités !!,Prions les divinités !!,Prions les divinités !!,Prions les divinités !!
 C'est qui le champion ?! [Champion Niv. 1],C'est qui le champion ?! [Champion Niv. 1],C'est qui le champion ?! [Champion Niv. 1],C'est qui le champion ?! [Champion Niv. 1],C'est qui le champion ?! [Champion Niv. 1],C'est qui le champion ?! [Champion Niv. 1],C'est qui le champion ?! [Champion Niv. 1],C'est qui le champion ?! [Champion Niv. 1]
@@ -51,10 +51,22 @@ Rêves VS Cauchemars,Rêves VS Cauchemars,Rêves VS Cauchemars,Rêves VS Cauchem
 Attrapez-les tous ! [Chercheur Niv. 1],Attrapez-les tous ! [Chercheur Niv. 1],Attrapez-les tous ! [Chercheur Niv. 1],Attrapez-les tous ! [Chercheur Niv. 1],Attrapez-les tous ! [Chercheur Niv. 1],Attrapez-les tous ! [Chercheur Niv. 1],Attrapez-les tous ! [Chercheur Niv. 1],Attrapez-les tous ! [Chercheur Niv. 1]
 Les Ancestraux  ! [Légendaire],Les Ancestraux  ! [Légendaire],Les Ancestraux  ! [Légendaire],Les Ancestraux  ! [Légendaire],Les Ancestraux  ! [Légendaire],Les Ancestraux  ! [Légendaire],Les Ancestraux  ! [Légendaire],Les Ancestraux  ! [Légendaire]
 Les Esprits Gardiens ! [Légendaire],Les Esprits Gardiens ! [Légendaire],Les Esprits Gardiens ! [Légendaire],Les Esprits Gardiens ! [Légendaire],Les Esprits Gardiens ! [Légendaire],Les Esprits Gardiens ! [Légendaire],Les Esprits Gardiens ! [Légendaire],Les Esprits Gardiens ! [Légendaire]
-Les Lames de la justice ! [Légendaire],Les Lames de la justice ! [Légendaire],Les Lames de la justice ! [Légendaire],Les Lames de la justice ! [Légendaire],Les Lames de la justice ! [Légendaire],Les Lames de la justice ! [Légendaire],Les Lames de la justice ! [Légendaire],Les Lames de la justice ! [Légendaire]
+Les Lames de la justice ! [Légendaire],Les Lames de la Justice ! [Légendaire],Les Lames de la justice ! [Légendaire],Les Lames de la justice ! [Légendaire],Les Lames de la justice ! [Légendaire],Les Lames de la justice ! [Légendaire],Les Lames de la justice ! [Légendaire],Les Lames de la justice ! [Légendaire]
 Artisan niv. 1,Fabriquez-les tous ! [Artisan Niv. 1],Artisan niv. 1,Artisan niv. 1,Artisan niv. 1,Artisan niv. 1,Artisan niv. 1,Artisan niv. 1
 Fabriquez-les tous ! [Artisan Niv. 2],Fabriquez-les tous ! [Artisan Niv. 2],Fabriquez-les tous ! [Artisan Niv. 2],Fabriquez-les tous ! [Artisan Niv. 2],Fabriquez-les tous ! [Artisan Niv. 2],Fabriquez-les tous ! [Artisan Niv. 2],Fabriquez-les tous ! [Artisan Niv. 2],Fabriquez-les tous ! [Artisan Niv. 2]
 Fabriquez-les tous ! [Artisan Niv. 3],Fabriquez-les tous ! [Artisan Niv. 3],Fabriquez-les tous ! [Artisan Niv. 3],Fabriquez-les tous ! [Artisan Niv. 3],Fabriquez-les tous ! [Artisan Niv. 3],Fabriquez-les tous ! [Artisan Niv. 3],Fabriquez-les tous ! [Artisan Niv. 3],Fabriquez-les tous ! [Artisan Niv. 3]
 Fabriquez-les tous ! [Artisan Niv. 4],Fabriquez-les tous ! [Artisan Niv. 4],Fabriquez-les tous ! [Artisan Niv. 4],Fabriquez-les tous ! [Artisan Niv. 4],Fabriquez-les tous ! [Artisan Niv. 4],Fabriquez-les tous ! [Artisan Niv. 4],Fabriquez-les tous ! [Artisan Niv. 4],Fabriquez-les tous ! [Artisan Niv. 4]
 Fabriquez-les tous ! [Artisan Niv. 5],Fabriquez-les tous ! [Artisan Niv. 5],Fabriquez-les tous ! [Artisan Niv. 5],Fabriquez-les tous ! [Artisan Niv. 5],Fabriquez-les tous ! [Artisan Niv. 5],Fabriquez-les tous ! [Artisan Niv. 5],Fabriquez-les tous ! [Artisan Niv. 5],Fabriquez-les tous ! [Artisan Niv. 5]
 Matelot ! [Pêcheur Niv. 2],Matelot ! [Pêcheur Niv. 2],Matelot ! [Pêcheur Niv. 2],Matelot ! [Pêcheur Niv. 2],Matelot ! [Pêcheur Niv. 2],Matelot ! [Pêcheur Niv. 2],Matelot ! [Pêcheur Niv. 2],Matelot ! [Pêcheur Niv. 2]
+Les Créateurs [Légendaire],Les Créateurs [Légendaire],Les Créateurs [Légendaire],Les Créateurs [Légendaire],Les Créateurs [Légendaire],Les Créateurs [Légendaire],Les Créateurs [Légendaire],Les Créateurs [Légendaire]
+Les Forces de la Nature ! [Légendaire]},Les Forces de la Nature ! [Légendaire]},Les Forces de la Nature ! [Légendaire]},Les Forces de la Nature ! [Légendaire]},Les Forces de la Nature ! [Légendaire]},Les Forces de la Nature ! [Légendaire]},Les Forces de la Nature ! [Légendaire]},Les Forces de la Nature ! [Légendaire]}
+Les Oiseaux Légendaires [Légendaire],Les Oiseaux Légendaires [Légendaire],Les Oiseaux Légendaires [Légendaire],Les Oiseaux Légendaires [Légendaire],Les Oiseaux Légendaires [Légendaire],Les Oiseaux Légendaires [Légendaire],Les Oiseaux Légendaires [Légendaire],Les Oiseaux Légendaires [Légendaire]
+Les Fauves Légendaires,Les Fauves Légendaires [Légendaire],Les Fauves Légendaires,Les Fauves Légendaires,Les Fauves Légendaires,Les Fauves Légendaires,Les Fauves Légendaires,Les Fauves Légendaires
+Les Colosses Légendaires [Légendaire],Les Colosses Légendaires [Légendaire],Les Colosses Légendaires [Légendaire],Les Colosses Légendaires [Légendaire],Les Colosses Légendaires [Légendaire],Les Colosses Légendaires [Légendaire],Les Colosses Légendaires [Légendaire],Les Colosses Légendaires [Légendaire]
+Volcanion [Légendaire],Volcanion [Légendaire],Volcanion [Légendaire],Volcanion [Légendaire],Volcanion [Légendaire],Volcanion [Légendaire],Volcanion [Légendaire],Volcanion [Légendaire]
+Diancie,Diancie [Légendaire],Diancie,Diancie,Diancie,Diancie,Diancie,Diancie
+Hoopa [Légendaire],Hoopa [Légendaire],Hoopa [Légendaire],Hoopa [Légendaire],Hoopa [Légendaire],Hoopa [Légendaire],Hoopa [Légendaire],Hoopa [Légendaire]
+Attrappez-les tous ! [Chercheur ],Attrapez-les tous ! [Chercheur Niv. 6],Attrappez-les tous ! [Chercheur ],Attrappez-les tous ! [Chercheur ],Attrappez-les tous ! [Chercheur ],Attrappez-les tous ! [Chercheur ],Attrappez-les tous ! [Chercheur ],Attrappez-les tous ! [Chercheur ]
+hh,Attrapez-les tous ! [Chercheur Niv. 6.5],hh,hh,hh,hh,hh,hh
+Attrapez-les tous ! [Chercheur Niv. 6.4],Attrapez-les tous ! [Chercheur Niv. 7],Attrapez-les tous ! [Chercheur Niv. 6.4],Attrapez-les tous ! [Chercheur Niv. 6.4],Attrapez-les tous ! [Chercheur Niv. 6.4],Attrapez-les tous ! [Chercheur Niv. 6.4],Attrapez-les tous ! [Chercheur Niv. 6.4],Attrapez-les tous ! [Chercheur Niv. 6.4]
+Visite de la ville !,Visite de la ville !,Visite de la ville !,Visite de la ville !,Visite de la ville !,Visite de la ville !,Visite de la ville !,Visite de la ville !

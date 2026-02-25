@@ -1,37 +1,37 @@
 ================================Erreur de script================================
 Message :
-439: unexpected token at ']
-}'
+undefined local variable or method `nill' for #<Interpreter:0x170ccce8>
 
-Type : JSON::ParserError
-Script : /lib/ruby/3.0.0/json/common.rb (ruby)
-Ligne : 216
-Date : 17/11/2025 09:24:23
+Type : NameError
+Script : (eval) (RMXP)
+Ligne : 3
+Date : 25/02/2026 10:26:58
 Game Version : 1
-Logiciel : PSDK 26.49
+Logiciel : PSDK 26.51
+Script used by eval command : 
+pokemon = 
+PFM::Pokemon.generate_from_hash(id: 58, level: 10, moves: [44,nill,52,nil], stats:[20,20,20,20,20,20])
+call_battle_wild(pokemon, nil)
+$game_temp.battle_can_lose = true
+
+
 ===================================Backtraces===================================
-[32] : /lib/ruby/3.0.0/json/common.rb (ruby) | ligne 216 parse
-[31] : /lib/ruby/3.0.0/json/common.rb (ruby) | ligne 216 parse
-[30] : 000_a_root.rb (PSDK) | ligne 335 load_config_data
-[29] : 000_a_root.rb (PSDK) | ligne 314 load_file_data
-[28] : 000_a_root.rb (PSDK) | ligne 296 register
-[27] : 4_Systems_105_Options.rb (PSDK) | ligne 470 initialize
-[26] : 4_Systems_000_General_2_GamePlay__Base.rb (PSDK) | ligne 174 new
-[25] : 4_Systems_000_General_2_GamePlay__Base.rb (PSDK) | ligne 174 call_scene
-[24] : 4_Systems_000_General.rb (PSDK) | ligne 302 open_options
-[23] : 4_Systems_100_Menu.rb (PSDK) | ligne 254 open_option
-[22] : 4_Systems_100_Menu.rb (PSDK) | ligne 217 action
-[21] : 4_Systems_100_Menu.rb (PSDK) | ligne 70 update_inputs
-[20] : 4_Systems_000_General_2_GamePlay__Base.rb (PSDK) | ligne 433 update
-[19] : 4_Systems_000_General_2_GamePlay__Base.rb (PSDK) | ligne 236 main_process
-[18] : 4_Systems_000_General_2_GamePlay__Base.rb (PSDK) | ligne 144 main
-[17] : 4_Systems_000_General_2_GamePlay__Base.rb (PSDK) | ligne 175 call_scene
-[16] : 4_Systems_000_General.rb (PSDK) | ligne 130 open_menu
-[15] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9383 call_menu
-[14] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9313 update_scene_calling
-[13] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9311 each
-[12] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9311 update_scene_calling
-[11] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9098 update
+[26] : (eval) (RMXP) | ligne 3 eval_X8
+[25] : 1_RMXP_Scripts.rb (PSDK) | ligne 2105 eval_script
+[24] : 1_RMXP_Scripts.rb (PSDK) | ligne 2097 command_355
+[23] : 1_RMXP_Scripts.rb (PSDK) | ligne 1081 execute_command
+[22] : 1_RMXP_Scripts.rb (PSDK) | ligne 956 update
+[21] : 1_RMXP_Scripts.rb (PSDK) | ligne 936 loop
+[20] : 1_RMXP_Scripts.rb (PSDK) | ligne 936 update
+[19] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9223 update_map_logic
+[18] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 2913 update_map_logic
+[17] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9231 auto_transfert_update
+[16] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9230 loop
+[15] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9230 auto_transfert_update
+[14] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9094 update
+[13] : 0_Dependencies.rb (PSDK) | ligne 1354 times
+[12] : 0_Dependencies.rb (PSDK) | ligne 1354 run
+[11] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9094 update
 [10] : 4_Systems_000_General_2_GamePlay__Base.rb (PSDK) | ligne 236 main_process
 [9] : 4_Systems_000_General_2_GamePlay__Base.rb (PSDK) | ligne 144 main
 [8] : tools/GameLoader/Z_main.rb (PSDK) | ligne 18 <top (required)>

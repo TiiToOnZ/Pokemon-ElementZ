@@ -22,6 +22,14 @@
         1000
       ],
       "textFormatMethodName": "text_earn_money"
+    },
+    {
+      "earningMethodName": "earning_item",
+      "earningArgs": [
+        "tm27",
+        1
+      ],
+      "textFormatMethodName": "text_earn_item"
     }
   ]
 }

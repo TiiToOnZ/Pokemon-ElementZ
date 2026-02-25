@@ -6,6 +6,15 @@
   "resolution": "default",
   "objectives": [
     {
+      "objectiveMethodName": "objective_obtain_item",
+      "objectiveMethodArgs": [
+        "pokeloupe",
+        1
+      ],
+      "textFormatMethodName": "text_obtain_item",
+      "hiddenByDefault": false
+    },
+    {
       "objectiveMethodName": "objective_speak_to",
       "objectiveMethodArgs": [
         0,

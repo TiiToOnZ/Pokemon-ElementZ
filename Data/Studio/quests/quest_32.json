@@ -6,6 +6,33 @@
   "resolution": "default",
   "objectives": [
     {
+      "objectiveMethodName": "objective_obtain_item",
+      "objectiveMethodArgs": [
+        "champignon_doux",
+        2
+      ],
+      "textFormatMethodName": "text_obtain_item",
+      "hiddenByDefault": false
+    },
+    {
+      "objectiveMethodName": "objective_obtain_item",
+      "objectiveMethodArgs": [
+        "champignon_toxique",
+        1
+      ],
+      "textFormatMethodName": "text_obtain_item",
+      "hiddenByDefault": false
+    },
+    {
+      "objectiveMethodName": "objective_obtain_item",
+      "objectiveMethodArgs": [
+        "champignon_sale",
+        1
+      ],
+      "textFormatMethodName": "text_obtain_item",
+      "hiddenByDefault": false
+    },
+    {
       "objectiveMethodName": "objective_speak_to",
       "objectiveMethodArgs": [
         0,
@@ -22,6 +49,14 @@
         1000
       ],
       "textFormatMethodName": "text_earn_money"
+    },
+    {
+      "earningMethodName": "earning_item",
+      "earningArgs": [
+        "potion_antiivrogne",
+        1
+      ],
+      "textFormatMethodName": "text_earn_item"
     }
   ]
 }

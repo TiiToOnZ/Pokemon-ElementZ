@@ -35,7 +35,7 @@
     {
       "earningMethodName": "earning_item",
       "earningArgs": [
-        "chaussure",
+        "chaussures_sportives",
         1
       ],
       "textFormatMethodName": "text_earn_item"

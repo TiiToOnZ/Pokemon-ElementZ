@@ -1,0 +1,83 @@
+{
+  "klass": "Quest",
+  "id": 67,
+  "dbSymbol": "quest_67",
+  "isPrimary": false,
+  "resolution": "default",
+  "objectives": [
+    {
+      "objectiveMethodName": "objective_speak_to",
+      "objectiveMethodArgs": [
+        0,
+        "Prof. Charme"
+      ],
+      "textFormatMethodName": "text_speak_to",
+      "hiddenByDefault": false
+    }
+  ],
+  "earnings": [
+    {
+      "earningMethodName": "earning_money",
+      "earningArgs": [
+        1000
+      ],
+      "textFormatMethodName": "text_earn_money"
+    },
+    {
+      "earningMethodName": "earning_egg",
+      "earningArgs": [
+        {
+          "specie": "togepi",
+          "form": 0,
+          "shinySetup": {
+            "kind": "automatic",
+            "rate": -1
+          },
+          "levelSetup": {
+            "kind": "fixed",
+            "level": 1
+          },
+          "randomEncounterChance": 1,
+          "expandPokemonSetup": [
+            {
+              "type": "evs",
+              "value": {
+                "hp": 0,
+                "atk": 0,
+                "dfe": 0,
+                "spd": 0,
+                "ats": 0,
+                "dfs": 0
+              }
+            },
+            {
+              "type": "ivs",
+              "value": {
+                "hp": 0,
+                "atk": 0,
+                "dfe": 0,
+                "spd": 0,
+                "ats": 0,
+                "dfs": 0
+              }
+            },
+            {
+              "type": "loyalty",
+              "value": 120
+            },
+            {
+              "type": "moves",
+              "value": [
+                "__undef__",
+                "__undef__",
+                "__undef__",
+                "__undef__"
+              ]
+            }
+          ]
+        }
+      ],
+      "textFormatMethodName": "text_earn_egg"
+    }
+  ]
+}

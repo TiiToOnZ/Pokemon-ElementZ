@@ -22,6 +22,22 @@
         1000
       ],
       "textFormatMethodName": "text_earn_money"
+    },
+    {
+      "earningMethodName": "earning_item",
+      "earningArgs": [
+        "great_ball",
+        5
+      ],
+      "textFormatMethodName": "text_earn_item"
+    },
+    {
+      "earningMethodName": "earning_item",
+      "earningArgs": [
+        "super_potion",
+        2
+      ],
+      "textFormatMethodName": "text_earn_item"
     }
   ]
 }
