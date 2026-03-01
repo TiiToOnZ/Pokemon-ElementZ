@@ -12,6 +12,7 @@ module PFM
         super
         @boss = opts[:boss] || false
         @nb_bars_hp = (opts[:nb_bars_hp] || 0).clamp(0, 5)
+        @boss_halo = opts[:boss_halo]
       end
     end
 

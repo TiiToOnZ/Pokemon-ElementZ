@@ -25,14 +25,14 @@ module Battle
       # @return [Boolean] True if the target can be healed, false otherwise.
       def can_heal_boss?(target, test_heal_block)
         if target.effects.has?(:heal_block) && test_heal_block
-          @scene.display_message_and_wait(parse_text_with_pokemon(10_000, 6, target))
+          @scene.display_message_and_wait(parse_text_with_pokemon(19, 890, target))
           return false
         end
 
         return true if target.hp < target.max_hp
         return true if target.nb_bars_hp < 5
 
-        @scene.display_message_and_wait(parse_text_with_pokemon(10_000, 9, target))
+        @scene.display_message_and_wait(parse_text_with_pokemon(19, 884, target))
         return false
       end
 
@@ -87,7 +87,7 @@ module Battle
         @scene.visual.refresh_info_bar(target)
 
         apply_boss_healing_effect(target, heal_amount, animation_id)
-        @scene.display_message_and_wait(parse_text_with_pokemon(10_000, 21, target))
+        @scene.display_message_and_wait(parse_text_with_pokemon(10_000, 4, target))
       end
 
       # Lose a bar for the Boss.
@@ -110,7 +110,7 @@ module Battle
       def apply_boss_healing_effect(target, heal_amount, animation_id)
         show_hp_animations(-heal_amount, target)
 
-        @scene.display_message_and_wait(parse_text_with_pokemon(10_000, 3, target))
+        @scene.display_message_and_wait(parse_text_with_pokemon(19, 387, target))
       end
     end
   end

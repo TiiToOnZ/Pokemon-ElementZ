@@ -145,7 +145,7 @@
     "character": "npc_Schoolkid-M",
     "musics": {
       "encounter": "",
-      "victory": "",
+      "victory": "pkmrb-victory2.mid",
       "defeat": "",
       "bgm": ""
     }

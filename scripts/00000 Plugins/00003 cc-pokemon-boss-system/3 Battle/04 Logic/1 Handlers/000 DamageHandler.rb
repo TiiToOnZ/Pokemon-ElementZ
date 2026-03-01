@@ -32,11 +32,6 @@ module Battle
           return damage_change_boss(hp, target, launcher, skill, &messages) if target.boss?
 
           return super
-        rescue Hooks::ForceReturn => e
-          log_data("# FR: damage_change #{e.data} from #{e.hook_name} (#{e.reason})")
-          return e.data
-        ensure
-          @scene.visual.refresh_info_bar(target)
         end
 
         # Function that drains a certain quantity of HP from the target and gives it to the user.
@@ -51,11 +46,6 @@ module Battle
           return drain_boss(hp_factor, target, launcher, skill, hp_overwrite: hp_overwrite, drain_factor: drain_factor, &messages) if target.boss?
 
           return super
-        rescue Hooks::ForceReturn => e
-          log_data("# FR: drain : #{e.data} from #{e.hook_name} (#{e.reason})")
-          return e.data
-        ensure
-          @scene.visual.refresh_info_bar(target)
         end
 
         # Function that proceed the heal of a Pokemon

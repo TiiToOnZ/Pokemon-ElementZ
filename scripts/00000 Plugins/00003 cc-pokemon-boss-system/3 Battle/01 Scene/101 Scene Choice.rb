@@ -5,17 +5,17 @@ module Battle
       # @param battler [PFM::PokemonBattler] pokemon that was just caught
       # @param ball [Studio::BallItem]
       def give_pokemon_procedure(battler, ball)
+        Audio.bgm_play(*@battle_info.defeat_bgm)
         message_window.blocking = true
         message_window.wait_input = true
-        Audio.bgm_play(*@battle_info.defeat_bgm)
 
         creature = battler.original
+        display_message_and_wait(parse_text(18, 67, PFM::Text::PKNAME[0] => creature.name))
+        rename_sequence(creature) if $options.catch_rename
+
         $wild_battle.remove_roaming_pokemon(creature)
         update_pokemon_related_quests(creature)
         update_pokedex_related_infos(creature)
-
-        display_message_and_wait(parse_text_with_pokemon(18, 67, creature))
-        rename_sequence(creature) if $options.catch_rename
 
         battler.captured_with = ball.id
         battler.loyalty = 200 if ball&.db_symbol == :friend_ball

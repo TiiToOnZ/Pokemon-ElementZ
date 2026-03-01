@@ -10,6 +10,7 @@ module PFM
         super
         @boss = original.boss || false
         @nb_bars_hp = original.nb_bars_hp || 0
+        @boss_halo = original.boss_halo
       end
 
       # Return if the Pokemon is a Boss.
@@ -17,6 +18,10 @@ module PFM
       def boss?
         return @boss
       end
+
+      # The type of halo to display for the boss
+      # @return [Symbol, nil]
+      attr_reader :boss_halo
     end
 
     prepend PokemonBattlerBossPatch

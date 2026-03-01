@@ -145,7 +145,7 @@
     "character": "npc_Rocket-Grunt-Male",
     "musics": {
       "encounter": "",
-      "victory": "",
+      "victory": "pkmrs-victory.mid",
       "defeat": "",
       "bgm": ""
     }

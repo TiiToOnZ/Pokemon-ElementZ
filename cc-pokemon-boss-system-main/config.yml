@@ -1,0 +1,22 @@
+--- !ruby/object:PluginManager::Config
+name: cc-pokemon-boss-system
+authors:
+  - Zøzo
+version: 1.0.0.0
+deps: []
+psdk_compatibility_script: psdk.rb
+retry_psdk_compatibility_after_plugin_load: false
+added_files:
+  - Data/Text/Dialogs/110000.csv
+  - Data/Text/Dialogs/110001.csv
+  - graphics/interface/battle/boss/battlebar_boss.png
+  - graphics/interface/battle/boss/battlebar_boss_3v3.png
+  - graphics/interface/battle/boss/hp_bar_empty.png
+  - graphics/interface/battle/boss/hp_bar_filled.png
+  - Data/Events/Battle/99999 AddBossEffectExample.rb
+  - graphics/interface/battle/boss/halo_flame.png
+  - graphics/interface/battle/boss/halo_ice.png
+  - graphics/interface/battle/boss/halo_orbital.png
+  - graphics/interface/battle/boss/halo_pulse.png
+  - graphics/interface/battle/boss/halo_shadow.png
+  - graphics/interface/battle/boss/halo_vortex.png

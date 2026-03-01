@@ -1,0 +1,346 @@
+"""Generate 6 boss halo spritesheets (512x256, 8x4 grid, 64x64 frames) - Rising flame aura.
+
+Flames rise from the bottom of the sprite to the top with lateral oscillations
+and FBM noise for an organic, flowing aura effect.
+"""
+import math
+from PIL import Image, ImageFilter
+
+FRAME_W, FRAME_H = 96, 96
+COLS, ROWS = 8, 4
+TOTAL_FRAMES = COLS * ROWS
+SHEET_W, SHEET_H = FRAME_W * COLS, FRAME_H * ROWS
+OUTPUT_DIR = "../../graphics/interface/battle/boss"
+
+
+def make_sheet(frames):
+    sheet = Image.new("RGBA", (SHEET_W, SHEET_H), (0, 0, 0, 0))
+    for i, frame in enumerate(frames):
+        col, row = i % COLS, i // COLS
+        sheet.paste(frame, (col * FRAME_W, row * FRAME_H))
+    return sheet
+
+
+def clamp(v, lo=0, hi=255):
+    return max(lo, min(hi, int(v)))
+
+
+def simple_noise(x, y, seed=0):
+    """Simple hash-based pseudo noise in [0, 1]."""
+    n = int(x * 374761 + y * 668265 + seed * 1013904223) & 0x7FFFFFFF
+    n = (n >> 13) ^ n
+    n = (n * (n * n * 60493 + 19990303) + 1376312589) & 0x7FFFFFFF
+    return n / 0x7FFFFFFF
+
+
+def smooth_noise(x, y, seed=0):
+    """Interpolated noise for smoother results."""
+    ix, iy = int(math.floor(x)), int(math.floor(y))
+    fx, fy = x - ix, y - iy
+    fx = fx * fx * (3 - 2 * fx)
+    fy = fy * fy * (3 - 2 * fy)
+    n00 = simple_noise(ix, iy, seed)
+    n10 = simple_noise(ix + 1, iy, seed)
+    n01 = simple_noise(ix, iy + 1, seed)
+    n11 = simple_noise(ix + 1, iy + 1, seed)
+    nx0 = n00 + (n10 - n00) * fx
+    nx1 = n01 + (n11 - n01) * fx
+    return nx0 + (nx1 - nx0) * fy
+
+
+def fbm(x, y, seed=0, octaves=4, lacunarity=2.0, gain=0.5):
+    """Fractal Brownian Motion - multiple octaves of noise for organic shapes."""
+    value = 0.0
+    amplitude = 1.0
+    frequency = 1.0
+    max_val = 0.0
+    for _ in range(octaves):
+        value += amplitude * smooth_noise(x * frequency, y * frequency, seed)
+        max_val += amplitude
+        amplitude *= gain
+        frequency *= lacunarity
+    return value / max_val
+
+
+def generate_rising_flame(frame_idx, total, palette, config):
+    """Generate one frame of a rising flame aura.
+
+    The flame rises from the bottom of the frame upward with lateral
+    oscillations and noise-driven organic edges. The noise field scrolls
+    upward over time to create the illusion of rising fire.
+
+    palette: list of (r, g, b) from core (bright) to edge (faint)
+    config: dict with flame parameters
+    """
+    S = 2  # supersampling factor
+    W, H = FRAME_W * S, FRAME_H * S
+    img = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    pixels = img.load()
+
+    t = frame_idx / total  # animation phase [0, 1)
+    phase = t * 2 * math.pi
+    seed = config.get("seed", 42)
+    time_speed = config.get("time_speed", 3.0)
+    core_alpha = config.get("core_alpha", 230)
+
+    # ── Flame geometry ──
+    base_hw = config.get("base_half_width", 0.38)     # half-width at base (fraction of W/2)
+    tip_hw = config.get("tip_half_width", 0.06)        # half-width at tip
+    flame_reach = config.get("flame_reach", 0.92)      # max height (fraction of frame)
+    taper_exp = config.get("taper_exp", 0.7)            # taper curve exponent
+
+    # ── Oscillation ──
+    osc_amp = config.get("osc_amplitude", 0.07)        # primary oscillation amplitude
+    osc_wl = config.get("osc_wavelength", 0.35)         # primary wavelength (fraction of height)
+    osc2_amp = config.get("osc2_amplitude", 0.04)      # secondary oscillation amplitude
+    osc2_wl = config.get("osc2_wavelength", 0.2)        # secondary wavelength
+
+    # ── Noise ──
+    noise_distort = config.get("noise_distort", 0.15)  # edge noise strength
+    noise_fx = config.get("noise_freq_x", 4.0)         # spatial freq X
+    noise_fy = config.get("noise_freq_y", 6.0)          # spatial freq Y
+    rise_speed = config.get("rise_speed", 2.0)          # upward scroll speed
+
+    # ── Wisps (bright streaks at the tips) ──
+    num_wisps = config.get("wisps", 3)
+    wisp_strength = config.get("wisp_strength", 0.3)
+    wisp_width = config.get("wisp_width", 0.15)        # width of each wisp (fraction of hw)
+
+    # ── Glow ──
+    glow_range = config.get("glow_range", 0.25)        # soft falloff beyond edge
+
+    center_x = W / 2.0
+    inv_Hm1 = 1.0 / (H - 1) if H > 1 else 1.0
+    inv_half_W = 1.0 / (W / 2.0)
+
+    for py_px in range(H):
+        # y: 0.0 at bottom, 1.0 at top (inverted from pixel coords)
+        y = 1.0 - py_px * inv_Hm1
+        # Skip above flame reach + glow margin
+        if y > flame_reach + glow_range:
+            continue
+
+        # Height ratio within flame [0=base, 1=tip]
+        h = min(y / flame_reach, 1.0) if flame_reach > 0 else 0.0
+
+        # ── Flame width at this height (smooth taper) ──
+        taper = h ** taper_exp
+        hw = base_hw + (tip_hw - base_hw) * taper
+
+        # ── Lateral oscillation ──
+        osc = osc_amp * math.sin(h / osc_wl * 2 * math.pi + phase * time_speed)
+        osc += osc2_amp * math.sin(h / osc2_wl * 2 * math.pi - phase * time_speed * 0.7 + 1.5)
+
+        # ── Height fade (strong at base, fading at tip) ──
+        base_height_fade = (1.0 - h) ** 0.6
+
+        for px_px in range(W):
+            # x: centered, in [-1, 1]
+            x = (px_px - center_x) * inv_half_W
+
+            # Adjusted x relative to oscillating flame center
+            ax = x - osc
+
+            # ── Noise-based edge distortion ──
+            # Noise influence grows with height: smooth base, chaotic tips
+            noise_influence = 0.3 + 0.7 * h
+            ny = y * noise_fy - t * time_speed * rise_speed
+            nx = ax * noise_fx
+            edge_n = (fbm(nx, ny, seed=seed, octaves=4) - 0.5) * 2 * noise_distort * noise_influence
+
+            # Effective half-width with noise
+            eff_hw = max(0.01, hw + edge_n)
+
+            # Distance from center as fraction of flame width
+            dist = abs(ax) / eff_hw
+
+            # ── Above flame reach: only glow ──
+            if y > flame_reach:
+                over = (y - flame_reach) / glow_range
+                if over < 1.0 and dist < 1.5:
+                    c = palette[-1]
+                    a = core_alpha * 0.15 * (1 - over) * max(0, 1 - dist)
+                    if a > 1:
+                        pixels[px_px, py_px] = (c[0], c[1], c[2], clamp(a))
+                continue
+
+            # ── Outside flame: soft glow ──
+            if dist > 1.0:
+                glow_frac = (dist - 1.0) / glow_range
+                if glow_frac < 1.0:
+                    c = palette[-1]
+                    a = core_alpha * 0.2 * (1 - glow_frac) * (1 - h * 0.8)
+                    if a > 1:
+                        pixels[px_px, py_px] = (c[0], c[1], c[2], clamp(a))
+                continue
+
+            # ── Inside the flame ──
+            # Height intensity with noise for wispy, uneven tips
+            tip_noise = fbm(ax * 3, y * 8 - t * time_speed * rise_speed * 1.5,
+                            seed=seed + 50, octaves=3)
+            height_fade = base_height_fade * (0.55 + 0.45 * tip_noise)
+
+            # Radial intensity: nearly flat, only soft fade at the very edge
+            radial_fade = max(0.0, 1.0 - dist ** 3.0)
+
+            # Combined intensity
+            intensity = height_fade * radial_fade
+
+            # ── Wisp highlights (bright rising streaks) ──
+            for i in range(num_wisps):
+                wisp_x = (fbm(h * 4 - t * time_speed * 1.8, i * 13.0,
+                               seed=seed + i * 77, octaves=3) - 0.5) * hw * 2
+                wisp_d = abs(ax - wisp_x) / max(0.01, hw * wisp_width)
+                if wisp_d < 1.0:
+                    wisp_int = (1.0 - wisp_d) * wisp_strength * base_height_fade
+                    intensity = min(1.0, intensity + wisp_int)
+
+            intensity = max(0.0, min(1.0, intensity))
+            if intensity < 0.01:
+                continue
+
+            # ── Color from palette ──
+            # High intensity = core color (idx 0), low = edge color (last idx)
+            color_t = 1.0 - intensity
+            palette_pos = color_t * (len(palette) - 1)
+            ci = min(int(palette_pos), len(palette) - 2)
+            blend = palette_pos - ci
+            r = int(palette[ci][0] + (palette[ci + 1][0] - palette[ci][0]) * blend)
+            g = int(palette[ci][1] + (palette[ci + 1][1] - palette[ci][1]) * blend)
+            b = int(palette[ci][2] + (palette[ci + 1][2] - palette[ci][2]) * blend)
+
+            # Alpha with noise variation
+            alpha_noise = fbm(px_px * 0.04, py_px * 0.04 + t * time_speed * 2,
+                              seed=seed + 200, octaves=2)
+            alpha = core_alpha * intensity * (0.85 + 0.15 * alpha_noise)
+
+            pixels[px_px, py_px] = (clamp(r), clamp(g), clamp(b), clamp(alpha))
+
+    img = img.filter(ImageFilter.GaussianBlur(radius=1.5))
+    img = img.resize((FRAME_W, FRAME_H), Image.LANCZOS)
+    return img
+
+
+# ─── AURA CONFIGURATIONS ──────────────────────────────────────────────
+
+FLAME_PALETTE = [
+    (255, 80, 20),    # bright red-orange core
+    (230, 50, 10),    # intense red
+    (200, 30, 5),     # deep red
+    (170, 15, 0),     # dark red
+    (140, 5, 0),      # darker red
+    (100, 0, 0),      # deep crimson tip
+]
+FLAME_CONFIG = dict(
+    seed=42, time_speed=3.0, core_alpha=255,
+    base_half_width=1.0, tip_half_width=0.06, flame_reach=0.92, taper_exp=0.7,
+    osc_amplitude=0.07, osc_wavelength=0.35, osc2_amplitude=0.04, osc2_wavelength=0.2,
+    noise_distort=0.15, noise_freq_x=4.0, noise_freq_y=6.0, rise_speed=2.0,
+    wisps=3, wisp_strength=0.3, wisp_width=0.15, glow_range=0.25,
+)
+
+ICE_PALETTE = [
+    (60, 160, 255),   # bright cyan-blue core
+    (30, 120, 240),   # vivid blue
+    (15, 80, 220),    # strong blue
+    (5, 50, 190),     # deep blue
+    (0, 30, 160),     # dark blue
+    (0, 15, 120),     # abyss blue tip
+]
+ICE_CONFIG = dict(
+    seed=137, time_speed=2.0, core_alpha=255,
+    base_half_width=1.0, tip_half_width=0.04, flame_reach=0.95, taper_exp=0.6,
+    osc_amplitude=0.05, osc_wavelength=0.45, osc2_amplitude=0.03, osc2_wavelength=0.25,
+    noise_distort=0.12, noise_freq_x=5.0, noise_freq_y=7.0, rise_speed=1.5,
+    wisps=4, wisp_strength=0.25, wisp_width=0.12, glow_range=0.20,
+)
+
+ORBITAL_PALETTE = [
+    (30, 220, 100),   # bright green core
+    (15, 180, 70),    # vivid green
+    (5, 150, 50),     # strong green
+    (0, 120, 35),     # deep green
+    (0, 90, 20),      # dark green
+    (0, 60, 10),      # forest green tip
+]
+ORBITAL_CONFIG = dict(
+    seed=256, time_speed=4.0, core_alpha=255,
+    base_half_width=1.0, tip_half_width=0.08, flame_reach=0.88, taper_exp=0.8,
+    osc_amplitude=0.09, osc_wavelength=0.28, osc2_amplitude=0.05, osc2_wavelength=0.18,
+    noise_distort=0.18, noise_freq_x=3.5, noise_freq_y=5.5, rise_speed=2.5,
+    wisps=3, wisp_strength=0.35, wisp_width=0.18, glow_range=0.22,
+)
+
+PULSE_PALETTE = [
+    (100, 120, 255),  # bright electric blue core
+    (60, 80, 240),    # vivid blue
+    (30, 50, 220),    # strong blue
+    (15, 30, 200),    # deep blue
+    (5, 15, 170),     # dark blue
+    (0, 5, 130),      # abyss blue tip
+]
+PULSE_CONFIG = dict(
+    seed=314, time_speed=3.5, core_alpha=255,
+    base_half_width=1.0, tip_half_width=0.07, flame_reach=0.90, taper_exp=0.65,
+    osc_amplitude=0.06, osc_wavelength=0.40, osc2_amplitude=0.04, osc2_wavelength=0.22,
+    noise_distort=0.13, noise_freq_x=4.5, noise_freq_y=6.0, rise_speed=1.8,
+    wisps=2, wisp_strength=0.25, wisp_width=0.20, glow_range=0.28,
+)
+
+SHADOW_PALETTE = [
+    (120, 20, 180),   # bright purple core
+    (90, 10, 150),    # vivid purple
+    (65, 5, 120),     # deep purple
+    (45, 0, 90),      # dark purple
+    (25, 0, 60),      # very dark
+    (10, 0, 30),      # near black tip
+]
+SHADOW_CONFIG = dict(
+    seed=666, time_speed=2.5, core_alpha=255,
+    base_half_width=1.0, tip_half_width=0.08, flame_reach=0.94, taper_exp=0.75,
+    osc_amplitude=0.06, osc_wavelength=0.38, osc2_amplitude=0.04, osc2_wavelength=0.24,
+    noise_distort=0.17, noise_freq_x=4.0, noise_freq_y=5.0, rise_speed=1.6,
+    wisps=4, wisp_strength=0.30, wisp_width=0.14, glow_range=0.30,
+)
+
+VORTEX_PALETTE = [
+    (130, 50, 255),   # bright violet core
+    (100, 30, 230),   # vivid violet
+    (70, 15, 200),    # deep violet
+    (45, 5, 170),     # dark violet
+    (25, 0, 130),     # very dark violet
+    (10, 0, 90),      # abyss violet tip
+]
+VORTEX_CONFIG = dict(
+    seed=512, time_speed=5.0, core_alpha=255,
+    base_half_width=1.0, tip_half_width=0.05, flame_reach=0.90, taper_exp=0.65,
+    osc_amplitude=0.10, osc_wavelength=0.25, osc2_amplitude=0.06, osc2_wavelength=0.15,
+    noise_distort=0.20, noise_freq_x=3.5, noise_freq_y=7.0, rise_speed=3.0,
+    wisps=5, wisp_strength=0.35, wisp_width=0.13, glow_range=0.22,
+)
+
+
+# ─── MAIN ───────────────────────────────────────────────────────────────
+if __name__ == "__main__":
+    halos = {
+        "halo_flame": (FLAME_PALETTE, FLAME_CONFIG),
+        "halo_ice": (ICE_PALETTE, ICE_CONFIG),
+        "halo_orbital": (ORBITAL_PALETTE, ORBITAL_CONFIG),
+        "halo_pulse": (PULSE_PALETTE, PULSE_CONFIG),
+        "halo_shadow": (SHADOW_PALETTE, SHADOW_CONFIG),
+        "halo_vortex": (VORTEX_PALETTE, VORTEX_CONFIG),
+    }
+    for name, (palette, config) in halos.items():
+        print(f"Generating {name}...")
+        frames = []
+        for f in range(TOTAL_FRAMES):
+            frame = generate_rising_flame(f, TOTAL_FRAMES, palette, config)
+            frames.append(frame)
+            print(f"  frame {f + 1}/{TOTAL_FRAMES}", end="\r")
+        print()
+        sheet = make_sheet(frames)
+        path = f"{OUTPUT_DIR}/{name}.png"
+        sheet.save(path)
+        print(f"  -> Saved {path}")
+
+    print("Done!")

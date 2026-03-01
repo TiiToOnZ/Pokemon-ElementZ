@@ -1,0 +1,14 @@
+en,fr
+[VAR PKNICK(0000)] lost a life bar!,[VAR PKNICK(0000)] a perdu une barre de vie !
+The wild [VAR PKNICK(0000)] lost a life bar!,[VAR PKNICK(0000)] sauvage a perdu une barre de vie !
+The opposing [VAR PKNICK(0000)] lost a life bar!,Le boss [VAR PKNICK(0000)] a perdu une barre de vie !
+
+[VAR PKNICK(0000)] gained a life bar!,[VAR PKNICK(0000)] a gagné une barre de vie !
+The wild [VAR PKNICK(0000)] gained a life bar!,[VAR PKNICK(0000)] sauvage a gagné une barre de vie !
+The opposing [VAR PKNICK(0000)] gained a life bar!,[VAR PKNICK(0000)] ennemi a gagné une barre de vie !
+
+[VAR PKNICK(0000)] blocked the Pokéball !,[VAR PKNICK(0000)] détourne la Pokéball !
+The wild [VAR PKNICK(0000)] blocked the Pokéball !,Le [VAR PKNICK(0000)] sauvage détourne la Pokéball !
+The opposing [VAR PKNICK(0000)] blocked the Pokéball !,Le [VAR PKNICK(0000)] ennemi détourne la Pokéball !
+
+[VAR TRNAME(0000)] prepare [VAR 1400(0001)][VAR ITEM2(0001)] !,[VAR TRNAME(0000)] prépare [VAR 1400(0001)][VAR ITEM2(0001)] !

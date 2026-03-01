@@ -13,10 +13,6 @@ module Battle
 
         target.add_damage_to_history(hp, launcher, skill, target.dead?)
         log_data("# damage_change(#{hp}, #{target}, #{launcher}, #{skill}, #{target.dead?})")
-      rescue Hooks::ForceReturn => e
-        log_data("# FR: damage_change : #{e.data} from #{e.hook_name} (#{e.reason})")
-        return e.data
-      ensure
         @scene.visual.refresh_info_bar(target)
       end
 
@@ -34,10 +30,6 @@ module Battle
 
         target.add_damage_to_history(hp, launcher, skill, target.dead?)
         log_data("# drain_boss(#{hp}, #{target}, #{launcher}, #{skill}, #{target.dead?})")
-      rescue Hooks::ForceReturn => e
-        log_data("# FR: drain : #{e.data} from #{e.hook_name} (#{e.reason})")
-        return e.data
-      ensure
         @scene.visual.refresh_info_bar(target)
       end
 
@@ -54,13 +46,11 @@ module Battle
       def handle_damage(hp, target, launcher, skill, drain_factor: 1, source: :default, &messages)
         update_skill_damage(hp, target, skill)
 
-        if hp >= target.hp
-          handle_knockout(hp, target, launcher, skill, drain_factor, source, &messages)
-        else
-          show_hp_animations(hp, target, skill, &messages)
-          handle_drain_effects(hp, target, launcher, skill, drain_factor) if source == :drain
-          exec_hooks(DamageHandler, :post_damage, binding)
-        end
+        return handle_knockout(hp, target, launcher, skill, drain_factor, source, &messages) if hp >= target.hp
+
+        show_hp_animations(hp, target, skill, &messages)
+        handle_drain_effects(hp, target, launcher, skill, drain_factor) if source == :drain
+        handle_post_damage_events(hp, target, launcher, skill)
       end
 
       # Handles the specific logic for draining HP and transferring it to the launcher.
@@ -71,13 +61,21 @@ module Battle
       # @param drain_factor [Integer] The division factor of HP drained.
       def handle_drain_effects(hp, target, launcher, skill, drain_factor)
         hp_multiplier = 1.0
-        exec_hooks(DamageHandler, :pre_drain, binding)
+        log_data("# drain hp_multiplier = #{hp_multiplier} before pre_drain hook")
+        hp_multiplier *= calculate_pre_drain_multiplier(hp, target, launcher, skill)
+        log_data("# drain hp_multiplier = #{hp_multiplier} after pre_drain hook")
 
         hp_healed = (hp * hp_multiplier / drain_factor).to_i.clamp(1, Float::INFINITY)
-        exec_hooks(DamageHandler, :drain_prevention, binding)
-        return if hp_healed.zero? || launcher.dead?
+        result = handle_drain_prevention(hp, hp_healed, target, launcher, skill)
+        return false if result == :prevent
 
-        @scene.display_message_and_wait(parse_text_with_pokemon(10_000, 12, target)) if heal(launcher, hp_healed)
+        hp_healed = result if result.is_a?(Integer)
+        log_data("# drain drain_appliable? #{hp_healed > 0} after drain_prevention hook")
+
+        return if hp_healed <= 0 || launcher.dead?
+        return unless can_heal?(launcher) && heal(launcher, hp_healed)
+
+        @scene.display_message_and_wait(parse_text_with_pokemon(19, 905, target))
       end
 
       # Handles the knockout of a Pokémon, considering special cases for bosses.
@@ -89,14 +87,12 @@ module Battle
       # @param source [:default, :drain] The source of the damage calculation.
       # @param messages [Proc] The messages shown right before the post-processing.
       def handle_knockout(hp, target, launcher, skill, drain_factor, source, &messages)
-        if target.nb_bars_hp > 1
-          handle_boss_bar_removal(hp, target, launcher, skill, drain_factor, source, &messages)
-        else
-          show_hp_animations(hp, target, skill, &messages)
-          handle_drain_effects(hp, target, launcher, skill, drain_factor) if source == :drain
-          exec_hooks(DamageHandler, :post_damage_death, binding)
-          target.ko_count += 1
-        end
+        return handle_boss_bar_removal(hp, target, launcher, skill, drain_factor, source, &messages) if target.nb_bars_hp > 1
+
+        show_hp_animations(hp, target, skill, &messages)
+        handle_drain_effects(hp, target, launcher, skill, drain_factor) if source == :drain
+        handle_post_damage_death_events(hp, target, launcher, skill)
+        target.ko_count += 1
       end
 
       # Handles the removal of a health bar from a boss.
@@ -111,7 +107,7 @@ module Battle
         show_hp_animations(target.hp - 1, target, skill, &messages)
         handle_drain_effects(hp, target, launcher, skill, drain_factor) if source == :drain
         heal_boss(target, target.max_hp, test_heal_block: false, bar_state: :losing)
-        exec_hooks(DamageHandler, :post_damage_death, binding)
+        handle_post_damage_death_events(hp, target, launcher, skill)
         target.ko_count += 1
       end
     end

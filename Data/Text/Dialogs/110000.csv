@@ -1,29 +1,14 @@
 en,fr
 [VAR PKNICK(0000)] lost a life bar!,[VAR PKNICK(0000)] a perdu une barre de vie !
 The wild [VAR PKNICK(0000)] lost a life bar!,[VAR PKNICK(0000)] sauvage a perdu une barre de vie !
-The opposing [VAR PKNICK(0000)] lost a life bar!,[VAR PKNICK(0000)] ennemi a perdu une barre de vie !
-[VAR PKNICK(0000)]’s HP was restored.,[VAR PKNICK(0000)] récupère des PV !
-The wild [VAR PKNICK(0000)] had its HP restored.,Le [VAR PKNICK(0000)] sauvage récupère des PV !
-The opposing [VAR PKNICK(0000)] ha d its HP restored.,Le [VAR PKNICK(0000)] ennemi récupère des PV !
-[VAR PKNICK(0000)] was prevented from healing due to Heal Block!,[VAR PKNICK(0000)] ne peut pas guérir à cause d’Anti-Soin !
-The wild [VAR PKNICK(0000)] was prevented from healing due to Heal Block!,Le [VAR PKNICK(0000)] sauvage ne peut pas guérir à cause d’Anti-Soin !
-The opposing [VAR PKNICK(0000)] was prevented from healing due to Heal Block!,Le [VAR PKNICK(0000)] ennemi ne peut pas guérir à cause d’Anti-Soin !
-[VAR PKNICK(0000)] was prevented from healing!,[VAR PKNICK(0000)] ne peut pas guérir !
-The wild [VAR PKNICK(0000)] was prevented from healing!,Le [VAR PKNICK(0000)] sauvage ne peut pas guérir !
-The opposing [VAR PKNICK(0000)] was prevented from healing!,Le [VAR PKNICK(0000)] ennemi ne peut pas guérir !
-[VAR PKNICK(0000)] had its energy drained!,L’énergie de [VAR PKNICK(0000)] est drainée !
-The wild [VAR PKNICK(0000)] had its energy drained!,L’énergie du [VAR PKNICK(0000)] sauvage est drainée !
-The opposing [VAR PKNICK(0000)] had its energy drained!,L’énergie du [VAR PKNICK(0000)] ennemi est drainée !
-[VAR PKNICK(0000)] sucked up the liquid ooze!,[VAR PKNICK(0000)] aspire le Suintement !
-The wild [VAR PKNICK(0000)] sucked up the liquid ooze!,Le [VAR PKNICK(0000)] sauvage aspire le Suintement !
-The opposing [VAR PKNICK(0000)] sucked up the liquid ooze!,Le [VAR PKNICK(0000)] ennemi aspire le Suintement !
-[VAR PKNICK(0000)] blocked the Pokéball !,[VAR PKNICK(0000)] détourne la Pokéball !
-The wild [VAR PKNICK(0000)] blocked the Pokéball !,Le [VAR PKNICK(0000)] sauvage détourne la Pokéball !
-The opposing [VAR PKNICK(0000)] blocked the Pokéball !,Le [VAR PKNICK(0000)] ennemi détourne la Pokéball !
+The opposing [VAR PKNICK(0000)] lost a life bar!,Le boss [VAR PKNICK(0000)] a perdu une barre de vie !
+
 [VAR PKNICK(0000)] gained a life bar!,[VAR PKNICK(0000)] a gagné une barre de vie !
 The wild [VAR PKNICK(0000)] gained a life bar!,[VAR PKNICK(0000)] sauvage a gagné une barre de vie !
 The opposing [VAR PKNICK(0000)] gained a life bar!,[VAR PKNICK(0000)] ennemi a gagné une barre de vie !
-[VAR TRNAME(0000)] prepare [VAR 1400(0001)][VAR ITEM2(0001)] !,[VAR TRNAME(0000)] prépare [VAR 1400(0001)][VAR ITEM2(0001)] !
 
-A wild [VAR PKNAME(0000)] appeared!,Un [VAR PKNAME(0000)] sauvage apparaît !
-The boss [VAR PKNAME(0000)] appeared!,Le boss [VAR PKNAME(0000)] apparaît !
+[VAR PKNICK(0000)] blocked the Pokéball !,[VAR PKNICK(0000)] détourne la Pokéball !
+The wild [VAR PKNICK(0000)] blocked the Pokéball !,Le [VAR PKNICK(0000)] sauvage détourne la Pokéball !
+The opposing [VAR PKNICK(0000)] blocked the Pokéball !,Le [VAR PKNICK(0000)] ennemi détourne la Pokéball !
+
+[VAR TRNAME(0000)] prepare [VAR 1400(0001)][VAR ITEM2(0001)] !,[VAR TRNAME(0000)] prépare [VAR 1400(0001)][VAR ITEM2(0001)] !

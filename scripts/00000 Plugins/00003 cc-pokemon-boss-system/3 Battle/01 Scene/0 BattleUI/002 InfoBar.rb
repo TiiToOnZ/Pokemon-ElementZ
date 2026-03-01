@@ -33,11 +33,11 @@ module BattleUI
 
         total_bars  = 5
         filled_bars = boss_pokemon.nb_bars_hp
-        x_start     = @is_triple_battle ? 42 : 57
-        x_offset    = @is_triple_battle ? 11 : 14
+        x_start     = @is_triple_battle ? 43 : 73
+        x_offset    = 11
 
         total_bars.times do |index|
-          bar = add_sprite(x_start + index * x_offset, 22, self.class::NO_INITIAL_IMAGE, type: ReserveHP)
+          bar = add_sprite(x_start + index * x_offset, 21, self.class::NO_INITIAL_IMAGE, type: ReserveHP)
           bar.switch_state(filled: false) if index >= filled_bars
           @bars_hp << bar
         end
@@ -53,13 +53,44 @@ module BattleUI
         # @param pokemon [PFM::Pokemon] The Pokemon data.
         # @return [String] The filename of the background image.
         def background_filename(pokemon)
-          return "battle/boss/battle_bar_boss#{suffix_3v3}" if pokemon.boss? && pokemon.bank == 1
+          return "battle/boss/battlebar_boss#{suffix_3v3}" if pokemon.boss? && pokemon.bank == 1
 
           super
+        end
+
+        # Return a suffix for 3v3 battle resources
+        # @return [String]
+        def suffix_3v3
+          return $game_temp.vs_type == 3 ? '_3v3' : ''
         end
       end
 
       prepend BackgroundBossPatch
+    end
+
+    class PokemonCaughtSprite < ShaderedSprite
+      module PokemonCaughtSpriteBossPatch
+        # Set the Pokemon Data
+        # @param pokemon [PFM::Pokemon]
+        def data=(pokemon)
+          self.visible = should_show_caught_sprite?(pokemon)
+        end
+
+        private
+
+        # Determines if the caught sprite should be visible
+        # @param pokemon [PFM::Pokemon]
+        # @return [Boolean]
+        def should_show_caught_sprite?(pokemon)
+          return false if pokemon.bank == 0
+          return false if pokemon.boss?
+          return false unless $pokedex.creature_caught?(pokemon.id, pokemon.form)
+
+          return true
+        end
+      end
+
+      prepend PokemonCaughtSpriteBossPatch
     end
 
     class ReserveHP < ShaderedSprite
@@ -79,19 +110,13 @@ module BattleUI
       # Gets the filename for the filled reserve HP bar image.
       # @return [String]
       def reserve_hp_filename
-        return "battle/boss/hp_bar_filled#{suffix_3v3}"
+        return 'battle/boss/hp_bar_filled'
       end
 
       # Gets the filename for the empty reserve HP bar image.
       # @return [String]
       def empty_hp_filename
-        return "battle/boss/hp_bar_empty#{suffix_3v3}"
-      end
-
-      # Return a suffix for 3v3 battle resources
-      # @return [String]
-      def suffix_3v3
-        return $game_temp.vs_type == 3 ? '_3v3' : ''
+        return 'battle/boss/hp_bar_empty'
       end
     end
   end
