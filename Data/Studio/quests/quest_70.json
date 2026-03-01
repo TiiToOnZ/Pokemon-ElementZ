@@ -1,24 +1,24 @@
 {
   "klass": "Quest",
-  "id": 6,
-  "dbSymbol": "quest_6",
+  "id": 70,
+  "dbSymbol": "quest_70",
   "isPrimary": false,
   "resolution": "default",
   "objectives": [
     {
-      "objectiveMethodName": "objective_obtain_item",
+      "objectiveMethodName": "objective_beat_pokemon",
       "objectiveMethodArgs": [
-        "le_prince_des_mers",
+        "onix",
         1
       ],
-      "textFormatMethodName": "text_obtain_item",
-      "hiddenByDefault": false
+      "textFormatMethodName": "text_beat_pokemon",
+      "hiddenByDefault": true
     },
     {
       "objectiveMethodName": "objective_speak_to",
       "objectiveMethodArgs": [
         0,
-        "Chef des Rangers"
+        "Pierre Rochard (Directeur du musée)"
       ],
       "textFormatMethodName": "text_speak_to",
       "hiddenByDefault": false
@@ -31,6 +31,14 @@
         1000
       ],
       "textFormatMethodName": "text_earn_money"
+    },
+    {
+      "earningMethodName": "earning_item",
+      "earningArgs": [
+        "explorer_kit",
+        1
+      ],
+      "textFormatMethodName": "text_earn_item"
     }
   ]
 }

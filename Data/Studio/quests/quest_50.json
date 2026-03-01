@@ -33,29 +33,5 @@
       "hiddenByDefault": false
     }
   ],
-  "earnings": [
-    {
-      "earningMethodName": "earning_money",
-      "earningArgs": [
-        1000
-      ],
-      "textFormatMethodName": "text_earn_money"
-    },
-    {
-      "earningMethodName": "earning_item",
-      "earningArgs": [
-        "blue_orb",
-        1
-      ],
-      "textFormatMethodName": "text_earn_item"
-    },
-    {
-      "earningMethodName": "earning_item",
-      "earningArgs": [
-        "red_orb",
-        1
-      ],
-      "textFormatMethodName": "text_earn_item"
-    }
-  ]
+  "earnings": []
 }

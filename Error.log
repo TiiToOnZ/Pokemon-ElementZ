@@ -1,22 +1,19 @@
 ================================Erreur de script================================
 Message :
-undefined local variable or method `nill' for #<Interpreter:0x170ccce8>
+undefined method `pokemon_unmark' for #<PFM::Pokedex:0x176facf0>
 
-Type : NameError
+Type : NoMethodError
 Script : (eval) (RMXP)
-Ligne : 3
-Date : 25/02/2026 10:26:58
+Ligne : 2
+Date : 27/02/2026 20:40:06
 Game Version : 1
 Logiciel : PSDK 26.51
 Script used by eval command : 
-pokemon = 
-PFM::Pokemon.generate_from_hash(id: 58, level: 10, moves: [44,nill,52,nil], stats:[20,20,20,20,20,20])
-call_battle_wild(pokemon, nil)
-$game_temp.battle_can_lose = true
+$pokedex.pokemon_unmark(:flareon)
 
 
 ===================================Backtraces===================================
-[26] : (eval) (RMXP) | ligne 3 eval_X8
+[26] : (eval) (RMXP) | ligne 2 eval_X1
 [25] : 1_RMXP_Scripts.rb (PSDK) | ligne 2105 eval_script
 [24] : 1_RMXP_Scripts.rb (PSDK) | ligne 2097 command_355
 [23] : 1_RMXP_Scripts.rb (PSDK) | ligne 1081 execute_command

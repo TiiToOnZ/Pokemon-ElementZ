@@ -8,7 +8,7 @@
     {
       "objectiveMethodName": "objective_obtain_item",
       "objectiveMethodArgs": [
-        "poke_loupe",
+        "pokeloupe",
         1
       ],
       "textFormatMethodName": "text_obtain_item",
@@ -17,7 +17,7 @@
     {
       "objectiveMethodName": "objective_obtain_item",
       "objectiveMethodArgs": [
-        "poke_torche",
+        "poketorche",
         1
       ],
       "textFormatMethodName": "text_obtain_item",
@@ -40,24 +40,6 @@
       ],
       "textFormatMethodName": "text_speak_to",
       "hiddenByDefault": false
-    },
-    {
-      "objectiveMethodName": "objective_beat_pokemon",
-      "objectiveMethodArgs": [
-        "onix",
-        1
-      ],
-      "textFormatMethodName": "text_beat_pokemon",
-      "hiddenByDefault": true
-    },
-    {
-      "objectiveMethodName": "objective_speak_to",
-      "objectiveMethodArgs": [
-        1,
-        "Pierre Rochard (Directeur du musée))"
-      ],
-      "textFormatMethodName": "text_speak_to",
-      "hiddenByDefault": false
     }
   ],
   "earnings": [
@@ -67,14 +49,6 @@
         1000
       ],
       "textFormatMethodName": "text_earn_money"
-    },
-    {
-      "earningMethodName": "earning_item",
-      "earningArgs": [
-        "explorer_kit",
-        1
-      ],
-      "textFormatMethodName": "text_earn_item"
     }
   ]
 }
