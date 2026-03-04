@@ -59,8 +59,8 @@ This berry can be used to heal a \c[2]Pokemon\c[0] that has been poisoned.,Cette
 :[align=center]:RECEIPT : \c[5]4 POKE BALLS\c[0],:[align=center]:REÇU : \c[5]4 POKE BALLS\c[0],:[align=center]:RECIBIDO : \c[5]4 POKE BALLS\c[0],:[align=center]:RICEVUTA : \c[5]4 POKE BALLS\c[0]
 ":[align=center]:\s[i]You store your ""Poké Balls"" in your bag in the Poké Ball pocket.\s[r]",":[align=center]:\s[i]Vous rangez vos ""Poké Balls"" dans votre sac dans la poche Poké Balls.\s[r]",":[align=center]:\s[i]Guarda tus ""Poké Balls"" en tu bolsa, en el bolsillo Poké Balls.\s[r]",:[align=center]:\s[i]Riponi le tue “Poké Ball” nella borsa nella tasca Poké Ball.\s[r]
 Ho ! \nlBut you're in Nuzlocke mode !\nlYou already know how to catch a \c[2]Pokemon\c[0].\nlI'll give you this \c[2]Sapereau\c[0] !,Ho ! \nlMais tu es en mode Nuzlocke !\nlTu sais déjà comment attraper un \c[2]Pokemon\c[0].\nlJe te donne ce \c[2]Sapereau\c[0] !,¡ Eh ! \nl¡ Pero si estás en modo Nuzlocke ! \nlYa sabes cómo atrapar un \c[2]Pokemon\c[0]. \nl¡ Te regalo este \c[2]Sapereau\c[0] !,Ehi ! \nlMa sei in modalità Nuzlocke ! \nlSai già come catturare un \c[2]Pokemon\c[0]. \nlTi regalo questo \c[2]Sapereau\c[0] !
-:[align=center]:RECEIPT : \c[5]SAPEREAU\c[0],:[align=center]:REÇU : \c[5]SAPEREAU\c[0],":[align=center]:RECIBIDO
-
+:[align=center]:RECEIPT : \c[5]SAPEREAU\c[0],:[align=center]:REÇU : \c[5]SAPEREAU\c[0],":[align=center]:RECIBIDO
+
 sapereau : \c[5]SAPEREAU\c[0]",:[align=center]:RICEVUTA : \c[5]SAPEREAU\c[0]
 Good luck with your Nuzlocke run !,Bonne chance pour ta partie en Nuzlocke !,¡ Buena suerte en tu partida en Nuzlocke !,Buona fortuna per la tua partita a Nuzlocke !
 "Come on, let's go catch a \c[2]Pokemon\c[0] ! \nlLook ! \nlA \c[2]Sapereau\c[0] !","Allez viens, on va capturer un \c[2]Pokemon\c[0] ! \nlRegarde !\nlUn \c[2]Sapereau\c[0] !","¡ Vamos, vamos a capturar un \c[2]Pokémon\c[0] ! \nl¡ Mira ! \nl¡ Un \c[2]Sapereau\c[0] !","Dai, vieni, andiamo a catturare un \c[2]Pokemon\c[0] ! \nlGuarda !\nlUn \c[2]Sapereau\c[0] !"
