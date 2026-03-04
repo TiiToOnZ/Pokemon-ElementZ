@@ -99,7 +99,7 @@ class Scene_Title < GamePlay::BaseCleanUpdate
     @background_down_gif_sprite = Sprite.new(@viewport)
     @background_down_gif_sprite.bitmap = @background_down_gif_texture
 
-    # Position du GIF (à ajuster selon ton besoin)
+    # Position du GIF
     @background_down_gif_sprite.x = 0
     @background_down_gif_sprite.y = 0  # par exemple en bas de l’écran
     @background_down_gif_sprite.z = 100  # en dessous du GIF évoli

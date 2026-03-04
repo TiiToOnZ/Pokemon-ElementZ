@@ -9,7 +9,7 @@
       "objectiveMethodName": "objective_speak_to",
       "objectiveMethodArgs": [
         0,
-        "Bûcheron"
+        "Artisan"
       ],
       "textFormatMethodName": "text_speak_to",
       "hiddenByDefault": false

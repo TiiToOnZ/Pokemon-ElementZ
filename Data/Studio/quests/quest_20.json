@@ -6,6 +6,15 @@
   "resolution": "default",
   "objectives": [
     {
+      "objectiveMethodName": "objective_custom",
+      "objectiveMethodArgs": [
+        0,
+        0
+      ],
+      "textFormatMethodName": "text_custom",
+      "hiddenByDefault": false
+    },
+    {
       "objectiveMethodName": "objective_speak_to",
       "objectiveMethodArgs": [
         0,
@@ -15,13 +24,5 @@
       "hiddenByDefault": false
     }
   ],
-  "earnings": [
-    {
-      "earningMethodName": "earning_money",
-      "earningArgs": [
-        500
-      ],
-      "textFormatMethodName": "text_earn_money"
-    }
-  ]
+  "earnings": []
 }
