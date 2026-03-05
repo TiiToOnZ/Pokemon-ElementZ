@@ -9,8 +9,8 @@
   "customConditions": [
     {
       "type": "mapId",
-      "relationWithPreviousCondition": "AND",
-      "value": 36
+      "value": 36,
+      "relationWithPreviousCondition": "AND"
     }
   ],
   "encounters": [
@@ -523,5 +523,5 @@
       ]
     }
   ],
-  "stepsAverage": 18
+  "stepsAverage": 12
 }

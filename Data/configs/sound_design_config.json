@@ -218,11 +218,11 @@
     },
     "baseWildBattle": {
       "name": "audio/bgm/rosa_wild_battle.ogg",
-      "volume": 100,
+      "volume": 70,
       "pitch": 100
     },
     "baseWildDefeat": {
-      "name": "audio/bgm/43 camphrier town.ogg",
+      "name": "audio/bgm/pkmrs_victory2.mid",
       "volume": 100,
       "pitch": 100
     },

@@ -2,6 +2,17 @@
   "klass": "Group",
   "id": 32,
   "dbSymbol": "group_32",
+  "systemTag": "Grass",
+  "terrainTag": 1,
+  "tool": null,
+  "vsType": "double",
+  "customConditions": [
+    {
+      "type": "mapId",
+      "value": 36,
+      "relationWithPreviousCondition": "AND"
+    }
+  ],
   "encounters": [
     {
       "specie": "venipede",
@@ -256,16 +267,5 @@
       ]
     }
   ],
-  "vsType": "double",
-  "systemTag": "Grass",
-  "terrainTag": 1,
-  "customConditions": [
-    {
-      "type": "mapId",
-      "relationWithPreviousCondition": "AND",
-      "value": 36
-    }
-  ],
-  "tool": null,
-  "stepsAverage": 24
+  "stepsAverage": 14
 }
