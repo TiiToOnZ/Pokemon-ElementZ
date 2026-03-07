@@ -1,7 +1,7 @@
 en,fr,es,it
 ":[name=Dresseur]:Oh, non ! J'ai perdu ! ",":[name=Dresseur]:Oh, non ! J'ai perdu ! ",":[name=Dresseur]:Oh, non ! J'ai perdu ! ",":[name=Dresseur]:Oh, non ! J'ai perdu ! "
 ":[name=Dresseur]:Tu m'as battu !\nlWaouh, tu as du talent !",":[name=Dresseur]:Tu m'as battu !\nlWaouh, tu as du talent !",":[name=Dresseur]:Tu m'as battu !\nlWaouh, tu as du talent !",":[name=Dresseur]:Tu m'as battu !\nlWaouh, tu as du talent !"
-":[name=Dresseur]:Arg, tu es tout aussi capable...",":[name=Dresseur]:Arg, tu es tout aussi capable...",":[name=Dresseur]:Arg, tu es tout aussi capable...",":[name=Dresseur]:Arg, tu es tout aussi capable..."
+":[name=Dresseur]:Arg, tu es tout aussi capable...",":[name=Dresseur]:Arg, tu es tout aussi capable[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]",":[name=Dresseur]:Arg, tu es tout aussi capable...",":[name=Dresseur]:Arg, tu es tout aussi capable..."
 :[name=Fillette]:Non je ne viens pas de cette sortie ! C'est de l'autre coté !,:[name=Fillette]:Non je ne viens pas de cette sortie ! C'est de l'autre coté !,:[name=Fillette]:Non je ne viens pas de cette sortie ! C'est de l'autre coté !,:[name=Fillette]:Non je ne viens pas de cette sortie ! C'est de l'autre coté !
 Veux-tu que je soigne ton équipe ?,Veux-tu que je soigne ton équipe ?,Veux-tu que je soigne ton équipe ?,Veux-tu que je soigne ton équipe ?
 Oui !,Oui !,Oui !,Oui !

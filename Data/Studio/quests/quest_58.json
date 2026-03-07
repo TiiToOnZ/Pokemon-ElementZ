@@ -9,19 +9,11 @@
       "objectiveMethodName": "objective_speak_to",
       "objectiveMethodArgs": [
         0,
-        "Pêcheur"
+        "Walter"
       ],
       "textFormatMethodName": "text_speak_to",
       "hiddenByDefault": false
     }
   ],
-  "earnings": [
-    {
-      "earningMethodName": "earning_money",
-      "earningArgs": [
-        1000
-      ],
-      "textFormatMethodName": "text_earn_money"
-    }
-  ]
+  "earnings": []
 }
