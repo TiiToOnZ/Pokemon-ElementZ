@@ -5,6 +5,7 @@
   "systemTag": "Cave",
   "terrainTag": 0,
   "tool": null,
+  "vsType": "simple",
   "customConditions": [],
   "encounters": [
     {
@@ -93,48 +94,6 @@
     },
     {
       "specie": "sableye",
-      "form": 0,
-      "shinySetup": {
-        "kind": "automatic",
-        "rate": -1
-      },
-      "levelSetup": {
-        "kind": "minmax",
-        "level": {
-          "minimumLevel": 1,
-          "maximumLevel": 1
-        }
-      },
-      "randomEncounterChance": 1,
-      "expandPokemonSetup": [
-        {
-          "type": "evs",
-          "value": {
-            "hp": 0,
-            "atk": 0,
-            "dfe": 0,
-            "spd": 0,
-            "ats": 0,
-            "dfs": 0
-          }
-        },
-        {
-          "type": "loyalty",
-          "value": 70
-        },
-        {
-          "type": "moves",
-          "value": [
-            "__undef__",
-            "__undef__",
-            "__undef__",
-            "__undef__"
-          ]
-        }
-      ]
-    },
-    {
-      "specie": "aron",
       "form": 0,
       "shinySetup": {
         "kind": "automatic",
@@ -596,48 +555,6 @@
       ]
     },
     {
-      "specie": "gible",
-      "form": 0,
-      "shinySetup": {
-        "kind": "automatic",
-        "rate": -1
-      },
-      "levelSetup": {
-        "kind": "minmax",
-        "level": {
-          "minimumLevel": 1,
-          "maximumLevel": 1
-        }
-      },
-      "randomEncounterChance": 1,
-      "expandPokemonSetup": [
-        {
-          "type": "evs",
-          "value": {
-            "hp": 0,
-            "atk": 0,
-            "dfe": 0,
-            "spd": 0,
-            "ats": 0,
-            "dfs": 0
-          }
-        },
-        {
-          "type": "loyalty",
-          "value": 70
-        },
-        {
-          "type": "moves",
-          "value": [
-            "__undef__",
-            "__undef__",
-            "__undef__",
-            "__undef__"
-          ]
-        }
-      ]
-    },
-    {
       "specie": "axew",
       "form": 0,
       "shinySetup": {
@@ -888,8 +805,91 @@
           ]
         }
       ]
+    },
+    {
+      "specie": "trapinch",
+      "form": 0,
+      "shinySetup": {
+        "kind": "automatic",
+        "rate": -1
+      },
+      "levelSetup": {
+        "kind": "minmax",
+        "level": {
+          "minimumLevel": 1,
+          "maximumLevel": 1
+        }
+      },
+      "randomEncounterChance": 1,
+      "expandPokemonSetup": [
+        {
+          "type": "evs",
+          "value": {
+            "hp": 0,
+            "atk": 0,
+            "dfe": 0,
+            "spd": 0,
+            "ats": 0,
+            "dfs": 0
+          }
+        },
+        {
+          "type": "loyalty",
+          "value": 70
+        },
+        {
+          "type": "moves",
+          "value": [
+            "__undef__",
+            "__undef__",
+            "__undef__",
+            "__undef__"
+          ]
+        }
+      ]
+    },
+    {
+      "specie": "bagon",
+      "form": 0,
+      "shinySetup": {
+        "kind": "automatic",
+        "rate": -1
+      },
+      "levelSetup": {
+        "kind": "minmax",
+        "level": {
+          "minimumLevel": 1,
+          "maximumLevel": 1
+        }
+      },
+      "randomEncounterChance": 1,
+      "expandPokemonSetup": [
+        {
+          "type": "evs",
+          "value": {
+            "hp": 0,
+            "atk": 0,
+            "dfe": 0,
+            "spd": 0,
+            "ats": 0,
+            "dfs": 0
+          }
+        },
+        {
+          "type": "loyalty",
+          "value": 70
+        },
+        {
+          "type": "moves",
+          "value": [
+            "__undef__",
+            "__undef__",
+            "__undef__",
+            "__undef__"
+          ]
+        }
+      ]
     }
   ],
-  "stepsAverage": 30,
-  "vsType": "simple"
+  "stepsAverage": 24
 }

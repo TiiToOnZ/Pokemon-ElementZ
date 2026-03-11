@@ -1,7 +1,7 @@
 {
   "klass": "Group",
-  "id": 42,
-  "dbSymbol": "group_42",
+  "id": 50,
+  "dbSymbol": "group_50",
   "encounters": [
     {
       "specie": "nidoranf",
@@ -88,6 +88,48 @@
       ]
     },
     {
+      "specie": "ekans",
+      "form": 0,
+      "shinySetup": {
+        "kind": "automatic",
+        "rate": -1
+      },
+      "levelSetup": {
+        "kind": "minmax",
+        "level": {
+          "minimumLevel": 10,
+          "maximumLevel": 14
+        }
+      },
+      "randomEncounterChance": 18,
+      "expandPokemonSetup": [
+        {
+          "type": "evs",
+          "value": {
+            "hp": 0,
+            "atk": 0,
+            "dfe": 0,
+            "spd": 0,
+            "ats": 0,
+            "dfs": 0
+          }
+        },
+        {
+          "type": "loyalty",
+          "value": 70
+        },
+        {
+          "type": "moves",
+          "value": [
+            "__undef__",
+            "__undef__",
+            "__undef__",
+            "__undef__"
+          ]
+        }
+      ]
+    },
+    {
       "specie": "spearow",
       "form": 0,
       "shinySetup": {
@@ -101,7 +143,7 @@
           "maximumLevel": 14
         }
       },
-      "randomEncounterChance": 4,
+      "randomEncounterChance": 18,
       "expandPokemonSetup": [
         {
           "type": "evs",
@@ -143,7 +185,7 @@
           "maximumLevel": 14
         }
       },
-      "randomEncounterChance": 4,
+      "randomEncounterChance": 18,
       "expandPokemonSetup": [
         {
           "type": "evs",
@@ -186,48 +228,6 @@
         }
       },
       "randomEncounterChance": 4,
-      "expandPokemonSetup": [
-        {
-          "type": "evs",
-          "value": {
-            "hp": 0,
-            "atk": 0,
-            "dfe": 0,
-            "spd": 0,
-            "ats": 0,
-            "dfs": 0
-          }
-        },
-        {
-          "type": "loyalty",
-          "value": 70
-        },
-        {
-          "type": "moves",
-          "value": [
-            "__undef__",
-            "__undef__",
-            "__undef__",
-            "__undef__"
-          ]
-        }
-      ]
-    },
-    {
-      "specie": "ponyta",
-      "form": 0,
-      "shinySetup": {
-        "kind": "automatic",
-        "rate": -1
-      },
-      "levelSetup": {
-        "kind": "minmax",
-        "level": {
-          "minimumLevel": 10,
-          "maximumLevel": 14
-        }
-      },
-      "randomEncounterChance": 18,
       "expandPokemonSetup": [
         {
           "type": "evs",
@@ -353,7 +353,7 @@
           "maximumLevel": 14
         }
       },
-      "randomEncounterChance": 18,
+      "randomEncounterChance": 4,
       "expandPokemonSetup": [
         {
           "type": "evs",
@@ -395,7 +395,7 @@
           "maximumLevel": 14
         }
       },
-      "randomEncounterChance": 18,
+      "randomEncounterChance": 4,
       "expandPokemonSetup": [
         {
           "type": "evs",
@@ -523,8 +523,8 @@
       "value": 28
     },
     {
+      "value": 12,
       "type": "enabledSwitch",
-      "value": 11,
       "relationWithPreviousCondition": "AND"
     }
   ],
