@@ -1,0 +1,406 @@
+{
+  "klass": "TrainerBattleSetup",
+  "id": 49,
+  "dbSymbol": "trainer_49",
+  "vsType": 1,
+  "isCouple": false,
+  "baseMoney": 10,
+  "ai": 7,
+  "party": [
+    {
+      "specie": "politoed",
+      "form": 0,
+      "shinySetup": {
+        "kind": "automatic",
+        "rate": -1
+      },
+      "levelSetup": {
+        "kind": "fixed",
+        "level": 27
+      },
+      "randomEncounterChance": 1,
+      "expandPokemonSetup": [
+        {
+          "type": "evs",
+          "value": {
+            "hp": 0,
+            "atk": 0,
+            "dfe": 0,
+            "spd": 0,
+            "ats": 0,
+            "dfs": 0
+          }
+        },
+        {
+          "type": "ivs",
+          "value": {
+            "hp": 31,
+            "atk": 31,
+            "dfe": 31,
+            "spd": 31,
+            "ats": 31,
+            "dfs": 31
+          }
+        },
+        {
+          "type": "loyalty",
+          "value": 70
+        },
+        {
+          "type": "moves",
+          "value": [
+            "hypnosis",
+            "bubble_beam",
+            "body_slam",
+            "double_slap"
+          ]
+        },
+        {
+          "type": "originalTrainerName",
+          "value": "Ondine"
+        },
+        {
+          "type": "originalTrainerId",
+          "value": 0
+        },
+        {
+          "type": "ability",
+          "value": "drizzle"
+        },
+        {
+          "type": "itemHeld",
+          "value": "damp_rock"
+        }
+      ]
+    },
+    {
+      "specie": "goldeen",
+      "form": 0,
+      "shinySetup": {
+        "kind": "automatic",
+        "rate": -1
+      },
+      "levelSetup": {
+        "kind": "fixed",
+        "level": 26
+      },
+      "randomEncounterChance": 1,
+      "expandPokemonSetup": [
+        {
+          "type": "evs",
+          "value": {
+            "hp": 0,
+            "atk": 0,
+            "dfe": 0,
+            "spd": 0,
+            "ats": 0,
+            "dfs": 0
+          }
+        },
+        {
+          "type": "ivs",
+          "value": {
+            "hp": 31,
+            "atk": 31,
+            "dfe": 31,
+            "spd": 31,
+            "ats": 31,
+            "dfs": 31
+          }
+        },
+        {
+          "type": "loyalty",
+          "value": 70
+        },
+        {
+          "type": "moves",
+          "value": [
+            "peck",
+            "water_pulse",
+            "horn_attack",
+            "quick_attack"
+          ]
+        },
+        {
+          "type": "originalTrainerName",
+          "value": "Ondine"
+        },
+        {
+          "type": "originalTrainerId",
+          "value": 0
+        },
+        {
+          "type": "ability",
+          "value": "lightning_rod"
+        }
+      ]
+    },
+    {
+      "specie": "gyarados",
+      "form": 0,
+      "shinySetup": {
+        "kind": "automatic",
+        "rate": -1
+      },
+      "levelSetup": {
+        "kind": "fixed",
+        "level": 29
+      },
+      "randomEncounterChance": 1,
+      "expandPokemonSetup": [
+        {
+          "type": "evs",
+          "value": {
+            "hp": 0,
+            "atk": 0,
+            "dfe": 0,
+            "spd": 0,
+            "ats": 0,
+            "dfs": 0
+          }
+        },
+        {
+          "type": "ivs",
+          "value": {
+            "hp": 31,
+            "atk": 31,
+            "dfe": 31,
+            "spd": 31,
+            "ats": 31,
+            "dfs": 31
+          }
+        },
+        {
+          "type": "loyalty",
+          "value": 70
+        },
+        {
+          "type": "moves",
+          "value": [
+            "bite",
+            "dragon_tail",
+            "thrash",
+            "ice_fang"
+          ]
+        },
+        {
+          "type": "originalTrainerName",
+          "value": "Ondine"
+        },
+        {
+          "type": "originalTrainerId",
+          "value": 0
+        },
+        {
+          "type": "ability",
+          "value": "moxie"
+        }
+      ]
+    },
+    {
+      "specie": "starmie",
+      "form": 0,
+      "shinySetup": {
+        "kind": "automatic",
+        "rate": -1
+      },
+      "levelSetup": {
+        "kind": "fixed",
+        "level": 28
+      },
+      "randomEncounterChance": 1,
+      "expandPokemonSetup": [
+        {
+          "type": "evs",
+          "value": {
+            "hp": 0,
+            "atk": 0,
+            "dfe": 0,
+            "spd": 0,
+            "ats": 0,
+            "dfs": 0
+          }
+        },
+        {
+          "type": "ivs",
+          "value": {
+            "hp": 31,
+            "atk": 31,
+            "dfe": 31,
+            "spd": 31,
+            "ats": 31,
+            "dfs": 31
+          }
+        },
+        {
+          "type": "loyalty",
+          "value": 70
+        },
+        {
+          "type": "moves",
+          "value": [
+            "hydro_pump",
+            "spotlight",
+            "recover",
+            "swift"
+          ]
+        },
+        {
+          "type": "originalTrainerName",
+          "value": "Ondine"
+        },
+        {
+          "type": "originalTrainerId",
+          "value": 0
+        },
+        {
+          "type": "ability",
+          "value": "analytic"
+        },
+        {
+          "type": "nature",
+          "value": "quiet"
+        }
+      ]
+    },
+    {
+      "specie": "azumarill",
+      "form": 0,
+      "shinySetup": {
+        "kind": "automatic",
+        "rate": -1
+      },
+      "levelSetup": {
+        "kind": "fixed",
+        "level": 26
+      },
+      "randomEncounterChance": 1,
+      "expandPokemonSetup": [
+        {
+          "type": "evs",
+          "value": {
+            "hp": 0,
+            "atk": 0,
+            "dfe": 0,
+            "spd": 0,
+            "ats": 0,
+            "dfs": 0
+          }
+        },
+        {
+          "type": "ivs",
+          "value": {
+            "hp": 31,
+            "atk": 31,
+            "dfe": 31,
+            "spd": 31,
+            "ats": 31,
+            "dfs": 31
+          }
+        },
+        {
+          "type": "loyalty",
+          "value": 70
+        },
+        {
+          "type": "moves",
+          "value": [
+            "play_rough",
+            "aqua_tail",
+            "helping_hand",
+            "rollout"
+          ]
+        },
+        {
+          "type": "originalTrainerName",
+          "value": "Ondine"
+        },
+        {
+          "type": "originalTrainerId",
+          "value": 0
+        },
+        {
+          "type": "ability",
+          "value": "sap_sipper"
+        }
+      ]
+    },
+    {
+      "specie": "ludicolo",
+      "form": 0,
+      "shinySetup": {
+        "kind": "automatic",
+        "rate": -1
+      },
+      "levelSetup": {
+        "kind": "fixed",
+        "level": 28
+      },
+      "randomEncounterChance": 1,
+      "expandPokemonSetup": [
+        {
+          "type": "evs",
+          "value": {
+            "hp": 0,
+            "atk": 0,
+            "dfe": 0,
+            "spd": 0,
+            "ats": 0,
+            "dfs": 0
+          }
+        },
+        {
+          "type": "ivs",
+          "value": {
+            "hp": 31,
+            "atk": 31,
+            "dfe": 31,
+            "spd": 31,
+            "ats": 31,
+            "dfs": 31
+          }
+        },
+        {
+          "type": "loyalty",
+          "value": 70
+        },
+        {
+          "type": "moves",
+          "value": [
+            "nature_power",
+            "mega_drain",
+            "bubble_beam",
+            "__remove__"
+          ]
+        },
+        {
+          "type": "originalTrainerName",
+          "value": "Ondine"
+        },
+        {
+          "type": "originalTrainerId",
+          "value": 0
+        },
+        {
+          "type": "ability",
+          "value": "swift_swim"
+        }
+      ]
+    }
+  ],
+  "bagEntries": [],
+  "battleId": 0,
+  "resources": {
+    "artworkFull": "",
+    "artworkSmall": "",
+    "character": "",
+    "musics": {
+      "bgm": "",
+      "defeat": "",
+      "encounter": "",
+      "victory": ""
+    },
+    "sprite": ""
+  },
+  "additionalDialogs": []
+}

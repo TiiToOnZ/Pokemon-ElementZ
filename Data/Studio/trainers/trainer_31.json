@@ -5,6 +5,13 @@
   "vsType": 2,
   "isCouple": false,
   "baseMoney": 10,
+  "bagEntries": [
+    {
+      "dbSymbol": "super_potion",
+      "amount": 2
+    }
+  ],
+  "battleId": 0,
   "ai": 7,
   "party": [
     {
@@ -78,6 +85,68 @@
       ]
     },
     {
+      "specie": "tangela",
+      "form": 0,
+      "shinySetup": {
+        "kind": "automatic",
+        "rate": -1
+      },
+      "levelSetup": {
+        "kind": "fixed",
+        "level": 23
+      },
+      "randomEncounterChance": 1,
+      "expandPokemonSetup": [
+        {
+          "type": "evs",
+          "value": {
+            "hp": 0,
+            "atk": 0,
+            "dfe": 0,
+            "spd": 0,
+            "ats": 0,
+            "dfs": 0
+          }
+        },
+        {
+          "type": "ivs",
+          "value": {
+            "hp": 31,
+            "atk": 31,
+            "dfe": 31,
+            "spd": 31,
+            "ats": 31,
+            "dfs": 31
+          }
+        },
+        {
+          "type": "loyalty",
+          "value": 70
+        },
+        {
+          "type": "moves",
+          "value": [
+            "mega_drain",
+            "poison_powder",
+            "sleep_powder",
+            "growth"
+          ]
+        },
+        {
+          "type": "originalTrainerName",
+          "value": "Pierre"
+        },
+        {
+          "type": "originalTrainerId",
+          "value": 0
+        },
+        {
+          "type": "ability",
+          "value": "chlorophyll"
+        }
+      ]
+    },
+    {
       "specie": "geodude",
       "form": 1,
       "shinySetup": {
@@ -140,72 +209,6 @@
         {
           "type": "itemHeld",
           "value": "focus_band"
-        }
-      ]
-    },
-    {
-      "specie": "onix",
-      "form": 0,
-      "shinySetup": {
-        "kind": "automatic",
-        "rate": -1
-      },
-      "levelSetup": {
-        "kind": "fixed",
-        "level": 22
-      },
-      "randomEncounterChance": 1,
-      "expandPokemonSetup": [
-        {
-          "type": "evs",
-          "value": {
-            "hp": 0,
-            "atk": 0,
-            "dfe": 0,
-            "spd": 0,
-            "ats": 0,
-            "dfs": 0
-          }
-        },
-        {
-          "type": "ivs",
-          "value": {
-            "hp": 31,
-            "atk": 31,
-            "dfe": 31,
-            "spd": 31,
-            "ats": 31,
-            "dfs": 31
-          }
-        },
-        {
-          "type": "itemHeld",
-          "value": "rocky_helmet"
-        },
-        {
-          "type": "loyalty",
-          "value": 70
-        },
-        {
-          "type": "moves",
-          "value": [
-            "headbutt",
-            "stealth_rock",
-            "rock_tomb",
-            "dig"
-          ]
-        },
-        {
-          "type": "originalTrainerName",
-          "value": "Pierre"
-        },
-        {
-          "type": "originalTrainerId",
-          "value": 0
-        },
-        {
-          "type": "ability",
-          "value": "sturdy"
         }
       ]
     },
@@ -278,26 +281,147 @@
           "value": "jolly"
         }
       ]
-    }
-  ],
-  "bagEntries": [
+    },
     {
-      "dbSymbol": "super_potion",
-      "amount": 1
+      "specie": "steelix",
+      "form": 0,
+      "shinySetup": {
+        "kind": "automatic",
+        "rate": -1
+      },
+      "levelSetup": {
+        "kind": "fixed",
+        "level": 22
+      },
+      "randomEncounterChance": 1,
+      "expandPokemonSetup": [
+        {
+          "type": "evs",
+          "value": {
+            "hp": 0,
+            "atk": 0,
+            "dfe": 0,
+            "spd": 0,
+            "ats": 0,
+            "dfs": 0
+          }
+        },
+        {
+          "type": "ivs",
+          "value": {
+            "hp": 31,
+            "atk": 31,
+            "dfe": 31,
+            "spd": 31,
+            "ats": 31,
+            "dfs": 31
+          }
+        },
+        {
+          "type": "itemHeld",
+          "value": "rocky_helmet"
+        },
+        {
+          "type": "loyalty",
+          "value": 70
+        },
+        {
+          "type": "moves",
+          "value": [
+            "thunder_fang",
+            "ice_fang",
+            "rock_tomb",
+            "dig"
+          ]
+        },
+        {
+          "type": "originalTrainerName",
+          "value": "Pierre"
+        },
+        {
+          "type": "originalTrainerId",
+          "value": 0
+        },
+        {
+          "type": "ability",
+          "value": "sturdy"
+        }
+      ]
+    },
+    {
+      "specie": "relicanth",
+      "form": 0,
+      "shinySetup": {
+        "kind": "automatic",
+        "rate": -1
+      },
+      "levelSetup": {
+        "kind": "fixed",
+        "level": 22
+      },
+      "randomEncounterChance": 1,
+      "expandPokemonSetup": [
+        {
+          "type": "evs",
+          "value": {
+            "hp": 0,
+            "atk": 0,
+            "dfe": 0,
+            "spd": 0,
+            "ats": 0,
+            "dfs": 0
+          }
+        },
+        {
+          "type": "ivs",
+          "value": {
+            "hp": 31,
+            "atk": 31,
+            "dfe": 31,
+            "spd": 31,
+            "ats": 31,
+            "dfs": 31
+          }
+        },
+        {
+          "type": "loyalty",
+          "value": 70
+        },
+        {
+          "type": "moves",
+          "value": [
+            "yawn",
+            "water_gun",
+            "tackle",
+            "rock_tomb"
+          ]
+        },
+        {
+          "type": "originalTrainerName",
+          "value": "Pierre"
+        },
+        {
+          "type": "originalTrainerId",
+          "value": 0
+        },
+        {
+          "type": "ability",
+          "value": "sturdy"
+        }
+      ]
     }
   ],
-  "battleId": 0,
   "resources": {
+    "sprite": "",
     "artworkFull": "Pierre_big",
     "artworkSmall": "Pierre",
     "character": "npc_Brock",
     "musics": {
-      "bgm": "",
-      "defeat": "",
       "encounter": "",
-      "victory": ""
-    },
-    "sprite": ""
+      "victory": "",
+      "defeat": "",
+      "bgm": ""
+    }
   },
   "additionalDialogs": []
 }

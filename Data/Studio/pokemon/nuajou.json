@@ -1,0 +1,117 @@
+{
+  "klass": "Specie",
+  "id": 814,
+  "dbSymbol": "nuajou",
+  "forms": [
+    {
+      "form": 0,
+      "formTextId": {
+        "name": 1054,
+        "description": 0
+      },
+      "height": 0.6,
+      "weight": 10.5,
+      "type1": "flying",
+      "type2": "__undef__",
+      "baseHp": 50,
+      "baseAtk": 53,
+      "baseDfe": 48,
+      "baseSpd": 64,
+      "baseAts": 53,
+      "baseDfs": 48,
+      "evHp": 0,
+      "evAtk": 0,
+      "evDfe": 0,
+      "evSpd": 1,
+      "evAts": 0,
+      "evDfs": 0,
+      "evolutions": [
+        {
+          "dbSymbol": "nuajoutan",
+          "form": 0,
+          "conditions": [
+            {
+              "type": "stone",
+              "value": "dawn_stone"
+            }
+          ]
+        }
+      ],
+      "experienceType": 1,
+      "baseExperience": 63,
+      "baseLoyalty": 70,
+      "catchRate": 190,
+      "femaleRate": 12.5,
+      "breedGroups": [
+        5,
+        5
+      ],
+      "hatchSteps": 5120,
+      "babyDbSymbol": "nuajou",
+      "babyForm": 0,
+      "itemHeld": [
+        {
+          "dbSymbol": "none",
+          "chance": 0
+        },
+        {
+          "dbSymbol": "none",
+          "chance": 0
+        }
+      ],
+      "abilities": [
+        "gluttony",
+        "gluttony",
+        "__undef__"
+      ],
+      "frontOffsetY": 0,
+      "moveSet": [
+        {
+          "klass": "LevelLearnableMove",
+          "move": "scratch",
+          "level": 1
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "play_nice",
+          "level": 1
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "leer",
+          "level": 4
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "lick",
+          "level": 7
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "gust",
+          "level": 10
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "fury_swipes",
+          "level": 13
+        }
+      ],
+      "resources": {
+        "icon": "",
+        "iconShiny": "",
+        "front": "1027",
+        "frontShiny": "",
+        "back": "",
+        "backShiny": "",
+        "footprint": "",
+        "character": "",
+        "characterShiny": "",
+        "egg": "",
+        "iconEgg": "",
+        "cry": "",
+        "hasFemale": false
+      }
+    }
+  ]
+}

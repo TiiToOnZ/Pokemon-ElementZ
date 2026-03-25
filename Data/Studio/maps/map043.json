@@ -14,8 +14,8 @@
     "pitch": 100
   },
   "tiledFilename": "041  Ecole",
-  "mtime": 1746192432572,
-  "sha1": "2b5e28a89a834d3a2a90c1c7d972602bb45a6b4b",
+  "mtime": 1773958924199,
+  "sha1": "bbb9e5193260750457f202c7b5ca5b71fac28ebd",
   "tileMetadata": {
     "width": 55,
     "height": 50,
@@ -3769,7 +3769,7 @@
         80
       ],
       [
-        35,
+        40,
         13
       ],
       [

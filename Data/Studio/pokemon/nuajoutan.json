@@ -1,0 +1,96 @@
+{
+  "klass": "Specie",
+  "id": 815,
+  "dbSymbol": "nuajoutan",
+  "forms": [
+    {
+      "form": 0,
+      "formTextId": {
+        "name": 1055,
+        "description": 0
+      },
+      "height": 1.1,
+      "weight": 30.5,
+      "type1": "flying",
+      "type2": "__undef__",
+      "baseHp": 75,
+      "baseAtk": 98,
+      "baseDfe": 63,
+      "baseSpd": 101,
+      "baseAts": 98,
+      "baseDfs": 63,
+      "evHp": 0,
+      "evAtk": 0,
+      "evDfe": 0,
+      "evSpd": 2,
+      "evAts": 0,
+      "evDfs": 0,
+      "evolutions": [],
+      "experienceType": 1,
+      "baseExperience": 174,
+      "baseLoyalty": 70,
+      "catchRate": 75,
+      "femaleRate": 12.5,
+      "breedGroups": [
+        5,
+        5
+      ],
+      "hatchSteps": 5120,
+      "babyDbSymbol": "nuajoutan",
+      "babyForm": 0,
+      "itemHeld": [
+        {
+          "dbSymbol": "none",
+          "chance": 0
+        },
+        {
+          "dbSymbol": "none",
+          "chance": 0
+        }
+      ],
+      "abilities": [
+        "gluttony",
+        "gluttony",
+        "__undef__"
+      ],
+      "frontOffsetY": 0,
+      "moveSet": [
+        {
+          "klass": "LevelLearnableMove",
+          "move": "leer",
+          "level": 1
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "lick",
+          "level": 1
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "fury_swipes",
+          "level": 1
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "air_cutter",
+          "level": 1
+        }
+      ],
+      "resources": {
+        "icon": "",
+        "iconShiny": "",
+        "front": "1028",
+        "frontShiny": "",
+        "back": "",
+        "backShiny": "",
+        "footprint": "",
+        "character": "",
+        "characterShiny": "",
+        "egg": "",
+        "iconEgg": "",
+        "cry": "",
+        "hasFemale": false
+      }
+    }
+  ]
+}

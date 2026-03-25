@@ -5,6 +5,13 @@
   "vsType": 1,
   "isCouple": false,
   "baseMoney": 10,
+  "bagEntries": [
+    {
+      "dbSymbol": "super_potion",
+      "amount": 2
+    }
+  ],
+  "battleId": 0,
   "ai": 7,
   "party": [
     {
@@ -144,7 +151,7 @@
       ]
     },
     {
-      "specie": "onix",
+      "specie": "steelix",
       "form": 0,
       "shinySetup": {
         "kind": "automatic",
@@ -189,8 +196,8 @@
         {
           "type": "moves",
           "value": [
-            "headbutt",
-            "stealth_rock",
+            "thunder_fang",
+            "ice_fang",
             "rock_tomb",
             "dig"
           ]
@@ -278,26 +285,143 @@
           "value": "jolly"
         }
       ]
-    }
-  ],
-  "bagEntries": [
+    },
     {
-      "dbSymbol": "super_potion",
-      "amount": 1
+      "specie": "relicanth",
+      "form": 0,
+      "shinySetup": {
+        "kind": "automatic",
+        "rate": -1
+      },
+      "levelSetup": {
+        "kind": "fixed",
+        "level": 22
+      },
+      "randomEncounterChance": 1,
+      "expandPokemonSetup": [
+        {
+          "type": "evs",
+          "value": {
+            "hp": 0,
+            "atk": 0,
+            "dfe": 0,
+            "spd": 0,
+            "ats": 0,
+            "dfs": 0
+          }
+        },
+        {
+          "type": "ivs",
+          "value": {
+            "hp": 31,
+            "atk": 31,
+            "dfe": 31,
+            "spd": 31,
+            "ats": 31,
+            "dfs": 31
+          }
+        },
+        {
+          "type": "loyalty",
+          "value": 70
+        },
+        {
+          "type": "moves",
+          "value": [
+            "water_gun",
+            "tackle",
+            "rock_tomb",
+            "yawn"
+          ]
+        },
+        {
+          "type": "originalTrainerName",
+          "value": "Pierre"
+        },
+        {
+          "type": "originalTrainerId",
+          "value": 0
+        },
+        {
+          "type": "ability",
+          "value": "sturdy"
+        }
+      ]
+    },
+    {
+      "specie": "tangela",
+      "form": 0,
+      "shinySetup": {
+        "kind": "automatic",
+        "rate": -1
+      },
+      "levelSetup": {
+        "kind": "fixed",
+        "level": 23
+      },
+      "randomEncounterChance": 1,
+      "expandPokemonSetup": [
+        {
+          "type": "evs",
+          "value": {
+            "hp": 0,
+            "atk": 0,
+            "dfe": 0,
+            "spd": 0,
+            "ats": 0,
+            "dfs": 0
+          }
+        },
+        {
+          "type": "ivs",
+          "value": {
+            "hp": 31,
+            "atk": 31,
+            "dfe": 31,
+            "spd": 31,
+            "ats": 31,
+            "dfs": 31
+          }
+        },
+        {
+          "type": "loyalty",
+          "value": 70
+        },
+        {
+          "type": "moves",
+          "value": [
+            "mega_drain",
+            "growth",
+            "poison_powder",
+            "sleep_powder"
+          ]
+        },
+        {
+          "type": "originalTrainerName",
+          "value": "Pierre"
+        },
+        {
+          "type": "originalTrainerId",
+          "value": 0
+        },
+        {
+          "type": "ability",
+          "value": "chlorophyll"
+        }
+      ]
     }
   ],
-  "battleId": 0,
   "resources": {
+    "sprite": "",
     "artworkFull": "Pierre_big",
     "artworkSmall": "Pierre",
     "character": "npc_Brock",
     "musics": {
-      "bgm": "",
-      "defeat": "",
       "encounter": "",
-      "victory": ""
-    },
-    "sprite": ""
+      "victory": "",
+      "defeat": "",
+      "bgm": ""
+    }
   },
   "additionalDialogs": []
 }

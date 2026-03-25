@@ -25,5 +25,13 @@
       "hiddenByDefault": false
     }
   ],
-  "earnings": []
+  "earnings": [
+    {
+      "earningMethodName": "earning_money",
+      "earningArgs": [
+        1000
+      ],
+      "textFormatMethodName": "text_earn_money"
+    }
+  ]
 }

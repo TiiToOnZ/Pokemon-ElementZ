@@ -4,6 +4,16 @@
   "dbSymbol": "quest_43",
   "isPrimary": false,
   "resolution": "default",
-  "objectives": [],
+  "objectives": [
+    {
+      "objectiveMethodName": "objective_obtain_item",
+      "objectiveMethodArgs": [
+        "unown_report",
+        1
+      ],
+      "textFormatMethodName": "text_obtain_item",
+      "hiddenByDefault": true
+    }
+  ],
   "earnings": []
 }

@@ -14,8 +14,8 @@
     "pitch": 100
   },
   "tiledFilename": "028 Bouillabaisse_sur_Mer",
-  "mtime": 1773252481762,
-  "sha1": "e7dca17f4f96b53f042eac12c44a9d09e5f6c3e3",
+  "mtime": 1774433894530,
+  "sha1": "4221390d5be4e6c91a7a8716415b0f50dce3c170",
   "tileMetadata": {
     "width": 70,
     "height": 85,
@@ -2107,7 +2107,9 @@
         {
           "globalId": 23195,
           "transformId": 0
-        },
+        }
+      ],
+      [
         {
           "globalId": 22815,
           "transformId": 0
@@ -2118,16 +2120,11 @@
       ],
       [
         {
-          "priority": 1
+          "priority": 3
         },
         {
           "globalId": 22811,
           "transformId": 0
-        }
-      ],
-      [
-        {
-          "priority": 3
         },
         {
           "globalId": 22683,
@@ -2146,7 +2143,9 @@
         {
           "globalId": 23196,
           "transformId": 0
-        },
+        }
+      ],
+      [
         {
           "globalId": 22816,
           "transformId": 0
@@ -2157,16 +2156,11 @@
       ],
       [
         {
-          "priority": 1
+          "priority": 3
         },
         {
           "globalId": 22812,
           "transformId": 0
-        }
-      ],
-      [
-        {
-          "priority": 3
         },
         {
           "globalId": 22684,
@@ -2185,7 +2179,9 @@
         {
           "globalId": 23197,
           "transformId": 0
-        },
+        }
+      ],
+      [
         {
           "globalId": 22817,
           "transformId": 0
@@ -2196,16 +2192,11 @@
       ],
       [
         {
-          "priority": 1
+          "priority": 3
         },
         {
           "globalId": 22813,
           "transformId": 0
-        }
-      ],
-      [
-        {
-          "priority": 3
         },
         {
           "globalId": 22685,
@@ -7596,7 +7587,7 @@
       ],
       [
         {
-          "priority": 1
+          "priority": 3
         },
         {
           "globalId": 32228,
@@ -7624,7 +7615,7 @@
       ],
       [
         {
-          "priority": 1
+          "priority": 3
         },
         {
           "globalId": 32229,
@@ -7652,7 +7643,7 @@
       ],
       [
         {
-          "priority": 1
+          "priority": 3
         },
         {
           "globalId": 32230,
@@ -7680,7 +7671,7 @@
       ],
       [
         {
-          "priority": 1
+          "priority": 3
         },
         {
           "globalId": 32231,
@@ -7698,7 +7689,7 @@
       ],
       [
         {
-          "priority": 1
+          "priority": 3
         },
         {
           "globalId": 32232,

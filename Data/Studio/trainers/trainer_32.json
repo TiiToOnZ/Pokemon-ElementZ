@@ -7,7 +7,7 @@
   "baseMoney": 10,
   "bagEntries": [
     {
-      "dbSymbol": "potion",
+      "dbSymbol": "super_potion",
       "amount": 2
     }
   ],
@@ -151,7 +151,7 @@
       ]
     },
     {
-      "specie": "onix",
+      "specie": "tangela",
       "form": 0,
       "shinySetup": {
         "kind": "automatic",
@@ -159,7 +159,7 @@
       },
       "levelSetup": {
         "kind": "fixed",
-        "level": 16
+        "level": 15
       },
       "randomEncounterChance": 1,
       "expandPokemonSetup": [
@@ -186,20 +186,16 @@
           }
         },
         {
-          "type": "itemHeld",
-          "value": "rocky_helmet"
-        },
-        {
           "type": "loyalty",
           "value": 70
         },
         {
           "type": "moves",
           "value": [
-            "headbutt",
-            "stealth_rock",
-            "rock_tomb",
-            "dig"
+            "absorb",
+            "poison_powder",
+            "sleep_powder",
+            "vine_whip"
           ]
         },
         {
@@ -212,7 +208,7 @@
         },
         {
           "type": "ability",
-          "value": "sturdy"
+          "value": "chlorophyll"
         }
       ]
     },
@@ -283,6 +279,134 @@
         {
           "type": "nature",
           "value": "jolly"
+        }
+      ]
+    },
+    {
+      "specie": "onix",
+      "form": 0,
+      "shinySetup": {
+        "kind": "automatic",
+        "rate": -1
+      },
+      "levelSetup": {
+        "kind": "fixed",
+        "level": 16
+      },
+      "randomEncounterChance": 1,
+      "expandPokemonSetup": [
+        {
+          "type": "evs",
+          "value": {
+            "hp": 0,
+            "atk": 0,
+            "dfe": 0,
+            "spd": 0,
+            "ats": 0,
+            "dfs": 0
+          }
+        },
+        {
+          "type": "ivs",
+          "value": {
+            "hp": 31,
+            "atk": 31,
+            "dfe": 31,
+            "spd": 31,
+            "ats": 31,
+            "dfs": 31
+          }
+        },
+        {
+          "type": "itemHeld",
+          "value": "rocky_helmet"
+        },
+        {
+          "type": "loyalty",
+          "value": 70
+        },
+        {
+          "type": "moves",
+          "value": [
+            "headbutt",
+            "stealth_rock",
+            "rock_tomb",
+            "dig"
+          ]
+        },
+        {
+          "type": "originalTrainerName",
+          "value": "Pierre"
+        },
+        {
+          "type": "originalTrainerId",
+          "value": 0
+        },
+        {
+          "type": "ability",
+          "value": "sturdy"
+        }
+      ]
+    },
+    {
+      "specie": "relicanth",
+      "form": 0,
+      "shinySetup": {
+        "kind": "automatic",
+        "rate": -1
+      },
+      "levelSetup": {
+        "kind": "fixed",
+        "level": 15
+      },
+      "randomEncounterChance": 1,
+      "expandPokemonSetup": [
+        {
+          "type": "evs",
+          "value": {
+            "hp": 0,
+            "atk": 0,
+            "dfe": 0,
+            "spd": 0,
+            "ats": 0,
+            "dfs": 0
+          }
+        },
+        {
+          "type": "ivs",
+          "value": {
+            "hp": 31,
+            "atk": 31,
+            "dfe": 31,
+            "spd": 31,
+            "ats": 31,
+            "dfs": 31
+          }
+        },
+        {
+          "type": "loyalty",
+          "value": 70
+        },
+        {
+          "type": "moves",
+          "value": [
+            "water_gun",
+            "tackle",
+            "__remove__",
+            "rock_tomb"
+          ]
+        },
+        {
+          "type": "originalTrainerName",
+          "value": "Pierre"
+        },
+        {
+          "type": "originalTrainerId",
+          "value": 0
+        },
+        {
+          "type": "ability",
+          "value": "sturdy"
         }
       ]
     }

@@ -15,7 +15,7 @@ end
 module GamePlay
   class TCard
     # Nombre total de badges
-    BADGE_COUNT = 16
+    BADGE_COUNT = 24
     attr_accessor :badge_page, :combat_mode, :combat_mode_text
 
     alias old_create_badge_sprites create_badge_sprites
@@ -60,7 +60,11 @@ module GamePlay
     end
 
     def combat_mode_display
-      @combat_mode == :solo ? "Combat solo" : "Combat duo"
+      case @badge_page
+        when 0 then "Combat simple"
+        when 1 then "Combat double"
+        when 2 then "Combat triple"
+      end
     end
 
     alias old_update_inputs update_inputs
@@ -70,10 +74,9 @@ module GamePlay
       # Entrée ou C changent à la fois la page de badges et le mode combat
       if Input.trigger?(:A) || Input.trigger?(:C)
         # Page de badges
-        @badge_page = (@badge_page + 1) % 2
+        @badge_page = (@badge_page + 1) % 3
         update_badge_visibility
         # Mode combat
-        @combat_mode = (@combat_mode == :solo ? :duo : :solo)
         @combat_mode_text.text = combat_mode_display if @combat_mode_text
       end
 

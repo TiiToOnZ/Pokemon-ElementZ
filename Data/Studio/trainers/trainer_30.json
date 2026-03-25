@@ -5,6 +5,13 @@
   "vsType": 2,
   "isCouple": false,
   "baseMoney": 10,
+  "bagEntries": [
+    {
+      "dbSymbol": "super_potion",
+      "amount": 2
+    }
+  ],
+  "battleId": 0,
   "ai": 7,
   "party": [
     {
@@ -74,6 +81,68 @@
         {
           "type": "nature",
           "value": "relaxed"
+        }
+      ]
+    },
+    {
+      "specie": "tangela",
+      "form": 0,
+      "shinySetup": {
+        "kind": "automatic",
+        "rate": -1
+      },
+      "levelSetup": {
+        "kind": "fixed",
+        "level": 15
+      },
+      "randomEncounterChance": 1,
+      "expandPokemonSetup": [
+        {
+          "type": "evs",
+          "value": {
+            "hp": 0,
+            "atk": 0,
+            "dfe": 0,
+            "spd": 0,
+            "ats": 0,
+            "dfs": 0
+          }
+        },
+        {
+          "type": "ivs",
+          "value": {
+            "hp": 31,
+            "atk": 31,
+            "dfe": 31,
+            "spd": 31,
+            "ats": 31,
+            "dfs": 31
+          }
+        },
+        {
+          "type": "loyalty",
+          "value": 70
+        },
+        {
+          "type": "moves",
+          "value": [
+            "absorb",
+            "vine_whip",
+            "poison_powder",
+            "sleep_powder"
+          ]
+        },
+        {
+          "type": "originalTrainerName",
+          "value": "Pierre"
+        },
+        {
+          "type": "originalTrainerId",
+          "value": 0
+        },
+        {
+          "type": "ability",
+          "value": "chlorophyll"
         }
       ]
     },
@@ -278,26 +347,81 @@
           "value": "jolly"
         }
       ]
-    }
-  ],
-  "bagEntries": [
+    },
     {
-      "dbSymbol": "potion",
-      "amount": 2
+      "specie": "relicanth",
+      "form": 0,
+      "shinySetup": {
+        "kind": "automatic",
+        "rate": -1
+      },
+      "levelSetup": {
+        "kind": "fixed",
+        "level": 15
+      },
+      "randomEncounterChance": 1,
+      "expandPokemonSetup": [
+        {
+          "type": "evs",
+          "value": {
+            "hp": 0,
+            "atk": 0,
+            "dfe": 0,
+            "spd": 0,
+            "ats": 0,
+            "dfs": 0
+          }
+        },
+        {
+          "type": "ivs",
+          "value": {
+            "hp": 31,
+            "atk": 31,
+            "dfe": 31,
+            "spd": 31,
+            "ats": 31,
+            "dfs": 31
+          }
+        },
+        {
+          "type": "loyalty",
+          "value": 70
+        },
+        {
+          "type": "moves",
+          "value": [
+            "tackle",
+            "water_gun",
+            "__remove__",
+            "rock_tomb"
+          ]
+        },
+        {
+          "type": "originalTrainerName",
+          "value": "Pierre"
+        },
+        {
+          "type": "originalTrainerId",
+          "value": 0
+        },
+        {
+          "type": "ability",
+          "value": "sturdy"
+        }
+      ]
     }
   ],
-  "battleId": 0,
   "resources": {
+    "sprite": "",
     "artworkFull": "Pierre_big",
     "artworkSmall": "Pierre",
     "character": "npc_Brock",
     "musics": {
-      "bgm": "",
-      "defeat": "",
       "encounter": "",
-      "victory": ""
-    },
-    "sprite": ""
+      "victory": "",
+      "defeat": "",
+      "bgm": ""
+    }
   },
   "additionalDialogs": []
 }

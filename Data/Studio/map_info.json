@@ -389,7 +389,7 @@
       78
     ],
     "hasChildren": true,
-    "isExpanded": true,
+    "isExpanded": false,
     "data": {
       "klass": "MapInfoFolder",
       "textId": 2
@@ -424,7 +424,7 @@
       42
     ],
     "hasChildren": true,
-    "isExpanded": true,
+    "isExpanded": false,
     "data": {
       "klass": "MapInfoFolder",
       "textId": 3
@@ -437,7 +437,7 @@
       56
     ],
     "hasChildren": true,
-    "isExpanded": true,
+    "isExpanded": false,
     "data": {
       "klass": "MapInfoFolder",
       "textId": 4
@@ -523,9 +523,11 @@
   },
   "41": {
     "id": 41,
-    "children": [],
-    "hasChildren": false,
-    "isExpanded": false,
+    "children": [
+      79
+    ],
+    "hasChildren": true,
+    "isExpanded": true,
     "data": {
       "klass": "MapInfoMap",
       "mapDbSymbol": "map035",
@@ -669,7 +671,8 @@
     "children": [
       55,
       71,
-      72
+      72,
+      80
     ],
     "hasChildren": true,
     "isExpanded": false,
@@ -950,6 +953,28 @@
       "klass": "MapInfoMap",
       "mapDbSymbol": "map071",
       "parentId": 29
+    }
+  },
+  "79": {
+    "id": 79,
+    "children": [],
+    "hasChildren": false,
+    "isExpanded": false,
+    "data": {
+      "klass": "MapInfoMap",
+      "mapDbSymbol": "map072",
+      "parentId": 41
+    }
+  },
+  "80": {
+    "id": 80,
+    "children": [],
+    "hasChildren": false,
+    "isExpanded": false,
+    "data": {
+      "klass": "MapInfoMap",
+      "mapDbSymbol": "map073",
+      "parentId": 54
     }
   }
 }

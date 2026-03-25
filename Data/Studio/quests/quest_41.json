@@ -4,6 +4,24 @@
   "dbSymbol": "quest_41",
   "isPrimary": true,
   "resolution": "default",
-  "objectives": [],
-  "earnings": []
+  "objectives": [
+    {
+      "objectiveMethodName": "objective_obtain_item",
+      "objectiveMethodArgs": [
+        "master_ball",
+        1
+      ],
+      "textFormatMethodName": "text_obtain_item",
+      "hiddenByDefault": false
+    }
+  ],
+  "earnings": [
+    {
+      "earningMethodName": "earning_money",
+      "earningArgs": [
+        500
+      ],
+      "textFormatMethodName": "text_earn_money"
+    }
+  ]
 }

@@ -2,8 +2,28 @@
   "klass": "Quest",
   "id": 29,
   "dbSymbol": "quest_29",
-  "isPrimary": true,
+  "isPrimary": false,
   "resolution": "default",
-  "objectives": [],
+  "objectives": [
+    {
+      "objectiveMethodName": "objective_beat_npc",
+      "objectiveMethodArgs": [
+        0,
+        "Champion d'arène",
+        1
+      ],
+      "textFormatMethodName": "text_beat_npc",
+      "hiddenByDefault": false
+    },
+    {
+      "objectiveMethodName": "objective_speak_to",
+      "objectiveMethodArgs": [
+        0,
+        "Collectionneur"
+      ],
+      "textFormatMethodName": "text_speak_to",
+      "hiddenByDefault": false
+    }
+  ],
   "earnings": []
 }
