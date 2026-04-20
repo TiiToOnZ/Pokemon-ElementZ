@@ -11,8 +11,8 @@
   "isHoldable": false,
   "isAllowingMega": false,
   "flingPower": 0,
+  "isBerry": false,
   "klass": "TechItem",
   "isHm": false,
-  "move": "work_up",
-  "isBerry": false
+  "move": "bullet_seed"
 }

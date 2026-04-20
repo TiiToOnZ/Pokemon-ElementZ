@@ -2,7 +2,7 @@
   "id": 22,
   "dbSymbol": "paralyze_heal",
   "icon": "022",
-  "price": 300,
+  "price": 200,
   "socket": 6,
   "position": 104,
   "isBattleUsable": true,
@@ -11,10 +11,10 @@
   "isHoldable": true,
   "isAllowingMega": false,
   "flingPower": 30,
+  "isBerry": false,
   "klass": "StatusHealItem",
   "loyaltyMalus": 0,
   "statusList": [
     "PARALYZED"
-  ],
-  "isBerry": false
+  ]
 }

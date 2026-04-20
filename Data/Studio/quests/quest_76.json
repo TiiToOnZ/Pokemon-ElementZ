@@ -1,0 +1,36 @@
+{
+  "klass": "Quest",
+  "id": 76,
+  "dbSymbol": "quest_76",
+  "isPrimary": false,
+  "resolution": "default",
+  "objectives": [
+    {
+      "objectiveMethodName": "objective_custom",
+      "objectiveMethodArgs": [
+        0,
+        5
+      ],
+      "textFormatMethodName": "text_custom",
+      "hiddenByDefault": false
+    },
+    {
+      "objectiveMethodName": "objective_speak_to",
+      "objectiveMethodArgs": [
+        0,
+        "Ranger"
+      ],
+      "textFormatMethodName": "text_speak_to",
+      "hiddenByDefault": false
+    }
+  ],
+  "earnings": [
+    {
+      "earningMethodName": "earning_money",
+      "earningArgs": [
+        1000
+      ],
+      "textFormatMethodName": "text_earn_money"
+    }
+  ]
+}

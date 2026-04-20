@@ -6,6 +6,15 @@
   "resolution": "default",
   "objectives": [
     {
+      "objectiveMethodName": "objective_speak_to",
+      "objectiveMethodArgs": [
+        0,
+        "Vendeur PokeShop Cocovin"
+      ],
+      "textFormatMethodName": "text_speak_to",
+      "hiddenByDefault": false
+    },
+    {
       "objectiveMethodName": "objective_obtain_item",
       "objectiveMethodArgs": [
         "chaussure",
@@ -17,7 +26,7 @@
     {
       "objectiveMethodName": "objective_speak_to",
       "objectiveMethodArgs": [
-        0,
+        1,
         "Enfant de la famille Légodas"
       ],
       "textFormatMethodName": "text_speak_to",

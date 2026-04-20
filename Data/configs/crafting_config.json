@@ -1,0 +1,82 @@
+{
+  "categories": [
+    {
+      "all": 3
+    },
+    {
+      "ball": 4
+    },
+    {
+      "medical": 5
+    },
+    {
+      "tm": 6
+    }
+  ],
+  "data": {
+    "poke_ball": {
+      "ingredients": {
+        "red_apricorn": 1
+      },
+      "result": "poke_ball",
+      "quantity": 1,
+      "category": "ball",
+      "unlock_condition": {
+        "type": "manual",
+        "value": true
+      }
+    },
+    "great_ball": {
+      "ingredients": {
+        "poke_ball": 1,
+        "blue_apricorn": 1
+      },
+      "result": "great_ball",
+      "quantity": 1,
+      "category": "ball",
+      "unlock_condition": {
+        "operator": "and",
+        "conditions": [
+          {
+            "type": "switch",
+            "id": 500
+          },
+          {
+            "type": "variable",
+            "id": 988,
+            "value": 3
+          },
+          {
+            "type": "recipe",
+            "key": "poke_ball"
+          }
+        ]
+      }
+    },
+    "potion": {
+      "ingredients": {
+        "tiny_mushroom": 2
+      },
+      "result": "potion",
+      "quantity": 1,
+      "category": "medical",
+      "unlock_condition": {
+        "type": "manual",
+        "value": false
+      }
+    },
+    "super_potion": {
+      "ingredients": {
+        "big_mushroom": 1,
+        "potion": 1
+      },
+      "result": "super_potion",
+      "quantity": 1,
+      "category": "medical",
+      "unlock_condition": {
+        "type": "recipe",
+        "key": "potion"
+      }
+    }
+  }
+}

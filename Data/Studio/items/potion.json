@@ -2,7 +2,7 @@
   "id": 17,
   "dbSymbol": "potion",
   "icon": "017",
-  "price": 200,
+  "price": 300,
   "socket": 6,
   "position": 1,
   "isBattleUsable": true,
@@ -11,8 +11,8 @@
   "isHoldable": true,
   "isAllowingMega": false,
   "flingPower": 30,
+  "isBerry": false,
   "klass": "ConstantHealItem",
   "loyaltyMalus": 0,
-  "hpCount": 20,
-  "isBerry": false
+  "hpCount": 20
 }

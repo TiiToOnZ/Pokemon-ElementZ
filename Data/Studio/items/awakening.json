@@ -2,7 +2,7 @@
   "id": 21,
   "dbSymbol": "awakening",
   "icon": "021",
-  "price": 100,
+  "price": 200,
   "socket": 6,
   "position": 103,
   "isBattleUsable": true,
@@ -11,10 +11,10 @@
   "isHoldable": true,
   "isAllowingMega": false,
   "flingPower": 30,
+  "isBerry": false,
   "klass": "StatusHealItem",
   "loyaltyMalus": 0,
   "statusList": [
     "ASLEEP"
-  ],
-  "isBerry": false
+  ]
 }

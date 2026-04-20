@@ -6,13 +6,13 @@
   "resolution": "default",
   "objectives": [
     {
-      "objectiveMethodName": "objective_obtain_item",
+      "objectiveMethodName": "objective_speak_to",
       "objectiveMethodArgs": [
-        "unown_report",
-        1
+        0,
+        "Naufragé"
       ],
-      "textFormatMethodName": "text_obtain_item",
-      "hiddenByDefault": true
+      "textFormatMethodName": "text_speak_to",
+      "hiddenByDefault": false
     }
   ],
   "earnings": []

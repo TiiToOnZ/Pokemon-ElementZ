@@ -1,0 +1,15 @@
+en,fr,it,de,es,ko,kana
+You cannot craft this item.,Vous ne pouvez pas fabriquer cet objet.,"[VAR 010E(0000)] [VAR TRNAME(0001)], [VAR 010E(0001)] [VAR TRNAME(0002)] e [VAR 010E(0002)] [VAR TRNAME(0003)] ti sfidano!","[VAR 010E(0000)] [VAR TRNAME(0001)], [VAR 010E(0001)] [VAR TRNAME(0002)] und [VAR 010E(0002)] [VAR TRNAME(0003)] fordern dich heraus!","¡[VAR 010E(0000)] [VAR TRNAME(0001)], [VAR 010E(0001)] [VAR TRNAME(0002)] y [VAR 010E(0002)] [VAR TRNAME(0003)] te desafían!","[VAR 010E(0000)] [VAR TRNAME(0001)], [VAR 010E(0001)] [VAR TRNAME(0002)] 및 [VAR 010E(0002)] [VAR TRNAME(0003)]이(가) 도전해왔다!","[VAR 010E(0000)] [VAR TRNAME(0001)], [VAR 010E(0001)] [VAR TRNAME(0002)] と [VAR 010E(0002)] [VAR TRNAME(0003)] がしょうぶをしかけてきた！"
+How many %{item} do you want to make?,Combien %{item} voulez-vous fabriquer ?,"[VAR TRNAME(0000)], [VAR TRNAME(0001)] e [VAR TRNAME(0002)] lanciano una sfida!","[VAR TRNAME(0000)], [VAR TRNAME(0001)] und [VAR TRNAME(0002)] haben eine Herausforderung ausgesprochen!","¡[VAR TRNAME(0000)], [VAR TRNAME(0001)] y [VAR TRNAME(0002)] han lanzado un desafío!","[VAR TRNAME(0000)], [VAR TRNAME(0001)] 및 [VAR TRNAME(0002)]이(가) 도전장을 보냈다!","[VAR TRNAME(0000)], [VAR TRNAME(0001)] と [VAR TRNAME(0002)] が しょうぶを しかけてきた！"
+You crafted %{quantity} %{item}!,Vous avez fabriqué %{quantity} %{item} !,Sono apparsi un [VAR PKNAME(0000)] selvatico e un [VAR PKNAME(0001)] selvatico!,Ein wildes [VAR PKNAME(0000)] und ein wildes [VAR PKNAME(0001)] sind erschienen!,¡Un [VAR PKNAME(0000)] salvaje y un [VAR PKNAME(0001)] salvaje han aparecido!,야생의 [VAR PKNAME(0000)]과(와) [VAR PKNAME(0001)]이(가) 나타났다!,やせいの [VAR PKNAME(0000)] と [VAR PKNAME(0001)] が あらわれた！
+All,Touts,"Sono apparsi un [VAR PKNAME(0000)] selvatico, un [VAR PKNAME(0001)] selvatico e un [VAR PKNAME(0002)] selvatico!","Ein wildes [VAR PKNAME(0000)], ein wildes [VAR PKNAME(0001)] und ein wildes [VAR PKNAME(0002)] sind erschienen!","¡Un [VAR PKNAME(0000)], un [VAR PKNAME(0001)] y un [VAR PKNAME(0002)] salvajes han aparecido!","야생의 [VAR PKNAME(0000)], [VAR PKNAME(0001)] 및 [VAR PKNAME(0002)]이(가) 나타났다!","やせいの [VAR PKNAME(0000)], [VAR PKNAME(0001)] と [VAR PKNAME(0002)] が あらわれた！"
+Balls,Balls,,,,,
+Medical,Médicaments,,,,,
+TM / HM,CT / CS,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+: info,: info,,,,,
+: craft,: frabriquer,,,,,
+: quit,: quitter,,,,,

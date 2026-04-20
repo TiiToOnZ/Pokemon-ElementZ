@@ -1,4 +1,6 @@
 {
+  "eventId": 75,
+  "klass": "EventItem",
   "id": 469,
   "dbSymbol": "unown_report",
   "icon": "469",
@@ -10,7 +12,6 @@
   "isLimited": false,
   "isHoldable": false,
   "isAllowingMega": false,
-  "flingPower": 0,
-  "klass": "Item",
-  "isBerry": false
+  "isBerry": false,
+  "flingPower": 0
 }

@@ -1,0 +1,27 @@
+{
+  "klass": "Quest",
+  "id": 77,
+  "dbSymbol": "quest_77",
+  "isPrimary": false,
+  "resolution": "default",
+  "objectives": [
+    {
+      "objectiveMethodName": "objective_speak_to",
+      "objectiveMethodArgs": [
+        0,
+        "Propriétaire de Goupix"
+      ],
+      "textFormatMethodName": "text_speak_to",
+      "hiddenByDefault": false
+    }
+  ],
+  "earnings": [
+    {
+      "earningMethodName": "earning_money",
+      "earningArgs": [
+        2000
+      ],
+      "textFormatMethodName": "text_earn_money"
+    }
+  ]
+}

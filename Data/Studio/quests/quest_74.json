@@ -1,0 +1,19 @@
+{
+  "klass": "Quest",
+  "id": 74,
+  "dbSymbol": "quest_74",
+  "isPrimary": false,
+  "resolution": "default",
+  "objectives": [
+    {
+      "objectiveMethodName": "objective_speak_to",
+      "objectiveMethodArgs": [
+        0,
+        "Hôte de la pension"
+      ],
+      "textFormatMethodName": "text_speak_to",
+      "hiddenByDefault": false
+    }
+  ],
+  "earnings": []
+}
