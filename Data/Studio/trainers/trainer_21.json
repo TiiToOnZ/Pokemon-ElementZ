@@ -10,7 +10,7 @@
   "ai": 3,
   "party": [
     {
-      "specie": "shroomish",
+      "specie": "wurmple",
       "form": 0,
       "shinySetup": {
         "kind": "automatic",
@@ -18,7 +18,7 @@
       },
       "levelSetup": {
         "kind": "fixed",
-        "level": 9
+        "level": 7
       },
       "randomEncounterChance": 1,
       "expandPokemonSetup": [
@@ -51,10 +51,10 @@
         {
           "type": "moves",
           "value": [
+            "poison_sting",
+            "string_shot",
             "tackle",
-            "absorb",
-            "stun_spore",
-            "leech_seed"
+            "__remove__"
           ]
         },
         {
@@ -67,7 +67,131 @@
         },
         {
           "type": "ability",
-          "value": "effect_spore"
+          "value": "shield_dust"
+        }
+      ]
+    },
+    {
+      "specie": "silcoon",
+      "form": 0,
+      "shinySetup": {
+        "kind": "automatic",
+        "rate": -1
+      },
+      "levelSetup": {
+        "kind": "fixed",
+        "level": 7
+      },
+      "randomEncounterChance": 1,
+      "expandPokemonSetup": [
+        {
+          "type": "evs",
+          "value": {
+            "hp": 0,
+            "atk": 0,
+            "dfe": 0,
+            "spd": 0,
+            "ats": 0,
+            "dfs": 0
+          }
+        },
+        {
+          "type": "ivs",
+          "value": {
+            "hp": 15,
+            "atk": 15,
+            "dfe": 15,
+            "spd": 15,
+            "ats": 15,
+            "dfs": 15
+          }
+        },
+        {
+          "type": "loyalty",
+          "value": 70
+        },
+        {
+          "type": "moves",
+          "value": [
+            "poison_sting",
+            "tackle",
+            "string_shot",
+            "harden"
+          ]
+        },
+        {
+          "type": "originalTrainerName",
+          "value": "Clovise"
+        },
+        {
+          "type": "originalTrainerId",
+          "value": 0
+        },
+        {
+          "type": "ability",
+          "value": "shed_skin"
+        }
+      ]
+    },
+    {
+      "specie": "silcoon",
+      "form": 0,
+      "shinySetup": {
+        "kind": "automatic",
+        "rate": -1
+      },
+      "levelSetup": {
+        "kind": "fixed",
+        "level": 7
+      },
+      "randomEncounterChance": 1,
+      "expandPokemonSetup": [
+        {
+          "type": "evs",
+          "value": {
+            "hp": 0,
+            "atk": 0,
+            "dfe": 0,
+            "spd": 0,
+            "ats": 0,
+            "dfs": 0
+          }
+        },
+        {
+          "type": "ivs",
+          "value": {
+            "hp": 15,
+            "atk": 15,
+            "dfe": 15,
+            "spd": 14,
+            "ats": 15,
+            "dfs": 15
+          }
+        },
+        {
+          "type": "loyalty",
+          "value": 70
+        },
+        {
+          "type": "moves",
+          "value": [
+            "string_shot",
+            "tackle",
+            "harden",
+            "poison_sting"
+          ]
+        },
+        {
+          "type": "originalTrainerName",
+          "value": "Clovise"
+        },
+        {
+          "type": "originalTrainerId",
+          "value": 0
+        },
+        {
+          "type": "ability",
+          "value": "shed_skin"
         }
       ]
     }

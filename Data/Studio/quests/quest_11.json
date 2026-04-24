@@ -23,15 +23,6 @@
       ],
       "textFormatMethodName": "text_beat_npc",
       "hiddenByDefault": false
-    },
-    {
-      "objectiveMethodName": "objective_speak_to",
-      "objectiveMethodArgs": [
-        1,
-        "Prof. Charme"
-      ],
-      "textFormatMethodName": "text_speak_to",
-      "hiddenByDefault": false
     }
   ],
   "earnings": [

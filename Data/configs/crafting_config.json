@@ -8,17 +8,14 @@
     },
     {
       "medical": 5
-    },
-    {
-      "tm": 6
     }
   ],
   "data": {
-    "poke_ball": {
+    "heavy_ball": {
       "ingredients": {
-        "red_apricorn": 1
+        "black_apricorn": 1
       },
-      "result": "poke_ball",
+      "result": "heavy_ball",
       "quantity": 1,
       "category": "ball",
       "unlock_condition": {
@@ -26,56 +23,88 @@
         "value": true
       }
     },
-    "great_ball": {
+    "lure_ball": {
       "ingredients": {
-        "poke_ball": 1,
         "blue_apricorn": 1
       },
-      "result": "great_ball",
+      "result": "lure_ball",
       "quantity": 1,
       "category": "ball",
       "unlock_condition": {
-        "operator": "and",
-        "conditions": [
-          {
-            "type": "switch",
-            "id": 500
-          },
-          {
-            "type": "variable",
-            "id": 988,
-            "value": 3
-          },
-          {
-            "type": "recipe",
-            "key": "poke_ball"
-          }
-        ]
+        "type": "manual",
+        "value": true
       }
     },
-    "potion": {
+    "berry_juice": {
       "ingredients": {
-        "tiny_mushroom": 2
+        "oran_berry": 2
       },
-      "result": "potion",
+      "result": "berry_juice",
       "quantity": 1,
       "category": "medical",
       "unlock_condition": {
         "type": "manual",
-        "value": false
+        "value": true
       }
     },
-    "super_potion": {
+    "moon_ball": {
       "ingredients": {
-        "big_mushroom": 1,
-        "potion": 1
+        "yellow_apricorn": 1
       },
-      "result": "super_potion",
+      "result": "moon_ball",
       "quantity": 1,
-      "category": "medical",
+      "category": "ball",
       "unlock_condition": {
-        "type": "recipe",
-        "key": "potion"
+        "type": "manual",
+        "value": true
+      }
+    },
+    "fast_ball": {
+      "ingredients": {
+        "white_apricorn": 1
+      },
+      "result": "fast_ball",
+      "quantity": 1,
+      "category": "ball",
+      "unlock_condition": {
+        "type": "manual",
+        "value": true
+      }
+    },
+    "friend_ball": {
+      "ingredients": {
+        "green_apricorn": 1
+      },
+      "result": "friend_ball",
+      "quantity": 1,
+      "category": "ball",
+      "unlock_condition": {
+        "type": "manual",
+        "value": true
+      }
+    },
+    "level_ball": {
+      "ingredients": {
+        "red_apricorn": 1
+      },
+      "result": "level_ball",
+      "quantity": 1,
+      "category": "ball",
+      "unlock_condition": {
+        "type": "manual",
+        "value": true
+      }
+    },
+    "love_ball": {
+      "ingredients": {
+        "pink_apricorn": 1
+      },
+      "result": "love_ball",
+      "quantity": 1,
+      "category": "ball",
+      "unlock_condition": {
+        "type": "manual",
+        "value": true
       }
     }
   }

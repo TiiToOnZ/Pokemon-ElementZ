@@ -3,6 +3,7 @@
  <tileset firstgid="1" source="../Tilesets/Ecole.tsx"/>
  <tileset firstgid="353" source="../Tilesets/passages.tsx"/>
  <tileset firstgid="497" source="../Tilesets/TECH-Misc..tsx"/>
+ <tileset firstgid="2545" source="../Tilesets/Chateau_hante.tsx"/>
  <layer id="1" name="Floor_A_1" width="55" height="50">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,

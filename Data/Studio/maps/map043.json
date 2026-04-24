@@ -14,8 +14,8 @@
     "pitch": 100
   },
   "tiledFilename": "041  Ecole",
-  "mtime": 1776274207694,
-  "sha1": "bbb9e5193260750457f202c7b5ca5b71fac28ebd",
+  "mtime": 1777016833716,
+  "sha1": "566c9e97927b65bccb3b12c1797bb24df43ec064",
   "tileMetadata": {
     "width": 55,
     "height": 50,
@@ -31,6 +31,10 @@
       {
         "firstGlobalId": 497,
         "source": "../Tilesets/TECH-Misc..tsx"
+      },
+      {
+        "firstGlobalId": 2545,
+        "source": "../Tilesets/Chateau_hante.tsx"
       }
     ],
     "tileByTileId": [

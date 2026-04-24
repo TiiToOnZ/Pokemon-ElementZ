@@ -28,7 +28,7 @@
     {
       "earningMethodName": "earning_money",
       "earningArgs": [
-        500
+        1000
       ],
       "textFormatMethodName": "text_earn_money"
     }
