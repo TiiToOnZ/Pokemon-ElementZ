@@ -1,54 +1,31 @@
 ================================Erreur de script================================
 Message :
-undefined method `contents' for #<Window_ZarbiDex:0x1652d6d8>
+divided by 0
 
-Type : NoMethodError
-Script : 00011 UnownReport/00196 ZarbiDex_UI.rb (user)
-Ligne : 64
-Date : 16/04/2026 09:03:58
+Type : ZeroDivisionError
+Script : 4_Systems_003_Map_Engine.rb (PSDK)
+Ligne : 4392
+Date : 04/05/2026 20:04:56
 Game Version : 1
-Logiciel : PSDK 26.54
+Logiciel : PSDK 26.55
 ===================================Backtraces===================================
-[50] : 00011 UnownReport/00196 ZarbiDex_UI.rb (user) | ligne 64 create_letters
-[49] : 00011 UnownReport/00196 ZarbiDex_UI.rb (user) | ligne 35 initialize
-[48] : 00011 UnownReport/00196 ZarbiDex_UI.rb (user) | ligne 144 new
-[47] : 00011 UnownReport/00196 ZarbiDex_UI.rb (user) | ligne 144 create_graphics
-[46] : 4_Systems_000_General_2_GamePlay__Base.rb (PSDK) | ligne 228 main_begin
-[45] : 4_Systems_000_General_2_GamePlay__Base.rb (PSDK) | ligne 143 main
-[44] : 4_Systems_000_General_2_GamePlay__Base.rb (PSDK) | ligne 175 call_scene
-[43] : 00011 UnownReport/00196 ZarbiDex_UI.rb (user) | ligne 9 open
-[42] : 00011 UnownReport/00196 ZarbiDex_UI.rb (user) | ligne 16 display
-[41] : 00011 UnownReport/00195 ZarbiDex.rb (user) | ligne 44 <top (required)>
-[40] : 3_Studio.rb (PSDK) | ligne 2165 on_use
-[39] : 4_Systems_103_Bag.rb (PSDK) | ligne 73 util_item_on_use_sequence
-[38] : 4_Systems_103_Bag.rb (PSDK) | ligne 29 util_item_useitem
-[37] : 4_Systems_103_Bag.rb (PSDK) | ligne 1270 use_item
-[36] : 4_Systems_000_General_1_PFM.rb (PSDK) | ligne 464 call
-[35] : 4_Systems_000_General_1_PFM.rb (PSDK) | ligne 464 call_validate_handle
-[34] : 4_Systems_000_General_1_PFM.rb (PSDK) | ligne 401 display_choice
-[33] : 4_Systems_103_Bag.rb (PSDK) | ligne 1223 choice_a_menu
-[32] : 4_Systems_103_Bag.rb (PSDK) | ligne 1146 action_a
-[31] : 4_Systems_103_Bag.rb (PSDK) | ligne 1124 update_ctrl_button
-[30] : 4_Systems_103_Bag.rb (PSDK) | ligne 1075 update_inputs
-[29] : 4_Systems_000_General_2_GamePlay__Base.rb (PSDK) | ligne 433 update
-[28] : 4_Systems_000_General_2_GamePlay__Base.rb (PSDK) | ligne 463 update
-[27] : 4_Systems_000_General_2_GamePlay__Base.rb (PSDK) | ligne 236 main_process
-[26] : 4_Systems_000_General_2_GamePlay__Base.rb (PSDK) | ligne 144 main
-[25] : 4_Systems_000_General_2_GamePlay__Base.rb (PSDK) | ligne 175 call_scene
-[24] : 4_Systems_000_General.rb (PSDK) | ligne 171 open_bag
-[23] : 4_Systems_100_Menu.rb (PSDK) | ligne 237 open_bag
-[22] : 4_Systems_100_Menu.rb (PSDK) | ligne 217 action
-[21] : 4_Systems_100_Menu.rb (PSDK) | ligne 70 update_inputs
-[20] : 4_Systems_000_General_2_GamePlay__Base.rb (PSDK) | ligne 433 update
-[19] : 4_Systems_000_General_2_GamePlay__Base.rb (PSDK) | ligne 236 main_process
-[18] : 4_Systems_000_General_2_GamePlay__Base.rb (PSDK) | ligne 144 main
-[17] : 4_Systems_000_General_2_GamePlay__Base.rb (PSDK) | ligne 175 call_scene
-[16] : 4_Systems_000_General.rb (PSDK) | ligne 158 open_menu
-[15] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9419 call_menu
-[14] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9348 update_scene_calling
-[13] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9346 each
-[12] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9346 update_scene_calling
-[11] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9123 update
+[27] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 4392 /
+[26] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 4392 update_slope_offset_y
+[25] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 4669 process_slope_y_modifier
+[24] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 6321 process_slope_y_modifier
+[23] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 4709 move_left
+[22] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 6647 player_move
+[21] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 6600 player_update_move
+[20] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 6309 update
+[19] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9258 update_map_logic
+[18] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 2916 update_map_logic
+[17] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9265 auto_transfert_update
+[16] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9264 loop
+[15] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9264 auto_transfert_update
+[14] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9118 update
+[13] : 0_Dependencies.rb (PSDK) | ligne 1375 times
+[12] : 0_Dependencies.rb (PSDK) | ligne 1375 run
+[11] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9118 update
 [10] : 4_Systems_000_General_2_GamePlay__Base.rb (PSDK) | ligne 236 main_process
 [9] : 4_Systems_000_General_2_GamePlay__Base.rb (PSDK) | ligne 144 main
 [8] : tools/GameLoader/Z_main.rb (PSDK) | ligne 16 <top (required)>

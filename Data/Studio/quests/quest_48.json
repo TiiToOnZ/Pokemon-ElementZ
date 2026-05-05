@@ -4,6 +4,25 @@
   "dbSymbol": "quest_48",
   "isPrimary": false,
   "resolution": "default",
-  "objectives": [],
+  "objectives": [
+    {
+      "objectiveMethodName": "objective_obtain_item",
+      "objectiveMethodArgs": [
+        "lunar_wing",
+        1
+      ],
+      "textFormatMethodName": "text_obtain_item",
+      "hiddenByDefault": false
+    },
+    {
+      "objectiveMethodName": "objective_speak_to",
+      "objectiveMethodArgs": [
+        0,
+        "Servante de Mr. Décorum"
+      ],
+      "textFormatMethodName": "text_speak_to",
+      "hiddenByDefault": false
+    }
+  ],
   "earnings": []
 }

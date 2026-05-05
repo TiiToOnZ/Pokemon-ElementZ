@@ -4,6 +4,33 @@
   "dbSymbol": "quest_7",
   "isPrimary": false,
   "resolution": "default",
-  "objectives": [],
-  "earnings": []
+  "objectives": [
+    {
+      "objectiveMethodName": "objective_hatch_egg",
+      "objectiveMethodArgs": [
+        null,
+        1
+      ],
+      "textFormatMethodName": "text_hatch_egg",
+      "hiddenByDefault": false
+    },
+    {
+      "objectiveMethodName": "objective_speak_to",
+      "objectiveMethodArgs": [
+        0,
+        "Buck"
+      ],
+      "textFormatMethodName": "text_speak_to",
+      "hiddenByDefault": false
+    }
+  ],
+  "earnings": [
+    {
+      "earningMethodName": "earning_money",
+      "earningArgs": [
+        1000
+      ],
+      "textFormatMethodName": "text_earn_money"
+    }
+  ]
 }

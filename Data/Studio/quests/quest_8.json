@@ -4,6 +4,25 @@
   "dbSymbol": "quest_8",
   "isPrimary": false,
   "resolution": "default",
-  "objectives": [],
+  "objectives": [
+    {
+      "objectiveMethodName": "objective_hatch_egg",
+      "objectiveMethodArgs": [
+        null,
+        1
+      ],
+      "textFormatMethodName": "text_hatch_egg",
+      "hiddenByDefault": false
+    },
+    {
+      "objectiveMethodName": "objective_speak_to",
+      "objectiveMethodArgs": [
+        0,
+        "Buck"
+      ],
+      "textFormatMethodName": "text_speak_to",
+      "hiddenByDefault": false
+    }
+  ],
   "earnings": []
 }

@@ -14,8 +14,8 @@
     "pitch": 100
   },
   "tiledFilename": "022 Etage",
-  "mtime": 1742035760026,
-  "sha1": "7b0ceb4c8293ca9ee2a834b274a45531d698179d",
+  "mtime": 1777925202498,
+  "sha1": "7c11a72b8281129c5d1a3d4e3837eb650c0135b0",
   "tileMetadata": {
     "width": 25,
     "height": 25,
@@ -25,22 +25,22 @@
         "source": "../Tilesets/Interieurs.tsx"
       },
       {
-        "firstGlobalId": 497,
+        "firstGlobalId": 625,
         "source": "../Tilesets/passages.tsx"
       },
       {
-        "firstGlobalId": 641,
+        "firstGlobalId": 769,
         "source": "../Tilesets/TECH-Misc..tsx"
       },
       {
-        "firstGlobalId": 1665,
+        "firstGlobalId": 2817,
         "source": "../Tilesets/systemtags.tsx"
       }
     ],
     "tileByTileId": [
       [
         {
-          "globalId": 898,
+          "globalId": 1026,
           "transformId": 0
         },
         {
@@ -52,7 +52,7 @@
           "priority": 4
         },
         {
-          "globalId": 898,
+          "globalId": 1026,
           "transformId": 0
         }
       ],
