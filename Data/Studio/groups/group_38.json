@@ -5,11 +5,27 @@
   "systemTag": "Pond",
   "terrainTag": 0,
   "tool": "OldRod",
+  "vsType": "simple",
   "customConditions": [
     {
       "type": "mapId",
       "value": 23,
       "relationWithPreviousCondition": "AND"
+    },
+    {
+      "type": "mapId",
+      "relationWithPreviousCondition": "OR",
+      "value": 35
+    },
+    {
+      "type": "mapId",
+      "relationWithPreviousCondition": "OR",
+      "value": 29
+    },
+    {
+      "type": "mapId",
+      "relationWithPreviousCondition": "OR",
+      "value": 51
     }
   ],
   "encounters": [
@@ -182,6 +198,5 @@
       ]
     }
   ],
-  "stepsAverage": 0,
-  "vsType": "simple"
+  "stepsAverage": 0
 }

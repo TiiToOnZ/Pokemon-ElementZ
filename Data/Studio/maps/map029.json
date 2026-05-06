@@ -14,8 +14,8 @@
     "pitch": 100
   },
   "tiledFilename": "031 Grotte_Cristalline",
-  "mtime": 1748282644231,
-  "sha1": "ee6118f60771eb9aa8eee294d78a5711fa30ec99",
+  "mtime": 1777969758122,
+  "sha1": "bea1c6f266ed111702c537710350146d799feb87",
   "tileMetadata": {
     "width": 36,
     "height": 33,
@@ -30,22 +30,18 @@
       },
       {
         "firstGlobalId": 28951,
-        "source": "../../../../../Users/thiba/OneDrive/Bureau/DEMO_TEST/Test Demo/Data/Tiled/Tilesets/TECH-Animations.tsx"
-      },
-      {
-        "firstGlobalId": 36893,
         "source": "../Tilesets/passages.tsx"
       },
       {
-        "firstGlobalId": 37037,
+        "firstGlobalId": 29095,
         "source": "../Tilesets/systemtags.tsx"
       },
       {
-        "firstGlobalId": 37165,
+        "firstGlobalId": 29223,
         "source": "../Tilesets/TECH-Misc..tsx"
       },
       {
-        "firstGlobalId": 38189,
+        "firstGlobalId": 31271,
         "source": "../Tilesets/Mine.tsx"
       }
     ],
@@ -100,7 +96,7 @@
       ],
       [
         {
-          "globalId": 37422,
+          "globalId": 29480,
           "transformId": 0
         },
         {
@@ -112,7 +108,7 @@
           "priority": 4
         },
         {
-          "globalId": 37422,
+          "globalId": 29480,
           "transformId": 0
         }
       ],
@@ -248,7 +244,7 @@
           "priority": 2
         },
         {
-          "globalId": 38517,
+          "globalId": 31599,
           "transformId": 0
         }
       ],
@@ -266,7 +262,7 @@
           "priority": 2
         },
         {
-          "globalId": 38518,
+          "globalId": 31600,
           "transformId": 0
         }
       ],
@@ -324,7 +320,7 @@
           "priority": 2
         },
         {
-          "globalId": 38525,
+          "globalId": 31607,
           "transformId": 0
         }
       ],
@@ -343,7 +339,7 @@
           "priority": 2
         },
         {
-          "globalId": 38526,
+          "globalId": 31608,
           "transformId": 0
         }
       ],
@@ -591,7 +587,7 @@
       ],
       [
         {
-          "globalId": 38553,
+          "globalId": 31635,
           "transformId": 0
         },
         {
@@ -646,7 +642,7 @@
           "priority": 1
         },
         {
-          "globalId": 38520,
+          "globalId": 31602,
           "transformId": 0
         }
       ],
@@ -800,7 +796,7 @@
       ],
       [
         {
-          "globalId": 38528,
+          "globalId": 31610,
           "transformId": 0
         },
         {
@@ -1458,7 +1454,7 @@
       ],
       [
         {
-          "globalId": 38519,
+          "globalId": 31601,
           "transformId": 0
         },
         {
@@ -1540,7 +1536,7 @@
           "priority": 1
         },
         {
-          "globalId": 38554,
+          "globalId": 31636,
           "transformId": 0
         }
       ],
@@ -1582,7 +1578,7 @@
       ],
       [
         {
-          "globalId": 38562,
+          "globalId": 31644,
           "transformId": 0
         },
         {
@@ -1814,7 +1810,7 @@
       ],
       [
         {
-          "globalId": 38519,
+          "globalId": 31601,
           "transformId": 0
         },
         {
@@ -2247,7 +2243,7 @@
       ],
       [
         {
-          "globalId": 37422,
+          "globalId": 29480,
           "transformId": 0
         },
         {
@@ -2270,10 +2266,6 @@
         },
         {
           "globalId": 3155,
-          "transformId": 0
-        },
-        {
-          "globalId": 347,
           "transformId": 0
         },
         {
@@ -2302,10 +2294,6 @@
           "transformId": 0
         },
         {
-          "globalId": 348,
-          "transformId": 0
-        },
-        {
           "systemTag": 391
         },
         {
@@ -2319,26 +2307,6 @@
         {
           "globalId": 345,
           "transformId": 0
-        }
-      ],
-      [
-        {
-          "globalId": 3005,
-          "transformId": 0
-        },
-        {
-          "globalId": 3155,
-          "transformId": 0
-        },
-        {
-          "globalId": 349,
-          "transformId": 0
-        },
-        {
-          "systemTag": 391
-        },
-        {
-          "passage": 0
         }
       ],
       [
@@ -5715,12 +5683,12 @@
         243
       ],
       [
-        244,
+        240,
         48,
-        245
+        244
       ],
       [
-        246,
+        245,
         157,
         47
       ],
@@ -5816,7 +5784,7 @@
         78
       ],
       [
-        247,
+        246,
         217,
         214
       ],
@@ -5851,12 +5819,42 @@
         218
       ],
       [
+        247,
+        213,
+        220
+      ],
+      [
         248,
+        217,
+        218
+      ],
+      [
+        249,
         213,
         220
       ],
       [
+        248,
+        217,
+        218
+      ],
+      [
         249,
+        213,
+        220
+      ],
+      [
+        248,
+        217,
+        218
+      ],
+      [
+        249,
+        213,
+        220
+      ],
+      [
+        248,
         217,
         218
       ],
@@ -5864,39 +5862,9 @@
         250,
         213,
         220
-      ],
-      [
-        249,
-        217,
-        218
-      ],
-      [
-        250,
-        213,
-        220
-      ],
-      [
-        249,
-        217,
-        218
-      ],
-      [
-        250,
-        213,
-        220
-      ],
-      [
-        249,
-        217,
-        218
       ],
       [
         251,
-        213,
-        220
-      ],
-      [
-        252,
         221,
         218
       ],
@@ -7104,7 +7072,7 @@
         32
       ],
       [
-        253,
+        252,
         154,
         92
       ],
@@ -7135,11 +7103,11 @@
       ],
       [
         96,
-        254,
+        253,
         47
       ],
       [
-        255,
+        254,
         105,
         202
       ],
@@ -7236,11 +7204,11 @@
       ],
       [
         8,
-        256
+        255
       ],
       [
         29,
-        257,
+        256,
         218
       ],
       [
@@ -7254,52 +7222,52 @@
         218
       ],
       [
-        258,
+        257,
         213,
         220
       ],
       [
+        258,
         259,
-        260,
         115
       ],
       [
+        260,
         261,
-        262,
-        263
+        262
       ],
       [
+        258,
         259,
-        260,
         117
       ],
       [
-        261,
-        262,
-        264
-      ],
-      [
-        259,
         260,
+        261,
         263
       ],
       [
+        258,
+        259,
+        262
+      ],
+      [
+        260,
         261,
-        262,
         117
       ],
       [
+        258,
         259,
+        263
+      ],
+      [
         260,
+        261,
         264
       ],
       [
-        261,
-        262,
-        265
-      ],
-      [
-        266,
+        265,
         222
       ],
       [
@@ -7392,7 +7360,7 @@
       ],
       [
         0,
-        267
+        266
       ],
       [
         2,

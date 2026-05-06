@@ -3,29 +3,32 @@ Message :
 divided by 0
 
 Type : ZeroDivisionError
-Script : 4_Systems_003_Map_Engine.rb (PSDK)
-Ligne : 4392
-Date : 04/05/2026 20:04:56
+Script : 5_Battle_10_Move.rb (PSDK)
+Ligne : 5508
+Date : 06/05/2026 18:53:57
 Game Version : 1
 Logiciel : PSDK 26.55
 ===================================Backtraces===================================
-[27] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 4392 /
-[26] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 4392 update_slope_offset_y
-[25] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 4669 process_slope_y_modifier
-[24] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 6321 process_slope_y_modifier
-[23] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 4709 move_left
-[22] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 6647 player_move
-[21] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 6600 player_update_move
-[20] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 6309 update
-[19] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9258 update_map_logic
-[18] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 2916 update_map_logic
-[17] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9265 auto_transfert_update
-[16] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9264 loop
-[15] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9264 auto_transfert_update
-[14] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9118 update
-[13] : 0_Dependencies.rb (PSDK) | ligne 1375 times
-[12] : 0_Dependencies.rb (PSDK) | ligne 1375 run
-[11] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9118 update
+[30] : 5_Battle_10_Move.rb (PSDK) | ligne 5508 /
+[29] : 5_Battle_10_Move.rb (PSDK) | ligne 5508 real_base_power
+[28] : 5_Battle_30_AI.rb (PSDK) | ligne 394 move_power
+[27] : 5_Battle_30_AI.rb (PSDK) | ligne 367 move_heuristic
+[26] : 5_Battle_30_AI.rb (PSDK) | ligne 353 move_action_for
+[25] : 5_Battle_30_AI.rb (PSDK) | ligne 352 map
+[24] : 5_Battle_30_AI.rb (PSDK) | ligne 352 move_action_for
+[23] : 5_Battle_30_AI.rb (PSDK) | ligne 284 battle_action_for
+[22] : 5_Battle_30_AI.rb (PSDK) | ligne 284 map
+[21] : 5_Battle_30_AI.rb (PSDK) | ligne 284 battle_action_for
+[20] : 5_Battle_30_AI.rb (PSDK) | ligne 251 trigger
+[19] : 5_Battle_30_AI.rb (PSDK) | ligne 248 each
+[18] : 5_Battle_30_AI.rb (PSDK) | ligne 248 flat_map
+[17] : 5_Battle_30_AI.rb (PSDK) | ligne 248 trigger
+[16] : 5_Battle_01_Scene.rb (PSDK) | ligne 461 trigger_all_AI
+[15] : 5_Battle_01_Scene.rb (PSDK) | ligne 455 each
+[14] : 5_Battle_01_Scene.rb (PSDK) | ligne 455 each_with_index
+[13] : 5_Battle_01_Scene.rb (PSDK) | ligne 455 trigger_all_AI
+[12] : 5_Battle_01_Scene.rb (PSDK) | ligne 72 next_update_process
+[11] : 5_Battle_01_Scene.rb (PSDK) | ligne 64 update
 [10] : 4_Systems_000_General_2_GamePlay__Base.rb (PSDK) | ligne 236 main_process
 [9] : 4_Systems_000_General_2_GamePlay__Base.rb (PSDK) | ligne 144 main
 [8] : tools/GameLoader/Z_main.rb (PSDK) | ligne 16 <top (required)>

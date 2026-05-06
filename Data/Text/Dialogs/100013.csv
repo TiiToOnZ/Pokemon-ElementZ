@@ -428,7 +428,8 @@ The user charges at the target and may make it flinch.,"Le lanceur charge l’en
 The user attacks with a punch. This may also lower the target’s Defense stat.,Porte un coup de poing à l’ennemi qui peut baisser sa Défense.,Chi la usa colpisce il bersaglio con un pugno che può anche ridurne la Difesa.,Diese steinbrechende Attacke kann den Verteidigungs-Wert des Zieles senken.,Ataque con los puños. Puede bajar la Defensa del objetivo.,펀치로 공격한다. 상대의 방어를 떨어뜨릴 때가 있다.,パンチで　こうげき。　あいての ぼうぎょを　さげる　ことが　ある。
 - - -,"Une loupe imprégnée d’une technologie ancienne.
 Elle dévoile les empreintes dissimulées des Pokémon Légendaires.",- - -,- - -,- - -,- - -,ー ー ー
-- - -,,- - -,- - -,- - -,- - -,するどい　はで　あいてを　かみくだいて こうげきする。あいての　ぼうぎょを さげることが　ある。
+- - -,"Une Pokétorche qui illumine les lieux obscurs.  
+Elle s’active automatiquement dans les grottes.",- - -,- - -,- - -,- - -,するどい　はで　あいてを　かみくだいて こうげきする。あいての　ぼうぎょを さげることが　ある。
 A bag filled with convenient tools for exploring. It provides access to the Underground in the Sinnoh region.,Un sac contenant des objets utiles à l’exploration. Permet d’entrer dans le Souterrain.,Utilissimo kit contenente strumenti per l’esplorazione. Permette di percorrere i tunnel sotterranei.,Ein Sack voller hilfreicher Items für Erkundungsgänge. Öffnet den Untergrund.,Una saca donde guardar los objetos útiles para la exploración. Permite acceder al Subsuelo.,탐험에 도움이 되는 편리한 도구가 들어 있는 주머니. 지하통로에 들어갈 수 있다.,たんけんに　やくだつ　べんりな どうぐが　はいった　ふくろ。 ちかつうろに　はいれる。
 "A sturdy, spacious bag that is used to carry any treasures or loot obtained in the coal mine.",Un grand sac robuste utilisé pour transporter le butin obtenu dans la mine de charbon.,Una sacca spaziosa e resistente usata per trasportare il bottino ottenuto nella miniera.,"Ein fester Sack. Wird verwendet, um Beute aus der Kohlemine zu transportieren.",Una saca grande y resistente utilizada para transportar el botín reunido en la mina de carbón.,탄갱에서 손에 넣은 보물을 보관해둘 수 있는 크고 튼튼한 주머니다.,たんこうで　てにいれた たからものを　しまっておける おおきくて　じょうぶな　ふくろ。
 "It lists the rules for holding battles. For Link Battles, you may choose which set of rules you wish to use.",La liste des règles de combat. Permet de choisir les règles des combats en réseau.,Elenca le regole per le lotte. Nelle lotte in link puoi scegliere diversi set di regole da utilizzare.,Enthält die Kampfregeln. Bei Link-Kämpfen kannst du daraus die gewünschten Regeln wählen.,Recoge las normas de los combates. En los combates en conexión puedes elegir el conjunto de reglas que quieres usar.,대전에 대한 룰이 적혀 있다. 통신대전을 할 때 룰을 선택할 수 있다.,たいせんの　ルールが　かかれている。 つうしんたいせん　するとき ルールを　えらぶことが　できる。
@@ -926,13 +927,13 @@ A memory disc that contains Dark-type data. It changes the type of the holder if
 A memory disc that contains Fairy-type data. It changes the type of the holder if held by a certain species of Pokémon.,Une carte mémoire contenant des données sur le type Fée. Un certain Pokémon peut changer de type en l’équipant.,ROM contenente dati sul tipo Folletto in formato digitale. Permette a un certo Pokémon di cambiare tipo.,Eine Disc mit Daten zum Typ Fee. Sie löst bei einem bestimmten Pokémon einen Typenwechsel aus.,Disco de datos que contiene información relativa al tipo Hada. Permite cambiar de tipo a cierto Pokémon.,페어리타입의 데이터가 들어 있는 메모리. 특정 포켓몬이 지니면 타입이 바뀐다.,フェアリータイプの　データが　はいった メモリ。　とくていの　ポケモンが もつと　タイプが　かわる。
 NewText,Champignon qui pousse proche des points d'eau douce.,NewText,NewText,NewText,NewText,NewText
 NewText,Champignon qui pousse proche des points d'eau salée.,NewText,NewText,NewText,NewText,NewText
-NewText,Champignon qui pousse proche du corps en putréfaction.,NewText,NewText,NewText,NewText,NewText
+NewText,Champignon qui pousse proche des corps en putréfaction.,NewText,NewText,NewText,NewText,NewText
 NewText,Potion permettant d'arrêter d'être saoul d'un coup sec !,NewText,NewText,NewText,NewText,NewText
 NewText,,NewText,NewText,NewText,NewText,NewText
 NewText,,NewText,NewText,NewText,NewText,NewText
 NewText,Livre racontant l'histoire du Prince des Mers.,NewText,NewText,NewText,NewText,NewText
 NewText,"Une Poké Ball rare portant les lettres GS. Elle est fabriquée à partir d’une plume de Ho-Oh et d’une plume de Lugia. Selon la légende, elle serait liée à l’apparition d’un Pokémon capable de voyager entre le passé et le futur.",NewText,NewText,NewText,NewText,NewText
-NewText,NewText,NewText,NewText,NewText,NewText,NewText
+NewText,C’est l’un des quatre artefacts à l’origine de toute vie sur Terre.,NewText,NewText,NewText,NewText,NewText
 NewText,NewText,NewText,NewText,NewText,NewText,NewText
 NewText,NewText,NewText,NewText,NewText,NewText,NewText
 NewText,NewText,NewText,NewText,NewText,NewText,NewText

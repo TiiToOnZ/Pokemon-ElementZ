@@ -39,8 +39,13 @@
     },
     {
       "type": "mapId",
+      "value": 71,
+      "relationWithPreviousCondition": "OR"
+    },
+    {
+      "type": "mapId",
       "relationWithPreviousCondition": "OR",
-      "value": 71
+      "value": 51
     }
   ],
   "encounters": [

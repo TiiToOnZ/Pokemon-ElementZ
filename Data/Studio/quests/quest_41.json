@@ -8,7 +8,7 @@
     {
       "objectiveMethodName": "objective_obtain_item",
       "objectiveMethodArgs": [
-        "master_ball",
+        "artefact_de_la_terre",
         1
       ],
       "textFormatMethodName": "text_obtain_item",

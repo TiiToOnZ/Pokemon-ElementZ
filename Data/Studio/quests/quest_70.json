@@ -12,7 +12,7 @@
         1
       ],
       "textFormatMethodName": "text_beat_pokemon",
-      "hiddenByDefault": true
+      "hiddenByDefault": false
     },
     {
       "objectiveMethodName": "objective_speak_to",

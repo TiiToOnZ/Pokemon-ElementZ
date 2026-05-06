@@ -13,9 +13,9 @@
       4,
       5,
       6,
-      7,
       8,
       9,
+      7,
       10,
       11,
       12,
@@ -172,7 +172,7 @@
       22
     ],
     "hasChildren": true,
-    "isExpanded": true,
+    "isExpanded": false,
     "data": {
       "klass": "MapInfoMap",
       "mapDbSymbol": "map013",
@@ -301,7 +301,7 @@
       54
     ],
     "hasChildren": true,
-    "isExpanded": false,
+    "isExpanded": true,
     "data": {
       "klass": "MapInfoFolder",
       "textId": 1
@@ -317,7 +317,7 @@
       38
     ],
     "hasChildren": true,
-    "isExpanded": true,
+    "isExpanded": false,
     "data": {
       "klass": "MapInfoMap",
       "mapDbSymbol": "map023",
@@ -374,7 +374,7 @@
       52
     ],
     "hasChildren": true,
-    "isExpanded": true,
+    "isExpanded": false,
     "data": {
       "klass": "MapInfoMap",
       "mapDbSymbol": "map026",
@@ -389,7 +389,7 @@
       78
     ],
     "hasChildren": true,
-    "isExpanded": false,
+    "isExpanded": true,
     "data": {
       "klass": "MapInfoFolder",
       "textId": 2
@@ -428,7 +428,7 @@
       42
     ],
     "hasChildren": true,
-    "isExpanded": false,
+    "isExpanded": true,
     "data": {
       "klass": "MapInfoFolder",
       "textId": 3
@@ -441,7 +441,7 @@
       56
     ],
     "hasChildren": true,
-    "isExpanded": false,
+    "isExpanded": true,
     "data": {
       "klass": "MapInfoFolder",
       "textId": 4
@@ -701,9 +701,11 @@
   },
   "56": {
     "id": 56,
-    "children": [],
-    "hasChildren": false,
-    "isExpanded": false,
+    "children": [
+      88
+    ],
+    "hasChildren": true,
+    "isExpanded": true,
     "data": {
       "klass": "MapInfoMap",
       "mapDbSymbol": "map050",
@@ -731,7 +733,7 @@
       59
     ],
     "hasChildren": true,
-    "isExpanded": false,
+    "isExpanded": true,
     "data": {
       "klass": "MapInfoFolder",
       "textId": 6
@@ -1063,6 +1065,17 @@
       "klass": "MapInfoMap",
       "mapDbSymbol": "map080",
       "parentId": 32
+    }
+  },
+  "88": {
+    "id": 88,
+    "children": [],
+    "hasChildren": false,
+    "isExpanded": false,
+    "data": {
+      "klass": "MapInfoMap",
+      "mapDbSymbol": "map081",
+      "parentId": 56
     }
   }
 }

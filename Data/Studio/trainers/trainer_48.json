@@ -5,6 +5,13 @@
   "vsType": 3,
   "isCouple": false,
   "baseMoney": 10,
+  "bagEntries": [
+    {
+      "dbSymbol": "super_potion",
+      "amount": 2
+    }
+  ],
+  "battleId": 0,
   "ai": 7,
   "party": [
     {
@@ -34,12 +41,12 @@
         {
           "type": "ivs",
           "value": {
-            "hp": 31,
-            "atk": 31,
-            "dfe": 31,
-            "spd": 31,
-            "ats": 31,
-            "dfs": 31
+            "hp": 15,
+            "atk": 15,
+            "dfe": 15,
+            "spd": 15,
+            "ats": 15,
+            "dfs": 15
           }
         },
         {
@@ -104,12 +111,12 @@
         {
           "type": "ivs",
           "value": {
-            "hp": 31,
-            "atk": 31,
-            "dfe": 31,
-            "spd": 31,
-            "ats": 31,
-            "dfs": 31
+            "hp": 15,
+            "atk": 15,
+            "dfe": 15,
+            "spd": 15,
+            "ats": 15,
+            "dfs": 15
           }
         },
         {
@@ -170,12 +177,12 @@
         {
           "type": "ivs",
           "value": {
-            "hp": 31,
-            "atk": 31,
-            "dfe": 31,
-            "spd": 31,
-            "ats": 31,
-            "dfs": 31
+            "hp": 15,
+            "atk": 15,
+            "dfe": 15,
+            "spd": 15,
+            "ats": 15,
+            "dfs": 15
           }
         },
         {
@@ -232,12 +239,12 @@
         {
           "type": "ivs",
           "value": {
-            "hp": 31,
-            "atk": 31,
-            "dfe": 31,
-            "spd": 31,
-            "ats": 31,
-            "dfs": 31
+            "hp": 15,
+            "atk": 15,
+            "dfe": 15,
+            "spd": 15,
+            "ats": 15,
+            "dfs": 15
           }
         },
         {
@@ -294,12 +301,12 @@
         {
           "type": "ivs",
           "value": {
-            "hp": 31,
-            "atk": 31,
-            "dfe": 31,
-            "spd": 31,
-            "ats": 31,
-            "dfs": 31
+            "hp": 15,
+            "atk": 15,
+            "dfe": 15,
+            "spd": 15,
+            "ats": 15,
+            "dfs": 15
           }
         },
         {
@@ -364,12 +371,12 @@
         {
           "type": "ivs",
           "value": {
-            "hp": 31,
-            "atk": 31,
-            "dfe": 31,
-            "spd": 31,
-            "ats": 31,
-            "dfs": 31
+            "hp": 15,
+            "atk": 15,
+            "dfe": 15,
+            "spd": 15,
+            "ats": 15,
+            "dfs": 15
           }
         },
         {
@@ -400,13 +407,6 @@
       ]
     }
   ],
-  "bagEntries": [
-    {
-      "dbSymbol": "super_potion",
-      "amount": 2
-    }
-  ],
-  "battleId": 0,
   "resources": {
     "sprite": "",
     "artworkFull": "Pierre_big",
