@@ -114,3 +114,6 @@ Yes !,Oui !,¡ Sí !,Sì !
 :[align=center]:RECEIPT: \c[5]SUPER CANDY\C[0],:[align=center]:REÇU : \c[5]SUPER BONBON\C[0],:[align=center]:RECIBIDO: \c[5]SUPER CARAMELO[0],:[align=center]:RICEVUTO: \c[5]SUPER CARAMELLA\C[0]
 :[align=center]:\s[i]Put your “Super Candy” in your bag in the Care pocket.\s[r],":[align=center]:\s[i]Vous rangez votre ""Super Bonbon"" dans votre sac dans la poche Soins.\s[r]",":[align=center]:\s[i]Guarda tu «Super Caramelo» en tu bolso, en el bolsillo de cuidados.\s[r]",:[align=center]:\s[iRiponi il tuo “Super Caramella” nella borsa nella tasca Cura.\s[r]
 :[align=center]:Sauve family home,:[align=center]:Maison de la famille Sauve,:[align=center]:Casa de la familia Sauve,:[align=center]:Casa della famiglia Sauve
+,":[face=250,Silver,300;name=?]:Chut[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10] J’observe, j’écoute[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10] et je juge. \nlOuste !",,
+,:[align=center]:REÇU : \c[5]CT 02 : HURLEMENT\c[0],,
+,":[align=center]:\s[i]Vous rangez votre ""CT 02"" dans votre sac dans la poche CT.\s[r]",,

@@ -5,7 +5,13 @@
   "systemTag": "Grass",
   "terrainTag": 0,
   "tool": null,
+  "vsType": "simple",
   "customConditions": [
+    {
+      "type": "mapId",
+      "relationWithPreviousCondition": "AND",
+      "value": 34
+    },
     {
       "type": "enabledSwitch",
       "value": 12,
@@ -518,6 +524,5 @@
       ]
     }
   ],
-  "stepsAverage": 12,
-  "vsType": "simple"
+  "stepsAverage": 12
 }

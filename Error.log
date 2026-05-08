@@ -1,34 +1,27 @@
 ================================Erreur de script================================
 Message :
-divided by 0
+nil is not a symbol nor a string
 
-Type : ZeroDivisionError
-Script : 5_Battle_10_Move.rb (PSDK)
-Ligne : 5508
-Date : 06/05/2026 18:53:57
+Type : TypeError
+Script : 4_Systems_003_Map_Engine.rb (PSDK)
+Ligne : 3618
+Date : 07/05/2026 14:45:34
 Game Version : 1
 Logiciel : PSDK 26.55
 ===================================Backtraces===================================
-[30] : 5_Battle_10_Move.rb (PSDK) | ligne 5508 /
-[29] : 5_Battle_10_Move.rb (PSDK) | ligne 5508 real_base_power
-[28] : 5_Battle_30_AI.rb (PSDK) | ligne 394 move_power
-[27] : 5_Battle_30_AI.rb (PSDK) | ligne 367 move_heuristic
-[26] : 5_Battle_30_AI.rb (PSDK) | ligne 353 move_action_for
-[25] : 5_Battle_30_AI.rb (PSDK) | ligne 352 map
-[24] : 5_Battle_30_AI.rb (PSDK) | ligne 352 move_action_for
-[23] : 5_Battle_30_AI.rb (PSDK) | ligne 284 battle_action_for
-[22] : 5_Battle_30_AI.rb (PSDK) | ligne 284 map
-[21] : 5_Battle_30_AI.rb (PSDK) | ligne 284 battle_action_for
-[20] : 5_Battle_30_AI.rb (PSDK) | ligne 251 trigger
-[19] : 5_Battle_30_AI.rb (PSDK) | ligne 248 each
-[18] : 5_Battle_30_AI.rb (PSDK) | ligne 248 flat_map
-[17] : 5_Battle_30_AI.rb (PSDK) | ligne 248 trigger
-[16] : 5_Battle_01_Scene.rb (PSDK) | ligne 461 trigger_all_AI
-[15] : 5_Battle_01_Scene.rb (PSDK) | ligne 455 each
-[14] : 5_Battle_01_Scene.rb (PSDK) | ligne 455 each_with_index
-[13] : 5_Battle_01_Scene.rb (PSDK) | ligne 455 trigger_all_AI
-[12] : 5_Battle_01_Scene.rb (PSDK) | ligne 72 next_update_process
-[11] : 5_Battle_01_Scene.rb (PSDK) | ligne 64 update
+[23] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 3618 type=
+[22] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 1267 update_weather
+[21] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 1262 update_sprites
+[20] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 1296 update_sprites
+[19] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 1321 update_sprites
+[18] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 1352 update_sprites
+[17] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 1397 update_sprites
+[16] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 1806 update_sprites
+[15] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 1953 update_sprites
+[14] : 4_Systems_952_MapOverlay.rb (PSDK) | ligne 542 update_sprites
+[13] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 946 update
+[12] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9129 update_graphics
+[11] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9119 update
 [10] : 4_Systems_000_General_2_GamePlay__Base.rb (PSDK) | ligne 236 main_process
 [9] : 4_Systems_000_General_2_GamePlay__Base.rb (PSDK) | ligne 144 main
 [8] : tools/GameLoader/Z_main.rb (PSDK) | ligne 16 <top (required)>

@@ -14,8 +14,8 @@
     "pitch": 100
   },
   "tiledFilename": "029 Route_1",
-  "mtime": 1777043456752,
-  "sha1": "a200b4d49938fe39fe8a9df2baef547502fb34dc",
+  "mtime": 1778234547102,
+  "sha1": "578370add241e9fef83743340cdd135105bfa1da",
   "tileMetadata": {
     "width": 92,
     "height": 45,
@@ -608,7 +608,7 @@
           "transformId": 0
         },
         {
-          "passage": 0
+          "passage": 15
         }
       ],
       [
@@ -617,7 +617,7 @@
           "transformId": 0
         },
         {
-          "passage": 0
+          "passage": 15
         }
       ],
       [
@@ -626,7 +626,7 @@
           "transformId": 0
         },
         {
-          "passage": 0
+          "passage": 15
         }
       ],
       [

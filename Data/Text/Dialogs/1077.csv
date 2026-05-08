@@ -1,0 +1,89 @@
+fr
+:[align=center]:\s[i]La télé est éteinte et ne semble pas fonctionner[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\nlVoulez-vous essayer de l’allumer et de lui donner une petite secousse ?\s[r]
+Oui !
+Non.
+\c[2]Pokemon\c[0] : Motismaaaa !
+:[align=center]:\s[i]La télé grésille[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\s[r]
+:[align=center]:\s[i]La télé est éteinte et ne semble pas fonctionner[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\nlVoulez-vous essayer de l’allumer et de lui donner une petite secousse ?\s[r]
+Oui !
+Non.
+:[align=center]:\s[i]Rien ne se passe[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\s[i]
+:[align=center]:\s[i]Plein de bouquins poussiereux[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\s[r]
+:[align=center]:\s[i]Plein de bouquins poussiereux[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\s[r]
+:[align=center]:\s[i]Tout à fait dégoutant[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\s[r]
+:[align=center]:\s[i]La télé est éteinte et ne semble pas fonctionner[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\nlVoulez-vous essayer de l’allumer et de lui donner une petite secousse ?\s[r]
+Oui !
+Non.
+\c[2]Pokemon\c[0] : Motismaaaa !
+:[align=center]:\s[i]La télé grésille[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\s[r]
+:[align=center]:\s[i]La télé est éteinte et ne semble pas fonctionner[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\nlVoulez-vous essayer de l’allumer et de lui donner une petite secousse ?\s[r]
+Oui !
+Non.
+:[align=center]:\s[i]Rien ne se passe[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\s[i]
+:[align=center]:\s[i]Plein de bouquins poussiereux[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\s[r]
+:[align=center]:\s[i]Il ne vaut mieux pas regarder[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\s[r]
+:[align=center]:\s[i]Cette poubelle est vide[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\s[r]
+:[align=center]:\s[i]Ce PokéCoffre nécessite un code à 4 chiffres pour être ouvert.\s[r]
+:[align=center]:\s[i]Code correct.\s[r]
+:[align=center]:\s[i]Vous voyez dans le coffre le livre intitulé « Le Prince des Mers ».\s[r]
+:[name=Mr. Décorum]:Attendez[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10] !\nlCe livre[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10] c’est le dernier exemplaire qu’il me reste[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\nl[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]c’est celui que je lui lisais chaque soir[WAIT 10].[WAIT 20].[WAIT 30].[WAIT 60]\nlC’est le seul souvenir qu’il me reste d’elle[WAIT 10].[WAIT 20].[WAIT 30].[WAIT 60]\nlJe vous en prie[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\nlNe me le prenez pas[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]
+":[align=center]:\s[i]Mr Décorum prend lentement le livre dans ses bras.\nlSes mains tremblent légèrement, comme si ce simple contact suffisait à raviver un souvenir trop douloureux.\s[r]"
+":[name=Mr. Décorum]:On dit que l’Autel Celebi, dans la Forêt Enchantée, peut exaucer certaines prières[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\nlc’est peut-être là que je dois aller[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]"
+:[align=center]:\s[i]Code incorrect.\s[r]
+:[align=center]:\s[i]Ce PokeCoffre est vide.\s[r]
+:[align=center]:\s[i]Cette poubelle est vide[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\s[r]
+:[align=center]:\s[i]Cette poubelle est vide[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\s[r]
+:[align=center]:\s[i]Un tas de dossiers[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\s[r]
+:[align=center]:\s[i]Plein de bouquins poussiereux[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\s[r]
+:[align=center]:\s[i]Tout à fait dégoutant[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\s[r]
+:[align=center]:\s[i]Un tas de dossiers[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\s[r]
+:[align=center]:\s[i]Plein de bouquins poussiereux[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\s[r]
+:[align=center]:\s[i]Plein de bouquins poussiereux[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\s[r]
+:[align=center]:\s[i]Ce tableau[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10] on dirait qu’il vous observe[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\s[r]
+\c[2]Pokemon\c[0] : Spectraliiiiii !
+:[align=center]:\s[i]Un tas de dossiers[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\s[r]
+:[align=center]:\s[i]Plein de bouquins poussiereux[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\s[r]
+:[align=center]:\s[i]Plein de bouquins poussiereux[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\s[r]
+:[align=center]:\s[i]Ce tableau[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10] on dirait qu’il vous observe[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\s[r]
+\c[2]Pokemon\c[0] : Spectraliiiiii !
+\c[2]Pokemon\c[0] : Fantominuuuus !
+:[align=center]:\s[i]Un tas de dossiers[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\s[r]
+:[align=center]:\s[i]Plein de bouquins poussiereux[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\s[r]
+:[align=center]:\s[i]Ce tableau est magnifique.\s[r]
+:[align=center]:\s[i]Un tas de dossiers[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\s[r]
+:[align=center]:\s[i]Plein de bouquins poussiereux[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\s[r]
+:[align=center]:\s[i]Un tas de dossiers[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\s[r]
+:[align=center]:\s[i]Plein de bouquins poussiereux[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\s[r]
+:[align=center]:\s[i]Ce tableau est magnifique.\s[r]
+:[align=center]:\s[i]Cette poubelle est vide[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\s[r]
+:[align=center]:\s[i]Plein de bouquins poussiereux[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\s[r]
+:[align=center]:\s[i]Il est [HEURE]\s[r]
+:[align=center]:\s[i]Il est [HEURE]\s[r]
+:[align=center]:\s[i]Ce tableau est magnifique.\s[r]
+:[name=Mr. Décorum]:Ma douce petite fille[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10] \nlje te vois encore jouer dans ta chambre[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\nlcomme si le temps s’était arrêté[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]
+:[name=Mr. Décorum]:Vous n’avez pas le droit de toucher à ça !\nlCe livre[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10] appartient à ma petite fille[WAIT 10].[WAIT 20].[WAIT 30].[WAIT 60] \nlc’est le dernier exemplaire qu’il me reste[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\nlC’est le seul souvenir qu’il me reste d’elle[WAIT 10].[WAIT 20].[WAIT 30].[WAIT 60]\nlJe refuse qu’on me l’arrache !\nlNon[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10] c’est hors de question !
+On dit que certains vont prier à l’Autel Celebi[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10] pour revoir ceux qu’ils ont perdus[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\nlMais ce ne sont sûrement que des histoires[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]
+:[align=center]:REÇU : \c[5]PLAQUE OMBRE\c[0]
+":[align=center]:\s[i]Vous rangez votre ""Plaque Ombre"" dans votre sac dans la poche Objets.\s[r]"
+:[align=center]:\s[i]Ho ! Il y a un objet au fond de la poubelle.\s[r]
+:[align=center]:REÇU : \c[5]MIEL\c[0]
+":[align=center]:\s[i]Vous rangez votre ""Miel"" dans votre sac dans la poche Objets.\s[r]"
+:[align=center]:\s[i]Cette poubelle est vide[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\s[r]
+:[align=center]:\s[i]Ho ! Il y a un objet au fond de la poubelle.\s[r]
+:[align=center]:REÇU : \c[5]VIEUX GATEAU\c[0]
+":[align=center]:\s[i]Vous rangez votre ""Vieux Gâteau"" dans votre sac dans la poche Soins.\s[r]"
+:[align=center]:\s[i]Cette poubelle est vide[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\s[r]
+:[align=center]:\s[i]L’environnement est trop stressant[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10] \nlimpossible de trouver le sommeil[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\s[r]
+:[align=center]:\s[i]Cette poubelle est vide[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\s[r]
+:[align=center]:\s[i]Ce tableau est magnifique.\s[r]
+:[align=center]:\s[i]Il est 18:43\s[r]
+:[align=center]:REÇU : \c[5]GRANDE PERLE\c[0]
+":[align=center]:\s[i]Vous rangez votre ""Grande Perle"" dans votre sac dans la poche Objets.\s[r]"
+:[align=center]:\s[i]Un tas de dossiers[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\s[r]
+:[align=center]:\s[i]Cette poubelle est vide[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\s[r]
+:[align=center]:\s[i]L’environnement est trop stressant[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10] \nlimpossible de trouver le sommeil[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\s[r]
+:[align=center]:\s[i]Un tas de dossiers[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\s[r]
+:[align=center]:\s[i]Plein de bouquins poussiereux[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\s[r]
+:[align=center]:\s[i]Il ne vaut mieux pas regarder[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\s[r]
+:[align=center]:\s[i]Plein de bouquins poussiereux[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\s[r]
+:[align=center]:\s[i]Cette poubelle est vide[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\s[r]

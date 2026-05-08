@@ -22,3 +22,12 @@ Dresseur : Fonce Nidorino !,Dresseur : Fonce Nidorino !,Dresseur : Fonce Nidorin
 \c[2]Pokemon\c[0] : Nidorinooo !,\c[2]Pokemon\c[0] : Nidorinooo !,\c[2]Pokemon\c[0] : Nidorinooo !,\c[2]Pokemon\c[0] : Nidorinooo !
 Dresseur : Riposte Ectoplasma !,Dresseur : Riposte Ectoplasma !,Dresseur : Riposte Ectoplasma !,Dresseur : Riposte Ectoplasma !
 \c[2]Pokemon\c[0] : Ectoplaaasma !,\c[2]Pokemon\c[0] : Ectoplaaasma !,\c[2]Pokemon\c[0] : Ectoplaaasma !,\c[2]Pokemon\c[0] : Ectoplaaasma !
+,"Du calme, mesdames et messieurs ! \nlS’il vous plaît, ne poussez pas !",,
+,":[name=Coupinette Poketoonz]:Bonjour messieurs les gendarmes, je suis Coupinette Poketoonz du Pokedaily Planet ! \nlJ’ai deux ou trois questions à vous poser, si vous le voulez bien !  \nlQuelles vont être les mesures prises contre ces attaques sur notre magnifique ville ?  \nlQui en est à l’origine ?\nlDevons-nous rester impassibles face à ces méfaits ?",,
+,:[align=center]:\s[i]L’établissement est fermé.\s[r],,
+,Ça suffit maintenant ! Il nous faut plus de protection contre ces voyous !  \nlLes habitants demandent des mesures plus strictes !,,
+,:[name=Hôte de la Pension]:Aidez-nous à retrouver ces bébés Pokémon[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10] je vous en prie !,,
+,Je ne sais pas pourquoi on manifeste[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10] mais c’est tellement excitant !,,
+,:[name=Hôte de la Pension]:Oh ! Enfin quelqu’un qui pourrait m’aider ! Vous tombez à pic !  \nlJe suis l’hôte de la Pension[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10] et j’ai un énorme problème !  \nlMes bébés Pokémon ont disparu dans toute la ville de Soufflopolis !  \nlJe les ai perdus de vue une seconde[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10] et pouf !,,
+,":[name=Hôte de la Pension]:Plus rien !  \nlDe plus, ma femme est partie les chercher[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10] et moi, sans elle pour tenir la pension, je suis complètement perdu ! \nlJ’ai dû fermer boutique[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10] \nlS’il vous plaît, aidez-moi à les retrouver ! Je vous en supplie[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10] ils sont si petits, ils ne survivront pas seuls dehors !",,
+,Bof[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10] une manifestation comme une autre. \nlIl n’y a qu’à attendre que ça passe.,,

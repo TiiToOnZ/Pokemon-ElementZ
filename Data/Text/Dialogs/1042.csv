@@ -39,3 +39,6 @@ Et voilà ! \nlJe suis encore désolé ! \nlA bientôt !,Et voilà ! \nlJe suis 
 Oui Chef !,Oui Chef !,Oui Chef !,Oui Chef !
 ":[face=250,Policier;name=Inspecteur Flofli]:HEIN ?! \nlMais pas toi idiot !",":[face=250,Policier;name=Inspecteur Flofli]:HEIN ?! \nlMais pas toi idiot !",":[face=250,Policier;name=Inspecteur Flofli]:HEIN ?! \nlMais pas toi idiot !",":[face=250,Policier;name=Inspecteur Flofli]:HEIN ?! \nlMais pas toi idiot !"
 ":[face=250,Policier;name=Inspecteur Flofli]:Tu es cerné ! \nlOn t'embarque sale voleur !",":[face=250,Policier;name=Inspecteur Flofli]:Tu es cerné ! \nlOn t'embarque sale voleur !",":[face=250,Policier;name=Inspecteur Flofli]:Tu es cerné ! \nlOn t'embarque sale voleur !",":[face=250,Policier;name=Inspecteur Flofli]:Tu es cerné ! \nlOn t'embarque sale voleur !"
+,:[align=center]:\s[i]Voulez-vous voler le colis ?\s[r],,
+,Oui !,,
+,Non.,,

@@ -188,3 +188,17 @@ She annoys me ! ! !,Elle m'agace ! ! !,¡ Me molesta !,Mi dà fastidio ! ! !
 A nous deux !,A nous deux !,A nous deux !,A nous deux !
 "Impossible… battu par un simple Dresseur ?!\nlSi le Chef apprend ça, je suis fini !\nlRetraite stratégique !","Impossible[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10] battu par un simple Dresseur ?!\nlSi le Chef apprend ça, je suis fini !\nlRetraite stratégique !","Impossible… battu par un simple Dresseur ?!\nlSi le Chef apprend ça, je suis fini !\nlRetraite stratégique !","Impossible… battu par un simple Dresseur ?!\nlSi le Chef apprend ça, je suis fini !\nlRetraite stratégique !"
 "Peut-être que la prochaine fois, tu réfléchiras à deux fois avant de tourner le dos à une organisation aussi puissante que la nôtre !","Peut-être que la prochaine fois, tu réfléchiras à deux fois avant de tourner le dos à une organisation aussi puissante que la nôtre !","Peut-être que la prochaine fois, tu réfléchiras à deux fois avant de tourner le dos à une organisation aussi puissante que la nôtre !","Peut-être que la prochaine fois, tu réfléchiras à deux fois avant de tourner le dos à une organisation aussi puissante que la nôtre !"
+,Oui !,,
+,Non.,,
+,"Très bien[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10] Je vais immédiatement faire mon rapport au Chef !  \nlJustement, il m’attend[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10] je file !  \nlPrépare-toi[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10] il ne tardera pas à te contacter !",,
+,"Très bien[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10] je vais aller faire mon rapport au Chef !  \nlTu vas regretter ce choix[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10] crois-moi, tu vas morfler !",,
+,":[face=250,Silver,300;name=Silver]:Voici un petit quelque chose pour toi :",,
+,":[face=250,Silver,300;name=Silver]:Vois comme nous savons récompenser ceux qui \nlnous rendent service.",,
+,":[face=250,Silver,300;name=?]:Je pense qu’il est temps de lever le voile sur mon identité[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\nlJe suis Silver, le bras droit de la plus grande organisation criminelle au monde : la Team Obscur !",,
+,":[face=250,Silver,300;name=Silver]:Voici un petit quelque chose pour toi :",,
+,":[face=250,Silver,300;name=Silver]:Vois comme nous savons récompenser ceux qui \nlnous rendent service.",,
+,":[face=250,Silver,300;name=Silver]:La Chef a une mission pour toi[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10] ton avenir parmi nous en dépend.  \nlAlors fais les bons choix[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10] ou assume les conséquences !",,
+,":[face=250,Silver,300;name=?]:Je pense qu’il est temps de lever le voile sur mon identité[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\nlJe suis Silver, le bras droit de la plus grande organisation criminelle au monde : la Team Obscur !",,
+,":[face=250,Silver,300;name=Silver]:Je retourne à mes affaires[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10] mais ne crois pas être libre pour autant[WAIT 10].[WAIT 10].[WAIT \nl10].\nl[WAIT 10] nous t’observons.",,
+,Bonjour !\nlVoici vos données à jour !,,
+,A bienôt !,,

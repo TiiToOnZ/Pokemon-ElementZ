@@ -1,0 +1,31 @@
+fr
+:[align=center]:REÇU : \c[5]NOIGRUME VERT\c[0]
+":[align=center]:\s[i]Vous rangez votre ""Noigrume Vert"" dans votre sac dans la poche Baies.\s[r]"
+:[align=center]:REÇU : \c[5]NOIGRUME BLEU\c[0]
+":[align=center]:\s[i]Vous rangez votre ""Noigrume Bleu"" dans votre sac dans la poche Baies.\s[r]"
+:[name=Divinatrice]:Oh ! Mais qui voilà ?! Un étranger[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10] accompagné d’un \c[2]Pokémon\c[0] ?!
+:[name=Divinatrice]:Mes prières ont été exaucées ! Ô \c[2]Celebi\c[0] !\nlJe ne te remercierai jamais assez[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]
+":[name=Divinatrice]:Toi[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10] tu as été choisi par \c[2]Celebi\c[0] pour sauver l’avenir de ce monde.\nlJ’ai vu des visions[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10] terribles[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\nlMalheur et souffrance s’abattront sur nous dans une centaine d’années !\nlUne centaine d’années, tu te dis ? Il y a le temps ?\nlQue nenni[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10] tout commence dès maintenant."
+:[name=Divinatrice]:C’est dans le présent que tout va basculer.\nlDans les prochains jours[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10] le destin du monde sera scellé.\nlJ’ai besoin de ton aide !
+":[name=Divinatrice]:Sur cette île, aucun \c[2]Pokémon\c[0] n’apparaît.\nlSeuls quelques rares dresseurs y accostent, dans l’espoir d’y trouver une arène[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\nlMais ils repartent aussitôt, déçus.\nlAlors comprends ma surprise[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10] en te voyant, toi, avec un \c[2]Pokémon\c[0] !\nlC’est un signe[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10] il n’y a aucun doute."
+":[name=Divinatrice]:Allez, viens !"
+:[name=Divinatrice]:Ohlala[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10] j’ai failli commettre une grave erreur[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\nlJ’ai oublié de vérifier quelque chose d’essentiel[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\nlMmm[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]
+":[name=Divinatrice]:Tu ne possèdes aucun objet capable de stabiliser l’espace-temps[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\nlSans cela, ta simple présence ici pourrait en bouleverser l’équilibre[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\nlUn tel objet n’existe pas dans ce monde[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\nlMais peut-être[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10] dans le tien."
+":[name=Divinatrice]:Pour retourner à ton époque, tu auras besoin d’un Ticket Mystik.\nlEt[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10] je ressens son pouvoir[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\nlIl émane du manoir de la famille Décorum.\nlTrouve ce Ticket Mystik, puis reviens me voir.\nlTu pourras alors retourner dans ton temps[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10] et obtenir ce qu’il te faut pour sauver l’avenir !"
+:[name=Divinatrice]:Mais attention[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\nlNe quitte surtout pas la forêt.\nlChaque pas que tu fais pourrait déjà altérer le futur[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\nlJ’espère[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10] que ta présence ici n’a pas déjà tout changé[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]
+:[name=Divinatrice]:Je vais continuer à prier \c[2]Celebi\c[0].\nlPour qu’il guide tes pas jusqu’au Ticket Mystik.
+:[align=center]:\s[i]La porte est fermée à clef[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\s[r]
+:[name=Divinatrice]:Tu l'as trouvé ! Magnifique ! Je vais commencer l'incantation[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]
+:[name=Divinatrice]:HO \c[2]CELEBI\c[0] ! ! !
+:[name=Divinatrice]:PERMET MOI DE FAIRE REVENIR EN SON TEMPS \n[1] ! ! !
+:[name=Divinatrice]:TE DEUM LAUDAMUS ! ! !
+:[align=center]:\s[i]\c[18]Vous venez de voyager dans le temps[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\c[0]\s[r]
+":[name=Divinatrice]:Apporte-moi le Ticket Mystik, je te ferai retourner dans ton temps !\nlEt n'oublie pas de ne pas sortir de la forêt pour l'instant ! Il ne faudrait pas changer l'espace-temps !"
+:[align=center]:\s[i]Ne quittez pas la forêt pour le moment[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10] \nlcela pourrait bouleverser l’espace-temps[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10] \s[r]
+:[align=center]:\s[i]Voulez-vous prier devant l'Autel \c[2]Celebi\c[0] ?\s[r]
+Oui !
+Non.
+:[align=center]:\s[i]Vous priez devant l'Autel \c[2]Celebi\c[0] mais rien ne se passe[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\s[r]
+:[align=center]:\s[i]Ne quittez pas la forêt pour le moment[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10] \nlcela pourrait bouleverser l’espace-temps[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10] \s[r]
+:[align=center]:REÇU : \c[5]NOIGRUME ROSE\c[0]
+":[align=center]:\s[i]Vous rangez votre ""Noigrume Rose"" dans votre sac dans la poche Baies.\s[r]"

@@ -1,0 +1,81 @@
+fr
+"Bienvenue à tous, chers spectateurs !"
+"Ce combat sera un combat double, sans limite du nombre de Pokémon utilisables !"
+"À ma gauche, vous trouverez [CLASS] [NAME] !"
+"À ma droite, le tout nouveau challenger fraîchement arrivé, comme vous le savez[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]"
+Je nomme[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10] \N[1] !
+"Challengers, êtes-vous prêts ?"
+Combattez !
+":[face=250,Pierre;name=[NAME]]:Je crois en la grande résistance de la pierre !"
+La victoire revient à \N[1] !
+Il remporte un magnifique Badge Cascade en combat double !
+:[align=center]:REÇU : \c[5]BADGE CASCADE\c[0]
+":[align=center]:\s[i]Vous rangez votre ""Badge Cascade"" sur votre carte de dresseur.\s[r]"
+J’ajoute cette victoire à l’ordinateur[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]
+Oh ! Que vois-je ?! \N[1] a remporté les trois Badges Cascade ?!
+"Mesdames et Messieurs, l’instant que vous attendiez tous est enfin arrivé !"
+Nous avons un nouveau champion à Tartatin !
+Oh ! Il ne reste plus qu’un seul combat pour \N[1] avant qu’il ne détrône notre grande championne !
+Il reste encore \V[26] combats à gagner pour \N[1] avant qu’il ne détrône la grande championne !
+La victoire revient à [NAME] !
+"Quoi qu’il en soit, ce fut un match d’une grande intensité, j’espère que vous l’avez ressenti jusque dans les gradins !"
+"N’hésitez pas à revenir combattre si vous en avez envie, c’est toujours un plaisir d’assister à des combats aussi passionnants !"
+"Chers spectateurs, merci d’être venus, et à la prochaine fois !"
+"Bienvenue à tous, chers spectateurs !"
+"Ce combat sera un combat triple, sans limite du nombre de Pokémon utilisables !"
+"À ma gauche, vous trouverez [CLASS] [NAME] !"
+"À ma droite, le tout nouveau challenger fraîchement arrivé, comme vous le savez[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]"
+Je nomme[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10] \N[1] !
+"Challengers, êtes-vous prêts ?"
+Combattez !
+":[face=250,Pierre;name=[NAME]]:Je crois en la grande résistance de la pierre !"
+La victoire revient à \N[1] !
+Il remporte un magnifique Badge Cascade en combat triple !
+:[align=center]:REÇU : \c[5]BADGE CASCADE\c[0]
+":[align=center]:\s[i]Vous rangez votre ""Badge Cascade"" sur votre carte de dresseur.\s[r]"
+J’ajoute cette victoire à l’ordinateur[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]
+Oh ! Que vois-je ?! \N[1] a remporté les trois Badges Cascade ?!
+"Mesdames et Messieurs, l’instant que vous attendiez tous est enfin arrivé !"
+Nous avons un nouveau champion à Tartatin !
+Oh ! Il ne reste plus qu’un seul combat pour \N[1] avant qu’il ne détrône notre grande championne !
+Il reste encore \V[26] combats à gagner pour \N[1] avant qu’il ne détrône la grande championne !
+La victoire revient à [NAME] !
+"Quoi qu’il en soit, ce fut un match d’une grande intensité, j’espère que vous l’avez ressenti jusque dans les gradins !"
+"N’hésitez pas à revenir combattre si vous en avez envie, c’est toujours un plaisir d’assister à des combats aussi passionnants !"
+"Chers spectateurs, merci d’être venus, et à la prochaine fois !"
+Je te laisse te diriger vers la borne jaune pour programmer ton combat contre le champion !
+"En tant que Champion, l’accès à la Loge des Champions, au fond de l’Arène, t’est désormais ouvert !"
+:[align=center]:\s[i]Tu dois obtenir les trois Badges Cascade pour accéder à la Loge des Champions.\s[r]
+:[align=center]:\s[i]Tu dois obtenir les trois Badges Cascade pour accéder à la Loge des Champions.\s[r]
+:[align=center]:\s[i]Tu dois obtenir les trois Badges Cascade pour accéder à la Loge des Champions.\s[r]
+\c[18]Bonjour et bienvenue au Terminal de Réservation de Combats !
+\c[18]Souhaitez-vous réserver un combat en particulier ?
+"\c[18]\t[11, 27]"
+"\c[18]\t[11, 28]"
+\c[18]Quel combat souhaitez-vous réserver ?
+\c[18]Tu as déjà remporté ce combat et obtenu le badge !
+\c[18]Excellent choix ! Votre combat est en cours de préparation.
+"\c[18]Veuillez vous diriger vers le terrain, s'il vous plaît."
+\c[18]Nous espérons vous revoir très bientôt !
+"Bienvenue à tous, chers spectateurs !"
+"Ce combat sera un combat solo, sans limite du nombre de Pokémon utilisables !"
+"À ma gauche, vous trouverez [CLASS] [NAME] !"
+"À ma droite, le tout nouveau challenger fraîchement arrivé, comme vous le savez[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]"
+Je nomme[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10] \N[1] !
+"Challengers, êtes-vous prêts ?"
+Combattez !
+":[face=250,Pierre;name=[NAME]]:Je crois en la grande résistance de la pierre !"
+La victoire revient à \N[1] !
+Il remporte un magnifique Badge Cascade en combat simple !
+:[align=center]:REÇU : \c[5]BADGE CASCADE\c[0]
+":[align=center]:\s[i]Vous rangez votre ""Badge Cascade"" sur votre carte de dresseur.\s[r]"
+J’ajoute cette victoire à l’ordinateur[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]
+Oh ! Que vois-je ?! \N[1] a remporté les trois Badges Cascade ?!
+"Mesdames et Messieurs, l’instant que vous attendiez tous est enfin arrivé !"
+Nous avons un nouveau champion à Tartatin !
+Oh ! Il ne reste plus qu’un seul combat pour \N[1] avant qu’il ne détrône notre grande championne !
+Il reste encore \V[26] combats à gagner pour \N[1] avant qu’il ne détrône la grande championne !
+La victoire revient à [NAME] !
+"Quoi qu’il en soit, ce fut un match d’une grande intensité, j’espère que vous l’avez ressenti jusque dans les gradins !"
+"N’hésitez pas à revenir combattre si vous en avez envie, c’est toujours un plaisir d’assister à des combats aussi passionnants !"
+"Chers spectateurs, merci d’être venus, et à la prochaine fois !"

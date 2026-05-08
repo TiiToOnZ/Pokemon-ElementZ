@@ -14,18 +14,28 @@
     },
     {
       "type": "mapId",
-      "relationWithPreviousCondition": "OR",
-      "value": 35
+      "value": 35,
+      "relationWithPreviousCondition": "OR"
+    },
+    {
+      "type": "mapId",
+      "value": 29,
+      "relationWithPreviousCondition": "OR"
+    },
+    {
+      "type": "mapId",
+      "value": 51,
+      "relationWithPreviousCondition": "OR"
     },
     {
       "type": "mapId",
       "relationWithPreviousCondition": "OR",
-      "value": 29
+      "value": 34
     },
     {
       "type": "mapId",
       "relationWithPreviousCondition": "OR",
-      "value": 51
+      "value": 26
     }
   ],
   "encounters": [
@@ -198,5 +208,5 @@
       ]
     }
   ],
-  "stepsAverage": 0
+  "stepsAverage": 30
 }

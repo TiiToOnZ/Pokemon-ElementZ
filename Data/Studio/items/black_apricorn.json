@@ -3,7 +3,7 @@
   "dbSymbol": "black_apricorn",
   "icon": "491",
   "price": 200,
-  "socket": 4,
+  "socket": 2,
   "position": 0,
   "isBattleUsable": false,
   "isMapUsable": false,

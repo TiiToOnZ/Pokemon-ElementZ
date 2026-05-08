@@ -1,0 +1,75 @@
+fr
+:[name=Sage de la terre]:Il faut que vous me battiez pour pouvoir continuer !
+:[name=Sage de la terre]:Dites moi quand vous êtes prêt.
+:[name=Sage du feu]:Voulez-vous me défier ?
+Oui !
+Non.
+:[name=Sage du feu]:Je vais calciner ton être afin de te purifier !
+":[name=Sage du feu]:Pfiou, qu'elle chaleur[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\nlTu peux continuer ton ascenssion vers le sommet.\nlBonne chance !"
+:[name=Sage du feu]:Je ne suis plus très chaud là[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]
+:[name=Sage de la lumière]:Tu es donc arrivé jusqu'au dernier étage.\nlMais le plus dure reste à venir[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10] ce ne sera pas aussi simple d'avoir la dernière technologie à la mode !
+:[name=Sage de la lumière]:Wahouhou ! \nlTu es l'essence même de la vie ! \nlL'objectif de cette tour est de montrer aux jeunes dresseurs l'importance d'avoir une équipe diversifiée et équilibrée.\nlTu as réussi cette épreuve avec brio ! 
+:[name=Sage de la lumière]:Et c'est avec honneur que je te remet notre technologie dernier cri !
+:[align=center]:REÇU : \c[5]POKETORCHE\c[0]
+":[align=center]:\s[i]Vous rangez votre ""Poketorche"" dans votre sac dans la poche Objets rares.\s[r]"
+:[name=Sage de la lumière]:Tu veux en apprendre plus sur les artefacts ?\nlNous nous sommes justement réuni entre Sage et le champion d'arène afin d'en discuter.\nlAprès ce combat nous n'avons pas besoin de ce réunir pour voir que tu as une âme pure.\nlC'est pour quoi nous allons te révéler ce que l'on sait.
+":[name=Sage de la lumière]:Nous savons ou se trouve l'un des artefacts, nous sentons sa puissance[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\nlnous n'avons pas la position exact mais nous allons te guider."
+:[name=Sage de la lumière]:L'ile liberté et les profondeurs du Mont Cristallin sont les deux lieux que tu dois visiter. \nlCes lieux dégagent une puissance colossale !\nlJe te conseil de les explorer de fonte en comble nous somme persuadé qu'un artefact s'y trouve.
+":[name=Sage de la lumière]:Avant de te révéler ta prochaine destination, tu devrais continuer tes recherches au sein de la foret enchantée.\nlIl te reste encore des choses à explorer.\nlQuand cele sera fait reviens nous voir !"
+:[name=Sage de la lumière]:Bonne chance à toi pour ta quête de bravour et d'espoir.
+:[name=Sage de la lumière]:L'ile liberté et les profondeurs du Mont Cristallin sont les deux lieux que tu dois visiter. \nlCes lieux dégagent une puissance colossale !\nlJe te conseil de les explorer de fonte en comble nous somme persuadé qu'un artefact s'y trouve.
+":[name=Sage de la lumière]:Avant de te révéler ta prochaine destination, tu devrais continuer tes recherches au sein de la foret enchantée.\nlIl te reste encore des choses à explorer.\nlQuand cele sera fait reviens nous voir !"
+:[name=Sage de la lumière]:L'ile liberté et les profondeurs du Mont Cristallin sont les deux lieux que tu dois visiter. \nlCes lieux dégagent une puissance colossale !\nlJe te conseil de les explorer de fonte en comble nous somme persuadé qu'un artefact s'y trouve.
+":[name=Sage de la lumière]:Avant de te révéler ta prochaine destination, tu devrais continuer tes recherches au sein de la foret enchantée.\nlIl te reste encore des choses à explorer.\nlQuand cele sera fait reviens nous voir !"
+:[name=Sage du vent]:Il vous faut finir la tour des anciens pour pouvoir redescendre !
+:[name=Sage de la terre]:Voulez-vous me defier ?
+Oui !
+Non.
+:[name=Sage de la terre]:Tu es motivé !! \nlNe te faisons pas attendre.
+:[name=Sage de la terre]:La Terre-Mère sera te remettre à ta place !
+:[name=Sage de la terre]:Apparement la Terre-Mère t'apprécie[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\nlTu peux continuer ton ascenssion.\nlBonne chance !
+":[face=250,Nurse;name=Infirmière Joelle]:Ton équipe est remise sur pied. \nlFait attention la prochaine fois !"
+:[name=Sage de la terre]:Je suis fané[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]
+"Bonjour, mon enfant !\nlTe voici dans la tour des anciens, la tour qui t'accompagne jusqu'au cieux !\nlChaque palier de la tour appartient à un sage spécialisé dans l'un des types originels. \nlSi tu parviens à les battre un par un, tu pourras te confronter aux sages de la lumière et gagner un objet à la pointe de la technologie !"
+"Une fois arrivé au plus proche des cieux, Dieu te fait présent de sa bénédiction[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10] \nln'est-ce-pas merveilleux ?!\nlJe te conseil de te munir d'objets car tu ne pourras pas retourner au Pokésoin entre chaque palier.\nlQue le sort te soit favorable !"
+Tu as mené de formidables combats !
+:[name=Sage de la lumière]:Tu es donc arrivé jusqu'au dernier étage.\nlMais le plus dure reste à venir[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10] ce ne sera pas aussi simple d'avoir la dernière technologie à la mode !
+:[name=Sage de la lumière]:Wahouhou ! \nlTu es l'essence même de la vie ! \nlL'objectif de cette tour est de montrer aux jeunes dresseurs l'importance d'avoir une équipe diversifiée et équilibrée.\nlTu as réussi cette épreuve avec brio ! 
+:[name=Sage de la lumière]:Et c'est avec honneur que je te remet notre technologie dernier cri !
+:[align=center]:REÇU : \c[5]POKETORCHE\c[0]
+":[align=center]:\s[i]Vous rangez votre ""Poketorche"" dans votre sac dans la poche Objets rares.\s[r]"
+:[name=Sage de la lumière]:Tu veux en apprendre plus sur les artefacts ?\nlNous nous sommes justement réuni entre Sage et le champion d'arène afin d'en discuter.\nlAprès ce combat nous n'avons pas besoin de ce réunir pour voir que tu as une âme pure.\nlC'est pour quoi nous allons te révéler ce que l'on sait.
+":[name=Sage de la lumière]:Nous savons ou se trouve l'un des artefacts, nous sentons sa puissance[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\nlnous n'avons pas la position exact mais nous allons te guider."
+:[name=Sage de la lumière]:L'ile liberté et les profondeurs du Mont Cristallin sont les deux lieux que tu dois visiter. \nlCes lieux dégagent une puissance colossale !\nlJe te conseil de les explorer de fonte en comble nous somme persuadé qu'un artefact s'y trouve.
+":[name=Sage de la lumière]:Avant de te révéler ta prochaine destination, tu devrais continuer tes recherches au sein de la foret enchantée.\nlIl te reste encore des choses à explorer.\nlQuand cele sera fait reviens nous voir !"
+:[name=Sage de la lumière]:Bonne chance à toi pour ta quête de bravour et d'espoir.
+:[name=Sage de la lumière]:L'ile liberté et les profondeurs du Mont Cristallin sont les deux lieux que tu dois visiter. \nlCes lieux dégagent une puissance colossale !\nlJe te conseil de les explorer de fonte en comble nous somme persuadé qu'un artefact s'y trouve.
+":[name=Sage de la lumière]:Avant de te révéler ta prochaine destination, tu devrais continuer tes recherches au sein de la foret enchantée.\nlIl te reste encore des choses à explorer.\nlQuand cele sera fait reviens nous voir !"
+:[name=Sage de la lumière]:L'ile liberté et les profondeurs du Mont Cristallin sont les deux lieux que tu dois visiter. \nlCes lieux dégagent une puissance colossale !\nlJe te conseil de les explorer de fonte en comble nous somme persuadé qu'un artefact s'y trouve.
+":[name=Sage de la lumière]:Avant de te révéler ta prochaine destination, tu devrais continuer tes recherches au sein de la foret enchantée.\nlIl te reste encore des choses à explorer.\nlQuand cele sera fait reviens nous voir !"
+:[name=Sage de l'eau]:Il faut que vous me battiez pour pouvoir continuer !
+:[name=Sage de l'eau]:Dites moi quand vous êtes prêt.
+:[name=Sage du vent]:Voulez-vous me defier ?
+Oui !
+Non.
+:[name=Sage du vent]:Je vais te ballayer comme une vulguaire poussière !
+:[name=Sage du vent]:Je crois qu'il me faut un nouveau balais[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\nlTu peux continuer ton ascenssion.\nlBone chance !
+":[face=250,Nurse;name=Infirmière Joelle]:Ton équipe est remise sur pied. \nlFait attention la prochaine fois !"
+:[name=Sage du vent]:Tu envois des bourrasques ma parole !
+"Bonjour, mon enfant !\nlTe voici dans la tour des anciens, la tour qui t'accompagne jusqu'au cieux !\nlChaque palier de la tour appartient à un sage spécialisé dans l'un des types originels. \nlSi tu parviens à les battre un par un, tu pourras te confronter aux sages de la lumière et gagner un objet à la pointe de la technologie !"
+"Une fois arrivé au plus proche des cieux, Dieu te fait présent de sa bénédiction[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\nln'est-ce-pas merveilleux ?!\nlJe te conseil de te munir d'objets car tu ne pourras pas retourner au Pokésoin entre chaque palier.\nlQue le sort te soit favorable !"
+:[name=Sage de la terre]:Il vous faut finir la tour des anciens pour pouvoir redescendre !
+:[name=Sage de l'eau]:Voulez-vous me defier ?
+Oui !
+Non.
+:[name=Sage de l'eau]:Tu es vif comme une rivière toi ! 
+:[name=Sage de l'eau]:Laisse-moi te montrer comment la cascade que je suis va te fracasser !
+:[name=Sage de l'eau]:Je suis à sec[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\nlTu peux continuer ton ascenssion.\nlBonne chance !
+":[face=250,Nurse;name=Infirmière Joelle]:Ton équipe est remise sur pied. \nlFait attention la prochaine fois !"
+:[name=Sage de l'eau]:J'ai bu la tasse[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]
+:[name=Sage du feu]:Il faut que vous me battiez pour pouvoir continuer !
+:[name=Sage du feu]:Dites moi quand vous êtes prêt.
+:[name=Sage du vent]:Il faut que vous me battiez pour pouvoir continuer !
+:[name=Sage du vent]:Dites moi quand vous êtes prêt.
+":[name=Sage du feu]:Mouhaha prit au piège dans cette tour. \nlMaintenant, il vous faut finir la tour des anciens pour pouvoir redescendre !"
+:[name=Sage de l'eau]:Il vous faut finir la tour des anciens pour pouvoir redescendre !
