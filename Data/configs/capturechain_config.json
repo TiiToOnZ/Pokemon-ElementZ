@@ -1,0 +1,33 @@
+{
+  "storage_key": "capture_chain",
+  "stat_count": 6,
+  "bonus_table": [
+    {
+      "min": 30,
+      "shiny_rate": 65,
+      "perfect_ivs": 4
+    },
+    {
+      "min": 20,
+      "shiny_rate": 163,
+      "perfect_ivs": 3
+    },
+    {
+      "min": 10,
+      "shiny_rate": 327,
+      "perfect_ivs": 2
+    },
+    {
+      "min": 5,
+      "shiny_rate": 491,
+      "perfect_ivs": 1
+    },
+    {
+      "min": 1,
+      "shiny_rate": 655,
+      "perfect_ivs": 0
+    }
+  ],
+  "break_on_player_flee": true,
+  "break_on_failed_battle_against_chained_species": true
+}

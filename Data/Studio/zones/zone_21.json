@@ -18,5 +18,7 @@
   "isFlyAllowed": true,
   "isWarpDisallowed": false,
   "forcedWeather": null,
-  "wildGroups": []
+  "wildGroups": [
+    "group_31"
+  ]
 }

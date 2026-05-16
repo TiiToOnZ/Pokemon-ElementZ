@@ -19,6 +19,7 @@
   "isWarpDisallowed": false,
   "forcedWeather": null,
   "wildGroups": [
+    "group_53",
     "group_31",
     "group_38",
     "group_44"

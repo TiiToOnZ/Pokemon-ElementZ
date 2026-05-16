@@ -1,27 +1,61 @@
 ================================Erreur de script================================
 Message :
-nil is not a symbol nor a string
+super: no superclass method `data=' for #<UI::BattleType1Sprite:0x1ccfa418>
 
-Type : TypeError
-Script : 4_Systems_003_Map_Engine.rb (PSDK)
-Ligne : 3618
-Date : 07/05/2026 14:45:34
+Type : NoMethodError
+Script : 00000 Plugins/00000 BattleTypes/001 UI.rb (user)
+Ligne : 9
+Date : 16/05/2026 15:33:49
 Game Version : 1
 Logiciel : PSDK 26.55
+Script used by eval command : 
+pokemon = 
+PFM::Pokemon.generate_from_hash(id: :rattata, form: 1)
+call_battle_wild(pokemon, nil)
+$game_temp.battle_can_lose = true
+
+
 ===================================Backtraces===================================
-[23] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 3618 type=
-[22] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 1267 update_weather
-[21] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 1262 update_sprites
-[20] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 1296 update_sprites
-[19] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 1321 update_sprites
-[18] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 1352 update_sprites
-[17] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 1397 update_sprites
-[16] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 1806 update_sprites
-[15] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 1953 update_sprites
-[14] : 4_Systems_952_MapOverlay.rb (PSDK) | ligne 542 update_sprites
-[13] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 946 update
-[12] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9129 update_graphics
-[11] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9119 update
+[50] : 00000 Plugins/00000 BattleTypes/001 UI.rb (user) | ligne 9 data=
+[49] : 4_Systems_000_General_4_UI_Generics.rb (PSDK) | ligne 330 data=
+[48] : 4_Systems_000_General_4_UI_Generics.rb (PSDK) | ligne 329 each
+[47] : 4_Systems_000_General_4_UI_Generics.rb (PSDK) | ligne 329 data=
+[46] : 5_Battle_01_Scene.rb (PSDK) | ligne 1862 data=
+[45] : 5_Battle_01_Scene.rb (PSDK) | ligne 1854 refresh
+[44] : 5_Battle_01_Scene.rb (PSDK) | ligne 1848 pokemon=
+[43] : 5_Battle_01_Scene.rb (PSDK) | ligne 1829 initialize
+[42] : 00000 Plugins/00005 cc-pokemon-boss-system/3 Battle/01 Scene/0 BattleUI/002 InfoBar.rb (user) | ligne 16 initialize
+[41] : 5_Battle_02_Visual.rb (PSDK) | ligne 260 new
+[40] : 5_Battle_02_Visual.rb (PSDK) | ligne 260 create_info_bar
+[39] : 5_Battle_02_Visual.rb (PSDK) | ligne 175 create_battlers
+[38] : 5_Battle_02_Visual.rb (PSDK) | ligne 170 times
+[37] : 5_Battle_02_Visual.rb (PSDK) | ligne 170 create_battlers
+[36] : 5_Battle_02_Visual.rb (PSDK) | ligne 165 times
+[35] : 5_Battle_02_Visual.rb (PSDK) | ligne 165 create_battlers
+[34] : 5_Battle_02_Visual.rb (PSDK) | ligne 122 create_graphics
+[33] : 5_Battle_02_Visual.rb (PSDK) | ligne 46 initialize
+[32] : 5_Battle_01_Scene.rb (PSDK) | ligne 112 new
+[31] : 5_Battle_01_Scene.rb (PSDK) | ligne 112 create_visual
+[30] : 5_Battle_01_Scene.rb (PSDK) | ligne 39 initialize
+[29] : 4_Systems_999_Wild.rb (PSDK) | ligne 120 new
+[28] : 4_Systems_999_Wild.rb (PSDK) | ligne 120 start_battle
+[27] : 2_PSDK_Event_Interpreter.rb (PSDK) | ligne 358 call_battle_wild
+[26] : (eval) (RMXP) | ligne 4 eval_X6
+[25] : 1_RMXP_Scripts.rb (PSDK) | ligne 2125 eval_script
+[24] : 1_RMXP_Scripts.rb (PSDK) | ligne 2117 command_355
+[23] : 1_RMXP_Scripts.rb (PSDK) | ligne 1101 execute_command
+[22] : 1_RMXP_Scripts.rb (PSDK) | ligne 976 update
+[21] : 1_RMXP_Scripts.rb (PSDK) | ligne 956 loop
+[20] : 1_RMXP_Scripts.rb (PSDK) | ligne 956 update
+[19] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9257 update_map_logic
+[18] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 2916 update_map_logic
+[17] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9265 auto_transfert_update
+[16] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9264 loop
+[15] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9264 auto_transfert_update
+[14] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9118 update
+[13] : 0_Dependencies.rb (PSDK) | ligne 1375 times
+[12] : 0_Dependencies.rb (PSDK) | ligne 1375 run
+[11] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9118 update
 [10] : 4_Systems_000_General_2_GamePlay__Base.rb (PSDK) | ligne 236 main_process
 [9] : 4_Systems_000_General_2_GamePlay__Base.rb (PSDK) | ligne 144 main
 [8] : tools/GameLoader/Z_main.rb (PSDK) | ligne 16 <top (required)>
