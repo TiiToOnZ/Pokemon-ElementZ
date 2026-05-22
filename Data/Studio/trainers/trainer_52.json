@@ -1,0 +1,394 @@
+{
+  "klass": "TrainerBattleSetup",
+  "id": 52,
+  "dbSymbol": "trainer_52",
+  "vsType": 1,
+  "isCouple": false,
+  "baseMoney": 10,
+  "ai": 1,
+  "party": [
+    {
+      "specie": "gastly",
+      "form": 0,
+      "shinySetup": {
+        "kind": "automatic",
+        "rate": -1
+      },
+      "levelSetup": {
+        "kind": "fixed",
+        "level": 12
+      },
+      "randomEncounterChance": 1,
+      "expandPokemonSetup": [
+        {
+          "type": "evs",
+          "value": {
+            "hp": 0,
+            "atk": 0,
+            "dfe": 0,
+            "spd": 0,
+            "ats": 0,
+            "dfs": 0
+          }
+        },
+        {
+          "type": "ivs",
+          "value": {
+            "hp": 15,
+            "atk": 15,
+            "dfe": 15,
+            "spd": 15,
+            "ats": 15,
+            "dfs": 15
+          }
+        },
+        {
+          "type": "loyalty",
+          "value": 70
+        },
+        {
+          "type": "moves",
+          "value": [
+            "hypnosis",
+            "lick",
+            "mean_look",
+            "curse"
+          ]
+        },
+        {
+          "type": "originalTrainerName",
+          "value": "Obscur"
+        },
+        {
+          "type": "originalTrainerId",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "specie": "zubat",
+      "form": 0,
+      "shinySetup": {
+        "kind": "automatic",
+        "rate": -1
+      },
+      "levelSetup": {
+        "kind": "fixed",
+        "level": 13
+      },
+      "randomEncounterChance": 1,
+      "expandPokemonSetup": [
+        {
+          "type": "evs",
+          "value": {
+            "hp": 0,
+            "atk": 0,
+            "dfe": 0,
+            "spd": 0,
+            "ats": 0,
+            "dfs": 0
+          }
+        },
+        {
+          "type": "ivs",
+          "value": {
+            "hp": 15,
+            "atk": 15,
+            "dfe": 15,
+            "spd": 15,
+            "ats": 15,
+            "dfs": 15
+          }
+        },
+        {
+          "type": "loyalty",
+          "value": 70
+        },
+        {
+          "type": "moves",
+          "value": [
+            "astonish",
+            "wing_attack",
+            "bite",
+            "supersonic"
+          ]
+        },
+        {
+          "type": "originalTrainerName",
+          "value": "Rocket"
+        },
+        {
+          "type": "originalTrainerId",
+          "value": 0
+        },
+        {
+          "type": "ability",
+          "value": "inner_focus"
+        }
+      ]
+    },
+    {
+      "specie": "zubat",
+      "form": 0,
+      "shinySetup": {
+        "kind": "automatic",
+        "rate": -1
+      },
+      "levelSetup": {
+        "kind": "fixed",
+        "level": 13
+      },
+      "randomEncounterChance": 1,
+      "expandPokemonSetup": [
+        {
+          "type": "evs",
+          "value": {
+            "hp": 0,
+            "atk": 0,
+            "dfe": 0,
+            "spd": 0,
+            "ats": 0,
+            "dfs": 0
+          }
+        },
+        {
+          "type": "ivs",
+          "value": {
+            "hp": 15,
+            "atk": 15,
+            "dfe": 15,
+            "spd": 15,
+            "ats": 15,
+            "dfs": 15
+          }
+        },
+        {
+          "type": "loyalty",
+          "value": 70
+        },
+        {
+          "type": "moves",
+          "value": [
+            "supersonic",
+            "astonish",
+            "wing_attack",
+            "bite"
+          ]
+        },
+        {
+          "type": "originalTrainerName",
+          "value": "Obscur"
+        },
+        {
+          "type": "originalTrainerId",
+          "value": 0
+        },
+        {
+          "type": "ability",
+          "value": "inner_focus"
+        }
+      ]
+    },
+    {
+      "specie": "gastly",
+      "form": 0,
+      "shinySetup": {
+        "kind": "automatic",
+        "rate": -1
+      },
+      "levelSetup": {
+        "kind": "fixed",
+        "level": 12
+      },
+      "randomEncounterChance": 1,
+      "expandPokemonSetup": [
+        {
+          "type": "evs",
+          "value": {
+            "hp": 0,
+            "atk": 0,
+            "dfe": 0,
+            "spd": 0,
+            "ats": 0,
+            "dfs": 0
+          }
+        },
+        {
+          "type": "ivs",
+          "value": {
+            "hp": 15,
+            "atk": 15,
+            "dfe": 15,
+            "spd": 15,
+            "ats": 15,
+            "dfs": 15
+          }
+        },
+        {
+          "type": "loyalty",
+          "value": 70
+        },
+        {
+          "type": "moves",
+          "value": [
+            "lick",
+            "mean_look",
+            "curse",
+            "hypnosis"
+          ]
+        },
+        {
+          "type": "originalTrainerName",
+          "value": "Rocket"
+        },
+        {
+          "type": "originalTrainerId",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "specie": "zubat",
+      "form": 0,
+      "shinySetup": {
+        "kind": "automatic",
+        "rate": -1
+      },
+      "levelSetup": {
+        "kind": "fixed",
+        "level": 13
+      },
+      "randomEncounterChance": 1,
+      "expandPokemonSetup": [
+        {
+          "type": "evs",
+          "value": {
+            "hp": 0,
+            "atk": 0,
+            "dfe": 0,
+            "spd": 0,
+            "ats": 0,
+            "dfs": 0
+          }
+        },
+        {
+          "type": "ivs",
+          "value": {
+            "hp": 15,
+            "atk": 15,
+            "dfe": 15,
+            "spd": 15,
+            "ats": 15,
+            "dfs": 15
+          }
+        },
+        {
+          "type": "loyalty",
+          "value": 70
+        },
+        {
+          "type": "moves",
+          "value": [
+            "supersonic",
+            "astonish",
+            "wing_attack",
+            "bite"
+          ]
+        },
+        {
+          "type": "originalTrainerName",
+          "value": "Obscur"
+        },
+        {
+          "type": "originalTrainerId",
+          "value": 0
+        },
+        {
+          "type": "ability",
+          "value": "inner_focus"
+        }
+      ]
+    },
+    {
+      "specie": "rattata",
+      "form": 0,
+      "shinySetup": {
+        "kind": "automatic",
+        "rate": -1
+      },
+      "levelSetup": {
+        "kind": "fixed",
+        "level": 16
+      },
+      "randomEncounterChance": 1,
+      "expandPokemonSetup": [
+        {
+          "type": "evs",
+          "value": {
+            "hp": 0,
+            "atk": 0,
+            "dfe": 0,
+            "spd": 0,
+            "ats": 0,
+            "dfs": 0
+          }
+        },
+        {
+          "type": "ivs",
+          "value": {
+            "hp": 15,
+            "atk": 15,
+            "dfe": 15,
+            "spd": 15,
+            "ats": 15,
+            "dfs": 15
+          }
+        },
+        {
+          "type": "loyalty",
+          "value": 70
+        },
+        {
+          "type": "moves",
+          "value": [
+            "hyper_fang",
+            "quick_attack",
+            "bite",
+            "__remove__"
+          ]
+        },
+        {
+          "type": "originalTrainerName",
+          "value": "Obscur"
+        },
+        {
+          "type": "originalTrainerId",
+          "value": 0
+        },
+        {
+          "type": "ability",
+          "value": "hustle"
+        },
+        {
+          "type": "nature",
+          "value": "adamant"
+        }
+      ]
+    }
+  ],
+  "bagEntries": [],
+  "battleId": 0,
+  "resources": {
+    "sprite": "",
+    "artworkFull": "186_Team_Rocket_Duo_HGSS_big",
+    "artworkSmall": "186_Team_Rocket_Duo_HGSS_sma",
+    "character": "",
+    "musics": {
+      "encounter": "",
+      "victory": "",
+      "defeat": "",
+      "bgm": ""
+    }
+  },
+  "additionalDialogs": []
+}

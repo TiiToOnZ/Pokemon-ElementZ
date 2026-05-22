@@ -5,6 +5,8 @@
   "vsType": 1,
   "isCouple": false,
   "baseMoney": 10,
+  "bagEntries": [],
+  "battleId": 0,
   "ai": 1,
   "party": [
     {
@@ -16,7 +18,7 @@
       },
       "levelSetup": {
         "kind": "fixed",
-        "level": 1
+        "level": 15
       },
       "randomEncounterChance": 1,
       "expandPokemonSetup": [
@@ -50,9 +52,9 @@
           "type": "moves",
           "value": [
             "poison_gas",
-            "hypnosis",
-            "headbutt",
-            "confusion"
+            "sludge",
+            "mud_slap",
+            "pound"
           ]
         },
         {
@@ -62,12 +64,18 @@
         {
           "type": "originalTrainerId",
           "value": 0
+        },
+        {
+          "type": "ability",
+          "value": "poison_touch"
+        },
+        {
+          "type": "nature",
+          "value": "timid"
         }
       ]
     }
   ],
-  "bagEntries": [],
-  "battleId": 0,
   "resources": {
     "sprite": "",
     "artworkFull": "183_Team_Rocket_M_HGSS_big",

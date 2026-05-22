@@ -1,0 +1,56 @@
+{
+  "klass": "Quest",
+  "id": 79,
+  "dbSymbol": "quest_79",
+  "isPrimary": true,
+  "resolution": "default",
+  "objectives": [
+    {
+      "objectiveMethodName": "objective_beat_npc",
+      "objectiveMethodArgs": [
+        0,
+        "Sbires Rocket",
+        7
+      ],
+      "textFormatMethodName": "text_beat_npc",
+      "hiddenByDefault": false
+    },
+    {
+      "objectiveMethodName": "objective_obtain_item",
+      "objectiveMethodArgs": [
+        "storage_key",
+        1
+      ],
+      "textFormatMethodName": "text_obtain_item",
+      "hiddenByDefault": false
+    },
+    {
+      "objectiveMethodName": "objective_beat_npc",
+      "objectiveMethodArgs": [
+        1,
+        "Sbires Rocket",
+        5
+      ],
+      "textFormatMethodName": "text_beat_npc",
+      "hiddenByDefault": false
+    },
+    {
+      "objectiveMethodName": "objective_speak_to",
+      "objectiveMethodArgs": [
+        0,
+        "Giovanni"
+      ],
+      "textFormatMethodName": "text_speak_to",
+      "hiddenByDefault": false
+    }
+  ],
+  "earnings": [
+    {
+      "earningMethodName": "earning_money",
+      "earningArgs": [
+        500
+      ],
+      "textFormatMethodName": "text_earn_money"
+    }
+  ]
+}

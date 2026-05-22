@@ -1,21 +1,14 @@
 {
   "klass": "TrainerBattleSetup",
-  "id": 39,
-  "dbSymbol": "trainer_39",
-  "vsType": 3,
+  "id": 50,
+  "dbSymbol": "trainer_50",
+  "vsType": 2,
   "isCouple": false,
   "baseMoney": 10,
-  "bagEntries": [
-    {
-      "dbSymbol": "potion",
-      "amount": 3
-    }
-  ],
-  "battleId": 0,
   "ai": 1,
   "party": [
     {
-      "specie": "venonat",
+      "specie": "ekans",
       "form": 0,
       "shinySetup": {
         "kind": "automatic",
@@ -23,7 +16,7 @@
       },
       "levelSetup": {
         "kind": "fixed",
-        "level": 13
+        "level": 1
       },
       "randomEncounterChance": 1,
       "expandPokemonSetup": [
@@ -41,12 +34,12 @@
         {
           "type": "ivs",
           "value": {
-            "hp": 15,
-            "atk": 15,
-            "dfe": 15,
-            "spd": 15,
-            "ats": 15,
-            "dfs": 15
+            "hp": 0,
+            "atk": 0,
+            "dfe": 0,
+            "spd": 0,
+            "ats": 0,
+            "dfs": 0
           }
         },
         {
@@ -56,32 +49,24 @@
         {
           "type": "moves",
           "value": [
-            "confusion",
-            "poison_powder",
-            "supersonic",
-            "__remove__"
+            "__undef__",
+            "__undef__",
+            "__undef__",
+            "__undef__"
           ]
         },
         {
           "type": "originalTrainerName",
-          "value": "Obscur"
+          "value": "Jessie & James"
         },
         {
           "type": "originalTrainerId",
           "value": 0
-        },
-        {
-          "type": "ability",
-          "value": "tinted_lens"
-        },
-        {
-          "type": "nature",
-          "value": "modest"
         }
       ]
     },
     {
-      "specie": "oddish",
+      "specie": "meowth",
       "form": 0,
       "shinySetup": {
         "kind": "automatic",
@@ -89,7 +74,7 @@
       },
       "levelSetup": {
         "kind": "fixed",
-        "level": 15
+        "level": 1
       },
       "randomEncounterChance": 1,
       "expandPokemonSetup": [
@@ -107,12 +92,12 @@
         {
           "type": "ivs",
           "value": {
-            "hp": 15,
-            "atk": 15,
-            "dfe": 15,
-            "spd": 15,
-            "ats": 15,
-            "dfs": 15
+            "hp": 0,
+            "atk": 0,
+            "dfe": 0,
+            "spd": 0,
+            "ats": 0,
+            "dfs": 0
           }
         },
         {
@@ -122,28 +107,24 @@
         {
           "type": "moves",
           "value": [
-            "acid",
-            "poison_powder",
-            "sleep_powder",
-            "stun_spore"
+            "__undef__",
+            "__undef__",
+            "__undef__",
+            "__undef__"
           ]
         },
         {
           "type": "originalTrainerName",
-          "value": "Rocket"
+          "value": "Jessie & James"
         },
         {
           "type": "originalTrainerId",
           "value": 0
-        },
-        {
-          "type": "nature",
-          "value": "modest"
         }
       ]
     },
     {
-      "specie": "machop",
+      "specie": "koffing",
       "form": 0,
       "shinySetup": {
         "kind": "automatic",
@@ -151,7 +132,7 @@
       },
       "levelSetup": {
         "kind": "fixed",
-        "level": 15
+        "level": 1
       },
       "randomEncounterChance": 1,
       "expandPokemonSetup": [
@@ -169,12 +150,12 @@
         {
           "type": "ivs",
           "value": {
-            "hp": 15,
-            "atk": 15,
-            "dfe": 15,
-            "spd": 15,
-            "ats": 15,
-            "dfs": 15
+            "hp": 0,
+            "atk": 0,
+            "dfe": 0,
+            "spd": 0,
+            "ats": 0,
+            "dfs": 0
           }
         },
         {
@@ -184,38 +165,36 @@
         {
           "type": "moves",
           "value": [
-            "seismic_toss",
-            "low_kick",
-            "low_sweep",
-            "karate_chop"
+            "__undef__",
+            "__undef__",
+            "__undef__",
+            "__undef__"
           ]
         },
         {
           "type": "originalTrainerName",
-          "value": "Obscur"
+          "value": "Jessie & James"
         },
         {
           "type": "originalTrainerId",
           "value": 0
-        },
-        {
-          "type": "nature",
-          "value": "adamant"
         }
       ]
     }
   ],
+  "bagEntries": [],
+  "battleId": 0,
   "resources": {
-    "sprite": "",
-    "artworkFull": "185_Team_Rocket_Trio_HGSS_big",
-    "artworkSmall": "185_Team_Rocket_Trio_HGSS_sma",
+    "artworkFull": "",
+    "artworkSmall": "",
     "character": "",
     "musics": {
-      "encounter": "",
-      "victory": "",
+      "bgm": "",
       "defeat": "",
-      "bgm": ""
-    }
+      "encounter": "",
+      "victory": ""
+    },
+    "sprite": ""
   },
   "additionalDialogs": []
 }

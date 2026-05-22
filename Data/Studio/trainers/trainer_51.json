@@ -1,16 +1,14 @@
 {
   "klass": "TrainerBattleSetup",
-  "id": 37,
-  "dbSymbol": "trainer_37",
+  "id": 51,
+  "dbSymbol": "trainer_51",
   "vsType": 1,
   "isCouple": false,
   "baseMoney": 10,
-  "bagEntries": [],
-  "battleId": 0,
   "ai": 1,
   "party": [
     {
-      "specie": "zubat",
+      "specie": "pidgey",
       "form": 0,
       "shinySetup": {
         "kind": "automatic",
@@ -51,10 +49,10 @@
         {
           "type": "moves",
           "value": [
-            "supersonic",
-            "astonish",
-            "wing_attack",
-            "bite"
+            "gust",
+            "quick_attack",
+            "sand_attack",
+            "__remove__"
           ]
         },
         {
@@ -67,7 +65,7 @@
         },
         {
           "type": "ability",
-          "value": "inner_focus"
+          "value": "keen_eye"
         }
       ]
     },
@@ -138,6 +136,8 @@
       ]
     }
   ],
+  "bagEntries": [],
+  "battleId": 0,
   "resources": {
     "sprite": "",
     "artworkFull": "184_Team_Rocket_F_HGSS_big",

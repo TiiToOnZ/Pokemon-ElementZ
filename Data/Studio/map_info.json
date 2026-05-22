@@ -317,7 +317,7 @@
       38
     ],
     "hasChildren": true,
-    "isExpanded": false,
+    "isExpanded": true,
     "data": {
       "klass": "MapInfoMap",
       "mapDbSymbol": "map023",
@@ -441,7 +441,7 @@
       56
     ],
     "hasChildren": true,
-    "isExpanded": false,
+    "isExpanded": true,
     "data": {
       "klass": "MapInfoFolder",
       "textId": 4

@@ -5,10 +5,12 @@
   "vsType": 2,
   "isCouple": false,
   "baseMoney": 10,
+  "bagEntries": [],
+  "battleId": 0,
   "ai": 1,
   "party": [
     {
-      "specie": "machop",
+      "specie": "spearow",
       "form": 0,
       "shinySetup": {
         "kind": "automatic",
@@ -16,7 +18,7 @@
       },
       "levelSetup": {
         "kind": "fixed",
-        "level": 1
+        "level": 15
       },
       "randomEncounterChance": 1,
       "expandPokemonSetup": [
@@ -49,10 +51,72 @@
         {
           "type": "moves",
           "value": [
-            "hyper_fang",
-            "quick_attack",
-            "bite",
-            "__remove__"
+            "__remove__",
+            "aerial_ace",
+            "fury_attack",
+            "pursuit"
+          ]
+        },
+        {
+          "type": "originalTrainerName",
+          "value": "Rocket"
+        },
+        {
+          "type": "originalTrainerId",
+          "value": 0
+        },
+        {
+          "type": "nature",
+          "value": "adamant"
+        }
+      ]
+    },
+    {
+      "specie": "sandshrew",
+      "form": 0,
+      "shinySetup": {
+        "kind": "automatic",
+        "rate": -1
+      },
+      "levelSetup": {
+        "kind": "fixed",
+        "level": 14
+      },
+      "randomEncounterChance": 1,
+      "expandPokemonSetup": [
+        {
+          "type": "evs",
+          "value": {
+            "hp": 0,
+            "atk": 0,
+            "dfe": 0,
+            "spd": 0,
+            "ats": 0,
+            "dfs": 0
+          }
+        },
+        {
+          "type": "ivs",
+          "value": {
+            "hp": 15,
+            "atk": 15,
+            "dfe": 15,
+            "spd": 15,
+            "ats": 15,
+            "dfs": 15
+          }
+        },
+        {
+          "type": "loyalty",
+          "value": 70
+        },
+        {
+          "type": "moves",
+          "value": [
+            "magnitude",
+            "poison_sting",
+            "fury_cutter",
+            "rollout"
           ]
         },
         {
@@ -62,20 +126,10 @@
         {
           "type": "originalTrainerId",
           "value": 0
-        },
-        {
-          "type": "ability",
-          "value": "hustle"
-        },
-        {
-          "type": "nature",
-          "value": "adamant"
         }
       ]
     }
   ],
-  "bagEntries": [],
-  "battleId": 0,
   "resources": {
     "sprite": "",
     "artworkFull": "186_Team_Rocket_Duo_HGSS_big",
