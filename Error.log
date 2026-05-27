@@ -1,28 +1,36 @@
 ================================Erreur de script================================
 Message :
-undefined method `national' for #<PFM::Pokedex:0x19359240>
+undefined method `add_fog' for #<Interpreter:0x15f13b60>
 
 Type : NoMethodError
 Script : (eval) (RMXP)
 Ligne : 2
-Date : 19/05/2026 07:47:32
+Date : 26/05/2026 20:13:52
 Game Version : 1
 Logiciel : PSDK 26.56
 Script used by eval command : 
-$pokedex.national(true)
+add_fog("night_glow", "night_glow", {
+  opacity: 100,
+  blend_type: 0,
+  zoom: 100,
+  z: 3100
+})
 
 
 ===================================Backtraces===================================
-[26] : (eval) (RMXP) | ligne 2 eval_X19
-[25] : 1_RMXP_Scripts.rb (PSDK) | ligne 2125 eval_script
-[24] : 1_RMXP_Scripts.rb (PSDK) | ligne 2117 command_355
-[23] : 1_RMXP_Scripts.rb (PSDK) | ligne 1101 execute_command
-[22] : 1_RMXP_Scripts.rb (PSDK) | ligne 976 update
-[21] : 1_RMXP_Scripts.rb (PSDK) | ligne 956 loop
-[20] : 1_RMXP_Scripts.rb (PSDK) | ligne 956 update
-[19] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9257 update_map_logic
-[18] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 2916 update_map_logic
-[17] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9265 auto_transfert_update
+[29] : (eval) (RMXP) | ligne 2 eval_X6
+[28] : 1_RMXP_Scripts.rb (PSDK) | ligne 2125 eval_script
+[27] : 1_RMXP_Scripts.rb (PSDK) | ligne 2117 command_355
+[26] : 1_RMXP_Scripts.rb (PSDK) | ligne 1101 execute_command
+[25] : 1_RMXP_Scripts.rb (PSDK) | ligne 976 update
+[24] : 1_RMXP_Scripts.rb (PSDK) | ligne 956 loop
+[23] : 1_RMXP_Scripts.rb (PSDK) | ligne 956 update
+[22] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 6167 update
+[21] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 7716 each_value
+[20] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 7716 update
+[19] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9466 transfer_player_begin
+[18] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9472 transfer_player
+[17] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9267 auto_transfert_update
 [16] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9264 loop
 [15] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9264 auto_transfert_update
 [14] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9118 update
