@@ -1,0 +1,19 @@
+{
+  "klass": "Quest",
+  "id": 80,
+  "dbSymbol": "quest_80",
+  "isPrimary": false,
+  "resolution": "default",
+  "objectives": [
+    {
+      "objectiveMethodName": "objective_custom",
+      "objectiveMethodArgs": [
+        0,
+        3
+      ],
+      "textFormatMethodName": "text_custom",
+      "hiddenByDefault": false
+    }
+  ],
+  "earnings": []
+}

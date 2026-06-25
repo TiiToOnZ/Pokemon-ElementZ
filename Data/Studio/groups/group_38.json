@@ -29,13 +29,28 @@
     },
     {
       "type": "mapId",
-      "relationWithPreviousCondition": "OR",
-      "value": 34
+      "value": 34,
+      "relationWithPreviousCondition": "OR"
+    },
+    {
+      "type": "mapId",
+      "value": 26,
+      "relationWithPreviousCondition": "OR"
     },
     {
       "type": "mapId",
       "relationWithPreviousCondition": "OR",
-      "value": 26
+      "value": 82
+    },
+    {
+      "type": "mapId",
+      "relationWithPreviousCondition": "OR",
+      "value": 83
+    },
+    {
+      "type": "mapId",
+      "relationWithPreviousCondition": "OR",
+      "value": 84
     }
   ],
   "encounters": [

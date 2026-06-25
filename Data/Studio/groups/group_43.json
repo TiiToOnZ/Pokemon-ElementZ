@@ -6,7 +6,13 @@
   "terrainTag": 0,
   "tool": null,
   "vsType": "simple",
-  "customConditions": [],
+  "customConditions": [
+    {
+      "type": "mapId",
+      "relationWithPreviousCondition": "AND",
+      "value": 82
+    }
+  ],
   "encounters": [
     {
       "specie": "machop",
@@ -18,53 +24,11 @@
       "levelSetup": {
         "kind": "minmax",
         "level": {
-          "minimumLevel": 1,
-          "maximumLevel": 1
+          "minimumLevel": 15,
+          "maximumLevel": 18
         }
       },
-      "randomEncounterChance": 1,
-      "expandPokemonSetup": [
-        {
-          "type": "evs",
-          "value": {
-            "hp": 0,
-            "atk": 0,
-            "dfe": 0,
-            "spd": 0,
-            "ats": 0,
-            "dfs": 0
-          }
-        },
-        {
-          "type": "loyalty",
-          "value": 70
-        },
-        {
-          "type": "moves",
-          "value": [
-            "__undef__",
-            "__undef__",
-            "__undef__",
-            "__undef__"
-          ]
-        }
-      ]
-    },
-    {
-      "specie": "mawile",
-      "form": 0,
-      "shinySetup": {
-        "kind": "automatic",
-        "rate": -1
-      },
-      "levelSetup": {
-        "kind": "minmax",
-        "level": {
-          "minimumLevel": 1,
-          "maximumLevel": 1
-        }
-      },
-      "randomEncounterChance": 1,
+      "randomEncounterChance": 9,
       "expandPokemonSetup": [
         {
           "type": "evs",
@@ -102,11 +66,11 @@
       "levelSetup": {
         "kind": "minmax",
         "level": {
-          "minimumLevel": 1,
-          "maximumLevel": 1
+          "minimumLevel": 15,
+          "maximumLevel": 18
         }
       },
-      "randomEncounterChance": 1,
+      "randomEncounterChance": 9,
       "expandPokemonSetup": [
         {
           "type": "evs",
@@ -144,179 +108,11 @@
       "levelSetup": {
         "kind": "minmax",
         "level": {
-          "minimumLevel": 1,
-          "maximumLevel": 1
+          "minimumLevel": 15,
+          "maximumLevel": 18
         }
       },
-      "randomEncounterChance": 1,
-      "expandPokemonSetup": [
-        {
-          "type": "evs",
-          "value": {
-            "hp": 0,
-            "atk": 0,
-            "dfe": 0,
-            "spd": 0,
-            "ats": 0,
-            "dfs": 0
-          }
-        },
-        {
-          "type": "loyalty",
-          "value": 70
-        },
-        {
-          "type": "moves",
-          "value": [
-            "__undef__",
-            "__undef__",
-            "__undef__",
-            "__undef__"
-          ]
-        }
-      ]
-    },
-    {
-      "specie": "chingling",
-      "form": 0,
-      "shinySetup": {
-        "kind": "automatic",
-        "rate": -1
-      },
-      "levelSetup": {
-        "kind": "minmax",
-        "level": {
-          "minimumLevel": 1,
-          "maximumLevel": 1
-        }
-      },
-      "randomEncounterChance": 1,
-      "expandPokemonSetup": [
-        {
-          "type": "evs",
-          "value": {
-            "hp": 0,
-            "atk": 0,
-            "dfe": 0,
-            "spd": 0,
-            "ats": 0,
-            "dfs": 0
-          }
-        },
-        {
-          "type": "loyalty",
-          "value": 70
-        },
-        {
-          "type": "moves",
-          "value": [
-            "__undef__",
-            "__undef__",
-            "__undef__",
-            "__undef__"
-          ]
-        }
-      ]
-    },
-    {
-      "specie": "cubone",
-      "form": 0,
-      "shinySetup": {
-        "kind": "automatic",
-        "rate": -1
-      },
-      "levelSetup": {
-        "kind": "minmax",
-        "level": {
-          "minimumLevel": 1,
-          "maximumLevel": 1
-        }
-      },
-      "randomEncounterChance": 1,
-      "expandPokemonSetup": [
-        {
-          "type": "evs",
-          "value": {
-            "hp": 0,
-            "atk": 0,
-            "dfe": 0,
-            "spd": 0,
-            "ats": 0,
-            "dfs": 0
-          }
-        },
-        {
-          "type": "loyalty",
-          "value": 70
-        },
-        {
-          "type": "moves",
-          "value": [
-            "__undef__",
-            "__undef__",
-            "__undef__",
-            "__undef__"
-          ]
-        }
-      ]
-    },
-    {
-      "specie": "solrock",
-      "form": 0,
-      "shinySetup": {
-        "kind": "automatic",
-        "rate": -1
-      },
-      "levelSetup": {
-        "kind": "minmax",
-        "level": {
-          "minimumLevel": 1,
-          "maximumLevel": 1
-        }
-      },
-      "randomEncounterChance": 1,
-      "expandPokemonSetup": [
-        {
-          "type": "evs",
-          "value": {
-            "hp": 0,
-            "atk": 0,
-            "dfe": 0,
-            "spd": 0,
-            "ats": 0,
-            "dfs": 0
-          }
-        },
-        {
-          "type": "loyalty",
-          "value": 70
-        },
-        {
-          "type": "moves",
-          "value": [
-            "__undef__",
-            "__undef__",
-            "__undef__",
-            "__undef__"
-          ]
-        }
-      ]
-    },
-    {
-      "specie": "kangaskhan",
-      "form": 0,
-      "shinySetup": {
-        "kind": "automatic",
-        "rate": -1
-      },
-      "levelSetup": {
-        "kind": "minmax",
-        "level": {
-          "minimumLevel": 1,
-          "maximumLevel": 1
-        }
-      },
-      "randomEncounterChance": 1,
+      "randomEncounterChance": 9,
       "expandPokemonSetup": [
         {
           "type": "evs",
@@ -354,305 +150,11 @@
       "levelSetup": {
         "kind": "minmax",
         "level": {
-          "minimumLevel": 1,
-          "maximumLevel": 1
+          "minimumLevel": 15,
+          "maximumLevel": 18
         }
       },
-      "randomEncounterChance": 1,
-      "expandPokemonSetup": [
-        {
-          "type": "evs",
-          "value": {
-            "hp": 0,
-            "atk": 0,
-            "dfe": 0,
-            "spd": 0,
-            "ats": 0,
-            "dfs": 0
-          }
-        },
-        {
-          "type": "loyalty",
-          "value": 70
-        },
-        {
-          "type": "moves",
-          "value": [
-            "__undef__",
-            "__undef__",
-            "__undef__",
-            "__undef__"
-          ]
-        }
-      ]
-    },
-    {
-      "specie": "lunatone",
-      "form": 0,
-      "shinySetup": {
-        "kind": "automatic",
-        "rate": -1
-      },
-      "levelSetup": {
-        "kind": "minmax",
-        "level": {
-          "minimumLevel": 1,
-          "maximumLevel": 1
-        }
-      },
-      "randomEncounterChance": 1,
-      "expandPokemonSetup": [
-        {
-          "type": "evs",
-          "value": {
-            "hp": 0,
-            "atk": 0,
-            "dfe": 0,
-            "spd": 0,
-            "ats": 0,
-            "dfs": 0
-          }
-        },
-        {
-          "type": "loyalty",
-          "value": 70
-        },
-        {
-          "type": "moves",
-          "value": [
-            "__undef__",
-            "__undef__",
-            "__undef__",
-            "__undef__"
-          ]
-        }
-      ]
-    },
-    {
-      "specie": "larvitar",
-      "form": 0,
-      "shinySetup": {
-        "kind": "automatic",
-        "rate": -1
-      },
-      "levelSetup": {
-        "kind": "minmax",
-        "level": {
-          "minimumLevel": 1,
-          "maximumLevel": 1
-        }
-      },
-      "randomEncounterChance": 1,
-      "expandPokemonSetup": [
-        {
-          "type": "evs",
-          "value": {
-            "hp": 0,
-            "atk": 0,
-            "dfe": 0,
-            "spd": 0,
-            "ats": 0,
-            "dfs": 0
-          }
-        },
-        {
-          "type": "loyalty",
-          "value": 70
-        },
-        {
-          "type": "moves",
-          "value": [
-            "__undef__",
-            "__undef__",
-            "__undef__",
-            "__undef__"
-          ]
-        }
-      ]
-    },
-    {
-      "specie": "slowpoke",
-      "form": 0,
-      "shinySetup": {
-        "kind": "automatic",
-        "rate": -1
-      },
-      "levelSetup": {
-        "kind": "minmax",
-        "level": {
-          "minimumLevel": 1,
-          "maximumLevel": 1
-        }
-      },
-      "randomEncounterChance": 1,
-      "expandPokemonSetup": [
-        {
-          "type": "evs",
-          "value": {
-            "hp": 0,
-            "atk": 0,
-            "dfe": 0,
-            "spd": 0,
-            "ats": 0,
-            "dfs": 0
-          }
-        },
-        {
-          "type": "loyalty",
-          "value": 70
-        },
-        {
-          "type": "moves",
-          "value": [
-            "__undef__",
-            "__undef__",
-            "__undef__",
-            "__undef__"
-          ]
-        }
-      ]
-    },
-    {
-      "specie": "bronzor",
-      "form": 0,
-      "shinySetup": {
-        "kind": "automatic",
-        "rate": -1
-      },
-      "levelSetup": {
-        "kind": "minmax",
-        "level": {
-          "minimumLevel": 1,
-          "maximumLevel": 1
-        }
-      },
-      "randomEncounterChance": 1,
-      "expandPokemonSetup": [
-        {
-          "type": "evs",
-          "value": {
-            "hp": 0,
-            "atk": 0,
-            "dfe": 0,
-            "spd": 0,
-            "ats": 0,
-            "dfs": 0
-          }
-        },
-        {
-          "type": "loyalty",
-          "value": 70
-        },
-        {
-          "type": "moves",
-          "value": [
-            "__undef__",
-            "__undef__",
-            "__undef__",
-            "__undef__"
-          ]
-        }
-      ]
-    },
-    {
-      "specie": "axew",
-      "form": 0,
-      "shinySetup": {
-        "kind": "automatic",
-        "rate": -1
-      },
-      "levelSetup": {
-        "kind": "minmax",
-        "level": {
-          "minimumLevel": 1,
-          "maximumLevel": 1
-        }
-      },
-      "randomEncounterChance": 1,
-      "expandPokemonSetup": [
-        {
-          "type": "evs",
-          "value": {
-            "hp": 0,
-            "atk": 0,
-            "dfe": 0,
-            "spd": 0,
-            "ats": 0,
-            "dfs": 0
-          }
-        },
-        {
-          "type": "loyalty",
-          "value": 70
-        },
-        {
-          "type": "moves",
-          "value": [
-            "__undef__",
-            "__undef__",
-            "__undef__",
-            "__undef__"
-          ]
-        }
-      ]
-    },
-    {
-      "specie": "ferroseed",
-      "form": 0,
-      "shinySetup": {
-        "kind": "automatic",
-        "rate": -1
-      },
-      "levelSetup": {
-        "kind": "minmax",
-        "level": {
-          "minimumLevel": 1,
-          "maximumLevel": 1
-        }
-      },
-      "randomEncounterChance": 1,
-      "expandPokemonSetup": [
-        {
-          "type": "evs",
-          "value": {
-            "hp": 0,
-            "atk": 0,
-            "dfe": 0,
-            "spd": 0,
-            "ats": 0,
-            "dfs": 0
-          }
-        },
-        {
-          "type": "loyalty",
-          "value": 70
-        },
-        {
-          "type": "moves",
-          "value": [
-            "__undef__",
-            "__undef__",
-            "__undef__",
-            "__undef__"
-          ]
-        }
-      ]
-    },
-    {
-      "specie": "solosis",
-      "form": 0,
-      "shinySetup": {
-        "kind": "automatic",
-        "rate": -1
-      },
-      "levelSetup": {
-        "kind": "minmax",
-        "level": {
-          "minimumLevel": 1,
-          "maximumLevel": 1
-        }
-      },
-      "randomEncounterChance": 1,
+      "randomEncounterChance": 9,
       "expandPokemonSetup": [
         {
           "type": "evs",
@@ -690,11 +192,11 @@
       "levelSetup": {
         "kind": "minmax",
         "level": {
-          "minimumLevel": 1,
-          "maximumLevel": 1
+          "minimumLevel": 15,
+          "maximumLevel": 18
         }
       },
-      "randomEncounterChance": 1,
+      "randomEncounterChance": 9,
       "expandPokemonSetup": [
         {
           "type": "evs",
@@ -723,7 +225,53 @@
       ]
     },
     {
-      "specie": "beldum",
+      "specie": "geodude",
+      "form": -1,
+      "shinySetup": {
+        "kind": "automatic",
+        "rate": -1
+      },
+      "levelSetup": {
+        "kind": "minmax",
+        "level": {
+          "minimumLevel": 15,
+          "maximumLevel": 18
+        }
+      },
+      "randomEncounterChance": 16,
+      "expandPokemonSetup": [
+        {
+          "type": "evs",
+          "value": {
+            "hp": 0,
+            "atk": 0,
+            "dfe": 0,
+            "spd": 0,
+            "ats": 0,
+            "dfs": 0
+          }
+        },
+        {
+          "type": "loyalty",
+          "value": 70
+        },
+        {
+          "type": "moves",
+          "value": [
+            "__undef__",
+            "__undef__",
+            "__undef__",
+            "__undef__"
+          ]
+        },
+        {
+          "type": "rareness",
+          "value": 255
+        }
+      ]
+    },
+    {
+      "specie": "zubat",
       "form": 0,
       "shinySetup": {
         "kind": "automatic",
@@ -732,11 +280,11 @@
       "levelSetup": {
         "kind": "minmax",
         "level": {
-          "minimumLevel": 1,
-          "maximumLevel": 1
+          "minimumLevel": 15,
+          "maximumLevel": 18
         }
       },
-      "randomEncounterChance": 1,
+      "randomEncounterChance": 9,
       "expandPokemonSetup": [
         {
           "type": "evs",
@@ -765,7 +313,7 @@
       ]
     },
     {
-      "specie": "minior",
+      "specie": "onix",
       "form": 0,
       "shinySetup": {
         "kind": "automatic",
@@ -774,11 +322,11 @@
       "levelSetup": {
         "kind": "minmax",
         "level": {
-          "minimumLevel": 1,
-          "maximumLevel": 1
+          "minimumLevel": 15,
+          "maximumLevel": 18
         }
       },
-      "randomEncounterChance": 1,
+      "randomEncounterChance": 9,
       "expandPokemonSetup": [
         {
           "type": "evs",
@@ -807,7 +355,7 @@
       ]
     },
     {
-      "specie": "trapinch",
+      "specie": "makuhita",
       "form": 0,
       "shinySetup": {
         "kind": "automatic",
@@ -816,11 +364,11 @@
       "levelSetup": {
         "kind": "minmax",
         "level": {
-          "minimumLevel": 1,
-          "maximumLevel": 1
+          "minimumLevel": 15,
+          "maximumLevel": 18
         }
       },
-      "randomEncounterChance": 1,
+      "randomEncounterChance": 9,
       "expandPokemonSetup": [
         {
           "type": "evs",
@@ -849,7 +397,7 @@
       ]
     },
     {
-      "specie": "bagon",
+      "specie": "joltik",
       "form": 0,
       "shinySetup": {
         "kind": "automatic",
@@ -858,11 +406,53 @@
       "levelSetup": {
         "kind": "minmax",
         "level": {
-          "minimumLevel": 1,
-          "maximumLevel": 1
+          "minimumLevel": 15,
+          "maximumLevel": 18
         }
       },
-      "randomEncounterChance": 1,
+      "randomEncounterChance": 9,
+      "expandPokemonSetup": [
+        {
+          "type": "evs",
+          "value": {
+            "hp": 0,
+            "atk": 0,
+            "dfe": 0,
+            "spd": 0,
+            "ats": 0,
+            "dfs": 0
+          }
+        },
+        {
+          "type": "loyalty",
+          "value": 70
+        },
+        {
+          "type": "moves",
+          "value": [
+            "__undef__",
+            "__undef__",
+            "__undef__",
+            "__undef__"
+          ]
+        }
+      ]
+    },
+    {
+      "specie": "larvitar",
+      "form": 0,
+      "shinySetup": {
+        "kind": "automatic",
+        "rate": -1
+      },
+      "levelSetup": {
+        "kind": "minmax",
+        "level": {
+          "minimumLevel": 15,
+          "maximumLevel": 15
+        }
+      },
+      "randomEncounterChance": 3,
       "expandPokemonSetup": [
         {
           "type": "evs",
@@ -891,5 +481,5 @@
       ]
     }
   ],
-  "stepsAverage": 24
+  "stepsAverage": 20
 }

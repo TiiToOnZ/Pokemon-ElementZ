@@ -33,7 +33,7 @@ Je nomme[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10] \N[1] !
 Combattez !
 ":[face=250,Pierre;name=[NAME]]:Je crois en la grande résistance de la pierre !"
 La victoire revient à \N[1] !
-Il remporte un magnifique Badge Roche en combat double !
+Il remporte un magnifique Badge Roche en combat Triple !
 :[align=center]:REÇU : \c[5]BADGE ROCHE\c[0]
 ":[align=center]:\s[i]Vous rangez votre ""Badge Roche"" sur votre carte de dresseur.\s[r]"
 J’ajoute cette victoire à l’ordinateur[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]

@@ -29,7 +29,17 @@
       "objectiveMethodArgs": [
         1,
         "Sbires Rocket",
-        5
+        8
+      ],
+      "textFormatMethodName": "text_beat_npc",
+      "hiddenByDefault": false
+    },
+    {
+      "objectiveMethodName": "objective_beat_npc",
+      "objectiveMethodArgs": [
+        2,
+        "Trio Rocket",
+        1
       ],
       "textFormatMethodName": "text_beat_npc",
       "hiddenByDefault": false

@@ -2,10 +2,17 @@
   "klass": "TrainerBattleSetup",
   "id": 50,
   "dbSymbol": "trainer_50",
-  "vsType": 2,
+  "vsType": 3,
   "isCouple": false,
   "baseMoney": 10,
-  "ai": 1,
+  "bagEntries": [
+    {
+      "dbSymbol": "super_potion",
+      "amount": 2
+    }
+  ],
+  "battleId": 0,
+  "ai": 5,
   "party": [
     {
       "specie": "ekans",
@@ -16,7 +23,7 @@
       },
       "levelSetup": {
         "kind": "fixed",
-        "level": 1
+        "level": 16
       },
       "randomEncounterChance": 1,
       "expandPokemonSetup": [
@@ -34,12 +41,12 @@
         {
           "type": "ivs",
           "value": {
-            "hp": 0,
-            "atk": 0,
-            "dfe": 0,
-            "spd": 0,
-            "ats": 0,
-            "dfs": 0
+            "hp": 15,
+            "atk": 15,
+            "dfe": 15,
+            "spd": 15,
+            "ats": 15,
+            "dfs": 15
           }
         },
         {
@@ -49,10 +56,10 @@
         {
           "type": "moves",
           "value": [
-            "__undef__",
-            "__undef__",
-            "__undef__",
-            "__undef__"
+            "poison_sting",
+            "glare",
+            "wrap",
+            "bite"
           ]
         },
         {
@@ -62,6 +69,10 @@
         {
           "type": "originalTrainerId",
           "value": 0
+        },
+        {
+          "type": "ability",
+          "value": "intimidate"
         }
       ]
     },
@@ -74,7 +85,7 @@
       },
       "levelSetup": {
         "kind": "fixed",
-        "level": 1
+        "level": 18
       },
       "randomEncounterChance": 1,
       "expandPokemonSetup": [
@@ -92,12 +103,12 @@
         {
           "type": "ivs",
           "value": {
-            "hp": 0,
-            "atk": 0,
-            "dfe": 0,
-            "spd": 0,
-            "ats": 0,
-            "dfs": 0
+            "hp": 15,
+            "atk": 15,
+            "dfe": 15,
+            "spd": 15,
+            "ats": 15,
+            "dfs": 15
           }
         },
         {
@@ -107,10 +118,10 @@
         {
           "type": "moves",
           "value": [
-            "__undef__",
-            "__undef__",
-            "__undef__",
-            "__undef__"
+            "fury_swipes",
+            "bite",
+            "fake_out",
+            "__remove__"
           ]
         },
         {
@@ -120,6 +131,10 @@
         {
           "type": "originalTrainerId",
           "value": 0
+        },
+        {
+          "type": "ability",
+          "value": "technician"
         }
       ]
     },
@@ -132,7 +147,7 @@
       },
       "levelSetup": {
         "kind": "fixed",
-        "level": 1
+        "level": 16
       },
       "randomEncounterChance": 1,
       "expandPokemonSetup": [
@@ -150,12 +165,12 @@
         {
           "type": "ivs",
           "value": {
-            "hp": 0,
-            "atk": 0,
-            "dfe": 0,
-            "spd": 0,
-            "ats": 0,
-            "dfs": 0
+            "hp": 15,
+            "atk": 15,
+            "dfe": 15,
+            "spd": 15,
+            "ats": 15,
+            "dfs": 15
           }
         },
         {
@@ -165,10 +180,10 @@
         {
           "type": "moves",
           "value": [
-            "__undef__",
-            "__undef__",
-            "__undef__",
-            "__undef__"
+            "assurance",
+            "smog",
+            "poison_gas",
+            "assurance"
           ]
         },
         {
@@ -182,19 +197,17 @@
       ]
     }
   ],
-  "bagEntries": [],
-  "battleId": 0,
   "resources": {
-    "artworkFull": "",
-    "artworkSmall": "",
+    "sprite": "",
+    "artworkFull": "Trio_Rocket_big",
+    "artworkSmall": "Trio_Rocket_sma",
     "character": "",
     "musics": {
-      "bgm": "",
-      "defeat": "",
       "encounter": "",
-      "victory": ""
-    },
-    "sprite": ""
+      "victory": "",
+      "defeat": "",
+      "bgm": ""
+    }
   },
   "additionalDialogs": []
 }

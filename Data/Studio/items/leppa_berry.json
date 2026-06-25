@@ -2,7 +2,7 @@
   "id": 154,
   "dbSymbol": "leppa_berry",
   "icon": "154",
-  "price": 20,
+  "price": 100,
   "socket": 4,
   "position": 0,
   "isBattleUsable": true,
@@ -11,19 +11,16 @@
   "isHoldable": true,
   "isAllowingMega": false,
   "flingPower": 10,
-  "klass": "PPHealItem",
-  "loyaltyMalus": 0,
-  "ppCount": 10,
   "isBerry": true,
   "berryData": {
     "size": 2.8,
     "firmness": "very_hard",
     "minYield": 2,
     "maxYield": 5,
-    "growth": 16,
-    "drainRate": 7,
-    "naturalGiftType": "fighting",
-    "naturalGiftPower": 80
+    "growth": 2,
+    "drainRate": 1,
+    "naturalGiftPower": 80,
+    "naturalGiftType": "fighting"
   },
   "cookingData": {
     "pokeblockColor": "red",
@@ -34,5 +31,8 @@
     "sweetFlavor": 10,
     "bitterFlavor": 10,
     "sourFlavor": 10
-  }
+  },
+  "klass": "PPHealItem",
+  "loyaltyMalus": 0,
+  "ppCount": 10
 }

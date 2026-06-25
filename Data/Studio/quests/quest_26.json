@@ -6,22 +6,12 @@
   "resolution": "default",
   "objectives": [
     {
-      "objectiveMethodName": "objective_beat_npc",
+      "objectiveMethodName": "objective_custom",
       "objectiveMethodArgs": [
         0,
-        "Champion d'arène",
-        1
+        9
       ],
-      "textFormatMethodName": "text_beat_npc",
-      "hiddenByDefault": false
-    },
-    {
-      "objectiveMethodName": "objective_speak_to",
-      "objectiveMethodArgs": [
-        0,
-        "Collectionneur"
-      ],
-      "textFormatMethodName": "text_speak_to",
+      "textFormatMethodName": "text_custom",
       "hiddenByDefault": false
     }
   ],

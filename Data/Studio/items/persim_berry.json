@@ -2,7 +2,7 @@
   "id": 156,
   "dbSymbol": "persim_berry",
   "icon": "156",
-  "price": 20,
+  "price": 100,
   "socket": 4,
   "position": 0,
   "isBattleUsable": true,
@@ -11,21 +11,16 @@
   "isHoldable": true,
   "isAllowingMega": false,
   "flingPower": 10,
-  "klass": "StatusHealItem",
-  "loyaltyMalus": 0,
-  "statusList": [
-    "CONFUSED"
-  ],
   "isBerry": true,
   "berryData": {
     "size": 4.7,
     "firmness": "hard",
     "minYield": 2,
     "maxYield": 5,
-    "growth": 16,
-    "drainRate": 7,
-    "naturalGiftType": "ground",
-    "naturalGiftPower": 80
+    "growth": 2,
+    "drainRate": 1,
+    "naturalGiftPower": 80,
+    "naturalGiftType": "ground"
   },
   "cookingData": {
     "pokeblockColor": "pink",
@@ -36,5 +31,10 @@
     "sweetFlavor": 10,
     "bitterFlavor": 0,
     "sourFlavor": 10
-  }
+  },
+  "klass": "StatusHealItem",
+  "loyaltyMalus": 0,
+  "statusList": [
+    "CONFUSED"
+  ]
 }

@@ -8,19 +8,24 @@
     },
     {
       "medical": 5
+    },
+    {
+      "objet": 7
     }
   ],
   "data": {
-    "heavy_ball": {
+    "red_shard": {
       "ingredients": {
-        "black_apricorn": 1
+        "cheri_berry": 4,
+        "persim_berry": 2,
+        "pecha_berry": 4
       },
-      "result": "heavy_ball",
+      "result": "red_shard",
       "quantity": 1,
-      "category": "ball",
+      "category": "objet",
       "unlock_condition": {
-        "type": "manual",
-        "value": true
+        "type": "switch",
+        "id": 352
       }
     },
     "lure_ball": {
@@ -105,6 +110,43 @@
       "unlock_condition": {
         "type": "manual",
         "value": true
+      }
+    },
+    "blue_shard": {
+      "ingredients": {
+        "chesto_berry": 5,
+        "oran_berry": 5
+      },
+      "result": "blue_shard",
+      "quantity": 1,
+      "category": "objet",
+      "unlock_condition": {
+        "type": "switch",
+        "id": 352
+      }
+    },
+    "green_shard": {
+      "ingredients": {
+        "rawst_berry": 10
+      },
+      "result": "green_shard",
+      "quantity": 1,
+      "category": "objet",
+      "unlock_condition": {
+        "type": "switch",
+        "id": 352
+      }
+    },
+    "yellow_shard": {
+      "ingredients": {
+        "aspear_berry": 10
+      },
+      "result": "yellow_shard",
+      "quantity": 1,
+      "category": "objet",
+      "unlock_condition": {
+        "type": "switch",
+        "id": 352
       }
     }
   }

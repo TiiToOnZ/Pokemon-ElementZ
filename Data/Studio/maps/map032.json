@@ -14,8 +14,8 @@
     "pitch": 100
   },
   "tiledFilename": "033 Interieur3",
-  "mtime": 1763824975220,
-  "sha1": "080746eb1c79ab36001e81c1aa3cb8b51adbf613",
+  "mtime": 1780061656405,
+  "sha1": "fd5869bb68af1e892b6334b77d9315fbb63e9894",
   "tileMetadata": {
     "width": 30,
     "height": 30,
@@ -25,11 +25,11 @@
         "source": "../Tilesets/Interieurs.tsx"
       },
       {
-        "firstGlobalId": 497,
+        "firstGlobalId": 625,
         "source": "../Tilesets/TECH-Misc..tsx"
       },
       {
-        "firstGlobalId": 1521,
+        "firstGlobalId": 2673,
         "source": "../Tilesets/passages.tsx"
       }
     ],
@@ -114,7 +114,7 @@
       ],
       [
         {
-          "globalId": 754,
+          "globalId": 882,
           "transformId": 0
         },
         {
@@ -126,7 +126,7 @@
           "priority": 4
         },
         {
-          "globalId": 754,
+          "globalId": 882,
           "transformId": 0
         }
       ],

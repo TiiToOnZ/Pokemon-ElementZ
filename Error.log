@@ -1,36 +1,31 @@
 ================================Erreur de script================================
 Message :
-undefined method `add_fog' for #<Interpreter:0x15f13b60>
+(eval):2: syntax error, unexpected local variable or method, expecting `end'
+...from_charset([0,1,2,3],60) wait 180 frames
+...                           ^~~~
 
-Type : NoMethodError
-Script : (eval) (RMXP)
-Ligne : 2
-Date : 26/05/2026 20:13:52
-Game Version : 1
+
+Type : SyntaxError
+Script : tools/GameLoader/z_eval_killer.rb (PSDK)
+Ligne : 30
+Date : 14/06/2026 17:07:44
+Game Version : 2
 Logiciel : PSDK 26.56
-Script used by eval command : 
-add_fog("night_glow", "night_glow", {
-  opacity: 100,
-  blend_type: 0,
-  zoom: 100,
-  z: 3100
-})
-
-
 ===================================Backtraces===================================
-[29] : (eval) (RMXP) | ligne 2 eval_X6
-[28] : 1_RMXP_Scripts.rb (PSDK) | ligne 2125 eval_script
-[27] : 1_RMXP_Scripts.rb (PSDK) | ligne 2117 command_355
-[26] : 1_RMXP_Scripts.rb (PSDK) | ligne 1101 execute_command
-[25] : 1_RMXP_Scripts.rb (PSDK) | ligne 976 update
-[24] : 1_RMXP_Scripts.rb (PSDK) | ligne 956 loop
-[23] : 1_RMXP_Scripts.rb (PSDK) | ligne 956 update
-[22] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 6167 update
+[30] : tools/GameLoader/z_eval_killer.rb (PSDK) | ligne 30 class_eval
+[29] : tools/GameLoader/z_eval_killer.rb (PSDK) | ligne 30 build_method
+[28] : tools/GameLoader/z_eval_killer.rb (PSDK) | ligne 23 resolve_method_symbol
+[27] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 4654 eval_script
+[26] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 4644 move_type_custom_special
+[25] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 4505 move_type_custon_exec_command
+[24] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 4480 move_type_custom
+[23] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 4315 update
+[22] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 6163 update
 [21] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 7716 each_value
 [20] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 7716 update
-[19] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9466 transfer_player_begin
-[18] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9472 transfer_player
-[17] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9267 auto_transfert_update
+[19] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9256 update_map_logic
+[18] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 2916 update_map_logic
+[17] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9265 auto_transfert_update
 [16] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9264 loop
 [15] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9264 auto_transfert_update
 [14] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9118 update

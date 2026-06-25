@@ -93,7 +93,7 @@
       },
       "levelSetup": {
         "kind": "fixed",
-        "level": 15
+        "level": 16
       },
       "randomEncounterChance": 1,
       "expandPokemonSetup": [
@@ -143,6 +143,10 @@
         {
           "type": "ability",
           "value": "chlorophyll"
+        },
+        {
+          "type": "itemHeld",
+          "value": "miracle_seed"
         }
       ]
     },
@@ -357,7 +361,7 @@
       },
       "levelSetup": {
         "kind": "fixed",
-        "level": 15
+        "level": 16
       },
       "randomEncounterChance": 1,
       "expandPokemonSetup": [

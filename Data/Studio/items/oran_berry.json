@@ -2,7 +2,7 @@
   "id": 155,
   "dbSymbol": "oran_berry",
   "icon": "155",
-  "price": 20,
+  "price": 100,
   "socket": 4,
   "position": 0,
   "isBattleUsable": true,
@@ -11,19 +11,16 @@
   "isHoldable": true,
   "isAllowingMega": false,
   "flingPower": 10,
-  "klass": "ConstantHealItem",
-  "loyaltyMalus": 0,
-  "hpCount": 10,
   "isBerry": true,
   "berryData": {
     "size": 3.5,
     "firmness": "super_hard",
     "minYield": 2,
     "maxYield": 5,
-    "growth": 16,
-    "drainRate": 7,
-    "naturalGiftType": "poison",
-    "naturalGiftPower": 80
+    "growth": 2,
+    "drainRate": 1,
+    "naturalGiftPower": 80,
+    "naturalGiftType": "poison"
   },
   "cookingData": {
     "pokeblockColor": "blue",
@@ -34,5 +31,8 @@
     "sweetFlavor": 0,
     "bitterFlavor": 10,
     "sourFlavor": 10
-  }
+  },
+  "klass": "ConstantHealItem",
+  "loyaltyMalus": 0,
+  "hpCount": 10
 }

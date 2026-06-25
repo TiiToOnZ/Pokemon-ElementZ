@@ -2,9 +2,16 @@
   "klass": "TrainerBattleSetup",
   "id": 49,
   "dbSymbol": "trainer_49",
-  "vsType": 1,
+  "vsType": 3,
   "isCouple": false,
   "baseMoney": 10,
+  "bagEntries": [
+    {
+      "dbSymbol": "super_potion",
+      "amount": 2
+    }
+  ],
+  "battleId": 0,
   "ai": 7,
   "party": [
     {
@@ -34,12 +41,12 @@
         {
           "type": "ivs",
           "value": {
-            "hp": 31,
-            "atk": 31,
-            "dfe": 31,
-            "spd": 31,
-            "ats": 31,
-            "dfs": 31
+            "hp": 15,
+            "atk": 15,
+            "dfe": 15,
+            "spd": 15,
+            "ats": 15,
+            "dfs": 15
           }
         },
         {
@@ -100,12 +107,12 @@
         {
           "type": "ivs",
           "value": {
-            "hp": 31,
-            "atk": 31,
-            "dfe": 31,
-            "spd": 31,
-            "ats": 31,
-            "dfs": 31
+            "hp": 15,
+            "atk": 15,
+            "dfe": 15,
+            "spd": 15,
+            "ats": 15,
+            "dfs": 15
           }
         },
         {
@@ -162,12 +169,12 @@
         {
           "type": "ivs",
           "value": {
-            "hp": 31,
-            "atk": 31,
-            "dfe": 31,
-            "spd": 31,
-            "ats": 31,
-            "dfs": 31
+            "hp": 15,
+            "atk": 15,
+            "dfe": 15,
+            "spd": 15,
+            "ats": 15,
+            "dfs": 15
           }
         },
         {
@@ -193,73 +200,11 @@
         },
         {
           "type": "ability",
-          "value": "moxie"
-        }
-      ]
-    },
-    {
-      "specie": "starmie",
-      "form": 0,
-      "shinySetup": {
-        "kind": "automatic",
-        "rate": -1
-      },
-      "levelSetup": {
-        "kind": "fixed",
-        "level": 28
-      },
-      "randomEncounterChance": 1,
-      "expandPokemonSetup": [
-        {
-          "type": "evs",
-          "value": {
-            "hp": 0,
-            "atk": 0,
-            "dfe": 0,
-            "spd": 0,
-            "ats": 0,
-            "dfs": 0
-          }
-        },
-        {
-          "type": "ivs",
-          "value": {
-            "hp": 31,
-            "atk": 31,
-            "dfe": 31,
-            "spd": 31,
-            "ats": 31,
-            "dfs": 31
-          }
-        },
-        {
-          "type": "loyalty",
-          "value": 70
-        },
-        {
-          "type": "moves",
-          "value": [
-            "hydro_pump",
-            "spotlight",
-            "recover",
-            "swift"
-          ]
-        },
-        {
-          "type": "originalTrainerName",
-          "value": "Ondine"
-        },
-        {
-          "type": "originalTrainerId",
-          "value": 0
-        },
-        {
-          "type": "ability",
-          "value": "analytic"
+          "value": "intimidate"
         },
         {
           "type": "nature",
-          "value": "quiet"
+          "value": "adamant"
         }
       ]
     },
@@ -290,12 +235,12 @@
         {
           "type": "ivs",
           "value": {
-            "hp": 31,
-            "atk": 31,
-            "dfe": 31,
-            "spd": 31,
-            "ats": 31,
-            "dfs": 31
+            "hp": 15,
+            "atk": 15,
+            "dfe": 15,
+            "spd": 15,
+            "ats": 15,
+            "dfs": 15
           }
         },
         {
@@ -321,7 +266,85 @@
         },
         {
           "type": "ability",
-          "value": "sap_sipper"
+          "value": "huge_power"
+        },
+        {
+          "type": "itemHeld",
+          "value": "sitrus_berry"
+        },
+        {
+          "type": "nature",
+          "value": "adamant"
+        }
+      ]
+    },
+    {
+      "specie": "starmie",
+      "form": 0,
+      "shinySetup": {
+        "kind": "automatic",
+        "rate": -1
+      },
+      "levelSetup": {
+        "kind": "fixed",
+        "level": 28
+      },
+      "randomEncounterChance": 1,
+      "expandPokemonSetup": [
+        {
+          "type": "evs",
+          "value": {
+            "hp": 0,
+            "atk": 0,
+            "dfe": 0,
+            "spd": 0,
+            "ats": 0,
+            "dfs": 0
+          }
+        },
+        {
+          "type": "ivs",
+          "value": {
+            "hp": 15,
+            "atk": 15,
+            "dfe": 15,
+            "spd": 15,
+            "ats": 15,
+            "dfs": 15
+          }
+        },
+        {
+          "type": "loyalty",
+          "value": 70
+        },
+        {
+          "type": "moves",
+          "value": [
+            "hydro_pump",
+            "spotlight",
+            "recover",
+            "swift"
+          ]
+        },
+        {
+          "type": "originalTrainerName",
+          "value": "Ondine"
+        },
+        {
+          "type": "originalTrainerId",
+          "value": 0
+        },
+        {
+          "type": "ability",
+          "value": "natural_cure"
+        },
+        {
+          "type": "nature",
+          "value": "quiet"
+        },
+        {
+          "type": "itemHeld",
+          "value": "focus_sash"
         }
       ]
     },
@@ -352,12 +375,12 @@
         {
           "type": "ivs",
           "value": {
-            "hp": 31,
-            "atk": 31,
-            "dfe": 31,
-            "spd": 31,
-            "ats": 31,
-            "dfs": 31
+            "hp": 15,
+            "atk": 15,
+            "dfe": 15,
+            "spd": 15,
+            "ats": 15,
+            "dfs": 15
           }
         },
         {
@@ -384,23 +407,25 @@
         {
           "type": "ability",
           "value": "swift_swim"
+        },
+        {
+          "type": "nature",
+          "value": "modest"
         }
       ]
     }
   ],
-  "bagEntries": [],
-  "battleId": 0,
   "resources": {
-    "artworkFull": "",
-    "artworkSmall": "",
-    "character": "",
+    "sprite": "",
+    "artworkFull": "Ondine - Copie",
+    "artworkSmall": "Ondine - Copie (2)",
+    "character": "npc_Misty",
     "musics": {
-      "bgm": "",
-      "defeat": "",
       "encounter": "",
-      "victory": ""
-    },
-    "sprite": ""
+      "victory": "",
+      "defeat": "",
+      "bgm": ""
+    }
   },
   "additionalDialogs": []
 }

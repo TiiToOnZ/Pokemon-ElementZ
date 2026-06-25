@@ -2,7 +2,7 @@
   "id": 150,
   "dbSymbol": "chesto_berry",
   "icon": "150",
-  "price": 20,
+  "price": 100,
   "socket": 4,
   "position": 0,
   "isBattleUsable": true,
@@ -11,21 +11,16 @@
   "isHoldable": true,
   "isAllowingMega": false,
   "flingPower": 10,
-  "klass": "StatusHealItem",
-  "loyaltyMalus": 0,
-  "statusList": [
-    "ASLEEP"
-  ],
   "isBerry": true,
   "berryData": {
     "size": 8,
     "firmness": "super_hard",
     "minYield": 2,
     "maxYield": 5,
-    "growth": 12,
-    "drainRate": 7,
-    "naturalGiftType": "water",
-    "naturalGiftPower": 80
+    "growth": 2,
+    "drainRate": 1,
+    "naturalGiftPower": 80,
+    "naturalGiftType": "water"
   },
   "cookingData": {
     "pokeblockColor": "blue",
@@ -36,5 +31,10 @@
     "sweetFlavor": 0,
     "bitterFlavor": 0,
     "sourFlavor": 0
-  }
+  },
+  "klass": "StatusHealItem",
+  "loyaltyMalus": 0,
+  "statusList": [
+    "ASLEEP"
+  ]
 }

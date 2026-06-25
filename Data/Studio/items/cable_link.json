@@ -1,0 +1,16 @@
+{
+  "klass": "Item",
+  "id": 930,
+  "dbSymbol": "cable_link",
+  "icon": "return",
+  "price": 5000,
+  "socket": 1,
+  "position": 0,
+  "isBattleUsable": false,
+  "isMapUsable": false,
+  "isLimited": true,
+  "isHoldable": true,
+  "isAllowingMega": false,
+  "isBerry": false,
+  "flingPower": 30
+}

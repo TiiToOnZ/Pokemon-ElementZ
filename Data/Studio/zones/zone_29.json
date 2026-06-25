@@ -3,7 +3,8 @@
   "id": 29,
   "dbSymbol": "zone_29",
   "maps": [
-    50
+    50,
+    85
   ],
   "worldmaps": [],
   "panelId": 2,

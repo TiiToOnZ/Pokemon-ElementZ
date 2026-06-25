@@ -403,6 +403,10 @@
         {
           "type": "ability",
           "value": "chlorophyll"
+        },
+        {
+          "type": "itemHeld",
+          "value": "miracle_seed"
         }
       ]
     }

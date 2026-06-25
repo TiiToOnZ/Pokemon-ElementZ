@@ -34,7 +34,7 @@ Coup s'Boule,Coup d'Boule,Coup s'Boule,Coup s'Boule,Coup s'Boule,Coup s'Boule,Co
 Coup d'Boule (Jour),Forêt Hantée (Double),Coup d'Boule (Jour),Coup d'Boule (Jour),Coup d'Boule (Jour),Coup d'Boule (Jour),Coup d'Boule (Jour),Coup d'Boule (Jour)
 Coup d'Boule (Soir),Forêt Enchantée (Double),Coup d'Boule (Soir),Coup d'Boule (Soir),Coup d'Boule (Soir),Coup d'Boule (Soir),Coup d'Boule (Soir),Coup d'Boule (Soir)
 Coup d'Boule,Forêt Enchantée (Triple),Coup d'Boule,Coup d'Boule,Coup d'Boule,Coup d'Boule,Coup d'Boule,Coup d'Boule
-Grotte Cristalline,Grotte Cristalline (RDC1),Grotte Cristalline,Grotte Cristalline,Grotte Cristalline,Grotte Cristalline,Grotte Cristalline,Grotte Cristalline
+Grotte Cristalline,Grotte Cristalline (RC Solo),Grotte Cristalline,Grotte Cristalline,Grotte Cristalline,Grotte Cristalline,Grotte Cristalline,Grotte Cristalline
 Forêt Enchantée,Forêt Enchantée (Solo),Forêt Enchantée,Forêt Enchantée,Forêt Enchantée,Forêt Enchantée,Forêt Enchantée,Forêt Enchantée
 Route 2,Route 2 & 3 (Matin),Route 2,Route 2,Route 2,Route 2,Route 2,Route 2
 Canne,Canne (Lac),Canne,Canne,Canne,Canne,Canne,Canne
@@ -42,7 +42,7 @@ Forêt Enchantée (Sombre),Forêt Hantée (Solo) ,Forêt Enchantée (Sombre),For
 Super Canne,Super Canne (Lac),Super Canne,Super Canne,Super Canne,Super Canne,Super Canne,Super Canne
 Mega Canne,Mega Canne,Mega Canne,Mega Canne,Mega Canne,Mega Canne,Mega Canne,Mega Canne
 Route 3,Route 2 & 3 (Jour),Route 3,Route 3,Route 3,Route 3,Route 3,Route 3
-grotte 2,Grotte Cristalline (SSL1),grotte 2,grotte 2,grotte 2,grotte 2,grotte 2,grotte 2
+grotte 2,Grotte Cristalline (SS1 Solo),grotte 2,grotte 2,grotte 2,grotte 2,grotte 2,grotte 2
 Canne (Mer),Canne (Mer),Canne (Mer),Canne (Mer),Canne (Mer),Canne (Mer),Canne (Mer),Canne (Mer)
 Super Canne (Mer),Super Canne (Mer),Super Canne (Mer),Super Canne (Mer),Super Canne (Mer),Super Canne (Mer),Super Canne (Mer),Super Canne (Mer)
 Forêt Enchatée (Claire - Jour),Forêt Hantée (Triple),Forêt Enchatée (Claire - Jour),Forêt Enchatée (Claire - Jour),Forêt Enchatée (Claire - Jour),Forêt Enchatée (Claire - Jour),Forêt Enchatée (Claire - Jour),Forêt Enchatée (Claire - Jour)
@@ -54,6 +54,11 @@ Forêt Enchantée (Sombre - Jour),Ruine Puzzle B,Forêt Enchantée (Sombre - Jou
 Forêt Enchantée (Sombre - Soir),Manoir Decorum,Forêt Enchantée (Sombre - Soir),Forêt Enchantée (Sombre - Soir),Forêt Enchantée (Sombre - Soir),Forêt Enchantée (Sombre - Soir),Forêt Enchantée (Sombre - Soir),Forêt Enchantée (Sombre - Soir)
 Forêt Enchantée (Sombre - Nuit),Plage,Forêt Enchantée (Sombre - Nuit),Forêt Enchantée (Sombre - Nuit),Forêt Enchantée (Sombre - Nuit),Forêt Enchantée (Sombre - Nuit),Forêt Enchantée (Sombre - Nuit),Forêt Enchantée (Sombre - Nuit)
 Ruine,Ruine Puzzle A,Ruine,Ruine,Ruine,Ruine,Ruine,Ruine
-Grotte Cristalline (RDC1) (Nuit),Grotte Cristalline (RDC1) (Nuit),Grotte Cristalline (RDC1) (Nuit),Grotte Cristalline (RDC1) (Nuit),Grotte Cristalline (RDC1) (Nuit),Grotte Cristalline (RDC1) (Nuit),Grotte Cristalline (RDC1) (Nuit),Grotte Cristalline (RDC1) (Nuit)
-Grotte Cristalline (RDC1) (Jour),Grotte Cristalline (RDC1) (Jour),Grotte Cristalline (RDC1) (Jour),Grotte Cristalline (RDC1) (Jour),Grotte Cristalline (RDC1) (Jour),Grotte Cristalline (RDC1) (Jour),Grotte Cristalline (RDC1) (Jour),Grotte Cristalline (RDC1) (Jour)
-Grotte Cristalline (RDC1) (Soir),Grotte Cristalline (RDC1) (Soir),Grotte Cristalline (RDC1) (Soir),Grotte Cristalline (RDC1) (Soir),Grotte Cristalline (RDC1) (Soir),Grotte Cristalline (RDC1) (Soir),Grotte Cristalline (RDC1) (Soir),Grotte Cristalline (RDC1) (Soir)
+Grotte Cristalline (RDC1) (Nuit),Grotte Cristalline (RC Double),Grotte Cristalline (RDC1) (Nuit),Grotte Cristalline (RDC1) (Nuit),Grotte Cristalline (RDC1) (Nuit),Grotte Cristalline (RDC1) (Nuit),Grotte Cristalline (RDC1) (Nuit),Grotte Cristalline (RDC1) (Nuit)
+Grotte Cristalline (RDC1) (Jour),Grotte Cristalline (RC Triple),Grotte Cristalline (RDC1) (Jour),Grotte Cristalline (RDC1) (Jour),Grotte Cristalline (RDC1) (Jour),Grotte Cristalline (RDC1) (Jour),Grotte Cristalline (RDC1) (Jour),Grotte Cristalline (RDC1) (Jour)
+Grotte Cristalline (RDC1) (Soir),Grotte Cristalline (SS2),Grotte Cristalline (RDC1) (Soir),Grotte Cristalline (RDC1) (Soir),Grotte Cristalline (RDC1) (Soir),Grotte Cristalline (RDC1) (Soir),Grotte Cristalline (RDC1) (Soir),Grotte Cristalline (RDC1) (Soir)
+Grotte Cristalline (SS3),Grotte Cristalline (SS3),Grotte Cristalline (SS3),Grotte Cristalline (SS3),Grotte Cristalline (SS3),Grotte Cristalline (SS3),Grotte Cristalline (SS3),Grotte Cristalline (SS3)
+Grotte Cristalline (SS1) Double,Grotte Cristalline (SS1 - Double) ,Grotte Cristalline (SS1) Double,Grotte Cristalline (SS1) Double,Grotte Cristalline (SS1) Double,Grotte Cristalline (SS1) Double,Grotte Cristalline (SS1) Double,Grotte Cristalline (SS1) Double
+Grotte Cristalline (SS1 - Triple),Grotte Cristalline (SS1 - Triple),Grotte Cristalline (SS1 - Triple),Grotte Cristalline (SS1 - Triple),Grotte Cristalline (SS1 - Triple),Grotte Cristalline (SS1 - Triple),Grotte Cristalline (SS1 - Triple),Grotte Cristalline (SS1 - Triple)
+Grotte Cristalline (SS2 - Double),Grotte Cristalline (SS2 - Double),Grotte Cristalline (SS2 - Double),Grotte Cristalline (SS2 - Double),Grotte Cristalline (SS2 - Double),Grotte Cristalline (SS2 - Double),Grotte Cristalline (SS2 - Double),Grotte Cristalline (SS2 - Double)
+Grotte Cristalline (SS2 - Triple),Grotte Cristalline (SS2 - Triple),Grotte Cristalline (SS2 - Triple),Grotte Cristalline (SS2 - Triple),Grotte Cristalline (SS2 - Triple),Grotte Cristalline (SS2 - Triple),Grotte Cristalline (SS2 - Triple),Grotte Cristalline (SS2 - Triple)

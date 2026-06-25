@@ -11,22 +11,16 @@
   "isHoldable": true,
   "isAllowingMega": false,
   "flingPower": 10,
-  "klass": "StatusHealItem",
-  "loyaltyMalus": 0,
-  "statusList": [
-    "POISONED",
-    "TOXIC"
-  ],
   "isBerry": true,
   "berryData": {
     "size": 4,
     "firmness": "very_soft",
     "minYield": 2,
     "maxYield": 5,
-    "growth": 12,
-    "drainRate": 7,
-    "naturalGiftType": "electric",
-    "naturalGiftPower": 80
+    "growth": 2,
+    "drainRate": 1,
+    "naturalGiftPower": 80,
+    "naturalGiftType": "electric"
   },
   "cookingData": {
     "pokeblockColor": "pink",
@@ -37,5 +31,11 @@
     "sweetFlavor": 10,
     "bitterFlavor": 0,
     "sourFlavor": 0
-  }
+  },
+  "klass": "StatusHealItem",
+  "loyaltyMalus": 0,
+  "statusList": [
+    "POISONED",
+    "TOXIC"
+  ]
 }

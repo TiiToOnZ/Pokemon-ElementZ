@@ -13,9 +13,9 @@
     "volume": 100,
     "pitch": 100
   },
-  "mtime": 1777043456763,
-  "sha1": "8f8cfeb15a86cdcf7ae0825eea843b1e5a225cc3",
   "tiledFilename": "032 Foret_Enchantee",
+  "mtime": 1781008063699,
+  "sha1": "e38ebbc543e9f39f58fc5cdb0ab488d150411bfd",
   "tileMetadata": {
     "width": 130,
     "height": 100,
@@ -51,6 +51,10 @@
       {
         "firstGlobalId": 82606,
         "source": "../Tilesets/terrain_tag.tsx"
+      },
+      {
+        "firstGlobalId": 82622,
+        "source": "../Tilesets/HGSS_Ilex Forest.tsx"
       }
     ],
     "tileByTileId": [

@@ -194,7 +194,7 @@
       "pitch": 100
     },
     "catchCreature": {
-      "name": "audio/me/pokémon caught-evolved - hgss.ogg",
+      "name": "audio/me/caughtjingle.ogg",
       "volume": 100,
       "pitch": 100
     }
@@ -227,7 +227,7 @@
       "pitch": 100
     },
     "defaultEye": {
-      "name": "audio/bgm/29 battle! (gym leader).ogg",
+      "name": "audio/bgm/pkmrs-enc1.mid",
       "volume": 100,
       "pitch": 100
     },
@@ -237,7 +237,7 @@
       "pitch": 100
     },
     "baseTrainerDefeatBattle": {
-      "name": "audio/bgm/30 victory! (gym leader).ogg",
+      "name": "audio/bgm/xy_trainer_battle_victory.ogg",
       "volume": 100,
       "pitch": 100
     },

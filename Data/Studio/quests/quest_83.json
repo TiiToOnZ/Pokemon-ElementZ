@@ -1,0 +1,19 @@
+{
+  "klass": "Quest",
+  "id": 83,
+  "dbSymbol": "quest_83",
+  "isPrimary": false,
+  "resolution": "default",
+  "objectives": [
+    {
+      "objectiveMethodName": "objective_see_pokemon",
+      "objectiveMethodArgs": [
+        "celebi",
+        1
+      ],
+      "textFormatMethodName": "text_see_pokemon",
+      "hiddenByDefault": false
+    }
+  ],
+  "earnings": []
+}

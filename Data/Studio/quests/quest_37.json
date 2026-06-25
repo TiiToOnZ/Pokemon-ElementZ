@@ -6,12 +6,12 @@
   "resolution": "default",
   "objectives": [
     {
-      "objectiveMethodName": "objective_obtain_item",
+      "objectiveMethodName": "objective_custom",
       "objectiveMethodArgs": [
-        "precieux",
-        1
+        0,
+        13
       ],
-      "textFormatMethodName": "text_obtain_item",
+      "textFormatMethodName": "text_custom",
       "hiddenByDefault": false
     },
     {
@@ -24,5 +24,13 @@
       "hiddenByDefault": false
     }
   ],
-  "earnings": []
+  "earnings": [
+    {
+      "earningMethodName": "earning_money",
+      "earningArgs": [
+        1000
+      ],
+      "textFormatMethodName": "text_earn_money"
+    }
+  ]
 }

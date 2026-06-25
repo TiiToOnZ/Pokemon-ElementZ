@@ -29,21 +29,5 @@
       "hiddenByDefault": false
     }
   ],
-  "earnings": [
-    {
-      "earningMethodName": "earning_money",
-      "earningArgs": [
-        1000
-      ],
-      "textFormatMethodName": "text_earn_money"
-    },
-    {
-      "earningMethodName": "earning_item",
-      "earningArgs": [
-        "good_rod",
-        1
-      ],
-      "textFormatMethodName": "text_earn_item"
-    }
-  ]
+  "earnings": []
 }

@@ -2,10 +2,12 @@
   "klass": "TrainerBattleSetup",
   "id": 52,
   "dbSymbol": "trainer_52",
-  "vsType": 1,
+  "vsType": 2,
   "isCouple": false,
   "baseMoney": 10,
-  "ai": 1,
+  "bagEntries": [],
+  "battleId": 0,
+  "ai": 3,
   "party": [
     {
       "specie": "gastly",
@@ -376,8 +378,6 @@
       ]
     }
   ],
-  "bagEntries": [],
-  "battleId": 0,
   "resources": {
     "sprite": "",
     "artworkFull": "186_Team_Rocket_Duo_HGSS_big",

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="left-up" width="130" height="100" tilewidth="32" tileheight="32" infinite="0" nextlayerid="106" nextobjectid="1">
+<map version="1.10" tiledversion="1.12.1" orientation="orthogonal" renderorder="left-up" width="130" height="100" tilewidth="32" tileheight="32" infinite="0" nextlayerid="107" nextobjectid="1">
  <tileset firstgid="1" source="../Tilesets/TECH-Nature.tsx"/>
  <tileset firstgid="10354" source="../Tilesets/passages.tsx"/>
  <tileset firstgid="10498" source="../Tilesets/TECH-Assets.tsx"/>
@@ -8,6 +8,7 @@
  <tileset firstgid="62978" source="../Tilesets/TECH-Animations.tsx"/>
  <tileset firstgid="82478" source="../Tilesets/systemtags.tsx"/>
  <tileset firstgid="82606" source="../Tilesets/terrain_tag.tsx"/>
+ <tileset firstgid="82622" source="../Tilesets/HGSS_Ilex Forest.tsx"/>
  <layer id="50" name="▬_Bld_input" width="130" height="100">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,

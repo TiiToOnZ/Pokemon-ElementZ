@@ -13,6 +13,15 @@
       ],
       "textFormatMethodName": "text_speak_to",
       "hiddenByDefault": false
+    },
+    {
+      "objectiveMethodName": "objective_beat_pokemon",
+      "objectiveMethodArgs": [
+        "gyarados",
+        1
+      ],
+      "textFormatMethodName": "text_beat_pokemon",
+      "hiddenByDefault": true
     }
   ],
   "earnings": []

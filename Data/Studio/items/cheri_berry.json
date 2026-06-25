@@ -2,7 +2,7 @@
   "id": 149,
   "dbSymbol": "cheri_berry",
   "icon": "149",
-  "price": 20,
+  "price": 100,
   "socket": 4,
   "position": 0,
   "isBattleUsable": true,
@@ -11,21 +11,16 @@
   "isHoldable": true,
   "isAllowingMega": false,
   "flingPower": 10,
-  "klass": "StatusHealItem",
-  "loyaltyMalus": 0,
-  "statusList": [
-    "PARALYZED"
-  ],
   "isBerry": true,
   "berryData": {
     "size": 2,
     "firmness": "soft",
     "minYield": 2,
     "maxYield": 5,
-    "growth": 12,
-    "drainRate": 7,
-    "naturalGiftType": "fire",
-    "naturalGiftPower": 80
+    "growth": 2,
+    "drainRate": 1,
+    "naturalGiftPower": 80,
+    "naturalGiftType": "fire"
   },
   "cookingData": {
     "pokeblockColor": "red",
@@ -36,5 +31,10 @@
     "sweetFlavor": 0,
     "bitterFlavor": 0,
     "sourFlavor": 0
-  }
+  },
+  "klass": "StatusHealItem",
+  "loyaltyMalus": 0,
+  "statusList": [
+    "PARALYZED"
+  ]
 }
