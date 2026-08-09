@@ -1,0 +1,38 @@
+{
+  "klass": "Quest",
+  "id": 85,
+  "dbSymbol": "quest_85",
+  "isPrimary": false,
+  "resolution": "default",
+  "objectives": [
+    {
+      "objectiveMethodName": "objective_custom",
+      "objectiveMethodArgs": [
+        0,
+        14
+      ],
+      "textFormatMethodName": "text_custom",
+      "hiddenByDefault": false
+    },
+    {
+      "objectiveMethodName": "objective_beat_npc",
+      "objectiveMethodArgs": [
+        0,
+        "Barry",
+        1
+      ],
+      "textFormatMethodName": "text_beat_npc",
+      "hiddenByDefault": false
+    },
+    {
+      "objectiveMethodName": "objective_custom",
+      "objectiveMethodArgs": [
+        1,
+        15
+      ],
+      "textFormatMethodName": "text_custom",
+      "hiddenByDefault": false
+    }
+  ],
+  "earnings": []
+}

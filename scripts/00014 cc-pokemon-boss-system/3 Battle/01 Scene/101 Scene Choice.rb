@@ -5,7 +5,8 @@ module Battle
       # @param battler [PFM::PokemonBattler] pokemon that was just caught
       # @param ball [Studio::BallItem]
       def give_pokemon_procedure(battler, ball)
-        Audio.bgm_play(*@battle_info.defeat_bgm)
+        $game_system.me_play(Configs.sounds.catch_creature_me)
+        $game_system.temporary_bgm_play(@battle_info.defeat_bgm, position: 0)
         message_window.blocking = true
         message_window.wait_input = true
 
