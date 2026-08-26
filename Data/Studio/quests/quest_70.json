@@ -6,15 +6,6 @@
   "resolution": "default",
   "objectives": [
     {
-      "objectiveMethodName": "objective_beat_pokemon",
-      "objectiveMethodArgs": [
-        "onix",
-        1
-      ],
-      "textFormatMethodName": "text_beat_pokemon",
-      "hiddenByDefault": false
-    },
-    {
       "objectiveMethodName": "objective_speak_to",
       "objectiveMethodArgs": [
         0,

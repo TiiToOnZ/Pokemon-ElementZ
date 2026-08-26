@@ -1,37 +1,35 @@
 ================================Erreur de script================================
 Message :
-(eval):2: syntax error, unexpected local variable or method, expecting `end'
-...from_charset([0,1,2,3],60) wait 180 frames
-...                           ^~~~
+undefined method `battle_' for #<Game_Temp:0x19ac4af8>
 
-
-Type : SyntaxError
-Script : tools/GameLoader/z_eval_killer.rb (PSDK)
-Ligne : 30
-Date : 14/06/2026 17:07:44
+Type : NoMethodError
+Script : (eval) (RMXP)
+Ligne : 3
+Date : 26/08/2026 19:57:19
 Game Version : 2
-Logiciel : PSDK 26.56
+Logiciel : PSDK 26.57
+Script used by eval command : 
+call_battle_boss(@pokemon)
+$game_temp.battle_ can_lose = true
+
+
 ===================================Backtraces===================================
-[30] : tools/GameLoader/z_eval_killer.rb (PSDK) | ligne 30 class_eval
-[29] : tools/GameLoader/z_eval_killer.rb (PSDK) | ligne 30 build_method
-[28] : tools/GameLoader/z_eval_killer.rb (PSDK) | ligne 23 resolve_method_symbol
-[27] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 4654 eval_script
-[26] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 4644 move_type_custom_special
-[25] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 4505 move_type_custon_exec_command
-[24] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 4480 move_type_custom
-[23] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 4315 update
-[22] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 6163 update
-[21] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 7716 each_value
-[20] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 7716 update
-[19] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9256 update_map_logic
-[18] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 2916 update_map_logic
-[17] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9265 auto_transfert_update
-[16] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9264 loop
-[15] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9264 auto_transfert_update
-[14] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9118 update
-[13] : 0_Dependencies.rb (PSDK) | ligne 1375 times
-[12] : 0_Dependencies.rb (PSDK) | ligne 1375 run
-[11] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9118 update
+[26] : (eval) (RMXP) | ligne 3 eval_X36
+[25] : 1_RMXP_Scripts.rb (PSDK) | ligne 2125 eval_script
+[24] : 1_RMXP_Scripts.rb (PSDK) | ligne 2117 command_355
+[23] : 1_RMXP_Scripts.rb (PSDK) | ligne 1101 execute_command
+[22] : 1_RMXP_Scripts.rb (PSDK) | ligne 976 update
+[21] : 1_RMXP_Scripts.rb (PSDK) | ligne 956 loop
+[20] : 1_RMXP_Scripts.rb (PSDK) | ligne 956 update
+[19] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9285 update_map_logic
+[18] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 2933 update_map_logic
+[17] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9293 auto_transfert_update
+[16] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9292 loop
+[15] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9292 auto_transfert_update
+[14] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9145 update
+[13] : 0_Dependencies.rb (PSDK) | ligne 1417 times
+[12] : 0_Dependencies.rb (PSDK) | ligne 1417 run
+[11] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9145 update
 [10] : 4_Systems_000_General_2_GamePlay__Base.rb (PSDK) | ligne 236 main_process
 [9] : 4_Systems_000_General_2_GamePlay__Base.rb (PSDK) | ligne 144 main
 [8] : tools/GameLoader/Z_main.rb (PSDK) | ligne 16 <top (required)>

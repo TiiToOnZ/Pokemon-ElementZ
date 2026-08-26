@@ -13,7 +13,7 @@ Non.
 :[align=center]:REÇU : \c[5]POKETORCHE\c[0]
 ":[align=center]:\s[i]Vous rangez votre ""Poketorche"" dans votre sac dans la poche Objets rares.\s[r]"
 :[name=Sages de la lumière]:Tu veux en apprendre plus sur les artefacts ?\nlNous nous sommes justement réunis entre Sages et le champion d'arène afin d'en discuter.\nlAprès ce combat nous n'avons pas besoin de se réunir pour voir que tu as une âme pure.\nlC'est pour quoi nous allons te révéler ce que l'on sait.
-":[name=Sages de la lumière]:Nous savons ou se trouve l'un des artefacts, nous sentons sa puissance[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\nlnous n'avons pas la position exact mais nous allons te guider."
+":[name=Sages de la lumière]:Nous savons où se trouve l'un des artefacts, nous sentons sa puissance[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\nlnous n'avons pas la position exact mais nous allons te guider."
 :[name=Sages de la lumière]:L'île liberté et les profondeurs du Mont Cristallin sont les deux lieux que tu dois visiter. \nlCes lieux dégagent une puissance colossale !\nlJe te conseille de les explorer de fond en comble nous sommes persuadés qu'un artefact s'y trouve.
 ":[name=Sages de la lumière]:Avant de te révéler ta prochaine destination, tu devrais continuer tes recherches au sein de la foret enchantée.\nlIl te reste encore des choses à explorer.\nlQuand cele sera fait reviens nous voir !"
 :[name=Sages de la lumière]:Bonne chance à toi pour ta quête de bravoure et d'espoir.
@@ -27,7 +27,7 @@ Oui !
 Non.
 :[name=Sage de la terre]:Tu es motivé !! \nlNe te faisons pas attendre.
 :[name=Sage de la terre]:La Terre-Mère saura te remettre à ta place !
-:[name=Sage de la terre]:Apparement la Terre-Mère t'apprécie[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\nlTu peux continuer ton ascension.\nlBonne chance !
+:[name=Sage de la terre]:Apperement la Terre-Mère t'apprécie[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\nlTu peux continuer ton ascension.\nlBonne chance !
 ":[face=250,Nurse;name=Infirmière Joelle]:Ton équipe est remise sur pied. \nlFait attention la prochaine fois !"
 :[name=Sage de la terre]:Je suis fanée[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]
 "Bonjour, mon enfant !\nlTe voici dans la tour des anciens, la tour qui t'accompagne jusqu'aux cieux !\nlChaque paliers de la tour appartient à un sage spécialisé dans l'un des types originels. \nlSi tu parviens à les battre un par un, tu pourras te confronter aux sages de la lumière et gagner un objet à la pointe de la technologie !"
@@ -39,7 +39,7 @@ Tu as mené de formidables combats !
 :[align=center]:REÇU : \c[5]POKETORCHE\c[0]
 ":[align=center]:\s[i]Vous rangez votre ""Poketorche"" dans votre sac dans la poche Objets rares.\s[r]"
 :[name=Sages de la lumière]:Tu veux en apprendre plus sur les artefacts ?\nlNous nous sommes justement réunis entre Sages et le champion d'arène afin d'en discuter.\nlAprès ce combat nous n'avons pas besoin de se réunir pour voir que tu as une âme pure.\nlC'est pour quoi nous allons te révéler ce que l'on sait.
-":[name=Sages de la lumière]:Nous savons ou se trouve l'un des artefacts, nous sentons sa puissance[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\nlnous n'avons pas la position exact mais nous allons te guider."
+":[name=Sages de la lumière]:Nous savons où se trouve l'un des artefacts, nous sentons sa puissance[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\nlnous n'avons pas la position exact mais nous allons te guider."
 :[name=Sages de la lumière]:L'île liberté et les profondeurs du Mont Cristallin sont les deux lieux que tu dois visiter. \nlCes lieux dégagent une puissance colossale !\nlJe te conseille de les explorer de fond en comble nous sommes persuadés qu'un artefact s'y trouve.
 ":[name=Sages de la lumière]:Avant de te révéler ta prochaine destination, tu devrais continuer tes recherches au sein de la forêt Enchantée.\nlIl te reste encore des choses à explorer.\nlQuand cele sera fait reviens nous voir !"
 :[name=Sages de la lumière]:Bonne chance à toi pour ta quête de bravoure et d'espoir.
