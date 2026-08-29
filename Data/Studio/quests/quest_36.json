@@ -26,11 +26,12 @@
   ],
   "earnings": [
     {
-      "earningMethodName": "earning_money",
+      "earningMethodName": "earning_item",
       "earningArgs": [
-        1000
+        "rare_candy",
+        1
       ],
-      "textFormatMethodName": "text_earn_money"
+      "textFormatMethodName": "text_earn_item"
     }
   ]
 }

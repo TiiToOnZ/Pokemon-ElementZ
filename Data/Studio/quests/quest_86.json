@@ -1,24 +1,15 @@
 {
   "klass": "Quest",
-  "id": 77,
-  "dbSymbol": "quest_77",
+  "id": 86,
+  "dbSymbol": "quest_86",
   "isPrimary": false,
   "resolution": "default",
   "objectives": [
     {
-      "objectiveMethodName": "objective_speak_to",
-      "objectiveMethodArgs": [
-        0,
-        "Propriétaire de Goupix"
-      ],
-      "textFormatMethodName": "text_speak_to",
-      "hiddenByDefault": false
-    },
-    {
       "objectiveMethodName": "objective_custom",
       "objectiveMethodArgs": [
         0,
-        17
+        16
       ],
       "textFormatMethodName": "text_custom",
       "hiddenByDefault": false
@@ -26,8 +17,8 @@
     {
       "objectiveMethodName": "objective_speak_to",
       "objectiveMethodArgs": [
-        1,
-        "Propriétaire de Goupix"
+        0,
+        "Ranger"
       ],
       "textFormatMethodName": "text_speak_to",
       "hiddenByDefault": false
