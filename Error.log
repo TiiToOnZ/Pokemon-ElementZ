@@ -1,20 +1,29 @@
 ================================Erreur de script================================
 Message :
-undefined method `battle_' for #<Game_Temp:0x19ac4af8>
+wrong number of arguments (given 3, expected 1)
 
-Type : NoMethodError
-Script : (eval) (RMXP)
-Ligne : 3
-Date : 26/08/2026 19:57:19
+Type : ArgumentError
+Script : 2_PSDK_Event_Interpreter.rb (PSDK)
+Ligne : 227
+Date : 01/09/2026 18:42:05
 Game Version : 2
 Logiciel : PSDK 26.57
 Script used by eval command : 
-call_battle_boss(@pokemon)
-$game_temp.battle_ can_lose = true
+opts = {
+  captured_with: :premier_ball,
+  stats: [25, 25, 25, 25, 25, 25],
+  nature: :sassy,
+  moves: [:gyro_ball, :stealth_rock, :rock_tomb, :curse],
+  ability: :sturdy,
+  shiny: false
+}
+onix = ajouter_pokemon_param(:onix, 20, opts)
+renommer_pokemon(onix, 10) if onix
 
 
 ===================================Backtraces===================================
-[26] : (eval) (RMXP) | ligne 3 eval_X36
+[27] : 2_PSDK_Event_Interpreter.rb (PSDK) | ligne 227 add_specific_pokemon
+[26] : (eval) (RMXP) | ligne 10 eval_X3
 [25] : 1_RMXP_Scripts.rb (PSDK) | ligne 2125 eval_script
 [24] : 1_RMXP_Scripts.rb (PSDK) | ligne 2117 command_355
 [23] : 1_RMXP_Scripts.rb (PSDK) | ligne 1101 execute_command

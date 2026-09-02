@@ -11,8 +11,8 @@
   "isHoldable": false,
   "isAllowingMega": false,
   "flingPower": 0,
+  "isBerry": false,
   "klass": "TechItem",
   "isHm": false,
-  "move": "calm_mind",
-  "isBerry": false
+  "move": "rock_slide"
 }

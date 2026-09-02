@@ -2,6 +2,22 @@
   "klass": "Group",
   "id": 51,
   "dbSymbol": "group_51",
+  "systemTag": "Cave",
+  "terrainTag": 0,
+  "tool": null,
+  "vsType": "simple",
+  "customConditions": [
+    {
+      "type": "mapId",
+      "value": 74,
+      "relationWithPreviousCondition": "AND"
+    },
+    {
+      "type": "enabledSwitch",
+      "value": 403,
+      "relationWithPreviousCondition": "AND"
+    }
+  ],
   "encounters": [
     {
       "specie": "unown",
@@ -212,18 +228,91 @@
           ]
         }
       ]
-    }
-  ],
-  "vsType": "simple",
-  "systemTag": "Cave",
-  "terrainTag": 0,
-  "customConditions": [
+    },
     {
-      "value": 403,
-      "type": "enabledSwitch",
-      "relationWithPreviousCondition": "AND"
+      "specie": "unown",
+      "form": 21,
+      "shinySetup": {
+        "kind": "automatic",
+        "rate": -1
+      },
+      "levelSetup": {
+        "kind": "minmax",
+        "level": {
+          "minimumLevel": 10,
+          "maximumLevel": 10
+        }
+      },
+      "randomEncounterChance": 20,
+      "expandPokemonSetup": [
+        {
+          "type": "evs",
+          "value": {
+            "hp": 0,
+            "atk": 0,
+            "dfe": 0,
+            "spd": 0,
+            "ats": 0,
+            "dfs": 0
+          }
+        },
+        {
+          "type": "loyalty",
+          "value": 70
+        },
+        {
+          "type": "moves",
+          "value": [
+            "__undef__",
+            "__undef__",
+            "__undef__",
+            "__undef__"
+          ]
+        }
+      ]
+    },
+    {
+      "specie": "unown",
+      "form": 9,
+      "shinySetup": {
+        "kind": "automatic",
+        "rate": -1
+      },
+      "levelSetup": {
+        "kind": "minmax",
+        "level": {
+          "minimumLevel": 10,
+          "maximumLevel": 10
+        }
+      },
+      "randomEncounterChance": 20,
+      "expandPokemonSetup": [
+        {
+          "type": "evs",
+          "value": {
+            "hp": 0,
+            "atk": 0,
+            "dfe": 0,
+            "spd": 0,
+            "ats": 0,
+            "dfs": 0
+          }
+        },
+        {
+          "type": "loyalty",
+          "value": 70
+        },
+        {
+          "type": "moves",
+          "value": [
+            "__undef__",
+            "__undef__",
+            "__undef__",
+            "__undef__"
+          ]
+        }
+      ]
     }
   ],
-  "tool": null,
   "stepsAverage": 24
 }

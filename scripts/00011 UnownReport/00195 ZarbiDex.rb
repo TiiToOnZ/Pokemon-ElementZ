@@ -5,10 +5,10 @@ module ZarbiDex
   ZARBI_MEANINGS = {
     'A' => 'BEGINNING', 'B' => 'BRIGHT', 'C' => 'CREATE', 'D' => 'DESTINY',
     'E' => 'EXISTENCE', 'F' => 'FATE', 'G' => 'GUARDIAN', 'H' => 'HOPE',
-    'I' => 'IDEA', 'J' => 'JOY', 'K' => 'KNOWLEDGE', 'L' => 'LIGHT',
-    'M' => 'MYSTERY', 'N' => 'NATURE', 'O' => 'ORIGIN', 'P' => 'POWER',
+    'I' => 'ILE', 'J' => 'JOY', 'K' => 'KNOWLEDGE', 'L' => 'LUMIERE',
+    'M' => 'MYSTERY', 'N' => 'NATURE', 'O' => 'OBSCUR', 'P' => 'POWER',
     'Q' => 'QUEST', 'R' => 'REALITY', 'S' => 'SOUL', 'T' => 'TIME',
-    'U' => 'UNITY', 'V' => 'VISION', 'W' => 'WISDOM', 'X' => 'UNKNOWN',
+    'U' => 'UNITY', 'V' => 'VOIR', 'W' => 'WISDOM', 'X' => 'UNKNOWN',
     'Y' => 'YOUTH', 'Z' => 'ZERO'
   }.freeze
 
