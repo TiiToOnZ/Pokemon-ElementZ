@@ -1,45 +1,37 @@
 {
   "klass": "Quest",
-  "id": 41,
-  "dbSymbol": "quest_41",
+  "id": 88,
+  "dbSymbol": "quest_88",
   "isPrimary": true,
   "resolution": "default",
   "objectives": [
     {
-      "objectiveMethodName": "objective_custom",
+      "objectiveMethodName": "objective_speak_to",
       "objectiveMethodArgs": [
         0,
-        18
+        "Maire de Soufflopolis"
       ],
-      "textFormatMethodName": "text_custom",
-      "hiddenByDefault": false
-    },
-    {
-      "objectiveMethodName": "objective_custom",
-      "objectiveMethodArgs": [
-        1,
-        19
-      ],
-      "textFormatMethodName": "text_custom",
+      "textFormatMethodName": "text_speak_to",
       "hiddenByDefault": false
     },
     {
       "objectiveMethodName": "objective_speak_to",
       "objectiveMethodArgs": [
-        0,
-        "Sages de la Lumière"
+        1,
+        "Silver"
+      ],
+      "textFormatMethodName": "text_speak_to",
+      "hiddenByDefault": false
+    },
+    {
+      "objectiveMethodName": "objective_speak_to",
+      "objectiveMethodArgs": [
+        2,
+        "Chercheur du Centre Méteo"
       ],
       "textFormatMethodName": "text_speak_to",
       "hiddenByDefault": false
     }
   ],
-  "earnings": [
-    {
-      "earningMethodName": "earning_money",
-      "earningArgs": [
-        500
-      ],
-      "textFormatMethodName": "text_earn_money"
-    }
-  ]
+  "earnings": []
 }

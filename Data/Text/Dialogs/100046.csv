@@ -21,7 +21,7 @@ Revenez-en victorieux.",[~ 9],[~ 9],[~ 9],[~ 9],[~ 9],[~ 9]
 [~ 18],Attrapez 105 Pokemon différents et revenez voir le Prof. Charme à Bourg-Guignon. ,[~ 18],[~ 18],[~ 18],[~ 18],[~ 18],[~ 18]
 [~ 19],"Suite à l'obtention de votre partie pratique à l'école des dresseurs, allez aider le collectionneur en battant le Sbire Obscur à Cocovin. ",[~ 19],[~ 19],[~ 19],[~ 19],[~ 19],[~ 19]
 [~ 20],Retrouvez au moins 5 différents souvenirs éparpillés dans Bombance pour finalement en parler à TiiToOnZ Poketoonz.,[~ 20],[~ 20],[~ 20],[~ 20],[~ 20],[~ 20]
-[~ 21],Partez chercher votre premier artefact. Allez parler à l'artisan dans la Forêt Enchantée afin d'essayer d'en apprendre plus.,[~ 21],[~ 21],[~ 21],[~ 21],[~ 21],[~ 21]
+[~ 21],Trouvez des informations sur les artefacts. Allez parler à l'artisan dans la Forêt Enchantée afin d'essayer d'en apprendre plus.,[~ 21],[~ 21],[~ 21],[~ 21],[~ 21],[~ 21]
 [~ 22],Retourner voir le guide de la ville dans sa maison à Cocovin.,[~ 22],[~ 22],[~ 22],[~ 22],[~ 22],[~ 22]
 [~ 23],"Collectionner les badges de Bombance afin de les ramener au Collectionneur à Cocovin. 
 Un badge de ramené, c'est un Pokemon de gagné !",[~ 23],[~ 23],[~ 23],[~ 23],[~ 23],[~ 23]
@@ -48,8 +48,8 @@ Un badge de ramené, c'est un Pokemon de gagné !",[~ 29],[~ 29],[~ 29],[~ 29],[
 Trouvez-le.",[~ 37],[~ 37],[~ 37],[~ 37],[~ 37],[~ 37]
 [~ 38],Trois Canarticho se sont éparpillés dans le labyrinthe ! Ramenez-les à l'artisan sain et sauf !,[~ 38],[~ 38],[~ 38],[~ 38],[~ 38],[~ 38]
 [~ 39],Ramenez un Magicarpe en Or au pêcheur de Bouillabaisse-sur-Mer. (Mettez votre Magicarpe en première position),[~ 39],[~ 39],[~ 39],[~ 39],[~ 39],[~ 39]
-[~ 40],Partez chercher votre premier artefact. Allez parler aux Sages de la lumière au sommet de la tour des anciens à Bouillabaisse-sur-Mer afin d'en apprendre plus.,[~ 40],[~ 40],[~ 40],[~ 40],[~ 40],[~ 40]
-[~ 41],Trouvez l’artefact de la Terre. Les Sages de la Lumière à Bouillabaisse-sur-Mer vous guideront.,[~ 41],[~ 41],[~ 41],[~ 41],[~ 41],[~ 41]
+[~ 40],Trouvez des informations sur les artefacts. Allez parler aux Sages de la Lumière au sommet de la Tour des Anciens à Bouillabaisse-sur-Mer afin d'en apprendre plus.,[~ 40],[~ 40],[~ 40],[~ 40],[~ 40],[~ 40]
+[~ 41],"Trouvez des informations sur les artefacts. Les Sages de la Lumière ont détecté deux puissances inhabituelles : l'une sur l'Île Liberté, l'autre dans la Grotte Cristalline.",[~ 41],[~ 41],[~ 41],[~ 41],[~ 41],[~ 41]
 [~ 42],"Allez prier à l’Autel Celebi dans la Forêt Enchantée. Si votre prière reste sans réponse, c’est que l’heure n’est pas encore venue.",[~ 42],[~ 42],[~ 42],[~ 42],[~ 42],[~ 42]
 Trouvez un moyen de déchiffrer le message écrit dans une langue Pokémon très ancienne.,"Trouvez un moyen de déchiffrer le ""Message Mystère"" écrit dans une langue Pokémon très ancienne. Puis suivre ce qu'il y a écrit.",Trouvez un moyen de déchiffrer le message écrit dans une langue Pokémon très ancienne.,Trouvez un moyen de déchiffrer le message écrit dans une langue Pokémon très ancienne.,Trouvez un moyen de déchiffrer le message écrit dans une langue Pokémon très ancienne.,Trouvez un moyen de déchiffrer le message écrit dans une langue Pokémon très ancienne.,Trouvez un moyen de déchiffrer le message écrit dans une langue Pokémon très ancienne.,Trouvez un moyen de déchiffrer le message écrit dans une langue Pokémon très ancienne.
 Trouvez un moyen de sortir de la pièce.,Trouvez un moyen de sortir de la pièce.,Trouvez un moyen de sortir de la pièce.,Trouvez un moyen de sortir de la pièce.,Trouvez un moyen de sortir de la pièce.,Trouvez un moyen de sortir de la pièce.,Trouvez un moyen de sortir de la pièce.,Trouvez un moyen de sortir de la pièce.
@@ -105,3 +105,14 @@ Voir Celebi. Puis revenez voir la secrétaire de l'école de Cocovin.,Voir Celeb
 Puis, devenez un Maîtree de la ligue Epicurienne.","Rassemble les 8 Badges de Bombance d’une même catégorie (Simple, Double ou Triple) afin de pouvoir défier Barry se trouvant à Tartatin.","Rassemble les 8 Badges de Bombance d’une même catégorie (Simple, Double ou Triple) afin de pouvoir défier Barry se trouvant à Tartatin.","Rassemble les 8 Badges de Bombance d’une même catégorie (Simple, Double ou Triple) afin de pouvoir défier Barry se trouvant à Tartatin.","Rassemble les 8 Badges de Bombance d’une même catégorie (Simple, Double ou Triple) afin de pouvoir défier Barry se trouvant à Tartatin.","Rassemble les 8 Badges de Bombance d’une même catégorie (Simple, Double ou Triple) afin de pouvoir défier Barry se trouvant à Tartatin.","Rassemble les 8 Badges de Bombance d’une même catégorie (Simple, Double ou Triple) afin de pouvoir défier Barry se trouvant à Tartatin."
 ,"Réussir une mission de Ranger intermédiaire.
 Ces missions sont disponibles sur le panneau dans le hall de l’Hôtel des Métiers, à Soufflopolis.",,,,,,
+"L'accès au Centre Météo m'est interdit par un chercheur qui affirme qu'une autorisation de la mairie de Soufflropolis est nécessaire.
+Obtenir cette autorisation.","L'accès au Centre Météo m'est interdit par un chercheur qui affirme qu'une autorisation de la mairie de Soufflopolis est nécessaire.
+Obtenir cette autorisation.","L'accès au Centre Météo m'est interdit par un chercheur qui affirme qu'une autorisation de la mairie de Soufflropolis est nécessaire.
+Obtenir cette autorisation.","L'accès au Centre Météo m'est interdit par un chercheur qui affirme qu'une autorisation de la mairie de Soufflropolis est nécessaire.
+Obtenir cette autorisation.","L'accès au Centre Météo m'est interdit par un chercheur qui affirme qu'une autorisation de la mairie de Soufflropolis est nécessaire.
+Obtenir cette autorisation.","L'accès au Centre Météo m'est interdit par un chercheur qui affirme qu'une autorisation de la mairie de Soufflropolis est nécessaire.
+Obtenir cette autorisation.","L'accès au Centre Météo m'est interdit par un chercheur qui affirme qu'une autorisation de la mairie de Soufflropolis est nécessaire.
+Obtenir cette autorisation.","L'accès au Centre Météo m'est interdit par un chercheur qui affirme qu'une autorisation de la mairie de Soufflropolis est nécessaire.
+Obtenir cette autorisation."
+,"L'accès au Centre Météo m'est interdit par un chercheur qui affirme qu'une autorisation de la mairie de Soufflopolis est nécessaire.
+Obtenir cette autorisation.",,,,,,

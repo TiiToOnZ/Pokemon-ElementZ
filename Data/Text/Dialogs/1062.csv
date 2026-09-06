@@ -7,20 +7,20 @@ Non.
 :[name=Sage du feu]:Je vais calciner ton être afin de te purifier !
 ":[name=Sage du feu]:Pfiou, quelle chaleur[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\nlTu peux continuer ton ascension vers le sommet.\nlBonne chance !"
 :[name=Sage du feu]:Je ne suis plus très chaud là[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]
-:[name=Sages de la lumière]:Tu es donc arrivé jusqu'au dernier étage.\nlMais le plus dur reste à venir[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10] ce ne sera pas aussi simple d'avoir la dernière technologie à la mode !
-:[name=Sages de la lumière]:Wahouhou ! \nlTu es l'essence même de la vie ! \nlL'objectif de cette tour est de montrer aux jeunes dresseurs l'importance d'avoir une équipe diversifiée et équilibrée.\nlTu as réussi cette épreuve avec brio ! 
-:[name=Sages de la lumière]:Et c'est avec honneur que je te remets notre technologie dernier cri !
+:[name=Sages de la Lumière]:Tu es donc arrivé jusqu'au dernier étage.\nlMais le plus dur reste à venir[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10] ce ne sera pas aussi simple d'avoir la dernière technologie à la mode !
+:[name=Sages de la Lumière]:Wahouhou ! \nlTu es l'essence même de la vie ! \nlL'objectif de cette tour est de montrer aux jeunes dresseurs l'importance d'avoir une équipe diversifiée et équilibrée.\nlTu as réussi cette épreuve avec brio ! 
+:[name=Sages de la Lumière]:Et c'est avec honneur que je te remets notre technologie dernier cri !
 :[align=center]:REÇU : \c[5]POKETORCHE\c[0]
 ":[align=center]:\s[i]Vous rangez votre ""Poketorche"" dans votre sac dans la poche Objets rares.\s[r]"
-:[name=Sages de la lumière]:Tu veux en apprendre plus sur les artefacts ?\nlNous nous sommes justement réunis entre Sages et le champion d'arène afin d'en discuter.\nlAprès ce combat nous n'avons pas besoin de se réunir pour voir que tu as une âme pure.\nlC'est pour quoi nous allons te révéler ce que l'on sait.
-":[name=Sages de la lumière]:Nous savons où se trouve l'un des artefacts, nous sentons sa puissance[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\nlnous n'avons pas la position exact mais nous allons te guider."
-:[name=Sages de la lumière]:L'île liberté et les profondeurs du Mont Cristallin sont les deux lieux que tu dois visiter. \nlCes lieux dégagent une puissance colossale !\nlJe te conseille de les explorer de fond en comble nous sommes persuadés qu'un artefact s'y trouve.
-":[name=Sages de la lumière]:Avant de te révéler ta prochaine destination, tu devrais continuer tes recherches au sein de la foret enchantée.\nlIl te reste encore des choses à explorer.\nlQuand cele sera fait reviens nous voir !"
-:[name=Sages de la lumière]:Bonne chance à toi pour ta quête de bravoure et d'espoir.
-:[name=Sages de la lumière]:L'île liberté et les profondeurs du Mont Cristallin sont les deux lieux que tu dois visiter. \nlCes lieux dégagent une puissance colossale !\nlJe te conseille de les explorer de fond en comble nous sommes persuadés qu'un artefact s'y trouve.
-":[name=Sages de la lumière]:Avant de te révéler ta prochaine destination, tu devrais continuer tes recherches au sein de la foret enchantée.\nlIl te reste encore des choses à explorer.\nlQuand cele sera fait reviens nous voir !"
-:[name=Sages de la lumière]:L'île liberté et les profondeurs du Mont Cristallin sont les deux lieux que tu dois visiter. \nlCes lieux dégagent une puissance colossale !\nlJe te conseille de les explorer de fond en comble nous sommes persuadés qu'un artefact s'y trouve.
-":[name=Sages de la lumière]:Avant de te révéler ta prochaine destination, tu devrais continuer tes recherches au sein de la foret enchantée.\nlIl te reste encore des choses à explorer.\nlQuand cele sera fait reviens nous voir !"
+:[name=Sages de la Lumière]:Tu veux en apprendre plus sur les artefacts ?\nlNous nous sommes justement réunis entre Sages et le champion d'arène afin d'en discuter.\nlAprès ce combat nous n'avons pas besoin de se réunir pour voir que tu as une âme pure.\nlC'est pour quoi nous allons te révéler ce que l'on sait.
+":[name=Sages de la Lumière]:Les anciennes légendes parlent de quatre artefacts élémentaires capables de maintenir l'équilibre du monde. Nous avons longtemps cherché à découvrir où ils pouvaient se trouver. Aujourd'hui, nous avons arrêté de les chercher mais nous ressentons une puissance inhabituelle à deux endroits proche de nous."
+:[name=Sages de la Lumière]:L'île liberté et les profondeurs du Mont Cristallin sont les deux lieux que tu dois visiter. \nlCes lieux dégagent une puissance colossale !\nlNous ne pouvons pas encore déterminer avec certitude si cette puissance provient d'un artefact. Il faudra que tu explores ces lieux par toi-même.
+":[name=Sages de la Lumière]:Avant de te révéler ce que l'on sait, tu devrais continuer tes recherches au sein de la Foret Enchantée.\nlIl te reste encore des choses à explorer.\nlQuand cele sera fait reviens nous voir !"
+:[name=Sages de la Lumière]:Bonne chance à toi pour ta quête de bravoure et d'espoir.
+
+
+
+
 :[name=Sage du vent]:Il vous faut finir la tour des anciens pour pouvoir redescendre !
 :[name=Sage de la terre]:Voulez-vous me défier ?
 Oui !
@@ -33,20 +33,20 @@ Non.
 "Bonjour, mon enfant !\nlTe voici dans la tour des anciens, la tour qui t'accompagne jusqu'aux cieux !\nlChaque paliers de la tour appartient à un sage spécialisé dans l'un des types originels. \nlSi tu parviens à les battre un par un, tu pourras te confronter aux sages de la lumière et gagner un objet à la pointe de la technologie !"
 "Une fois arrivé au plus proche des cieux, Dieu te fait présent de sa bénédiction[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10] n'est-ce-pas merveilleux ?!\nlJe te conseille de te munir d'objets car tu ne pourras pas retourner au Pokésoin entre chaque paliers.\nlQue le sort te soit favorable !"
 Tu as mené de formidables combats !
-:[name=Sages de la lumière]:Tu es donc arrivé jusqu'au dernier étage.\nlMais le plus dur reste à venir[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10] ce ne sera pas aussi simple d'avoir la dernière technologie à la mode !
-:[name=Sages de la lumière]:Wahouhou ! \nlTu es l'essence même de la vie ! \nlL'objectif de cette tour est de montrer aux jeunes dresseurs l'importance d'avoir une équipe diversifiée et équilibrée.\nlTu as réussi cette épreuve avec brio ! 
-:[name=Sages de la lumière]:Et c'est avec honneur que je te remets notre technologie dernier cri !
+:[name=Sages de la Lumière]:Tu es donc arrivé jusqu'au dernier étage.\nlMais le plus dur reste à venir[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10] ce ne sera pas aussi simple d'avoir la dernière technologie à la mode !
+:[name=Sages de la Lumière]:Wahouhou ! \nlTu es l'essence même de la vie ! \nlL'objectif de cette tour est de montrer aux jeunes dresseurs l'importance d'avoir une équipe diversifiée et équilibrée.\nlTu as réussi cette épreuve avec brio ! 
+:[name=Sages de la Lumière]:Et c'est avec honneur que je te remets notre technologie dernier cri !
 :[align=center]:REÇU : \c[5]POKETORCHE\c[0]
 ":[align=center]:\s[i]Vous rangez votre ""Poketorche"" dans votre sac dans la poche Objets rares.\s[r]"
-:[name=Sages de la lumière]:Tu veux en apprendre plus sur les artefacts ?\nlNous nous sommes justement réunis entre Sages et le champion d'arène afin d'en discuter.\nlAprès ce combat nous n'avons pas besoin de se réunir pour voir que tu as une âme pure.\nlC'est pour quoi nous allons te révéler ce que l'on sait.
-":[name=Sages de la lumière]:Nous savons où se trouve l'un des artefacts, nous sentons sa puissance[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\nlnous n'avons pas la position exact mais nous allons te guider."
-:[name=Sages de la lumière]:L'île liberté et les profondeurs du Mont Cristallin sont les deux lieux que tu dois visiter. \nlCes lieux dégagent une puissance colossale !\nlJe te conseille de les explorer de fond en comble nous sommes persuadés qu'un artefact s'y trouve.
-":[name=Sages de la lumière]:Avant de te révéler ta prochaine destination, tu devrais continuer tes recherches au sein de la forêt Enchantée.\nlIl te reste encore des choses à explorer.\nlQuand cele sera fait reviens nous voir !"
-:[name=Sages de la lumière]:Bonne chance à toi pour ta quête de bravoure et d'espoir.
-:[name=Sages de la lumière]:L'île liberté et les profondeurs du Mont Cristallin sont les deux lieux que tu dois visiter. \nlCes lieux dégagent une puissance colossale !\nlJe te conseille de les explorer de fond en comble nous sommes persuadés qu'un artefact s'y trouve.
-":[name=Sages de la lumière]:Avant de te révéler ta prochaine destination, tu devrais continuer tes recherches au sein de la foret enchantée.\nlIl te reste encore des choses à explorer.\nlQuand cele sera fait reviens nous voir !"
-:[name=Sages de la lumière]:L'île liberté et les profondeurs du Mont Cristallin sont les deux lieux que tu dois visiter. \nlCes lieux dégagent une puissance colossale !\nlJe te conseille de les explorer de fond en comble nous sommes persuadés qu'un artefact s'y trouve.
-":[name=Sages de la lumière]:Avant de te révéler ta prochaine destination, tu devrais continuer tes recherches au sein de la foret enchantée.\nlIl te reste encore des choses à explorer.\nlQuand cele sera fait reviens nous voir !"
+:[name=Sages de la Lumière]:Tu veux en apprendre plus sur les artefacts ?\nlNous nous sommes justement réunis entre Sages et le champion d'arène afin d'en discuter.\nlAprès ce combat nous n'avons pas besoin de se réunir pour voir que tu as une âme pure.\nlC'est pour quoi nous allons te révéler ce que l'on sait.
+":[name=Sages de la Lumière]:Nous savons où se trouve l'un des artefacts, nous sentons sa puissance[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\nlnous n'avons pas la position exact mais nous allons te guider."
+
+
+:[name=Sages de la Lumière]:Bonne chance à toi pour ta quête de bravoure et d'espoir.
+
+
+
+
 :[name=Sage de l'eau]:Il faut que vous me battiez pour pouvoir continuer !
 :[name=Sage de l'eau]:Dites moi quand vous êtes prêt.
 :[name=Sage du vent]:Voulez-vous me défier ?
