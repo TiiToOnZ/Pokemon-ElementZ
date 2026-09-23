@@ -103,10 +103,8 @@
           "form": 0,
           "conditions": [
             {
-              "type": "maps",
-              "value": [
-                -1
-              ]
+              "type": "stone",
+              "value": "leaf_stone"
             }
           ]
         },
@@ -115,10 +113,8 @@
           "form": 0,
           "conditions": [
             {
-              "type": "maps",
-              "value": [
-                -1
-              ]
+              "type": "stone",
+              "value": "ice_stone"
             }
           ]
         },
@@ -141,6 +137,10 @@
               "value": [
                 35
               ]
+            },
+            {
+              "type": "minLevel",
+              "value": 1
             }
           ]
         },
@@ -151,6 +151,10 @@
             {
               "type": "weather",
               "value": "fog"
+            },
+            {
+              "type": "minLevel",
+              "value": 1
             }
           ]
         }

@@ -1,0 +1,61 @@
+# Static layout review, not a LiteRGSS screenshot. No game data is written.
+Add-Type -AssemblyName System.Drawing
+$project = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..\..\..'))
+$output = Join-Path $PSScriptRoot '..\ui_previews'
+$frames = Get-Content -LiteralPath (Join-Path $output 'draw_commands.json') -Raw -Encoding UTF8 | ConvertFrom-Json
+$fontCollection = New-Object System.Drawing.Text.PrivateFontCollection
+$fontCollection.AddFontFile((Join-Path $project 'Fonts\PokemonDS.ttf'))
+$fontCollection.AddFontFile((Join-Path $project 'Fonts\PowerGreenSmall.ttf'))
+$fontFamily = $fontCollection.Families | Where-Object { $_.Name -like '*Pokemon*' } | Select-Object -First 1
+$smallFamily = $fontCollection.Families | Where-Object { $_.Name -like '*Power*' } | Select-Object -First 1
+$font = [Drawing.Font]::new($fontFamily, 13, [Drawing.FontStyle]::Regular, [Drawing.GraphicsUnit]::Pixel)
+$smallFont = [Drawing.Font]::new($smallFamily, 11, [Drawing.FontStyle]::Regular, [Drawing.GraphicsUnit]::Pixel)
+$background = [Drawing.Image]::FromFile((Join-Path $project 'graphics\interface\team\fond.png'))
+$bar = [Drawing.Image]::FromFile((Join-Path $project 'graphics\interface\tcard\button_background.png'))
+$button = [Drawing.Image]::FromFile((Join-Path $project 'graphics\pokedex\buttons.png'))
+foreach ($frame in $frames.PSObject.Properties) {
+    $canvas = [Drawing.Bitmap]::new(320, 240)
+    $graphics = [Drawing.Graphics]::FromImage($canvas)
+    $graphics.InterpolationMode = [Drawing.Drawing2D.InterpolationMode]::NearestNeighbor
+    $graphics.PixelOffsetMode = [Drawing.Drawing2D.PixelOffsetMode]::Half
+    $graphics.TextRenderingHint = [Drawing.Text.TextRenderingHint]::SingleBitPerPixelGridFit
+    $graphics.DrawImageUnscaled($background, 0, 0)
+    foreach ($command in $frame.Value) {
+        $rect = [Drawing.RectangleF]::new($command.x, $command.y, $command.width, $command.height)
+        if ($command.kind -eq 'sprite') {
+            $source = [Drawing.Image]::FromFile((Join-Path $project $command.asset))
+            $graphics.DrawImage($source, $rect)
+            $source.Dispose()
+        } else {
+            $format = [Drawing.StringFormat]::GenericTypographic.Clone()
+            $format.Alignment = [Drawing.StringAlignment][int]$command.align
+            $format.LineAlignment = [Drawing.StringAlignment]::Center
+            $format.FormatFlags = [Drawing.StringFormatFlags]::NoWrap
+            $graphics.DrawString($command.text, $font, [Drawing.Brushes]::Black, $rect, $format)
+            $format.Dispose()
+        }
+    }
+    $graphics.DrawImageUnscaled($bar, 0, 214)
+    $labels = @('Suivant', ('Pr' + [char]233 + 'c' + [char]233 + 'dent'), 'Ensemble', 'Retour')
+    $keys = @('A', 'X', 'Y', 'B')
+    for ($i = 0; $i -lt 4; $i++) {
+        $x = 3 + $i * 80
+        $sx = 0
+        if ($i -eq 3) { $sx = [int]($button.Width / 2) + 1 }
+        $rect = [Drawing.Rectangle]::new($x, 219, 74, 19)
+        $graphics.DrawImage($button, $rect, $sx, 0, 74, 19, [Drawing.GraphicsUnit]::Pixel)
+        # Logical input symbols are shown here; the game renders mapped key art.
+        $graphics.DrawString($keys[$i], $smallFont, [Drawing.Brushes]::Black, [single]$x, [single]220)
+        $graphics.DrawString($labels[$i], $smallFont, [Drawing.Brushes]::Black, [single]($x + 17), [single]222)
+    }
+    $canvas.Save((Join-Path $output ($frame.Name + '.png')), [Drawing.Imaging.ImageFormat]::Png)
+    $graphics.Dispose()
+    $canvas.Dispose()
+}
+$background.Dispose()
+$bar.Dispose()
+$button.Dispose()
+$font.Dispose()
+$smallFont.Dispose()
+$fontCollection.Dispose()
+Write-Output 'Four 320x240 static previews rendered with project assets and fonts.'

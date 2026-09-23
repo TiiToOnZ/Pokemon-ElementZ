@@ -9,30 +9,30 @@
         "name": 1094,
         "description": 0
       },
-      "height": 0.01,
-      "weight": 0.01,
+      "height": 0.9,
+      "weight": 12,
       "type1": "bug",
       "type2": "__undef__",
-      "baseHp": 100,
-      "baseAtk": 100,
-      "baseDfe": 100,
-      "baseSpd": 100,
-      "baseAts": 100,
-      "baseDfs": 100,
+      "baseHp": 65,
+      "baseAtk": 95,
+      "baseDfe": 60,
+      "baseSpd": 130,
+      "baseAts": 65,
+      "baseDfs": 110,
       "evHp": 0,
       "evAtk": 0,
       "evDfe": 0,
-      "evSpd": 0,
+      "evSpd": 2,
       "evAts": 0,
       "evDfs": 0,
       "evolutions": [],
-      "experienceType": 0,
-      "baseExperience": 40,
+      "experienceType": 4,
+      "baseExperience": 184,
       "baseLoyalty": 70,
       "catchRate": 45,
-      "femaleRate": 50,
+      "femaleRate": 12,
       "breedGroups": [
-        15,
+        5,
         15
       ],
       "hatchSteps": 1024,
@@ -49,24 +49,24 @@
         }
       ],
       "abilities": [
-        "__undef__",
-        "__undef__",
-        "__undef__"
+        "swarm",
+        "compound_eyes",
+        "tinted_lens"
       ],
       "frontOffsetY": 0,
       "resources": {
-        "icon": "",
-        "iconShiny": "",
+        "icon": "1029",
+        "iconShiny": "1029",
         "front": "1029",
-        "frontShiny": "",
+        "frontShiny": "1029",
         "back": "1029",
-        "backShiny": "",
-        "footprint": "",
+        "backShiny": "1029",
+        "footprint": "0133",
         "character": "",
         "characterShiny": "",
-        "egg": "",
-        "iconEgg": "",
-        "cry": "",
+        "egg": "egg0133",
+        "iconEgg": "egg0133",
+        "cry": "0133.ogg",
         "hasFemale": false
       },
       "moveSet": [
@@ -112,42 +112,42 @@
         },
         {
           "klass": "LevelLearnableMove",
-          "move": "bite",
+          "move": "bug_bite",
           "level": 17
         },
         {
           "klass": "LevelLearnableMove",
-          "move": "fire_fang",
+          "move": "tailwind",
           "level": 20
         },
         {
           "klass": "LevelLearnableMove",
-          "move": "fire_spin",
+          "move": "fury_cutter",
           "level": 25
         },
         {
           "klass": "LevelLearnableMove",
-          "move": "scary_face",
+          "move": "agility",
           "level": 29
         },
         {
           "klass": "LevelLearnableMove",
-          "move": "smog",
+          "move": "u_turn",
           "level": 33
         },
         {
           "klass": "LevelLearnableMove",
-          "move": "lava_plume",
+          "move": "x_scissor",
           "level": 37
         },
         {
           "klass": "LevelLearnableMove",
-          "move": "last_resort",
+          "move": "swords_dance",
           "level": 41
         },
         {
           "klass": "LevelLearnableMove",
-          "move": "flare_blitz",
+          "move": "last_resort",
           "level": 45
         },
         {

@@ -1,0 +1,1319 @@
+diff --git a/scripts/00015 HabitatList/54200 ZoneEncounterPage.rb b/scripts/00015 HabitatList/54200 ZoneEncounterPage.rb
+index a6825c3c..a2fab671 100644
+--- a/scripts/00015 HabitatList/54200 ZoneEncounterPage.rb	
++++ b/scripts/00015 HabitatList/54200 ZoneEncounterPage.rb	
+@@ -2,20 +2,64 @@
+ 
+ module UI
+   module Dex
+-    # Presentation only: terrain tags and battle formats are technical variants.
+-    # Conditions, tools and priority status remain separate, as in the catalogue.
++    # Temporal preference, not an exhaustive promise of current availability.
++    module ZoneEncounterPeriods
++      SWITCH_BITS = {Yuki::Sw::TJN_MorningTime => 1, Yuki::Sw::TJN_DayTime => 2,
++                     Yuki::Sw::TJN_SunsetTime => 4, Yuki::Sw::TJN_NightTime => 8}.freeze
++
++      def self.for_group(data)
++        # Project only the temporal restrictions. Other prerequisites remain in
++        # the catalogue; here they are assumed fulfilled, never mapped to a time.
++        data.custom_conditions.reduce(15) do |mask, condition|
++          allowed = condition.type == :enabled_switch ? SWITCH_BITS.fetch(condition.value, 15) : 15
++          condition.relation_with_previous_condition == :OR ? mask | allowed : mask & allowed
++        end
++      end
++
++      def self.icons(mask)
++        day = (mask & 1) + ((mask >> 1) & 1)
++        night = ((mask >> 2) & 1) + ((mask >> 3) & 1)
++        return [] if day + night == 0
++        return %w[daytime nighttime] if day == night
++
++        return day > night ? ['daytime'] : ['nighttime']
++      end
++
++      def self.schedule
++        # current_time_set is private in 26.60. Read the public setting and
++        # configuration constants, preserving the engine's tone-only fallback.
++        key = PFM.game_state.tint_time_set
++        return (Yuki::TJN::TIME_SETS[key] || Yuki::TJN::TIME).dup
++      end
++
++      def self.category(mask)
++        return :all if mask == 15
++
++        return icons(mask).first == 'daytime' ? :day : :night
++      end
++
++      def self.legend(schedule)
++        night, evening, day, morning = schedule.map do |hour|
++          minutes = ((hour % 1) * 60).round
++          minutes.zero? ? format('%02dh', hour.to_i) : format('%02dh%02d', hour.to_i, minutes)
++        end
++        return ["Matin/Jour #{morning}–#{day}–#{evening}", "Soir/Nuit #{evening}–#{night}–#{morning}"]
++      end
++    end
++
++    # One presentation view per environment/method, regardless of conditions.
+     module ZoneEncounterEnvironments
++      View = Struct.new(:key, :label, :status, :entries, :issues, :periods, :members, keyword_init: true)
++
+       def self.build(snapshot)
+         groups = snapshot.groups.group_by do |view|
+           data = data_group(view.key)
+           next [view.key] unless data && data.db_symbol == view.key
+ 
+-          conditions = data.custom_conditions.map do |condition|
+-            [condition.type, condition.value, condition.relation_with_previous_condition]
+-          end
+-          [data.system_tag, data.tool, conditions, view.status]
++          [data.system_tag, data.tool]
+         end.values.map do |members|
+-          view = members.first.dup
++          first = members.first
++          view = View.new(key: first.key, label: first.label, members: members, periods: {})
+           data = data_group(view.key)
+           if data && data.db_symbol == view.key
+             terrain = ElementZ::Habitat::TERRAIN_NAMES.fetch(data.system_tag, data.system_tag.to_s)
+@@ -24,12 +68,82 @@ module UI
+           end
+           view.entries = members.flat_map(&:entries).uniq(&:key)
+           view.issues = members.flat_map(&:issues).uniq
++          view.status = members.map(&:status).uniq.size == 1 ? first.status : :mixed
++          members.each do |member|
++            raw = data_group(member.key)
++            mask = raw && raw.db_symbol == member.key ? ZoneEncounterPeriods.for_group(raw) : 0
++            member.entries.each { |entry| view.periods[entry.key] = view.periods.fetch(entry.key, 0) | mask }
++          end
++          view.entries = view.entries.each_with_index.sort_by do |entry, index|
++            [%i[all day night].index(ZoneEncounterPeriods.category(view.periods[entry.key])), index]
++          end.map(&:first)
+           view
+         end
+         return snapshot.dup.tap { |copy| copy.groups = groups }
+       end
+     end
+ 
++    # Category bands occupy vertical space, never a creature slot. Rows may
++    # overlap within one category, but never cross a category band.
++    class ZoneEncounterLayout
++      TOP = 32
++      BOTTOM = 192
++      BAND_HEIGHT = 18
++      MIN_STEP = 32
++      MAX_STEP = 46
++
++      def self.pages(entries, periods, top: TOP, &height)
++        pages = []
++        offset = 0
++        while offset < entries.size
++          chosen = nil
++          1.upto([12, entries.size - offset].min) do |count|
++            plan = arrange(entries.slice(offset, count), periods, MIN_STEP, top: top, &height)
++            break unless plan
++            chosen = plan.merge(offset: offset, count: count)
++          end
++          raise 'Encounter sprite cannot fit in the grid' unless chosen
++          MAX_STEP.downto(MIN_STEP) do |step|
++            plan = arrange(entries.slice(offset, chosen[:count]), periods, step, top: top, &height)
++            next unless plan
++            chosen = chosen.merge(plan)
++            break
++          end
++          pages << chosen
++          offset += chosen[:count]
++        end
++        return pages.empty? ? [{offset: 0, count: 0, slots: [], bands: []}] : pages
++      end
++
++      def self.arrange(entries, periods, step, top: TOP)
++        y = top
++        slots, bands = [], []
++        row_count = 0
++        entries.chunk { |entry| ZoneEncounterPeriods.category(periods.fetch(entry.key)) }.each do |category, members|
++          y += 4 unless slots.empty?
++          unless category == :all
++            bands << {category: category, y: y}
++            y += BAND_HEIGHT + 2
++          end
++          rows = members.each_slice(4).to_a
++          row_count += rows.size
++          return nil if row_count > 3
++          heights = rows.map { |row| row.map { |entry| yield(entry) }.max }
++          top = heights.each_with_index.map { |h, i| i * step - h / 2.0 }.min
++          bottom = heights.each_with_index.map { |h, i| i * step + h / 2.0 }.max
++          section_height = (bottom - top).ceil
++          return nil if y + section_height > BOTTOM
++          rows.each_with_index do |row, i|
++            row.each_with_index do |entry, col|
++              slots << {entry: entry, col: col, cy: y + i * step - top, top: y, bottom: y + section_height}
++            end
++          end
++          y += section_height
++        end
++        return {slots: slots, bands: bands}
++      end
++    end
++
+     # Static front sprites on a 320x240 screen. No creature names are requested.
+     class ZoneEncounterPage < SpriteStack
+       COLUMNS = 4
+@@ -40,10 +154,8 @@ module UI
+       CELL_WIDTH = 76
+       CELL_HEIGHT = 46
+       GRID_BOTTOM = 192
+-      TIME_LABELS = {
+-        Yuki::Sw::TJN_DayTime => 'Jour', Yuki::Sw::TJN_NightTime => 'Nuit',
+-        Yuki::Sw::TJN_MorningTime => 'Matin', Yuki::Sw::TJN_SunsetTime => 'Soir'
+-      }.freeze
++      UNKNOWN_SCALE = 0.83
++      BADGE_SCALE = 0.75
+ 
+       def initialize(viewport)
+         super(viewport)
+@@ -53,6 +165,16 @@ module UI
+         @empty = black_text(8, 114, 304, 16)
+         @counts = black_text(8, 194, 218, 16, 0)
+         @pagination = black_text(230, 194, 82, 16, 2)
++        @legend_icons = [add_sprite(8, 32, NO_INITIAL_IMAGE), add_sprite(164, 32, NO_INITIAL_IMAGE)]
++        @legend_texts = with_font(20) { [black_text(40, 34, 116, 16, 0), black_text(196, 34, 116, 16, 0)] }
++        @bands = Array.new(2) do
++          background = add_sprite(GRID_X, 0, NO_INITIAL_IMAGE)
++          icon = add_sprite(108, 0, NO_INITIAL_IMAGE)
++          [background, icon].each { |s| s.set_origin(0, 0); s.zoom_x = s.zoom_y = 1; s.z = 11_000 }
++          label = with_font(20) { black_text(140, 2, 100, 18, 0) }
++          label.z = 11_001
++          {background: background, icon: icon, label: label}
++        end
+         @cells = Array.new(PAGE_SIZE) do |index|
+           x = GRID_X + (index % COLUMNS) * CELL_WIDTH
+           y = GRID_Y + (index / COLUMNS) * CELL_HEIGHT
+@@ -61,33 +183,52 @@ module UI
+           fallback.text = '?'
+           badge = add_sprite(x + CELL_WIDTH - 20, y + CELL_HEIGHT - 16, NO_INITIAL_IMAGE)
+           badge.set_origin(0, 0)
+-          badge.zoom_x = badge.zoom_y = 1
++          badge.zoom_x = badge.zoom_y = BADGE_SCALE
+           badge.z = 11_000
+           {sprite: sprite, fallback: fallback, badge: badge,
+-           center_x: x + CELL_WIDTH / 2, center_y: y + CELL_HEIGHT / 2}
++           x: x, center_x: x + CELL_WIDTH / 2, center_y: y + CELL_HEIGHT / 2}
+         end
+       end
+ 
+-      def render(snapshot, group, entries, offset, group_index)
++      def pages_for(group, entries)
++        if group
++          top = group.issues.empty? ? ZoneEncounterLayout::TOP : GRID_Y
++          return ZoneEncounterLayout.pages(entries, group.periods, top: top) { |entry| metrics(entry)[:height] }
++        end
++        slices = entries.each_slice(PAGE_SIZE).to_a
++        slices = [[]] if slices.empty?
++        return slices.each_with_index.map do |slice, index|
++          slots = slice.each_with_index.map do |entry, i|
++            {entry: entry, col: i % COLUMNS, cy: GRID_Y + (i / COLUMNS) * CELL_HEIGHT + CELL_HEIGHT / 2,
++             top: GRID_Y, bottom: GRID_BOTTOM}
++          end
++          {offset: index * PAGE_SIZE, count: slice.size, slots: slots, bands: []}
++        end
++      end
++
++      def dispose
++        super
++        @band_bitmaps&.each_value(&:dispose)
++      end
++
++      def render(snapshot, group, entries, offset, group_index, plans: nil)
++        plans ||= pages_for(group, entries)
++        page_index = plans.rindex { |plan| plan[:offset] <= offset } || 0
++        plan = plans[page_index]
+         fit_text(@title, snapshot.zone_name)
+         fit_text(@context, group ? "#{group_index}/#{snapshot.groups.size} · #{milieu_label(group)}" : 'Ensemble')
+         issues = group ? group.issues : snapshot.issues
+-        availability = case group&.status
+-                       when :inactive then 'Inactif · conditions non remplies'
+-                       when :shadowed then 'Masqué · groupe prioritaire'
+-                       when :active then 'Groupe actif · selon terrain / outil'
+-                       else ''
+-                       end
+-        availability += ' · Données incomplètes' unless issues.empty?
+-        fit_text(@availability, availability.sub(/^ · /, ''))
++        fit_text(@availability, issues.empty? ? '' : 'Données incomplètes')
++        render_legend(!group && issues.empty?)
+         fit_text(@empty, snapshot.zone_key ? 'Aucune rencontre dans cette sélection.' : 'Aucune zone définie pour cette carte.')
+         @empty.visible = entries.empty?
+-        @cells.each_with_index { |cell, index| render_cell(cell, entries[offset + index]) }
++        @cells.each_with_index { |cell, index| render_cell(cell, plan[:slots][index]) }
++        render_bands(plan[:bands])
+         Graphics.sort_z
+         seen = entries.count(&:revealed?)
+         caught = entries.count(&:caught)
+-        page = offset / PAGE_SIZE + 1
+-        pages = (entries.size + PAGE_SIZE - 1) / PAGE_SIZE
++        page = page_index + 1
++        pages = plans.size
+         fit_text(@counts, "Vus #{seen}/#{entries.size} · Capturés #{caught}/#{entries.size}")
+         fit_text(@pagination, pages > 1 ? "Page #{page}/#{pages}" : '')
+       end
+@@ -116,42 +257,115 @@ module UI
+         return label unless data && data.db_symbol == group.key
+ 
+         label = "Pêche · #{label}" if PFM::Wild_Battle::FISHING_TOOLS.include?(data.tool)
+-        times = data.custom_conditions.filter_map do |condition|
+-          TIME_LABELS[condition.value] if condition.type == :enabled_switch
+-        end.uniq
+-        label += " · #{times.join('/')}" unless times.empty?
+         return label
+       end
+ 
+-      def render_cell(cell, entry)
++      def metrics(entry)
++        @metrics ||= {}
++        key = [entry.key, !!entry.revealed?]
++        return @metrics[key] if @metrics.key?(key)
++        bitmap = entry.revealed? ? front_bitmap(entry) : nil
++        scale = bitmap ? 1 : UNKNOWN_SCALE
++        bitmap ||= question_bitmap
++        bounds = bitmap ? visible_bounds(bitmap) : [0, 0, 16, 16]
++        return @metrics[key] = {bitmap: bitmap, bounds: bounds, scale: scale,
++                               width: (bounds[2] * scale).ceil, height: (bounds[3] * scale).ceil}
++      end
++
++      def render_cell(cell, slot)
+         sprite = cell[:sprite]
+         sprite.visible = cell[:fallback].visible = cell[:badge].visible = false
+-        return unless entry
++        return unless slot
++        entry = slot[:entry]
++        cell[:center_x] = GRID_X + slot[:col] * CELL_WIDTH + CELL_WIDTH / 2
++        cell[:center_y] = slot[:cy]
+ 
+         # Crucial: do not even resolve the creature resource for an unknown entry.
+-        bitmap = entry.revealed? ? front_bitmap(entry) : nil
+-        bitmap ||= question_bitmap
++        info = metrics(entry)
++        bitmap = info[:bitmap]
+         unless bitmap && bitmap.width > 0 && bitmap.height > 0
+           cell[:fallback].visible = true
++          cell[:fallback].set_position(cell[:center_x] - CELL_WIDTH / 2, slot[:cy] - 8)
+           return
+         end
+         sprite.bitmap = bitmap
+-        left, top, width, height = visible_bounds(bitmap)
+-        # Only transparent padding is ignored for alignment. Never crop or scale.
+-        sprite.set_origin(left + width / 2, top + height / 2)
++        left, top = info[:bounds]
++        width, height = info.values_at(:width, :height)
++        # Ignore transparent padding for alignment. Real creature fronts stay 1:1.
++        sprite.set_origin(left, top)
+         x = (cell[:center_x] - width / 2).clamp(GRID_X, GRID_X + COLUMNS * CELL_WIDTH - width)
+-        y = (cell[:center_y] - height / 2).clamp(GRID_Y, GRID_BOTTOM - height)
+-        sprite.set_position(x + width / 2, y + height / 2)
+-        sprite.zoom_x = sprite.zoom_y = 1
++        y = (cell[:center_y] - height / 2.0).round.clamp(slot[:top], slot[:bottom] - height)
++        sprite.set_position(x, y)
++        sprite.zoom_x = sprite.zoom_y = info[:scale]
+         # Large silhouettes sit behind small ones when rows overlap.
+         sprite.z = 10_000 - width * height
+         sprite.visible = true
++        cell[:badge].set_position((x + width - 2).clamp(GRID_X, 300),
++                                 (y - 4).clamp(slot[:top], slot[:bottom] - 12))
+         if entry.caught && (badge = capture_bitmap)
+           cell[:badge].bitmap = badge
+           cell[:badge].visible = true
+         end
+       end
+ 
++      def render_bands(bands)
++        @bands.each_with_index do |elements, index|
++          elements.each_value { |element| element.visible = false }
++          next unless (band = bands[index])
++          category, y = band.values_at(:category, :y)
++          elements[:background].bitmap = band_bitmap(category)
++          elements[:background].y = y
++          elements[:icon].bitmap = time_bitmap(category == :day ? 'daytime' : 'nighttime')
++          elements[:icon].y = y
++          elements[:label].text = category == :day ? 'MATIN / JOUR' : 'SOIR / NUIT'
++          elements[:label].y = y
++          elements.each_value { |element| element.visible = true }
++        end
++      end
++
++      def band_bitmap(category)
++        @band_bitmaps ||= {}
++        return @band_bitmaps[category] if @band_bitmaps.key?(category)
++        stops = category == :day ? [[255, 235, 168], [243, 193, 120], [224, 138, 105]] :
++                                  [[171, 213, 237], [128, 166, 204], [70, 99, 153]]
++        image = Image.new(304, ZoneEncounterLayout::BAND_HEIGHT)
++        304.times do |x|
++          t = x.fdiv(303) * 2
++          segment = [t.floor, 1].min
++          color = stops[segment].zip(stops[segment + 1]).map { |a, b| (a + (b - a) * (t - segment)).round }
++          image.fill_rect(x, 0, 1, ZoneEncounterLayout::BAND_HEIGHT, Color.new(*color, 255))
++        end
++        return @band_bitmaps[category] = Texture.new(image.to_png, true)
++      ensure
++        image&.dispose
++      end
++
++      def time_bitmap(name)
++        @time_bitmaps ||= {}
++        return @time_bitmaps[name] if @time_bitmaps.key?(name)
++
++        return @time_bitmaps[name] = RPG::Cache.pokedex_exist?(name) ? RPG::Cache.pokedex(name) : nil
++      rescue StandardError => error
++        log_error("Habitat time: #{error.class}: #{error.message}")
++        return @time_bitmaps[name] = nil
++      end
++
++      def render_legend(visible)
++        labels = ZoneEncounterPeriods.legend(ZoneEncounterPeriods.schedule)
++        %w[daytime nighttime].each_with_index do |name, index|
++          icon = @legend_icons[index]
++          icon.visible = false
++          if visible
++            icon.bitmap = time_bitmap(name)
++            icon.set_origin(0, 0)
++            icon.zoom_x = icon.zoom_y = 1
++            icon.visible = !icon.bitmap.nil?
++          end
++          @legend_texts[index].visible = visible
++          fit_text(@legend_texts[index], labels[index])
++        end
++      end
++
+       def visible_bounds(bitmap)
+         @bounds ||= {}
+         return @bounds[bitmap] if @bounds.key?(bitmap)
+@@ -266,13 +480,15 @@ module GamePlay
+ 
+       @last_refresh = now
+       snapshot = @catalog.snapshot
+-      return if !force && snapshot == @catalog_snapshot
++      schedule = UI::Dex::ZoneEncounterPeriods.schedule
++      return if !force && snapshot == @catalog_snapshot && schedule == @schedule
+ 
+       if !@snapshot || snapshot.zone_key != @snapshot.zone_key
+         @group_key = nil
+         @offset = 0
+       end
+       @catalog_snapshot = snapshot
++      @schedule = schedule
+       @snapshot = UI::Dex::ZoneEncounterEnvironments.build(snapshot)
+       @group_key = nil unless @snapshot.groups.any? { |group| group.key == @group_key }
+       issues = (snapshot.issues + snapshot.groups.flat_map(&:issues)).uniq
+@@ -290,12 +506,12 @@ module GamePlay
+     end
+ 
+     def render_page
+-      count = UI::Dex::ZoneEncounterPage::PAGE_SIZE
+-      max_offset = [((current_entries.size - 1) / count) * count, 0].max
+-      @offset = @offset.clamp(0, max_offset)
+       group = current_group
++      @pages = @page.pages_for(group, current_entries)
++      page_index = @pages.rindex { |plan| plan[:offset] <= @offset } || 0
++      @offset = @pages[page_index][:offset]
+       group_index = group ? @snapshot.groups.index(group) + 1 : 0
+-      @page.render(@snapshot, group, current_entries, @offset, group_index)
++      @page.render(@snapshot, group, current_entries, @offset, group_index, plans: @pages)
+     end
+ 
+     def update_inputs
+@@ -328,9 +544,8 @@ module GamePlay
+     end
+ 
+     def change_page(delta)
+-      count = UI::Dex::ZoneEncounterPage::PAGE_SIZE
+-      pages = [(current_entries.size + count - 1) / count, 1].max
+-      @offset = ((@offset / count + delta) % pages) * count
++      index = @pages.index { |plan| plan[:offset] == @offset } || 0
++      @offset = @pages[(index + delta) % @pages.size][:offset]
+       render_page
+       return false
+     end
+diff --git a/scripts/00015 HabitatList/tests/support.rb b/scripts/00015 HabitatList/tests/support.rb
+index 12ad9c3a..6fc20cd0 100644
+--- a/scripts/00015 HabitatList/tests/support.rb	
++++ b/scripts/00015 HabitatList/tests/support.rb	
+@@ -97,15 +97,26 @@ class HeadlessDrawable
+     self
+   end
+   def text_width(value)
+-    value.length * 6
++    value.length * (font_id == 20 ? 5 : 6)
+   end
+ end
+ class Sprite < HeadlessDrawable; end
+ class SpriteSheet < HeadlessDrawable; end
+ class Image
+   def initialize(bitmap, _from_memory)
++    if bitmap.is_a?(Integer)
++      @width, @height = bitmap, _from_memory
++      @columns = []
++      return
++    end
+     @bounds = bitmap.bounds || [0, 0, bitmap.width, bitmap.height]
+   end
++  def fill_rect(x, _y, _width, _height, color)
++    @columns[x] = color.components
++  end
++  def to_png
++    HeadlessBitmap.new(width: @width, height: @height, columns: @columns)
++  end
+   def get_pixel_alpha(x, y)
+     left, top, width, height = @bounds
+     x >= left && x < left + width && y >= top && y < top + height ? 255 : 0
+@@ -114,6 +125,12 @@ class Image
+ end
+ class HeadlessBitmap < OpenStruct
+   def to_png; self; end
++  def dispose; self.disposed = true; end
++end
++class Texture < HeadlessBitmap
++  def initialize(data, _from_memory)
++    super(data.to_h)
++  end
+ end
+ class Viewport
+   def self.create(*)
+@@ -136,14 +153,22 @@ module UI
+     def initialize(*)
+       @stack = []
+     end
++    def dispose; end
+     def add_text(*args, **_kwargs)
+       HeadlessDrawable.new.tap do |text|
+         text.x, text.y, text.width, text.height, text.text, text.align = args.take(6)
+         text.y -= 2 # Actual Text::Util::FOY in 26.60.
+-        text.font_id = 0
++        text.font_id = @font_id || 0
+         @stack << text
+       end
+     end
++    def with_font(font_id)
++      previous = @font_id
++      @font_id = font_id
++      yield
++    ensure
++      @font_id = previous
++    end
+     def add_sprite(*args, **_kwargs)
+       HeadlessDrawable.new.tap do |sprite|
+         sprite.x, sprite.y = args.take(2)
+@@ -210,7 +235,7 @@ module RPG
+   module Cache
+     class << self
+       attr_accessor :fail_icon, :icon_reads, :fail_front, :front_reads, :question_reads,
+-                    :fail_question, :front_dimensions, :front_bounds, :raise_front, :capture_reads
++                    :fail_question, :front_dimensions, :front_bounds, :raise_front, :capture_reads, :time_reads
+       def b_icon_exist?(_filename)
+         !fail_icon
+       end
+@@ -235,6 +260,11 @@ module RPG
+         !fail_question
+       end
+       def pokedex(filename)
++        if %w[daytime nighttime].include?(filename)
++          self.time_reads ||= []
++          time_reads << filename
++          return HeadlessBitmap.new(width: 32, height: 18, asset: "graphics/pokedex/#{filename}.png")
++        end
+         self.capture_reads ||= []
+         capture_reads << filename
+         HeadlessBitmap.new(width: 16, height: 16, asset: "graphics/pokedex/#{filename}.png")
+@@ -245,6 +275,18 @@ end
+ 
+ load File.join(ENGINE, '4_Systems_101_Dex.rb')
+ load File.join(ENGINE, '4_Systems_999_Wild.rb')
++# Load the whole native TJN module, including its actual visibility declarations.
++# Only the native tone object and map sprite host need headless stand-ins.
++class Tone
++  def initialize(*); end
++end
++class Spriteset_Map; end
++tjn_file = File.join(ENGINE, '4_Systems_003_Map_Engine.rb')
++tjn_source = File.read(tjn_file, encoding: 'UTF-8')
++tjn_start = tjn_source.index("  module TJN\n")
++tjn_end = tjn_source.index('  # Module that manage the particle display', tjn_start)
++raise 'Native TJN module boundaries not found' unless tjn_start && tjn_end
++Yuki.module_eval(tjn_source[tjn_start...tjn_end], tjn_file, tjn_source[0...tjn_start].count("\n") + 1)
+ # Use the actual resource resolvers, rather than copies of their semantics.
+ pokemon_source = File.read(File.join(ENGINE, '4_Systems_000_General_1_PFM.rb'), encoding: 'UTF-8')
+ icon_source = pokemon_source[/^      def icon_filename\(.*?^      end/m]
+@@ -264,7 +306,20 @@ load File.join(SCRIPTS, '00015 HabitatList/54100 ZoneEncounterCatalog.rb')
+ load File.join(SCRIPTS, '00015 HabitatList/54200 ZoneEncounterPage.rb')
+ load File.join(SCRIPTS, '00015 HabitatList/54300 DexZoneExtension.rb')
+ 
+-LOCAL_DATABASE = Marshal.load(File.binread(File.join(PROJECT, 'Data/Studio/psdk.dat')))
++compiled_database = File.join(PROJECT, 'Data/Studio/psdk.dat')
++DATABASE_SOURCE = File.exist?(compiled_database) ? :compiled : :json
++LOCAL_DATABASE = if DATABASE_SOURCE == :compiled
++                   Marshal.load(File.binread(compiled_database))
++                 else
++                   require 'json'
++                   require File.join(ENGINE, 'tools/Studio2PSDK')
++                   warn 'Habitat tests: psdk.dat absent; using Studio JSON converted in memory (no data file written).'
++                   Studio2PSDK.instance_variable_set(:@data, {})
++                   Dir.chdir(PROJECT) do
++                     Studio2PSDK.convert_all_entities(%w[pokemon groups zones dex items moves natures])
++                   end
++                   Studio2PSDK.instance_variable_get(:@data)
++                 end
+ 
+ def studio_object(klass, attributes)
+   klass.allocate.tap do |object|
+diff --git a/scripts/00015 HabitatList/tests/habitat_test.rb b/scripts/00015 HabitatList/tests/habitat_test.rb
+index f2bfdcbd..f90a4684 100644
+--- a/scripts/00015 HabitatList/tests/habitat_test.rb	
++++ b/scripts/00015 HabitatList/tests/habitat_test.rb	
+@@ -8,7 +8,7 @@ HabitatEnvironment = Struct.new(:zone) do
+   def get_current_zone_data; zone; end
+   def can_fish?; true; end
+ end
+-HabitatState = Struct.new(:game_switches, :game_variables, :game_map, :game_player, :env, :pokedex)
++HabitatState = Struct.new(:game_switches, :game_variables, :game_map, :game_player, :env, :pokedex, :tint_time_set)
+ 
+ class HabitatTest < Minitest::Test
+   def setup
+@@ -28,6 +28,7 @@ class HabitatTest < Minitest::Test
+     RPG::Cache.front_dimensions = {}
+     RPG::Cache.front_bounds = {}
+     RPG::Cache.capture_reads = []
++    RPG::Cache.time_reads = []
+     $habitat_front_resolutions = []
+     PFM.game_state = HabitatState.new(Hash.new(false), Hash.new(0), HabitatMap.new(10000), HabitatPlayer.new, HabitatEnvironment.new)
+     $env = PFM.game_state.env
+@@ -321,14 +322,15 @@ class HabitatTest < Minitest::Test
+     assert_equal 0, value.instance_variable_get(:@offset)
+   end
+ 
+-  def test_inactive_group_has_explicit_label_and_is_not_in_overview
++  def test_inactive_group_is_consultable_but_not_in_overview_or_advertised_as_active
+     group(:a, conditions: [condition(:enabled_switch, 402)])
+     zone([:a])
+     value = scene
+     assert_empty value.send(:current_entries)
+     value.send(:action_a)
+     assert_equal 1, value.send(:current_entries).size
+-    assert_match(/Inactif/, value.instance_variable_get(:@page).instance_variable_get(:@availability).text)
++    assert_equal :inactive, value.send(:current_group).members.first.status
++    assert_equal '', value.instance_variable_get(:@page).instance_variable_get(:@availability).text
+   end
+ 
+   def test_grid_centers_varied_dimensions_without_distortion_clipping_or_button_overlap
+@@ -395,7 +397,7 @@ class HabitatTest < Minitest::Test
+     assert_equal 0, value.instance_variable_get(:@offset)
+   end
+ 
+-  def test_milieus_distinguish_time_terrain_tool_and_priority
++  def test_milieus_merge_times_terrains_and_priority_but_keep_tools_separate
+     group(:morning, conditions: [condition(:enabled_switch, Yuki::Sw::TJN_MorningTime)])
+     group(:night, conditions: [condition(:enabled_switch, Yuki::Sw::TJN_NightTime)])
+     group(:cave, system: :cave, terrain: 2)
+@@ -405,16 +407,18 @@ class HabitatTest < Minitest::Test
+     value = scene
+     view = value.instance_variable_get(:@page)
+     value.send(:action_a)
+-    assert_match(/Matin/, view.instance_variable_get(:@context).text)
+-    assert_match(/Inactif/, view.instance_variable_get(:@availability).text)
+-    value.send(:action_a)
+-    assert_match(/Nuit/, view.instance_variable_get(:@context).text)
++    assert_match(/Herbes/, view.instance_variable_get(:@context).text)
++    refute_match(/Matin|Nuit/, view.instance_variable_get(:@context).text)
++    assert_equal %i[morning night], value.send(:current_group).members.map(&:key)
++    assert_equal %i[inactive inactive], value.send(:current_group).members.map(&:status)
+     value.send(:action_a)
+     assert_match(/Grotte/, view.instance_variable_get(:@context).text)
+     value.send(:action_a)
+     assert_match(/Pêche.*Canne.*Lac/, view.instance_variable_get(:@context).text)
++    assert_equal %i[active shadowed], value.send(:current_group).members.map(&:status)
++    assert_equal '', view.instance_variable_get(:@availability).text
+     value.send(:action_a)
+-    assert_match(/Masqué.*prioritaire/, view.instance_variable_get(:@availability).text)
++    assert_nil value.send(:current_group)
+   end
+ 
+   def test_missing_question_and_corrupt_front_have_text_fallback
+@@ -592,8 +596,9 @@ class HabitatTest < Minitest::Test
+     group(:good_rod, system: :pond, tool: :good_rod)
+     zone(%i[a technical masked night lake surf rod good_rod])
+     display = UI::Dex::ZoneEncounterEnvironments.build(@catalog.snapshot)
+-    assert_equal %i[a masked night lake surf rod good_rod], display.groups.map(&:key)
+-    assert_equal %i[active shadowed inactive active active active active], display.groups.map(&:status)
++    assert_equal %i[a lake surf rod good_rod], display.groups.map(&:key)
++    assert_equal %i[mixed active active active active], display.groups.map(&:status)
++    assert_equal %i[active active shadowed inactive], display.groups.first.members.map(&:status)
+     assert_equal [[:rattata, 0]], display.entries.map(&:key)
+   end
+ 
+@@ -618,6 +623,251 @@ class HabitatTest < Minitest::Test
+     assert_equal 'Vus 12/20 · Capturés 12/20', value.instance_variable_get(:@page).instance_variable_get(:@counts).text
+   end
+ 
++  def test_all_fifteen_time_combinations_follow_family_majority_after_union
++    # Bits are Matin=1, Jour=2, Soir=4, Nuit=8. Four periods means BOTH.
++    expected = {
++      1 => %w[daytime], 2 => %w[daytime], 3 => %w[daytime], 4 => %w[nighttime],
++      5 => %w[daytime nighttime], 6 => %w[daytime nighttime], 7 => %w[daytime],
++      8 => %w[nighttime], 9 => %w[daytime nighttime], 10 => %w[daytime nighttime],
++      11 => %w[daytime], 12 => %w[nighttime], 13 => %w[nighttime],
++      14 => %w[nighttime], 15 => %w[daytime nighttime]
++    }
++    expected.each do |mask, icons|
++      keys = []
++      [13, 11, 14, 12].each_with_index do |switch, index|
++        next if mask[index].zero?
++        key = "period_#{index}".to_sym
++        group(key, [encounter, encounter], conditions: [condition(:map_id, 10000), condition(:enabled_switch, switch)], terrain: index)
++        keys << key
++      end
++      zone(keys)
++      original_switches = Marshal.dump(PFM.game_state.game_switches)
++      display = UI::Dex::ZoneEncounterEnvironments.build(@catalog.snapshot)
++      assert_equal 1, display.groups.size
++      assert_equal [[:rattata, 0]], display.groups.first.entries.map(&:key)
++      assert_equal mask, display.groups.first.periods[[:rattata, 0]]
++      assert_equal icons, UI::Dex::ZoneEncounterPeriods.icons(mask)
++      assert_equal original_switches, Marshal.dump(PFM.game_state.game_switches)
++    end
++    assert_empty UI::Dex::ZoneEncounterPeriods.icons(0)
++  end
++
++  def test_duplicate_groups_do_not_weight_majority_and_non_time_conditions_are_not_hours
++    3.times { |i| group("day#{i}".to_sym, conditions: [condition(:enabled_switch, 13)], terrain: i) }
++    group(:night, conditions: [condition(:enabled_switch, 12)])
++    zone(%i[day0 day1 day2 night])
++    display = UI::Dex::ZoneEncounterEnvironments.build(@catalog.snapshot)
++    assert_equal 9, display.groups.first.periods[[:rattata, 0]]
++    assert_equal %w[daytime nighttime], UI::Dex::ZoneEncounterPeriods.icons(display.groups.first.periods[[:rattata, 0]])
++    plain = group(:story, conditions: [condition(:map_id, 11), condition(:enabled_switch, 402)])
++    assert_equal 15, UI::Dex::ZoneEncounterPeriods.for_group(plain)
++    timed = group(:story_time, conditions: [condition(:map_id, 11), condition(:enabled_switch, 402), condition(:enabled_switch, 14)])
++    assert_equal 4, UI::Dex::ZoneEncounterPeriods.for_group(timed)
++    alternative = group(:alternative, conditions: [condition(:enabled_switch, 13), condition(:enabled_switch, 12, :OR)])
++    assert_equal 9, UI::Dex::ZoneEncounterPeriods.for_group(alternative)
++    zone(%i[day0 story])
++    assert_equal 15, UI::Dex::ZoneEncounterEnvironments.build(@catalog.snapshot).groups.first.periods[[:rattata, 0]]
++  end
++
++  def test_unknown_seen_caught_and_ensemble_indicators_and_reused_cells
++    group(:a, [encounter(:rattata, 0), encounter(:rattata, 1)], conditions: [condition(:enabled_switch, 13)])
++    zone([:a])
++    PFM.game_state.game_switches[13] = true
++    value = scene
++    view = value.instance_variable_get(:@page)
++    cells = view.instance_variable_get(:@cells)
++    assert view.instance_variable_get(:@legend_icons).all?(&:visible)
++    assert cells.none? { |c| c.key?(:times) }
++    RPG::Cache.time_reads.clear
++    value.send(:action_a)
++    assert_empty RPG::Cache.time_reads # Collective banner reuses the legend texture.
++    assert_equal 1, view.instance_variable_get(:@bands).count { |b| b[:background].visible }
++    refute cells[0][:badge].visible
++    assert_equal 'graphics/pokedex/pokefront/000.png', cells[0][:sprite].bitmap.asset
++    assert view.instance_variable_get(:@legend_icons).none?(&:visible)
++    $pokedex.mark_seen(:rattata, 0, forced: true)
++    value.send(:refresh_catalog, force: true)
++    assert_equal 1, view.instance_variable_get(:@bands).count { |b| b[:icon].visible }
++    refute cells[0][:badge].visible
++    assert_equal 'graphics/pokedex/pokefront/000.png', cells[1][:sprite].bitmap.asset
++    $pokedex.mark_captured(:rattata, 0)
++    value.send(:refresh_catalog, force: true)
++    assert cells[0][:badge].visible
++    assert_equal 0.75, cells[0][:badge].zoom_x
++    assert_equal 1, cells[0][:sprite].zoom_x
++    assert_equal 'Vus 1/2 · Capturés 1/2', view.instance_variable_get(:@counts).text
++    value.send(:action_y)
++    assert cells[0][:badge].visible
++    assert view.instance_variable_get(:@bands).none? { |b| b[:icon].visible }
++    group(:a, [encounter(:pikachu)])
++    value.send(:refresh_catalog, force: true)
++    value.send(:action_a)
++    assert view.instance_variable_get(:@bands).none? { |b| b[:icon].visible }
++    refute cells[0][:badge].visible
++  end
++
++  def test_real_map_and_time_variants_now_merge_into_one_environment
++    $habitat_database = LOCAL_DATABASE
++    $env.zone = data_zone(:zone_25)
++    PFM.game_state.game_map.map_id = 35
++    raw = @catalog.snapshot
++    before = Marshal.dump(raw)
++    display = UI::Dex::ZoneEncounterEnvironments.build(raw)
++    grass = display.groups.find { |g| data_group(g.key).system_tag == :grass }
++    assert_equal %i[group_36 group_33 group_34], grass.members.map(&:key)
++    assert_equal 21, grass.entries.size
++    assert_equal 1, display.groups.count { |g| g.label == 'Herbes' }
++    assert_equal before, Marshal.dump(raw)
++    $env.zone = data_zone(:zone_20)
++    PFM.game_state.game_map.map_id = 27
++    grass = UI::Dex::ZoneEncounterEnvironments.build(@catalog.snapshot).groups.find { |g| g.label == 'Herbes' }
++    assert_equal 7, grass.periods[[:rattata, 0]]
++    assert_equal 14, grass.periods[[:rattata, 1]]
++    assert_equal %w[daytime], UI::Dex::ZoneEncounterPeriods.icons(grass.periods[[:rattata, 0]])
++    assert_equal %w[nighttime], UI::Dex::ZoneEncounterPeriods.icons(grass.periods[[:rattata, 1]])
++  end
++
++  def test_legend_uses_native_tjn_lookup_including_tone_only_fallback_and_live_changes
++    group(:a)
++    zone([:a])
++    PFM.game_state.tint_time_set = :platinum_daynight
++    assert_equal [22, 19, 11, 7], UI::Dex::ZoneEncounterPeriods.schedule
++    value = scene
++    view = value.instance_variable_get(:@page)
++    assert_equal ['Matin/Jour 07h–11h–19h', 'Soir/Nuit 19h–22h–07h'], view.instance_variable_get(:@legend_texts).map(&:text)
++    {winter: [17, 16, 12, 10], fall: [19, 17, 11, 9], spring: [19, 17, 11, 9], summer: [22, 19, 11, 7]}.each do |key, hours|
++      PFM.game_state.tint_time_set = key
++      assert_equal hours, UI::Dex::ZoneEncounterPeriods.schedule
++    end
++    PFM.game_state.tint_time_set = :winter
++    value.instance_variable_set(:@last_refresh, 0)
++    value.send(:refresh_catalog) # Same encounter snapshot, different time set.
++    assert_equal ['Matin/Jour 10h–12h–16h', 'Soir/Nuit 16h–17h–10h'], view.instance_variable_get(:@legend_texts).map(&:text)
++  end
++
++  def test_zone_opens_with_native_private_tjn_schedule_and_reads_public_configuration_only
++    assert Yuki::TJN.singleton_class.private_method_defined?(:current_time_set)
++    refute Yuki::TJN.respond_to?(:current_time_set)
++    assert_raises(NoMethodError) { Yuki::TJN.public_send(:current_time_set) }
++    assert_equal %i[current_tone force_update_tone init_variables update update_timed_events], Yuki::TJN.singleton_class.public_instance_methods(false).sort
++    original_sets = Marshal.dump(Yuki::TJN::TIME_SETS)
++    original_default = Yuki::TJN::TIME.dup
++    group(:a)
++    zone([:a])
++    [nil, :default, :winter, :fall, :spring, :summer, :platinum_daynight, :unknown_setting].each do |key|
++      PFM.game_state.tint_time_set = key
++      expected = Yuki::TJN::TIME_SETS[key] || Yuki::TJN::TIME
++      value = scene # Reproduce create_graphics -> refresh_catalog -> schedule.
++      assert_instance_of UI::Dex::ZoneEncounterPage, value.instance_variable_get(:@page)
++      assert_equal expected, UI::Dex::ZoneEncounterPeriods.schedule
++      refute_same expected, UI::Dex::ZoneEncounterPeriods.schedule
++      UI::Dex::ZoneEncounterPeriods.schedule[0] = -1
++    end
++    assert_equal original_sets, Marshal.dump(Yuki::TJN::TIME_SETS)
++    assert_equal original_default, Yuki::TJN::TIME
++    assert Yuki::TJN.singleton_class.private_method_defined?(:current_time_set)
++  end
++
++  def test_category_order_is_stable_after_aggregation_and_before_pagination
++    expected = {15 => :all, 1 => :day, 2 => :day, 3 => :day, 7 => :day, 11 => :day,
++                4 => :night, 8 => :night, 12 => :night, 13 => :night, 14 => :night}
++    expected.each { |mask, category| assert_equal category, UI::Dex::ZoneEncounterPeriods.category(mask) }
++    group(:night, [encounter(:rattata, 1), encounter(:meowstic, 1)], conditions: [condition(:enabled_switch, 12)])
++    group(:day, [encounter(:pikachu), encounter(:rattata)], conditions: [condition(:enabled_switch, 11)])
++    group(:all, [encounter(:onix), encounter(:bulbasaur)])
++    zone(%i[night day all])
++    display = UI::Dex::ZoneEncounterEnvironments.build(@catalog.snapshot)
++    assert_equal [[:onix, 0], [:bulbasaur, 0], [:pikachu, 0], [:rattata, 0], [:rattata, 1], [:meowstic, 1]], display.groups.first.entries.map(&:key)
++    assert_equal 6, display.groups.first.entries.size
++  end
++
++  def layout_entries(count)
++    Array.new(count) { |i| ElementZ::Habitat::Entry.new(specie: :vivillon, form: i, seen: false, caught: false, habitats: []) }
++  end
++
++  def test_three_rows_and_two_bands_fit_when_silhouettes_allow_it
++    entries = layout_entries(12)
++    periods = entries.each_with_index.to_h { |e, i| [e.key, [15, 3, 12][i / 4]] }
++    pages = UI::Dex::ZoneEncounterLayout.pages(entries, periods) { 30 }
++    assert_equal 1, pages.size
++    assert_equal 12, pages.first[:slots].size
++    assert_equal %i[day night], pages.first[:bands].map { |b| b[:category] }
++    assert_equal 3, pages.first[:slots].map { |slot| slot[:cy] }.uniq.size
++    pages.first[:slots].each do |slot|
++      pages.first[:bands].each { |band| assert slot[:bottom] <= band[:y] || slot[:top] >= band[:y] + 18 }
++      assert_operator slot[:bottom], :<=, 192
++    end
++  end
++
++  def test_pagination_keeps_order_and_repeats_only_continuing_category_header
++    entries = layout_entries(28)
++    periods = entries.each_with_index.to_h { |e, i| [e.key, i < 4 ? 15 : (i < 24 ? 3 : 12)] }
++    pages = UI::Dex::ZoneEncounterLayout.pages(entries, periods) { 44 }
++    assert_equal [12, 12, 4], pages.map { |p| p[:count] }
++    assert_equal [0, 12, 24], pages.map { |p| p[:offset] }
++    assert_equal entries, pages.flat_map { |p| p[:slots].map { |s| s[:entry] } }
++    assert_equal [[:day], [:day], [:night]], pages.map { |p| p[:bands].map { |b| b[:category] } }
++    assert_equal 32, pages[1][:bands].first[:y]
++    assert_equal 32, pages[2][:bands].first[:y]
++  end
++
++  def test_band_is_deferred_with_its_creatures_when_vertical_space_runs_out
++    entries = layout_entries(12)
++    periods = entries.each_with_index.to_h { |e, i| [e.key, i < 8 ? 15 : 3] }
++    pages = UI::Dex::ZoneEncounterLayout.pages(entries, periods) { 74 }
++    assert_equal [8, 4], pages.map { |p| p[:count] }
++    assert_empty pages.first[:bands]
++    assert_equal :day, pages.last[:bands].first[:category]
++    assert_equal entries.last(4), pages.last[:slots].map { |s| s[:entry] }
++  end
++
++  def test_scene_navigation_uses_variable_page_sizes_and_preserves_environment
++    all = %i[wailord onix steelix gyarados dragonite charizard venusaur blastoise]
++    day = %i[bulbasaur caterpie weedle pichu]
++    group(:all, all.map { |symbol| encounter(symbol) })
++    group(:day, day.map { |symbol| encounter(symbol) }, conditions: [condition(:enabled_switch, 11)])
++    zone(%i[all day])
++    (all + day).each { |symbol| $pokedex.mark_captured(symbol, 0) }
++    value = scene
++    value.send(:action_a)
++    assert_equal [8, 4], value.instance_variable_get(:@pages).map { |page| page[:count] }
++    view = value.instance_variable_get(:@page)
++    assert_equal 'Vus 12/12 · Capturés 12/12', view.instance_variable_get(:@counts).text
++    value.send(:change_page, 1)
++    assert_equal 8, value.instance_variable_get(:@offset)
++    assert_equal :all, value.send(:current_group).key
++    assert_equal 'Page 2/2', view.instance_variable_get(:@pagination).text
++    assert_equal 'MATIN / JOUR', view.instance_variable_get(:@bands).first[:label].text
++    assert view.instance_variable_get(:@bands).first[:background].visible
++    value.send(:change_page, -1)
++    assert_equal 0, value.instance_variable_get(:@offset)
++    refute view.instance_variable_get(:@bands).first[:background].visible
++    value.send(:action_y)
++    assert_nil value.send(:current_group)
++    assert_equal 0, value.instance_variable_get(:@offset)
++  end
++
++  def test_badges_follow_visible_upper_right_and_only_unknown_front_is_scaled
++    group(:a, [encounter(:bulbasaur), encounter(:meowstic, 1), encounter(:onix), encounter(:pikachu)])
++    zone([:a])
++    [[:bulbasaur, 0], [:meowstic, 1], [:onix, 0]].each { |symbol, form| $pokedex.mark_captured(symbol, form) }
++    RPG::Cache.front_bounds = {'0001' => [28, 63, 35, 33], '0678_01' => [23, 38, 50, 58], '0095' => [1, 6, 94, 90]}
++    cells = scene.instance_variable_get(:@page).instance_variable_get(:@cells)
++    cells.first(3).each do |cell|
++      sprite, badge = cell.values_at(:sprite, :badge)
++      assert_equal [1, 1], [sprite.zoom_x, sprite.zoom_y]
++      assert_equal [12, 12], [badge.bitmap.width * badge.zoom_x, badge.bitmap.height * badge.zoom_y]
++      assert badge.visible
++      assert_operator badge.x, :>, sprite.x
++      assert_operator badge.y, :<=, sprite.y
++      assert_operator sprite.y - badge.y, :<=, 4
++    end
++    assert_equal 0.83, cells[3][:sprite].zoom_x
++    assert_equal 0.83, cells[3][:sprite].zoom_y
++    refute cells[3][:badge].visible
++    assert_empty $habitat_front_resolutions.select { |args| args.first == :pikachu }
++  end
++
+   def test_actual_dex_initializer_and_two_method_extension_preserve_other_actions
+     value = GamePlay::Dex.new($pokedex)
+     assert_equal 0, value.instance_variable_get(:@state)
+@@ -663,6 +913,7 @@ class HabitatTest < Minitest::Test
+   end
+ 
+   def test_studio_json_matches_compiled_zone_and_group_configuration
++    skip 'psdk.dat absent: compiled cache comparison cannot run; other tests use real JSON models.' if DATABASE_SOURCE != :compiled
+     # Detect stale compiled data: the game reads psdk.dat, not JSON directly.
+     require File.join(ENGINE, 'tools/Studio2PSDK')
+     Dir[File.join(PROJECT, 'Data/Studio/groups/*.json')].each do |filename|
+diff --git a/scripts/00015 HabitatList/tests/grid_preview.rb b/scripts/00015 HabitatList/tests/grid_preview.rb
+index 1bcaa6d9..d173001e 100644
+--- a/scripts/00015 HabitatList/tests/grid_preview.rb	
++++ b/scripts/00015 HabitatList/tests/grid_preview.rb	
+@@ -33,13 +33,16 @@ def draw_commands(snapshot, group, offset)
+   view.render(snapshot, group, entries, offset, group ? snapshot.groups.index(group) + 1 : 0)
+   return view.stack.sort_by { |element| element.z || 0 }.filter_map do |element|
+     next unless element.visible
+-    if element.bitmap
++    if element.bitmap&.columns
++      {kind: :gradient, x: element.x, y: element.y, width: element.bitmap.width,
++       height: element.bitmap.height, columns: element.bitmap.columns}
++    elsif element.bitmap
+       {kind: :sprite, asset: element.bitmap.asset, x: element.x - element.ox * element.zoom_x,
+        y: element.y - element.oy * element.zoom_y, width: element.bitmap.width * element.zoom_x,
+        height: element.bitmap.height * element.zoom_y}
+     elsif element.text && !element.text.empty?
+       {kind: :text, text: element.text, x: element.x, y: element.y, width: element.width,
+-       height: element.height, align: element.align}
++       height: element.height, align: element.align, font_id: element.font_id}
+     end
+   end
+ end
+@@ -47,15 +50,51 @@ end
+ previews = {
+   'ensemble_1' => draw_commands(snapshot, nil, 0),
+   'ensemble_2' => draw_commands(snapshot, nil, 12),
+-  'milieu_masque' => draw_commands(snapshot, snapshot.groups.find { |g| g.status == :shadowed }, 0)
++  'milieu_fusionne' => draw_commands(snapshot, snapshot.groups.find { |g| g.members.any? { |m| m.status == :shadowed } }, 0)
+ }
+ special = ElementZ::Habitat::Snapshot.new(zone_name: 'Contrôle des sprites', zone_key: :preview, groups: [], issues: [])
+ special.entries = [[:wailord, 0], [:meowstic, 1], [:steelix, 30], [:bulbasaur, 0],
+                    [:pikachu, 0], [:rattata, 1], [:vivillon, 12], [:eevee, 0],
+                    [:geodude, 0], [:onix, 0], [:zubat, 0], [:magikarp, 0]].map.with_index do |(symbol, form), i|
+-  ElementZ::Habitat::Entry.new(specie: symbol, form: form, seen: i != 7, caught: i % 3 == 1, habitats: [])
++  ElementZ::Habitat::Entry.new(specie: symbol, form: form, seen: i != 7, caught: i != 7 && i % 3 == 1, habitats: [])
+ end
+ previews['formes_et_inconnu'] = draw_commands(special, nil, 0)
++environment = UI::Dex::ZoneEncounterEnvironments::View.new(key: :preview, label: 'Préférences horaires',
++  status: :mixed, entries: special.entries, issues: [], members: [], periods: {})
++special.entries.each_with_index do |entry, index|
++  environment.periods[entry.key] = [15, 7, 14, 1, 2, 4, 8, 15, 3, 12, 11, 13][index]
++end
++environment.entries = special.entries.each_with_index.sort_by do |entry, index|
++  [%i[all day night].index(UI::Dex::ZoneEncounterPeriods.category(environment.periods[entry.key])), index]
++end.map(&:first)
++special.groups = [environment]
++previews['horaires_et_capture'] = draw_commands(special, environment, 0)
++# Small silhouettes demonstrate all three categories on one page, while the
++# other fixtures deliberately exercise continuation and deferred headers.
++def category_fixture(name, symbols, masks, unknown: [])
++  entries = symbols.each_with_index.map do |symbol, i|
++    ElementZ::Habitat::Entry.new(specie: symbol, form: 0, seen: !unknown.include?(i),
++      caught: !unknown.include?(i), habitats: [])
++  end
++  view = UI::Dex::ZoneEncounterEnvironments::View.new(key: :preview, label: 'Herbes', status: :mixed,
++    entries: entries, issues: [], members: [], periods: entries.zip(masks).to_h { |e, m| [e.key, m] })
++  # Fixtures use unique species, just like the deduplicated production list.
++  view.entries = entries.each_with_index.sort_by { |e, i| [%i[all day night].index(UI::Dex::ZoneEncounterPeriods.category(view.periods[e.key])), i] }.map(&:first)
++  snapshot = ElementZ::Habitat::Snapshot.new(zone_name: name, zone_key: :preview, groups: [view], entries: view.entries, issues: [])
++  return snapshot, view
++end
++small = %i[bulbasaur caterpie weedle pichu igglybuff cleffa diglett ditto sunkern lotad azurill budew]
++fixtures = {
++  'trois_categories' => category_fixture('Trois catégories', small, [15] * 4 + [3] * 4 + [12] * 4),
++  'jour_vers_nuit' => category_fixture('Deux bandeaux', small.first(8), [3] * 4 + [12] * 4),
++  'suite_categorie' => category_fixture('Catégorie sur deux pages', small + %i[rattata pikachu magikarp eevee], [3] * 16, unknown: [3, 5, 8, 10, 14]),
++  'bandeau_reporte' => category_fixture('Bandeau reporté', %i[wailord onix steelix gyarados dragonite charizard venusaur blastoise bulbasaur caterpie weedle pichu], [15] * 8 + [3] * 4)
++}
++fixtures.each do |prefix, (snapshot, group)|
++  UI::Dex::ZoneEncounterPage.new(nil).pages_for(group, group.entries).each_with_index do |plan, index|
++    previews["#{prefix}_#{index + 1}"] = draw_commands(snapshot, group, plan[:offset])
++  end
++end
+ area = LOCAL_DATABASE[:zones].values.find { |zone| zone.wild_groups.include?(:group_35) }
+ $env.get_current_zone_data = area
+ state.game_map.map_id = 29
+diff --git a/scripts/00015 HabitatList/tests/render_grid_preview.ps1 b/scripts/00015 HabitatList/tests/render_grid_preview.ps1
+index 7687bbf6..834f9e39 100644
+--- a/scripts/00015 HabitatList/tests/render_grid_preview.ps1	
++++ b/scripts/00015 HabitatList/tests/render_grid_preview.ps1	
+@@ -51,7 +51,14 @@ foreach ($frame in $frames.PSObject.Properties) {
+     $graphics.DrawImageUnscaled($background, 0, 0)
+     foreach ($command in $frame.Value) {
+         $rect = [Drawing.RectangleF]::new($command.x, $command.y, $command.width, $command.height)
+-        if ($command.kind -eq 'sprite') {
++        if ($command.kind -eq 'gradient') {
++            for ($column = 0; $column -lt $command.width; $column++) {
++                $rgba = $command.columns[$column]
++                $brush = [Drawing.SolidBrush]::new([Drawing.Color]::FromArgb($rgba[3], $rgba[0], $rgba[1], $rgba[2]))
++                $graphics.FillRectangle($brush, [single]($command.x + $column), [single]$command.y, [single]1, [single]$command.height)
++                $brush.Dispose()
++            }
++        } elseif ($command.kind -eq 'sprite') {
+             $source = [Drawing.Image]::FromFile((Join-Path $project $command.asset))
+             $graphics.DrawImage($source, $rect)
+             $source.Dispose()
+@@ -60,7 +67,9 @@ foreach ($frame in $frames.PSObject.Properties) {
+             $format.Alignment = [Drawing.StringAlignment][int]$command.align
+             $format.LineAlignment = [Drawing.StringAlignment]::Center
+             $format.FormatFlags = [Drawing.StringFormatFlags]::NoWrap
+-            $graphics.DrawString($command.text, $font, [Drawing.Brushes]::Black, $rect, $format)
++            $textFont = $font
++            if ($command.font_id -eq 20) { $textFont = $smallFont }
++            $graphics.DrawString($command.text, $textFont, [Drawing.Brushes]::Black, $rect, $format)
+             $format.Dispose()
+         }
+     }
+diff --git a/scripts/00015 HabitatList/tests/check_grid_preview.ps1 b/scripts/00015 HabitatList/tests/check_grid_preview.ps1
+index c604dfa4..bd9c50db 100644
+--- a/scripts/00015 HabitatList/tests/check_grid_preview.ps1	
++++ b/scripts/00015 HabitatList/tests/check_grid_preview.ps1	
+@@ -1,35 +1,75 @@
+-# Check actual PNG alpha and painter order, independently of the headless stubs.
++# Check rendered PNG alpha, scaling and painter order independently of the stubs.
+ $ErrorActionPreference = 'Stop'
+ Add-Type -AssemblyName System.Drawing
+ $project = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..\..\..'))
+ $frames = Get-Content -Raw -Encoding UTF8 (Join-Path $PSScriptRoot '..\ui_previews\draw_commands.json') | ConvertFrom-Json
+ foreach ($frame in $frames.PSObject.Properties) {
+     $owners = New-Object int[] (320 * 240)
++    $markers = New-Object int[] (320 * 240)
+     $sprites = @($frame.Value | Where-Object kind -eq 'sprite')
++    $bands = @($frame.Value | Where-Object kind -eq 'gradient')
++    foreach ($band in $bands) {
++        if ($band.x -ne 8 -or $band.width -ne 304 -or $band.height -ne 18 -or $band.y -lt 32 -or ($band.y + 18) -gt 192) {
++            throw "Invalid band rectangle: $($frame.Name)"
++        }
++    }
+     $id = 0
+     foreach ($sprite in $sprites) {
+         $id++
+         $bitmap = [Drawing.Bitmap]::new((Join-Path $project $sprite.asset))
++        $canvas = [Drawing.Bitmap]::new(320, 240)
++        $graphics = [Drawing.Graphics]::FromImage($canvas)
+         try {
+-            if ($sprite.width -ne $bitmap.Width -or $sprite.height -ne $bitmap.Height) {
+-                throw "Rescaled sprite: $($frame.Name) $($sprite.asset)"
++            $scale = 1
++            if ($sprite.asset -match '/pokefront/000\.png$') { $scale = 0.83 }
++            if ($sprite.asset -match '/Catch\.png$') { $scale = 0.75 }
++            if ([Math]::Abs($sprite.width - $bitmap.Width * $scale) -gt 0.001 -or [Math]::Abs($sprite.height - $bitmap.Height * $scale) -gt 0.001) {
++                throw "Incorrect sprite scale: $($frame.Name) $($sprite.asset)"
++            }
++            $isTime = $sprite.asset -match '/(daytime|nighttime)\.png$'
++            $minY = 32
++            $maxY = 192
++            if ($frame.Name -match '^(ensemble_|formes_et_inconnu)' -and !$isTime) { $minY = 52 }
++            if ($isTime) {
++                $matchingBands = @($bands | Where-Object { $_.y -eq $sprite.y })
++                if ($matchingBands.Count -eq 0 -and $sprite.y -ne 32) { throw "Detached time icon: $($frame.Name)" }
++                $minY = $sprite.y
++                $maxY = $sprite.y + 18
+             }
+-            for ($y = 0; $y -lt $bitmap.Height; $y++) {
+-                for ($x = 0; $x -lt $bitmap.Width; $x++) {
+-                    if ($bitmap.GetPixel($x, $y).A -eq 0) { continue }
+-                    $dx = [int]$sprite.x + $x
+-                    $dy = [int]$sprite.y + $y
+-                    if ($dx -lt 8 -or $dx -ge 312 -or $dy -lt 52 -or $dy -ge 192) {
+-                        throw "Opaque pixel outside grid: $($frame.Name) $($sprite.asset)"
++            $graphics.InterpolationMode = [Drawing.Drawing2D.InterpolationMode]::NearestNeighbor
++            $graphics.PixelOffsetMode = [Drawing.Drawing2D.PixelOffsetMode]::Half
++            $graphics.DrawImage($bitmap, [Drawing.RectangleF]::new($sprite.x, $sprite.y, $sprite.width, $sprite.height))
++            $left = [Math]::Max(0, [Math]::Floor($sprite.x))
++            $right = [Math]::Min(320, [Math]::Ceiling($sprite.x + $sprite.width))
++            $top = [Math]::Max(0, [Math]::Floor($sprite.y))
++            $bottom = [Math]::Min(240, [Math]::Ceiling($sprite.y + $sprite.height))
++            for ($dy = $top; $dy -lt $bottom; $dy++) {
++                for ($dx = $left; $dx -lt $right; $dx++) {
++                    if ($canvas.GetPixel($dx, $dy).A -eq 0) { continue }
++                    if ($dx -lt 8 -or $dx -ge 312 -or $dy -lt $minY -or $dy -ge $maxY) {
++                        throw "Opaque pixel outside reserved area: $($frame.Name) $($sprite.asset)"
++                    }
++                    if (!$isTime) {
++                        foreach ($band in $bands) {
++                            if ($dy -ge $band.y -and $dy -lt ($band.y + $band.height)) {
++                                throw "Pokemon/badge overlaps band: $($frame.Name) $($sprite.asset)"
++                            }
++                        }
++                    }
++                    if ($sprite.asset -match '/(Catch|daytime|nighttime)\.png$') {
++                        if ($markers[$dy * 320 + $dx] -ne 0) {
++                            throw "Overlapping indicator pixels: $($frame.Name)"
++                        }
++                        $markers[$dy * 320 + $dx] = $id
+                     }
+                     $owners[$dy * 320 + $dx] = $id
+                 }
+             }
+-        } finally { $bitmap.Dispose() }
++        } finally { $graphics.Dispose(); $canvas.Dispose(); $bitmap.Dispose() }
+     }
+     $visible = @($owners | Where-Object { $_ -gt 0 } | Group-Object | ForEach-Object { [int]$_.Name })
+     for ($i = 1; $i -le $sprites.Count; $i++) {
+         if ($i -notin $visible) { throw "Fully hidden sprite: $($frame.Name) $i" }
+     }
+-    Write-Output "$($frame.Name): $($sprites.Count) sprites/badges visible, native size, within grid."
++    Write-Output "$($frame.Name): $($sprites.Count) sprites/badges visible; scales, bounds and bands OK."
+ }
+diff --git a/scripts/00015 HabitatList/UI_REDESIGN.md b/scripts/00015 HabitatList/UI_REDESIGN.md
+index 681c8be6..bb60fa4d 100644
+--- a/scripts/00015 HabitatList/UI_REDESIGN.md	
++++ b/scripts/00015 HabitatList/UI_REDESIGN.md	
+@@ -1,141 +1,117 @@
+-# Interface HabitatList — grille et ajustements
+-
+-Cette note décrit l'interface actuelle. `MIGRATION.md` et `migration.patch` documentent l'étape antérieure de migration, avec son ancienne liste.
++# HabitatList — catégories horaires et bandeaux
+ 
+ ## Périmètre
+ 
+-Seul `54200 ZoneEncounterPage.rb` change dans le code chargé par le jeu. Les tests et les outils d'aperçu sont adaptés. Le catalogue `54100`, l'extension X → Zone `54300`, le script historique `54000`, les archives du plugin, `plugins.dat`, les données Studio et les ressources graphiques restent inchangés par cette refonte.
+-
+-## Ressources examinées
++Seul `54200 ZoneEncounterPage.rb` change dans le code exécuté par le jeu. Le catalogue `54100`, l'intégration X → Zone `54300`, le script historique `54000`, les archives du plugin, `plugins.dat`, les PNG et les données Studio ne sont pas modifiés par cette intervention. Les tests, outils d'aperçu et cette note sont adaptés.
+ 
+-- Résolution logique : **320 × 240**, agrandissement configuré ×2 ; les dimensions ci-dessous sont en pixels du jeu.
+-- `graphics/pokedex/pokefront` contient des PNG statiques de **96 × 96** et des GIF d'animation de dimensions variables. La page utilise les PNG via `RPG::Cache.poke_front`, dont le chargeur `Texture` prend en charge les PNG. Elle n'utilise ni `b_icon` ni le découpage des icônes de stockage.
+-- `PFM::Pokemon.front_filename(espèce, forme, false, false, false)` résout les ressources de la forme Studio exacte, sans construire un Pokémon et sans recalculer sa forme. Exemple : Mistigrix forme 1 → `0678_01.png`.
+-- Pour une entrée inconnue, aucun nom ni fichier d'espèce n'est résolu : seul **`pokefront/000.png`** est chargé. Il mesure 96 × 96, avec un contenu visible de 62 × 62. Il est distinct du `pokedex/000.png` situé un niveau plus haut.
+-- L'indicateur natif du Pokédex est **`graphics/pokedex/catch.png`**, 16 × 16, chargé par le même identifiant `Catch` que le Pokédex PSDK. Aucun asset créé ou modifié.
+-- Le composant `UI::PokemonFaceSprite` gère des origines et animations propres aux fiches ; la grille utilise des `Sprite` simples dans un `SpriteStack`. Le fond et les boutons restent ceux de `GenericBase`.
+-- Les API locales `Bitmap#to_png`, `Image.new(bytes, true)` et `Image#get_pixel_alpha` permettent de mesurer les marges transparentes une seule fois par texture et par ouverture. L'image temporaire est libérée ; les textures partagées du cache restent intactes.
++## Environnements et ordre d'affichage
+ 
+-## Disposition
++La fusion reste générique par **`[system_tag, tool]`**, sans reconnaître un nom comme Grotte. Terrain technique, combat simple/double/triple et conditions ne créent pas de pages d'environnement supplémentaires. Les méthodes différentes restent séparées. Les groupes originaux, leurs conditions et leurs statuts sont conservés dans le catalogue et dans `members`. Les environnements configurés restent consultables sans promesse de disponibilité immédiate.
+ 
+-| Élément | Position / taille logique |
+-| --- | --- |
+-| Nom de zone | x=8, y=0, largeur 304, hauteur 16 |
+-| Ensemble / environnement | x=8, y=16, largeur 304, hauteur 16 |
+-| Disponibilité / données incomplètes | x=8, y=32, largeur 304, hauteur 16 |
+-| Grille | **4 colonnes × 3 lignes**, 12 entrées ; x=8..311, y=52..191 |
+-| Pas des emplacements | **76 × 46** ; centres x=46/122/198/274, y=75/121/167 |
+-| Compteurs Vus / Capturés | x=8, y=192, largeur 218, hauteur 16 |
+-| Numéro de page | x=230, y=192, largeur 82, hauteur 16 |
+-| Bandeau des commandes | y=214 ; boutons à y=219 |
++Catégories actuelles : Herbes, Hautes herbes, Grotte, Sable, Sol, Lac, Mer, Pêche · Canne / Lac, Pêche · Super Canne / Lac, Pêche · Canne / Mer, Pêche · Super Canne / Mer, Coup de Boule / Arbres, Éclate-Roc / Grotte.
+ 
+-`SpriteStack#add_text` applique le décalage natif FOY=2 : le code fournit donc y+2 pour ces textes.
++Après l'union et la déduplication **`[espèce, forme]`**, les périodes de chaque couple sont réunies, puis les entrées sont triées AVANT pagination :
+ 
+-Les sprites gardent **zoom_x = zoom_y = 1**, sans découpe ni déformation. Le contenu opaque est centré dans l'emplacement, puis décalé si nécessaire pour rester dans la zone de grille. Les marges transparentes peuvent dépasser cette zone sans masquer le texte. Les sujets volumineux passent derrière les petits lorsque leurs silhouettes se chevauchent. La petite Ball reste au premier plan, en bas à droite de l'emplacement.
++1. Quatre périodes : toute la journée, sans bandeau.
++2. Matin, Jour, Matin + Jour, ou majorité diurne sur trois périodes : bandeau `MATIN / JOUR`.
++3. Soir, Nuit, Soir + Nuit, ou majorité nocturne sur trois périodes : bandeau `SOIR / NUIT`.
+ 
+-Les compteurs portent sur tous les couples espèce/forme de la sélection, pas seulement la page visible. « Ensemble » conserve l'union dédupliquée des groupes actifs fournie par le catalogue. Aucun nom, statut individuel ou liste d'habitats n'est ajouté sous les sprites.
++L'ordre initial reste stable à l'intérieur de chaque catégorie. La majorité compte les périodes distinctes, sans pondération par durée, taux ou nombre de groupes. Les paires équilibrées exclues des données par le projet n'ont aucun traitement visuel spécifique.
+ 
+-## Fusion des environnements
++Les conditions temporelles restent les `enabled_switch` Matin=13, Jour=11, Soir=14, Nuit=12, avec conservation de l'ordre AND/OR. Les prérequis non temporels sont supposés satisfaits uniquement pour calculer cette préférence ; le catalogue et le moteur continuent à les évaluer normalement. Un inconnu ne charge que `000.png`, sans résolution de son nom ou de son sprite d'espèce. Sa position indique sa catégorie collective ; aucun indicateur horaire individuel n'est affiché.
+ 
+-Le catalogue distingue les contextes de rencontre par `[system_tag, terrain_tag, tool]` pour reproduire la priorité native de PSDK. L'ancienne navigation affichait chaque groupe de ce catalogue séparément.
++Ensemble conserve l'union des groupes actifs, son ordre initial et sa pagination de douze entrées. Aucun classement horaire ni bandeau n'y est ajouté.
+ 
+-Cas réel de la Grotte cristalline, carte 29, `zone_22` :
+-
+-| Groupe | system_tag | terrain_tag | vs_type | Outil / condition |
+-| --- | --- | --- | --- | --- |
+-| group_35 | cave | 0 | simple | aucun / map_id=29 |
+-| group_55 | cave | 1 | double | aucun / map_id=29 |
+-| group_56 | cave | 2 | triple | aucun / map_id=29 |
++## Disposition réelle : 320 × 240
+ 
+-L'adaptateur de présentation regroupe les variantes par **system_tag + outil + séquence exacte de conditions (type, valeur, relation) + statut actif/inactif/masqué**. `terrain_tag` et `vs_type` ne divisent plus la présentation d'un même environnement. Le nom affiché n'intervient pas dans cette décision.
++| Élément | Dimensions / position |
++| --- | --- |
++| Grille | 4 colonnes de 76 px, de x=8 à x=312 ; jusqu'à 3 lignes |
++| Zone des milieux | y=32 à y=192 ; y=52 si une alerte de données est affichée |
++| Ensemble | grille y=52 à y=192, pas vertical 46 px |
++| Bandeau | **304 × 18 px**, x=8 ; marge de 2 px avant les Pokémon |
++| Séparation entre catégories | 4 px avant le bandeau suivant |
++| Compteurs et pagination | y=194, hauteur 16 px |
++| Barre / boutons | y=214 / y=219, inchangés |
+ 
+-Ces trois groupes deviennent une seule **Grotte de 12 couples espèce/forme**, incluant les formes de Racaillou et Sabelette, sans tripler les entrées ni les statistiques. La fusion conserve l'ordre de première apparition. Elle travaille sur une copie de la présentation, sans modifier les groupes ni la sélection de combat.
++Chaque bandeau contient un dégradé généré en mémoire, la véritable ressource 32 × 18 `daytime.png` ou `nighttime.png` à x=108, puis un court texte noir à x=140. Les deux bandeaux utilisent exactement la même structure. Le dégradé diurne va du jaune pâle à l'orange rouge ; le nocturne du bleu clair au bleu nuit. Aucun PNG n'est modifié.
+ 
+-Les system tags distincts, les outils distincts et les conditions distinctes restent séparés. Les horaires usuels sont nommés dans l'en-tête. Un groupe masqué n'est pas fusionné avec un groupe actif ; un groupe inactif reste consultable avec son indication. « Groupe actif · selon terrain / outil » n'affirme pas une disponibilité sur la case du joueur.
++La pagination des milieux mesure la silhouette visible des fronts et réserve réellement la hauteur des bandeaux. Elle conserve le plus grand préfixe possible de la liste triée, jusqu'à douze entrées et trois lignes. Le pas des lignes reste aussi proche que possible de 46 px, avec un minimum de 32 px. Les grands sprites peuvent se chevaucher dans une même catégorie, mais jamais recouvrir les bandeaux ou les compteurs. Une catégorie commence sur sa propre ligne.
+ 
+-### Audit du caractère générique
++Un bandeau n'est jamais isolé en bas de page : il est reporté avec les premiers Pokémon de sa catégorie. Une catégorie diurne/nocturne poursuivie sur une autre page retrouve son bandeau en haut, pour rendre cette page compréhensible seule. Il n'est affiché qu'une fois par catégorie et par page, sans consommer de case ni entrer dans les compteurs. La capacité peut donc être inférieure à douze sans passer systématiquement à deux lignes.
+ 
+-La règle est générique : aucun test sur `:cave`, `Grotte`, un préfixe de nom ou une liste d'environnements autorisés ne décide de la fusion. `TERRAIN_NAMES` et `TOOL_NAMES` servent uniquement à traduire les libellés. Un system tag absent de ces tables est également regroupé, et utilise son identifiant comme libellé.
++Les vrais fronts restent à l'échelle **1:1**, avec résolution de la forme par `PFM::Pokemon.front_filename`, puis `RPG::Cache.poke_front`. Les marges transparentes sont mesurées via l'alpha ; aucun pixel visible n'est découpé. `b_icon` n'est pas utilisé.
+ 
+-Deux exemples réels supplémentaires :
++- Poké Ball : ressource 16 × 16 affichée à 75 %, soit **12 × 12 px**, uniquement pour un Pokémon capturé. Position près du coin supérieur droit de la silhouette visible, légèrement au-dessus, limitée à sa zone pour protéger les bandeaux.
++- Inconnu : `pokefront/000.png` affiché à **83 %** ; son bitmap 96 × 96 occupe 79,68 × 79,68 px avant rastérisation et sa silhouette 62 × 62 environ 52 × 52 px. Aucune Ball.
+ 
+-- `zone_32`, carte 36 : Herbes `group_39` (terrain 0/simple), `group_32` (terrain 1/double) et `group_46` (terrain 2/triple), tous sans outil et avec la même condition, donnent **une sélection Herbes de 35 couples espèce/forme**. Chenipotte commun aux trois groupes n'apparaît qu'une fois ; les 20 formes de Prismillon restent distinctes. Ses 35 entrées occupent plusieurs pages de grille.
+-- `zone_7`, carte 8 : Herbes `group_15` et `group_17` fusionnent malgré deux terrains numériques différents et le même format simple. Les Hautes herbes `group_16`, de system tag distinct, restent séparées.
++## Accès public TJN et légende
+ 
+-**Limite actuelle : cette règle n'est pas strictement « un environnement = une seule sélection », indépendamment des conditions et statuts.** Elle conserve des sélections distinctes pour ces différences. Exemple réel : dans `zone_25` (carte 35), `group_36` simple et `group_34` triple fusionnent, mais `group_33` double reste une seconde sélection Herbes : sa condition est carte 35 OU carte 36, contre carte 35 seule pour les deux autres. Le résultat vrai des conditions ne suffit pas : leur séquence doit être identique. De même, les Hautes herbes actives et masquées de `zone_5` restent deux sélections.
++La correction du crash est conservée :
+ 
+-Cet audit n'a pas modifié le code d'affichage. Une fusion stricte par milieu/méthode, avec disponibilité détaillée à l'intérieur d'une seule sélection, nécessiterait un changement supplémentaire de présentation ; ce n'est pas le comportement actuel.
++```ruby
++key = PFM.game_state.tint_time_set
++(Yuki::TJN::TIME_SETS[key] || Yuki::TJN::TIME).dup
++```
+ 
+-### Catégories présentes dans les données actuelles
++`current_time_set` est une méthode singleton privée, définie sous `class << self; private` dans PSDK 26.60. Le bloc `module_function` précédent ne rend pas cette définition publique. Les sources locales, la copie projet sous `00001 Scene_Title` et le moteur installé de Studio conservent la même définition et visibilité ; quelques commentaires diffèrent.
+ 
+-Inventaire de la base compilée du jeu : **59 groupes distincts rattachés à 43 zones**, soit **13 catégories milieu/méthode** possibles en plus d'Ensemble. Les quatre groupes non rattachés (`group_40`, `group_41`, `group_45`, `group_48`) n'ajoutent aucune catégorie supplémentaire.
++Les méthodes publiques propres à TJN sont `init_variables`, `update`, `force_update_tone`, `current_tone` et `update_timed_events`. Aucune ne fournit les seuils. `PFM::Environment#morning?`, `day?`, `sunset?`, `night?` donnent l'état courant, pas les heures. Le moteur récupère le réglage par l'accesseur public `PFM.game_state.tint_time_set`, puis son helper privé sélectionne `TIME_SETS` avec repli sur `TIME`. La page utilise ces mêmes données publiques, sans `send`, changement de visibilité ou modification de TJN.
+ 
+-| system_tag | tool | Libellé de catégorie |
+-| --- | --- | --- |
+-| grass | aucun | Herbes |
+-| tall_grass | aucun | Hautes herbes |
+-| cave | aucun | Grotte |
+-| sand | aucun | Sable |
+-| regular_ground | aucun | Sol |
+-| pond | aucun | Lac |
+-| sea | aucun | Mer |
+-| pond | old_rod | Pêche · Canne / Lac |
+-| pond | good_rod | Pêche · Super Canne / Lac |
+-| sea | old_rod | Pêche · Canne / Mer |
+-| sea | good_rod | Pêche · Super Canne / Mer |
+-| headbutt | headbutt | Coup de Boule / Arbres |
+-| cave | rock_smash | Éclate-Roc / Grotte |
++L'événement de `Data/Map002.rxdata` choisit `:platinum_daynight`, défini dans les teintes mais pas dans `TIME_SETS` : le repli natif s'applique.
+ 
+-Les libellés Herbes peuvent également être suffixés **Matin, Jour, Soir ou Nuit** selon les groupes configurés. On obtient donc 17 libellés distincts d'environnement, hors Ensemble, en comptant ces suffixes. Le nombre de sélections d'une zone dépend aussi des conditions et statuts séparés décrits ci-dessus ; ce tableau n'annonce pas 13 sélections dans chaque zone.
++| Réglage | Matin | Jour | Soir | Nuit |
++| --- | --- | --- | --- | --- |
++| default / summer / repli platinum_daynight | 07–11 | 11–19 | 19–22 | 22–07 |
++| winter | 10–12 | 12–16 | 16–17 | 17–10 |
++| fall / spring | 09–11 | 11–17 | 17–19 | 19–09 |
+ 
+-Les rencontres aquatiques sans outil, que le joueur associe à Surf, sont nommées **Lac** ou **Mer** par cette interface. Il n'y a pas de catégorie littérale « Surf » dans les groupes rattachés actuels. Elles restent séparées de la pêche via `tool = nil` contre `old_rod`/`good_rod`. Montagne, Herbes denses et Méga Canne figurent dans les traductions possibles mais ne sont pas utilisées par ces groupes actuels.
++La légende compacte d'Ensemble conserve les quatre transitions : **Matin/Jour 07h–11h–19h**, **Soir/Nuit 19h–22h–07h** avec les icônes originales. Elle est recalculée lorsque le réglage change. Une alerte de données incomplètes remplace exceptionnellement cette légende dans la même bande.
+ 
+-## Commandes conservées
++L'ancien banc rendait accidentellement publique la méthode isolée de TJN. Il charge désormais le module natif complet avec sa visibilité réelle. La régression a reproduit le crash avant correction ; elle vérifie maintenant l'ouverture de la scène avec huit réglages, le maintien de la méthode privée et l'absence de mutation des constantes.
+ 
+-- **Suivant** (A / droite) et **Précédent** (X / gauche) parcourent les sélections en boucle : Ensemble → environnements. Chaque changement revient à la première page.
+-- **Haut / bas** et **molette** parcourent uniquement les pages de la sélection courante, en boucle.
+-- **Ensemble** (Y) revient à Ensemble, page 1.
+-- **Retour** (B) referme cette scène et retrouve le Pokédex.
++## Navigation conservée
+ 
+-## Vérifications
++Suivant (A/droite) et Précédent (X/gauche) parcourent Ensemble et les environnements en boucle, en revenant à leur première page. Haut/bas et molette parcourent les pages de la sélection courante, désormais selon leurs tailles réelles. Ensemble (Y) revient à Ensemble page 1 ; Retour (B) retrouve le Pokédex.
+ 
+-Les **38 tests, 1 336 assertions** passent sous Ruby 3.1.2 et sous **Ruby 3.0.6 livré avec Studio**. Les anciens tests de logique sont conservés ; les attentes d'interface suivent la grille de 12 cases. La syntaxe du script est aussi vérifiée sous Ruby Studio.
++## Vérifications et aperçus
+ 
+-Le banc vérifie notamment les groupes réels 35/55/56, une union de groupes à contenus différents, la déduplication espèce/forme, les trois états inconnu/vu/capturé, les formes de Mistigrix, les douze cases occupées, les pages supplémentaires, les marqueurs réutilisés, la navigation, les conditions, les priorités et l'absence de mutation du catalogue et des données. Les tests de logique des rencontres, de sauvegarde et d'intégration au Pokédex restent exécutés.
++**50 tests, 1 337 assertions, aucun échec/erreur, un test ignoré**, sous Ruby 3.1.2 et le Ruby 3.0.6 fourni avec Studio. `Data/Studio/psdk.dat` est absent lors de cette vérification : seule la comparaison JSON/cache compilé est ignorée. Les autres tests chargent les vrais JSON via Studio2PSDK en mémoire, sans écrire de cache.
+ 
+-L'audit ajoute le cas réel Herbes 39/32/46, avec déduplication, formes, pagination et navigation, puis un test paramétré des variantes simple/double/triple pour chacune des 13 catégories du projet. Un system tag fictif absent des traductions et des noms affichés volontairement différents prouvent aussi que le regroupement ne dépend pas d'une liste autorisée ou des libellés. Les groupes de ce test paramétré sont construits uniquement en mémoire ; les données du projet restent intactes.
++Sont couverts : catégories et stabilité du tri, union dédupliquée, ordre avant pagination, trois lignes avec deux bandeaux, continuation et report d'un bandeau, navigation sur des pages de huit puis quatre Pokémon, compteurs indépendants des bandeaux, absence d'icônes individuelles, tailles et position des badges, non-révélation des inconnus, formes, catalogue, intégration X et accès public TJN.
+ 
+ Depuis `scripts/` :
+ 
+ ```powershell
+ ruby '.\00015 HabitatList\tests\habitat_test.rb'
+ & 'C:\Users\thiba\AppData\Local\Programs\pokemon-studio\resources\psdk-binaries\ruby.exe' '-IC:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/minitest-5.15.0/lib' '.\00015 HabitatList\tests\habitat_test.rb'
+-```
+-
+-Cinq aperçus **320 × 240**, examinés avec les véritables images et polices du projet, sont dans `ui_previews/`. Ils couvrent les 15 entrées de Prairie ruisselante, une sélection masquée, la Grotte fusionnée, Wailord, Méga-Steelix, Mistigrix forme 1, Prismillon et un inconnu. Le contrôle des pixels vérifie l'échelle native, l'absence de pixels opaques hors de la grille et l'absence de sprite ou de marqueur entièrement masqué dans ces cinq cas.
+-
+-Pour les régénérer sans modifier les données du jeu :
+-
+-```powershell
+ & '.\00015 HabitatList\tests\render_grid_preview.ps1' -PrepareBounds
+ ruby '.\00015 HabitatList\tests\grid_preview.rb'
+ & '.\00015 HabitatList\tests\render_grid_preview.ps1'
+ & '.\00015 HabitatList\tests\check_grid_preview.ps1'
+ ```
+ 
+-Ces aperçus utilisent System.Drawing et des primitives simulées, **pas une capture du moteur LiteRGSS**. La présence de pixels visibles ne suffit pas à garantir à elle seule l'identification confortable de toutes les silhouettes. Il reste à contrôler en jeu : lisibilité des chevauchements sur les trois lignes, placement et association des Balls, rendu des textes et touches réellement mappées, défilement des pages et retour X → Zone → B. Aucun nouveau parcours visuel dans le jeu n'a été exécuté pour ces ajustements.
++Douze aperçus 320 × 240 sont régénérés dans `ui_previews/` :
+ 
+-## Diff réversible
++- `ensemble_1`, `ensemble_2` : légende et pagination.
++- `trois_categories_1` : toute la journée → diurne → nocturne, douze Pokémon, trois lignes.
++- `jour_vers_nuit_1` : bandeau dès le début et transition diurne/nocturne.
++- `suite_categorie_1`, `suite_categorie_2` : catégorie poursuivie, bandeau rappelé et plusieurs inconnus.
++- `bandeau_reporte_1`, `bandeau_reporte_2` : grands sprites ; bandeau et catégorie reportés ensemble.
++- `formes_et_inconnu`, `horaires_et_capture` : formes, petites et grandes silhouettes, badges et inconnu.
++- `milieu_fusionne`, `grotte_fusionnee` : sélections réelles du projet.
+ 
+-`ui_adjustments.patch` contient les ajustements depuis la grille à deux lignes approuvée : code, tests et outils/documentation. Sa base est conservée dans `ui_adjustments_before/`.
++Le contrôle indépendant des pixels PNG vérifie les échelles, les limites de chaque zone, l'absence de recouvrement des bandeaux par les Pokémon/Balls, les indicateurs distincts et la visibilité de chaque sprite sur les douze aperçus.
+ 
+-Depuis la racine du projet, vérifier puis annuler **ces derniers ajustements uniquement** :
++Ces images System.Drawing utilisent les vrais assets et polices, mais **ne sont pas des captures LiteRGSS**. Restent à contrôler en jeu : ouverture de Zone sans crash TJN, rendu des dégradés et textes, finesse des réductions 75/83 %, chevauchement des grands Pokémon dans une catégorie, navigation et retour au Pokédex.
++
++## Diff réversible
++
++`category_bands_before/` conserve l'état précédant les bandeaux, **avec l'accès TJN déjà corrigé**. `category_bands.patch` contient uniquement cette dernière étape, les tests et la documentation. Depuis la racine du projet :
+ 
+ ```powershell
+-git apply --reverse --check 'scripts/00015 HabitatList/ui_adjustments.patch'
+-git apply --reverse 'scripts/00015 HabitatList/ui_adjustments.patch'
++git apply --reverse --check 'scripts/00015 HabitatList/category_bands.patch'
++git apply --reverse 'scripts/00015 HabitatList/category_bands.patch'
+ ```
+ 
+-`ui_redesign.patch` est une autre possibilité : il contient l'ensemble de la refonte visuelle depuis la liste initiale de la migration, avec la base `ui_redesign_before/`. **Ne pas appliquer les deux inversions successivement** : choisir le point de retour souhaité. Les patches excluent les PNG/JSON d'aperçu régénérables et les dossiers de sauvegarde ; ceux-ci restent disponibles après annulation. Les deux vérifications inverses ont été exécutées sans modifier les fichiers actifs.
+-
+-Les changements préexistants du projet restent conservés. Les anciens patches de migration correspondent à leurs étapes historiques ; revenir directement à cette étape exige d'abord d'annuler la refonte complète avec `ui_redesign.patch`.
++Trois patches cumulatifs sont également actualisés : `time_indicators.patch` revient à l'état précédant les horaires, `ui_adjustments.patch` à la grille deux lignes approuvée, `ui_redesign.patch` à la liste initiale de la migration. Choisir un seul point de retour, sans inverser successivement ces patches. Leurs vérifications inverses sont effectuées sans annuler les fichiers actifs. Les dossiers de sauvegarde et aperçus régénérables sont exclus des patches. `tjn_access_before/` conserve séparément le code qui provoquait le crash pour revue historique.

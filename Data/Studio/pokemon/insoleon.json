@@ -1,0 +1,185 @@
+{
+  "klass": "Specie",
+  "id": 816,
+  "dbSymbol": "insoleon",
+  "forms": [
+    {
+      "form": 0,
+      "formTextId": {
+        "name": 1056,
+        "description": 0
+      },
+      "height": 4.3,
+      "weight": 146,
+      "type1": "dragon",
+      "type2": "flying",
+      "baseHp": 110,
+      "baseAtk": 130,
+      "baseDfe": 90,
+      "baseSpd": 110,
+      "baseAts": 70,
+      "baseDfs": 90,
+      "evHp": 0,
+      "evAtk": 3,
+      "evDfe": 0,
+      "evSpd": 0,
+      "evAts": 0,
+      "evDfs": 0,
+      "evolutions": [],
+      "experienceType": 2,
+      "baseExperience": 189,
+      "baseLoyalty": 70,
+      "catchRate": 45,
+      "femaleRate": 30,
+      "breedGroups": [
+        14,
+        5
+      ],
+      "hatchSteps": 1024,
+      "babyDbSymbol": "dunsparce",
+      "babyForm": 0,
+      "itemHeld": [
+        {
+          "dbSymbol": "none",
+          "chance": 0
+        },
+        {
+          "dbSymbol": "none",
+          "chance": 0
+        }
+      ],
+      "abilities": [
+        "intimidate",
+        "mold_breaker",
+        "queenly_majesty"
+      ],
+      "frontOffsetY": 0,
+      "resources": {
+        "icon": "0206",
+        "iconShiny": "0206s",
+        "front": "1031",
+        "frontShiny": "1031",
+        "back": "1031",
+        "backShiny": "1031",
+        "footprint": "0149",
+        "character": "0206",
+        "characterShiny": "0206s",
+        "egg": "egg0206",
+        "iconEgg": "egg0206",
+        "cry": "0206.ogg",
+        "hasFemale": false
+      },
+      "moveSet": [
+        {
+          "klass": "LevelLearnableMove",
+          "move": "rage",
+          "level": 1
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "rollout",
+          "level": 5
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "spite",
+          "level": 8
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "pursuit",
+          "level": 10
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "screech",
+          "level": 13
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "mud_slap",
+          "level": 15
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "yawn",
+          "level": 18
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "ancient_power",
+          "level": 20
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "body_slam",
+          "level": 23
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "drill_run",
+          "level": 25
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "roost",
+          "level": 28
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "take_down",
+          "level": 30
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "coil",
+          "level": 33
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "aerial_ace",
+          "level": 35
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "glare",
+          "level": 38
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "double_edge",
+          "level": 40
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "iron_tail",
+          "level": 43
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "air_slash",
+          "level": 45
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "dragon_rush",
+          "level": 48
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "dragon_dance",
+          "level": 52
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "outrage",
+          "level": 57
+        },
+        {
+          "klass": "EvolutionLearnableMove",
+          "move": "dragon_claw"
+        }
+      ]
+    }
+  ]
+}

@@ -1,44 +1,44 @@
 ================================Erreur de script================================
 Message :
-wrong number of arguments (given 3, expected 1)
+private method `current_time_set' called for Yuki::TJN:Module
 
-Type : ArgumentError
-Script : 2_PSDK_Event_Interpreter.rb (PSDK)
-Ligne : 227
-Date : 01/09/2026 18:42:05
-Game Version : 2
-Logiciel : PSDK 26.57
-Script used by eval command : 
-opts = {
-  captured_with: :premier_ball,
-  stats: [25, 25, 25, 25, 25, 25],
-  nature: :sassy,
-  moves: [:gyro_ball, :stealth_rock, :rock_tomb, :curse],
-  ability: :sturdy,
-  shiny: false
-}
-onix = ajouter_pokemon_param(:onix, 20, opts)
-renommer_pokemon(onix, 10) if onix
-
-
+Type : NoMethodError
+Script : 00015 HabitatList/54200 ZoneEncounterPage.rb (user)
+Ligne : 30
+Date : 23/09/2026 15:17:27
+Game Version : 3
+Logiciel : PSDK 26.60
 ===================================Backtraces===================================
-[27] : 2_PSDK_Event_Interpreter.rb (PSDK) | ligne 227 add_specific_pokemon
-[26] : (eval) (RMXP) | ligne 10 eval_X3
-[25] : 1_RMXP_Scripts.rb (PSDK) | ligne 2125 eval_script
-[24] : 1_RMXP_Scripts.rb (PSDK) | ligne 2117 command_355
-[23] : 1_RMXP_Scripts.rb (PSDK) | ligne 1101 execute_command
-[22] : 1_RMXP_Scripts.rb (PSDK) | ligne 976 update
-[21] : 1_RMXP_Scripts.rb (PSDK) | ligne 956 loop
-[20] : 1_RMXP_Scripts.rb (PSDK) | ligne 956 update
-[19] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9285 update_map_logic
-[18] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 2933 update_map_logic
-[17] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9293 auto_transfert_update
-[16] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9292 loop
-[15] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9292 auto_transfert_update
-[14] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9145 update
-[13] : 0_Dependencies.rb (PSDK) | ligne 1417 times
-[12] : 0_Dependencies.rb (PSDK) | ligne 1417 run
-[11] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9145 update
+[40] : 00015 HabitatList/54200 ZoneEncounterPage.rb (user) | ligne 30 schedule
+[39] : 00015 HabitatList/54200 ZoneEncounterPage.rb (user) | ligne 341 refresh_catalog
+[38] : 00015 HabitatList/54200 ZoneEncounterPage.rb (user) | ligne 331 create_graphics
+[37] : 4_Systems_000_General_2_GamePlay__Base.rb (PSDK) | ligne 228 main_begin
+[36] : 4_Systems_000_General_2_GamePlay__Base.rb (PSDK) | ligne 143 main
+[35] : 4_Systems_000_General_2_GamePlay__Base.rb (PSDK) | ligne 175 call_scene
+[34] : 00015 HabitatList/54300 DexZoneExtension.rb (user) | ligne 20 action_x
+[33] : 4_Systems_000_General_2_GamePlay__Base.rb (PSDK) | ligne 452 automatic_input_update
+[32] : 4_Systems_000_General_2_GamePlay__Base.rb (PSDK) | ligne 450 each
+[31] : 4_Systems_000_General_2_GamePlay__Base.rb (PSDK) | ligne 450 automatic_input_update
+[30] : 4_Systems_101_Dex.rb (PSDK) | ligne 1024 update_inputs
+[29] : 4_Systems_000_General_2_GamePlay__Base.rb (PSDK) | ligne 433 update
+[28] : 4_Systems_000_General_2_GamePlay__Base.rb (PSDK) | ligne 463 update
+[27] : 4_Systems_000_General_2_GamePlay__Base.rb (PSDK) | ligne 236 main_process
+[26] : 4_Systems_000_General_2_GamePlay__Base.rb (PSDK) | ligne 144 main
+[25] : 4_Systems_000_General_2_GamePlay__Base.rb (PSDK) | ligne 175 call_scene
+[24] : 4_Systems_000_General.rb (PSDK) | ligne 224 open_dex
+[23] : 4_Systems_100_Menu.rb (PSDK) | ligne 223 open_dex
+[22] : 4_Systems_100_Menu.rb (PSDK) | ligne 219 action
+[21] : 4_Systems_100_Menu.rb (PSDK) | ligne 70 update_inputs
+[20] : 4_Systems_000_General_2_GamePlay__Base.rb (PSDK) | ligne 433 update
+[19] : 4_Systems_000_General_2_GamePlay__Base.rb (PSDK) | ligne 236 main_process
+[18] : 4_Systems_000_General_2_GamePlay__Base.rb (PSDK) | ligne 144 main
+[17] : 4_Systems_000_General_2_GamePlay__Base.rb (PSDK) | ligne 175 call_scene
+[16] : 4_Systems_000_General.rb (PSDK) | ligne 158 open_menu
+[15] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9447 call_menu
+[14] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9376 update_scene_calling
+[13] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9374 each
+[12] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9374 update_scene_calling
+[11] : 4_Systems_003_Map_Engine.rb (PSDK) | ligne 9150 update
 [10] : 4_Systems_000_General_2_GamePlay__Base.rb (PSDK) | ligne 236 main_process
 [9] : 4_Systems_000_General_2_GamePlay__Base.rb (PSDK) | ligne 144 main
 [8] : tools/GameLoader/Z_main.rb (PSDK) | ligne 16 <top (required)>

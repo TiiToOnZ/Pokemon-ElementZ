@@ -33,16 +33,16 @@ Non.
 "Bonjour, mon enfant !\nlTe voici dans la tour des anciens, la tour qui t'accompagne jusqu'aux cieux !\nlChaque paliers de la tour appartient à un sage spécialisé dans l'un des types originels. \nlSi tu parviens à les battre un par un, tu pourras te confronter aux sages de la lumière et gagner un objet à la pointe de la technologie !"
 "Une fois arrivé au plus proche des cieux, Dieu te fait présent de sa bénédiction[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10] n'est-ce-pas merveilleux ?!\nlJe te conseille de te munir d'objets car tu ne pourras pas retourner au Pokésoin entre chaque paliers.\nlQue le sort te soit favorable !"
 Tu as mené de formidables combats !
-:[name=Sages de la Lumière]:Tu es donc arrivé jusqu'au dernier étage.\nlMais le plus dur reste à venir[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10] ce ne sera pas aussi simple d'avoir la dernière technologie à la mode !
-:[name=Sages de la Lumière]:Wahouhou ! \nlTu es l'essence même de la vie ! \nlL'objectif de cette tour est de montrer aux jeunes dresseurs l'importance d'avoir une équipe diversifiée et équilibrée.\nlTu as réussi cette épreuve avec brio ! 
-:[name=Sages de la Lumière]:Et c'est avec honneur que je te remets notre technologie dernier cri !
-:[align=center]:REÇU : \c[5]POKETORCHE\c[0]
-":[align=center]:\s[i]Vous rangez votre ""Poketorche"" dans votre sac dans la poche Objets rares.\s[r]"
-:[name=Sages de la Lumière]:Tu veux en apprendre plus sur les artefacts ?\nlNous nous sommes justement réunis entre Sages et le champion d'arène afin d'en discuter.\nlAprès ce combat nous n'avons pas besoin de se réunir pour voir que tu as une âme pure.\nlC'est pour quoi nous allons te révéler ce que l'on sait.
-":[name=Sages de la Lumière]:Nous savons où se trouve l'un des artefacts, nous sentons sa puissance[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\nlnous n'avons pas la position exact mais nous allons te guider."
 
 
-:[name=Sages de la Lumière]:Bonne chance à toi pour ta quête de bravoure et d'espoir.
+
+
+
+
+
+
+
+
 
 
 
@@ -73,3 +73,4 @@ Non.
 :[name=Sage du vent]:Dites moi quand vous êtes prêt.
 ":[name=Sage du feu]:Mouhaha prit au piège dans cette tour. \nlMaintenant, il vous faut finir la tour des anciens pour pouvoir redescendre !"
 :[name=Sage de l'eau]:Il vous faut finir la tour des anciens pour pouvoir redescendre !
+

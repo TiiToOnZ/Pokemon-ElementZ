@@ -1,8 +1,9 @@
-o:Configs::CreditsConfig:@project_splashI"title_ingame:ET:	@bgmI"ending;T:@line_heighti:@speedi1:@leader_spacingi5:@chief_project_titleI"Main Supporter;T:@chief_project_nameI"Team Poketoonz;T:@leaders[{:
-titleI"Creator of PKM ElementZ;T:	nameI"TiiToOnZ;T{;I"Scenario;T;I"TiiToOnZ, Grivius;T{;I"Script Writing;T;I""TiiToOnZ, Maeliss, Coupinette;T{;I"Main Developers;T;I"TiiToOnZ, Soul;T{;I"Art & Design;T;I"&TiiToOnZ, Maeliss, Sanaa, Souhaib;T{;I"Fakemon Creator;T;I"Maeliss;T{;I"Main Tester;T;I"Cha, Glytches, Coupinette;T:@game_creditsI"Ö# PKM ElementZ || Related Credits
+o:Configs::CreditsConfig:@project_splashI"title_ingame:ET:	@bgmI"ending;T:@line_heighti:@speedi1:@leader_spacingi5:@chief_project_titleI"Main Supporter;T:@chief_project_nameI"Team Poketoonz;T:@leaders[{:
+titleI"Creator of PKM ElementZ;T:	nameI"TiiToOnZ;T{;I"Scenario;T;I"TiiToOnZ, Grivius;T{;I"Script Writing;T;I""TiiToOnZ, Maeliss, Coupinette;T{;I"Main Developers;T;I"TiiToOnZ, Soul;T{;I"Art & Design;T;I"&TiiToOnZ, Maeliss, Sanaa, Souhaib;T{;I"Fakemon Creator;T;I"Maeliss, TiiToOnZ;T{;I"Main Tester;T;I"(Cha, Coupinette, Glytches, Slyleman;T{;I"Main translator;T;I"Sandrine;T:@game_creditsI"# PKM ElementZ || Related Credits
 
 ## Scenario
-TiiToOnZ || Grivius
+TiiToOnZ || Cha
+Grivius 
 
 ## Script Writing
 TiiToOnZ || Maeliss
@@ -16,10 +17,14 @@ TiiToOnZ || Maeliss
 Sanaa || Souhaib
 
 ## Fakemon Main Creator
-Maeliss
+Maeliss || TiiToOnZ
 
 ## Main Testers
-Cha || Coupinette || Glytches
+Cha || Coupinette
+Glytches || Slyleman
+
+## Main Translator
+Sandrine
 
 ### Special Thanks
 PKM ElementZ would never have happened without PSDK.  

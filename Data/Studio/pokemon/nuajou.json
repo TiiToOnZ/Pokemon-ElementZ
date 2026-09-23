@@ -65,6 +65,21 @@
         "__undef__"
       ],
       "frontOffsetY": 0,
+      "resources": {
+        "icon": "",
+        "iconShiny": "",
+        "front": "1027",
+        "frontShiny": "1027",
+        "back": "",
+        "backShiny": "",
+        "footprint": "",
+        "character": "",
+        "characterShiny": "",
+        "egg": "",
+        "iconEgg": "",
+        "cry": "0515.ogg",
+        "hasFemale": false
+      },
       "moveSet": [
         {
           "klass": "LevelLearnableMove",
@@ -96,22 +111,7 @@
           "move": "fury_swipes",
           "level": 13
         }
-      ],
-      "resources": {
-        "icon": "",
-        "iconShiny": "",
-        "front": "1027",
-        "frontShiny": "",
-        "back": "",
-        "backShiny": "",
-        "footprint": "",
-        "character": "",
-        "characterShiny": "",
-        "egg": "",
-        "iconEgg": "",
-        "cry": "",
-        "hasFemale": false
-      }
+      ]
     }
   ]
 }

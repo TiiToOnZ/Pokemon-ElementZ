@@ -9,34 +9,34 @@
         "name": 1053,
         "description": 0
       },
-      "height": 0.01,
-      "weight": 0.01,
+      "height": 0.9,
+      "weight": 19.5,
       "type1": "ghost",
       "type2": "__undef__",
-      "baseHp": 100,
-      "baseAtk": 100,
-      "baseDfe": 100,
-      "baseSpd": 100,
-      "baseAts": 100,
-      "baseDfs": 100,
+      "baseHp": 65,
+      "baseAtk": 60,
+      "baseDfe": 65,
+      "baseSpd": 110,
+      "baseAts": 130,
+      "baseDfs": 95,
       "evHp": 0,
       "evAtk": 0,
       "evDfe": 0,
       "evSpd": 0,
-      "evAts": 0,
+      "evAts": 2,
       "evDfs": 0,
       "evolutions": [],
       "experienceType": 4,
-      "baseExperience": 40,
+      "baseExperience": 184,
       "baseLoyalty": 70,
       "catchRate": 45,
-      "femaleRate": 50,
+      "femaleRate": 12,
       "breedGroups": [
-        15,
+        5,
         15
       ],
       "hatchSteps": 1024,
-      "babyDbSymbol": "spectrali",
+      "babyDbSymbol": "eevee",
       "babyForm": 0,
       "itemHeld": [
         {
@@ -49,11 +49,26 @@
         }
       ],
       "abilities": [
-        "__undef__",
-        "__undef__",
-        "__undef__"
+        "levitate",
+        "shadow_tag",
+        "cursed_body"
       ],
       "frontOffsetY": 0,
+      "resources": {
+        "icon": "1030",
+        "iconShiny": "1030",
+        "front": "1030",
+        "frontShiny": "1030",
+        "back": "1030",
+        "backShiny": "1030",
+        "footprint": "0133",
+        "character": "1030_0",
+        "characterShiny": "1030_0",
+        "egg": "egg0133",
+        "iconEgg": "egg0133",
+        "cry": "0133.ogg",
+        "hasFemale": false
+      },
       "moveSet": [
         {
           "klass": "LevelLearnableMove",
@@ -97,84 +112,49 @@
         },
         {
           "klass": "LevelLearnableMove",
-          "move": "headbutt",
+          "move": "confuse_ray",
           "level": 17
         },
         {
           "klass": "LevelLearnableMove",
-          "move": "air_slash",
+          "move": "night_shade",
           "level": 20
         },
         {
           "klass": "LevelLearnableMove",
-          "move": "take_down",
+          "move": "ominous_wind",
           "level": 25
         },
         {
           "klass": "LevelLearnableMove",
-          "move": "agility",
+          "move": "spite",
           "level": 29
         },
         {
           "klass": "LevelLearnableMove",
-          "move": "bounce",
+          "move": "shadow_ball",
           "level": 33
         },
         {
           "klass": "LevelLearnableMove",
-          "move": "roost",
+          "move": "will_o_wisp",
           "level": 37
         },
         {
           "klass": "LevelLearnableMove",
-          "move": "double_edge",
+          "move": "hex",
           "level": 41
         },
         {
           "klass": "LevelLearnableMove",
-          "move": "hurricane",
+          "move": "last_resort",
           "level": 45
-        },
-        {
-          "klass": "LevelLearnableMove",
-          "move": "body_slam",
-          "level": 50
-        },
-        {
-          "klass": "LevelLearnableMove",
-          "move": "hyper_beam",
-          "level": 55
-        },
-        {
-          "klass": "LevelLearnableMove",
-          "move": "brave_bird",
-          "level": 60
-        },
-        {
-          "klass": "LevelLearnableMove",
-          "move": "giga_impact",
-          "level": 65
         },
         {
           "klass": "EvolutionLearnableMove",
           "move": "shadow_sneak"
         }
-      ],
-      "resources": {
-        "icon": "",
-        "iconShiny": "",
-        "front": "1030",
-        "frontShiny": "",
-        "back": "1030",
-        "backShiny": "",
-        "footprint": "",
-        "character": "",
-        "characterShiny": "",
-        "egg": "",
-        "iconEgg": "",
-        "cry": "",
-        "hasFemale": false
-      }
+      ]
     }
   ]
 }

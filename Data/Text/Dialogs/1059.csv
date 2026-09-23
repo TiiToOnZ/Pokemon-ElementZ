@@ -46,7 +46,7 @@ La victoire revient à [NAME] !
 "Quoi qu’il en soit, ce fut un match d’une grande intensité, j’espère que vous l’avez ressenti jusque dans les gradins !"
 "N’hésitez pas à revenir combattre si vous en avez envie, c’est toujours un plaisir d’assister à des combats aussi passionnants !"
 "Chers spectateurs, merci d’être venus, et à la prochaine fois !"
-Je te laisse te diriger vers la borne jaune pour programmer ton combat contre le champion !
+"Bon courage pour ton combat contre Pierre, le spécialiste des Pokémon de type Roche.\nlJe te laisse te diriger vers la borne jaune pour programmer ton combat contre le champion !"
 "En tant que Champion, l’accès à la Loge des Champions, au fond de l’Arène, t’est désormais ouvert !"
 "Hey ! Dresseur !\nlAlors comme ça, tu veux défier Pierre ?!\nlMais[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10] tu n’as encore aucun badge de cette région !"
 "Hohoho, laisse-moi t’expliquer comment cela fonctionne ici.\nlIl y a 8 arènes avec 8 champions, chacun ayant sa spécialité, et chacun attribue un badge pour la victoire.\nlPar exemple, Pierre est un champion spécialiste des types Roche, donc il utilise davantage de Pokémon Roche.\nlCependant, contrairement à d’autres régions, les champions ici ont des équipes très bien équilibrées."

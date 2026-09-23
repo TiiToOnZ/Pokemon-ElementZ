@@ -1,11 +1,12 @@
 {
   "klass": "Configs::Project::GameOptions",
   "order": [
-    "message_speed",
+    "auto_run",
     "volume",
+    "screen_scale",
+    "message_speed",
     "battle_animation",
     "battle_style",
-    "screen_scale",
     "language"
   ]
 }

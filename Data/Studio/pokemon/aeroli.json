@@ -25,9 +25,7 @@
       "evSpd": 0,
       "evAts": 0,
       "evDfs": 0,
-      "evolutions": [
-
-      ],
+      "evolutions": [],
       "experienceType": 4,
       "baseExperience": 184,
       "baseLoyalty": 70,
@@ -57,18 +55,18 @@
       ],
       "frontOffsetY": 0,
       "resources": {
-        "icon": "aeroli_petit",
-        "iconShiny": "",
+        "icon": "1026",
+        "iconShiny": "1026",
         "front": "1026",
-        "frontShiny": "",
+        "frontShiny": "1026",
         "back": "1026",
-        "backShiny": "",
-        "footprint": "",
+        "backShiny": "1026",
+        "footprint": "0133",
         "character": "810_0",
-        "characterShiny": "",
+        "characterShiny": "810_0",
         "egg": "egg0133",
         "iconEgg": "egg0133",
-        "cry": "",
+        "cry": "0133.ogg",
         "hasFemale": false
       },
       "moveSet": [

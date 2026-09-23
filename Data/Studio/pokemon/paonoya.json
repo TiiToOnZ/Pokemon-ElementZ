@@ -1,0 +1,172 @@
+{
+  "klass": "Specie",
+  "id": 823,
+  "dbSymbol": "paonoya",
+  "forms": [
+    {
+      "form": 0,
+      "formTextId": {
+        "name": 1064,
+        "description": 0
+      },
+      "height": 0.9,
+      "weight": 12.5,
+      "type1": "fire",
+      "type2": "__undef__",
+      "baseHp": 60,
+      "baseAtk": 50,
+      "baseDfe": 55,
+      "baseSpd": 75,
+      "baseAts": 85,
+      "baseDfs": 65,
+      "evHp": 0,
+      "evAtk": 0,
+      "evDfe": 0,
+      "evSpd": 1,
+      "evAts": 1,
+      "evDfs": 0,
+      "evolutions": [
+        {
+          "dbSymbol": "paonaque",
+          "form": 0,
+          "conditions": [
+            {
+              "type": "minLevel",
+              "value": 32
+            }
+          ]
+        }
+      ],
+      "experienceType": 3,
+      "baseExperience": 142,
+      "baseLoyalty": 70,
+      "catchRate": 45,
+      "femaleRate": 50,
+      "breedGroups": [
+        5,
+        15
+      ],
+      "hatchSteps": 1024,
+      "babyDbSymbol": "plumino",
+      "babyForm": 0,
+      "itemHeld": [
+        {
+          "dbSymbol": "none",
+          "chance": 0
+        },
+        {
+          "dbSymbol": "none",
+          "chance": 0
+        }
+      ],
+      "abilities": [
+        "blaze",
+        "dancer",
+        "levitate"
+      ],
+      "frontOffsetY": 0,
+      "resources": {
+        "icon": "",
+        "iconShiny": "",
+        "front": "1040",
+        "frontShiny": "1040",
+        "back": "1040",
+        "backShiny": "1040",
+        "footprint": "0256",
+        "character": "",
+        "characterShiny": "",
+        "egg": "egg0255",
+        "iconEgg": "egg0255",
+        "cry": "0256.ogg",
+        "hasFemale": false
+      },
+      "moveSet": [
+        {
+          "klass": "LevelLearnableMove",
+          "move": "peck",
+          "level": 1
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "growl",
+          "level": 1
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "ember",
+          "level": 5
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "sand_attack",
+          "level": 8
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "quick_attack",
+          "level": 10
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "fairy_wind",
+          "level": 14
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "feather_dance",
+          "level": 17
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "flame_charge",
+          "level": 21
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "air_cutter",
+          "level": 25
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "flame_burst",
+          "level": 30
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "charm",
+          "level": 34
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "fiery_dance",
+          "level": 37
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "tailwind",
+          "level": 39
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "flamethrower",
+          "level": 43
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "calm_mind",
+          "level": 45
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "teeter_dance",
+          "level": 47
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "hurricane",
+          "level": 50
+        }
+      ]
+    }
+  ]
+}
