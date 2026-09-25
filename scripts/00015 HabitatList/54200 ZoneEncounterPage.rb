@@ -38,12 +38,14 @@ module UI
         return icons(mask).first == 'daytime' ? :day : :night
       end
 
-      def self.legend(schedule)
+      def self.band_labels(schedule)
         night, evening, day, morning = schedule.map do |hour|
           minutes = ((hour % 1) * 60).round
           minutes.zero? ? format('%02dh', hour.to_i) : format('%02dh%02d', hour.to_i, minutes)
         end
-        return ["Matin/Jour #{morning}–#{day}–#{evening}", "Soir/Nuit #{evening}–#{night}–#{morning}"]
+        return {all: 'MATIN / JOUR / SOIR / NUIT',
+                day: "Matin : #{morning} - #{day}   Jour : #{day} - #{evening}",
+                night: "Soir : #{evening} - #{night}   Nuit : #{night} - #{morning}"}
       end
     end
 
@@ -79,32 +81,117 @@ module UI
           end.map(&:first)
           view
         end
-        return snapshot.dup.tap { |copy| copy.groups = groups }
+        return snapshot.dup.tap do |copy|
+          copy.groups = groups
+          # Home is the same configured collection as the environment views,
+          # including temporarily inactive/shadowed groups, deduplicated by form.
+          copy.entries = groups.flat_map(&:entries).uniq(&:key)
+        end
+      end
+    end
+
+    # Availability organizes the full home catalogue; it never filters it.
+    module ZoneEncounterHome
+      View = Struct.new(:entries, :categories, :issues, keyword_init: true)
+      LABELS = {available: 'DISPONIBLE ACTUELLEMENT', unavailable: 'INDISPONIBLE ACTUELLEMENT'}.freeze
+
+      def self.build(snapshot)
+        active_pairs = {}
+        snapshot.groups.each do |environment|
+          environment.members.each do |member|
+            next unless member.status == :active
+
+            member.entries.each { |entry| active_pairs[entry.key] = true }
+          end
+        end
+        available, unavailable = snapshot.entries.partition { |entry| active_pairs.key?(entry.key) }
+        categories = snapshot.entries.to_h do |entry|
+          [entry.key, active_pairs.key?(entry.key) ? :available : :unavailable]
+        end
+        return View.new(entries: available + unavailable, categories: categories, issues: snapshot.issues)
       end
     end
 
     # Category bands occupy vertical space, never a creature slot. Rows may
     # overlap within one category, but never cross a category band.
     class ZoneEncounterLayout
-      TOP = 32
-      BOTTOM = 192
-      BAND_HEIGHT = 18
+      TOP = 34
+      BOTTOM = 212
+      BAND_HEIGHT = 10
+      BAND_LABEL_HEIGHT = 14 # Preserve the font's line box; only the background shrinks.
+      BAND_GAP = 0
+      CATEGORY_GAP = 1
+      HOME_ROW_GAP = 2
+      HOME_MAX_COMPRESSION = 12
       MIN_STEP = 32
-      MAX_STEP = 46
+      MAX_STEP = 56
 
-      def self.pages(entries, periods, top: TOP, &height)
+      # Pack whole rows and use the least compression that admits the next row.
+      # Limited overlap is allowed inside a category, never across its band.
+      def self.home_pages(entries, categories, top: TOP)
+        rows = entries.chunk { |entry| categories.fetch(entry.key) }.flat_map do |category, members|
+          members.each_slice(4).map do |row|
+            {category: category, entries: row, height: row.map { |entry| yield(entry) }.max}
+          end
+        end
+        pages, row_offset, offset = [], 0, 0
+        while row_offset < rows.size
+          chosen = nil
+          1.upto([3, rows.size - row_offset].min) do |count|
+            plan = nil
+            0.upto(HOME_MAX_COMPRESSION) do |compression|
+              plan = arrange_home_rows(rows.slice(row_offset, count), compression, top: top)
+              break if plan
+            end
+            break unless plan
+            chosen = plan.merge(offset: offset, count: plan[:slots].size, rows: count)
+          end
+          raise 'Encounter sprite cannot fit in the grid' unless chosen
+          pages << chosen
+          row_offset += chosen[:rows]
+          offset += chosen[:count]
+        end
+        return pages.empty? ? [{offset: 0, count: 0, slots: [], bands: []}] : pages
+      end
+
+      def self.arrange_home_rows(rows, compression, top: TOP)
+        y, previous = top, nil
+        slots, bands = [], []
+        rows.each do |row|
+          height = row[:height]
+          if previous && previous[:category] == row[:category]
+            # Small silhouettes must not collapse into one another either.
+            overlap_limit = [previous[:height], height].min / 4
+            y += [HOME_ROW_GAP - compression, -overlap_limit].max
+          else
+            y += CATEGORY_GAP if previous
+            bands << {category: row[:category], y: y}
+            y += BAND_HEIGHT + BAND_GAP
+          end
+          return nil if y + height > BOTTOM
+          row[:entries].each_with_index do |entry, col|
+            slots << {entry: entry, col: col, cy: y + height / 2.0, top: y, bottom: y + height}
+          end
+          y += height
+          previous = row
+        end
+        return {slots: slots, bands: bands, compression: compression}
+      end
+
+      def self.pages(entries, periods = nil, categories: nil, top: TOP, &height)
+        categories ||= entries.to_h { |entry| [entry.key, ZoneEncounterPeriods.category(periods.fetch(entry.key))] }
         pages = []
         offset = 0
         while offset < entries.size
           chosen = nil
           1.upto([12, entries.size - offset].min) do |count|
-            plan = arrange(entries.slice(offset, count), periods, MIN_STEP, top: top, &height)
+            plan = arrange(entries.slice(offset, count), categories, MIN_STEP, top: top, &height)
             break unless plan
             chosen = plan.merge(offset: offset, count: count)
           end
           raise 'Encounter sprite cannot fit in the grid' unless chosen
           MAX_STEP.downto(MIN_STEP) do |step|
-            plan = arrange(entries.slice(offset, chosen[:count]), periods, step, top: top, &height)
+            plan = arrange(entries.slice(offset, chosen[:count]), categories, step, top: top, &height)
             next unless plan
             chosen = chosen.merge(plan)
             break
@@ -115,16 +202,14 @@ module UI
         return pages.empty? ? [{offset: 0, count: 0, slots: [], bands: []}] : pages
       end
 
-      def self.arrange(entries, periods, step, top: TOP)
+      def self.arrange(entries, categories, step, top: TOP)
         y = top
         slots, bands = [], []
         row_count = 0
-        entries.chunk { |entry| ZoneEncounterPeriods.category(periods.fetch(entry.key)) }.each do |category, members|
-          y += 4 unless slots.empty?
-          unless category == :all
-            bands << {category: category, y: y}
-            y += BAND_HEIGHT + 2
-          end
+        entries.chunk { |entry| categories.fetch(entry.key) }.each do |category, members|
+          y += CATEGORY_GAP unless slots.empty?
+          bands << {category: category, y: y}
+          y += BAND_HEIGHT + BAND_GAP
           rows = members.each_slice(4).to_a
           row_count += rows.size
           return nil if row_count > 3
@@ -150,30 +235,32 @@ module UI
       ROWS = 3
       PAGE_SIZE = COLUMNS * ROWS
       GRID_X = 8
-      GRID_Y = 52
+      GRID_Y = 34
       CELL_WIDTH = 76
-      CELL_HEIGHT = 46
-      GRID_BOTTOM = 192
+      CELL_HEIGHT = 56
       UNKNOWN_SCALE = 0.83
       BADGE_SCALE = 0.75
 
       def initialize(viewport)
         super(viewport)
-        @title = black_text(8, 2, 304, 16)
-        @context = black_text(8, 18, 304, 16)
-        @availability = black_text(8, 34, 304, 16)
+        @title = black_text(84, 2, 152, 16)
+        @context = with_font(20) { black_text(84, 18, 152, 16) }
+        @availability = with_font(20) { black_text(8, 38, 304, 16) }
         @empty = black_text(8, 114, 304, 16)
-        @counts = black_text(8, 194, 218, 16, 0)
-        @pagination = black_text(230, 194, 82, 16, 2)
-        @legend_icons = [add_sprite(8, 32, NO_INITIAL_IMAGE), add_sprite(164, 32, NO_INITIAL_IMAGE)]
-        @legend_texts = with_font(20) { [black_text(40, 34, 116, 16, 0), black_text(196, 34, 116, 16, 0)] }
-        @bands = Array.new(2) do
+        with_font(20) do
+          @seen_count = black_text(8, 2, 74, 16, 0)
+          @caught_count = black_text(8, 18, 74, 16, 0)
+          @pagination = black_text(238, 2, 74, 16, 2)
+        end
+        @bands = Array.new(3) do
           background = add_sprite(GRID_X, 0, NO_INITIAL_IMAGE)
-          icon = add_sprite(108, 0, NO_INITIAL_IMAGE)
-          [background, icon].each { |s| s.set_origin(0, 0); s.zoom_x = s.zoom_y = 1; s.z = 11_000 }
-          label = with_font(20) { black_text(140, 2, 100, 18, 0) }
-          label.z = 11_001
-          {background: background, icon: icon, label: label}
+          icon = add_sprite(28, 0, NO_INITIAL_IMAGE)
+          right_icon = add_sprite(260, 0, NO_INITIAL_IMAGE)
+          [background, icon, right_icon].each { |s| s.set_origin(0, 0); s.zoom_x = s.zoom_y = 1; s.z = 11_000 }
+          icon.z = right_icon.z = 11_001
+          label = with_font(20) { black_text(60, 2, 232, ZoneEncounterLayout::BAND_LABEL_HEIGHT, 1) }
+          label.z = 11_002
+          {background: background, icon: icon, right_icon: right_icon, label: label}
         end
         @cells = Array.new(PAGE_SIZE) do |index|
           x = GRID_X + (index % COLUMNS) * CELL_WIDTH
@@ -190,20 +277,13 @@ module UI
         end
       end
 
-      def pages_for(group, entries)
+      def pages_for(group, entries, home: nil)
         if group
-          top = group.issues.empty? ? ZoneEncounterLayout::TOP : GRID_Y
+          top = group.issues.empty? ? ZoneEncounterLayout::TOP : 56
           return ZoneEncounterLayout.pages(entries, group.periods, top: top) { |entry| metrics(entry)[:height] }
         end
-        slices = entries.each_slice(PAGE_SIZE).to_a
-        slices = [[]] if slices.empty?
-        return slices.each_with_index.map do |slice, index|
-          slots = slice.each_with_index.map do |entry, i|
-            {entry: entry, col: i % COLUMNS, cy: GRID_Y + (i / COLUMNS) * CELL_HEIGHT + CELL_HEIGHT / 2,
-             top: GRID_Y, bottom: GRID_BOTTOM}
-          end
-          {offset: index * PAGE_SIZE, count: slice.size, slots: slots, bands: []}
-        end
+        top = home.issues.empty? ? ZoneEncounterLayout::TOP : 56
+        return ZoneEncounterLayout.home_pages(home.entries, home.categories, top: top) { |entry| metrics(entry)[:height] }
       end
 
       def dispose
@@ -212,14 +292,13 @@ module UI
       end
 
       def render(snapshot, group, entries, offset, group_index, plans: nil)
-        plans ||= pages_for(group, entries)
+        plans ||= pages_for(group, entries, home: group ? nil : ZoneEncounterHome.build(snapshot))
         page_index = plans.rindex { |plan| plan[:offset] <= offset } || 0
         plan = plans[page_index]
         fit_text(@title, snapshot.zone_name)
-        fit_text(@context, group ? "#{group_index}/#{snapshot.groups.size} · #{milieu_label(group)}" : 'Ensemble')
+        fit_text(@context, group ? "#{page_index + 1}/#{plans.size} · #{milieu_label(group)}" : '')
         issues = group ? group.issues : snapshot.issues
         fit_text(@availability, issues.empty? ? '' : 'Données incomplètes')
-        render_legend(!group && issues.empty?)
         fit_text(@empty, snapshot.zone_key ? 'Aucune rencontre dans cette sélection.' : 'Aucune zone définie pour cette carte.')
         @empty.visible = entries.empty?
         @cells.each_with_index { |cell, index| render_cell(cell, plan[:slots][index]) }
@@ -229,7 +308,8 @@ module UI
         caught = entries.count(&:caught)
         page = page_index + 1
         pages = plans.size
-        fit_text(@counts, "Vus #{seen}/#{entries.size} · Capturés #{caught}/#{entries.size}")
+        fit_text(@seen_count, "Vus #{seen}/#{entries.size}")
+        fit_text(@caught_count, "Capturés #{caught}/#{entries.size}")
         fit_text(@pagination, pages > 1 ? "Page #{page}/#{pages}" : '')
       end
 
@@ -309,25 +389,45 @@ module UI
       end
 
       def render_bands(bands)
+        labels = ZoneEncounterPeriods.band_labels(ZoneEncounterPeriods.schedule)
         @bands.each_with_index do |elements, index|
           elements.each_value { |element| element.visible = false }
           next unless (band = bands[index])
           category, y = band.values_at(:category, :y)
+          label_y = y + (ZoneEncounterLayout::BAND_HEIGHT - ZoneEncounterLayout::BAND_LABEL_HEIGHT) / 2
           elements[:background].bitmap = band_bitmap(category)
           elements[:background].y = y
-          elements[:icon].bitmap = time_bitmap(category == :day ? 'daytime' : 'nighttime')
-          elements[:icon].y = y
-          elements[:label].text = category == :day ? 'MATIN / JOUR' : 'SOIR / NUIT'
-          elements[:label].y = y
+          if ZoneEncounterHome::LABELS.key?(category)
+            elements[:label].set_position(GRID_X, label_y)
+            elements[:label].width = COLUMNS * CELL_WIDTH
+            fit_text(elements[:label], ZoneEncounterHome::LABELS.fetch(category))
+            elements[:background].visible = elements[:label].visible = true
+            next
+          end
+          elements[:icon].bitmap = time_bitmap(category == :night ? 'nighttime' : 'daytime')
+          elements[:right_icon].bitmap = time_bitmap('nighttime') if category == :all
+          [elements[:icon], elements[:right_icon]].each_with_index do |icon, side|
+            icon.set_origin(16, 9)
+            icon.zoom_x = icon.zoom_y = ZoneEncounterLayout::BAND_HEIGHT.fdiv(18)
+            icon.set_position(side.zero? ? 44 : 276, y + ZoneEncounterLayout::BAND_HEIGHT / 2)
+          end
+          elements[:label].x = 60
+          elements[:label].width = category == :all ? 200 : 232
+          fit_text(elements[:label], labels.fetch(category))
+          elements[:label].y = label_y
           elements.each_value { |element| element.visible = true }
+          elements[:right_icon].visible = category == :all
         end
       end
 
       def band_bitmap(category)
         @band_bitmaps ||= {}
         return @band_bitmaps[category] if @band_bitmaps.key?(category)
-        stops = category == :day ? [[255, 235, 168], [243, 193, 120], [224, 138, 105]] :
-                                  [[171, 213, 237], [128, 166, 204], [70, 99, 153]]
+        stops = {all: [[205, 238, 174], [147, 207, 134], [86, 160, 117]],
+                 available: [[205, 238, 174], [147, 207, 134], [86, 160, 117]],
+                 unavailable: [[222, 228, 234], [184, 198, 210], [143, 164, 183]],
+                 day: [[255, 235, 168], [243, 193, 120], [224, 138, 105]],
+                 night: [[171, 213, 237], [128, 166, 204], [70, 99, 153]]}.fetch(category)
         image = Image.new(304, ZoneEncounterLayout::BAND_HEIGHT)
         304.times do |x|
           t = x.fdiv(303) * 2
@@ -348,22 +448,6 @@ module UI
       rescue StandardError => error
         log_error("Habitat time: #{error.class}: #{error.message}")
         return @time_bitmaps[name] = nil
-      end
-
-      def render_legend(visible)
-        labels = ZoneEncounterPeriods.legend(ZoneEncounterPeriods.schedule)
-        %w[daytime nighttime].each_with_index do |name, index|
-          icon = @legend_icons[index]
-          icon.visible = false
-          if visible
-            icon.bitmap = time_bitmap(name)
-            icon.set_origin(0, 0)
-            icon.zoom_x = icon.zoom_y = 1
-            icon.visible = !icon.bitmap.nil?
-          end
-          @legend_texts[index].visible = visible
-          fit_text(@legend_texts[index], labels[index])
-        end
       end
 
       def visible_bounds(bitmap)
@@ -423,12 +507,34 @@ module UI
 
     # Keep native control buttons, applying black text only to this scene.
     class ZoneEncounterControls < GenericBase
+      # Native KeyShortcut resolves physical B/X via the project's bindings:
+      # virtual Y = keyboard B (home), virtual B = keyboard X (back).
+      KEYS = %i[RIGHT DOWN Y B].freeze
+      LABELS = ['Suivant', 'Suivant', 'Accueil', 'Retour'].freeze
+      ARROW_SKIN = 'Pause2'
+      ARROW_RECT = [0, 0, 10, 12].freeze
+
       class Button < GenericBase::ControlButton
         def initialize(viewport, coords_index, key, **options)
           super(viewport, coords_index, key, **options)
           @text.fill_color = Color.new(0, 0, 0, 255)
           @text.draw_shadow = false
           @text.outline_thickness = 0
+          return unless coords_index < 2
+
+          @key_button.visible = false
+          arrow = add_sprite(8, 9, NO_INITIAL_IMAGE)
+          arrow.bitmap = RPG::Cache.windowskin(ARROW_SKIN)
+          arrow.src_rect.set(*ARROW_RECT)
+          arrow.set_origin(5, 6)
+          arrow.angle = coords_index.zero? ? 90 : 0
+          arrow.z = 502
+        end
+
+        def visible=(value)
+          super
+          # GenericBase reapplies visibility when setting labels/showing its bar.
+          @key_button.visible = false if @coords_index && @coords_index < 2
         end
       end
 
@@ -444,8 +550,8 @@ end
 module GamePlay
   class ZoneEncounters < BaseCleanUpdate::FrameBalanced
     REFRESH_SECONDS = 0.25
-    BUTTON_ACTIONS = %i[action_a action_x action_y action_b].freeze
-    INPUT_ACTIONS = {A: :action_a, X: :action_x, Y: :action_y, B: :action_b}.freeze
+    BUTTON_ACTIONS = %i[next_environment next_page action_y action_b].freeze
+    INPUT_ACTIONS = {Y: :action_y, B: :action_b}.freeze
 
     def initialize
       super
@@ -467,7 +573,7 @@ module GamePlay
 
     def create_graphics
       @viewport = Viewport.create(:main, 50_000)
-      @base_ui = UI::Dex::ZoneEncounterControls.new(@viewport, ['Suivant', 'Précédent', 'Ensemble', 'Retour'])
+      @base_ui = UI::Dex::ZoneEncounterControls.new(@viewport, UI::Dex::ZoneEncounterControls::LABELS, UI::Dex::ZoneEncounterControls::KEYS)
       @page = UI::Dex::ZoneEncounterPage.new(@viewport)
       Mouse.wheel = 0
       refresh_catalog(force: true)
@@ -490,6 +596,7 @@ module GamePlay
       @catalog_snapshot = snapshot
       @schedule = schedule
       @snapshot = UI::Dex::ZoneEncounterEnvironments.build(snapshot)
+      @home = UI::Dex::ZoneEncounterHome.build(@snapshot)
       @group_key = nil unless @snapshot.groups.any? { |group| group.key == @group_key }
       issues = (snapshot.issues + snapshot.groups.flat_map(&:issues)).uniq
       issues.each { |issue| log_error("Habitat: #{issue}") } if issues != @last_issues
@@ -502,12 +609,12 @@ module GamePlay
     end
 
     def current_entries
-      current_group&.entries || @snapshot.entries
+      current_group&.entries || @home.entries
     end
 
     def render_page
       group = current_group
-      @pages = @page.pages_for(group, current_entries)
+      @pages = @page.pages_for(group, current_entries, home: @home)
       page_index = @pages.rindex { |plan| plan[:offset] <= @offset } || 0
       @offset = @pages[page_index][:offset]
       group_index = group ? @snapshot.groups.index(group) + 1 : 0
@@ -550,12 +657,12 @@ module GamePlay
       return false
     end
 
-    def action_a
+    def next_environment
       change_group(1)
     end
 
-    def action_x
-      change_group(-1)
+    def next_page
+      change_page(1)
     end
 
     def action_y

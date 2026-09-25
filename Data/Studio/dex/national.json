@@ -833,6 +833,10 @@
       "form": 0
     },
     {
+      "dbSymbol": "insoleon",
+      "form": 0
+    },
+    {
       "dbSymbol": "gligar",
       "form": 0
     },
@@ -2073,6 +2077,14 @@
       "form": 0
     },
     {
+      "dbSymbol": "nuajou",
+      "form": 0
+    },
+    {
+      "dbSymbol": "nuajoutan",
+      "form": 0
+    },
+    {
       "dbSymbol": "munna",
       "form": 0
     },
@@ -3237,34 +3249,6 @@
       "form": 0
     },
     {
-      "dbSymbol": "aeroli",
-      "form": 0
-    },
-    {
-      "dbSymbol": "infectali",
-      "form": 0
-    },
-    {
-      "dbSymbol": "spectrali",
-      "form": 0
-    },
-    {
-      "dbSymbol": "nuajou",
-      "form": 0
-    },
-    {
-      "dbSymbol": "nuajoutan",
-      "form": 0
-    },
-    {
-      "dbSymbol": "insoleon",
-      "form": 0
-    },
-    {
-      "dbSymbol": "starter_eau_bombance",
-      "form": 0
-    },
-    {
       "dbSymbol": "calieus",
       "form": 0
     },
@@ -3274,6 +3258,18 @@
     },
     {
       "dbSymbol": "dracoena",
+      "form": 0
+    },
+    {
+      "dbSymbol": "plumino",
+      "form": 0
+    },
+    {
+      "dbSymbol": "paonaque",
+      "form": 0
+    },
+    {
+      "dbSymbol": "paonoya",
       "form": 0
     },
     {
@@ -3289,15 +3285,15 @@
       "form": 0
     },
     {
-      "dbSymbol": "plumino",
+      "dbSymbol": "aeroli",
       "form": 0
     },
     {
-      "dbSymbol": "paonoya",
+      "dbSymbol": "infectali",
       "form": 0
     },
     {
-      "dbSymbol": "paonaque",
+      "dbSymbol": "spectrali",
       "form": 0
     },
     {
