@@ -1,0 +1,3 @@
+o:*Configs::Project::CriticalHealthAudio:
+@modeI"sound_effect_mode:ET:@sound_effect_mode{:filenameI"audio/se/low_health;T:volumeii:!bgm_volume_reduction_percenti7:@bgm_replacement_mode{	;	I"audio/bgm/battle_low_hp;T;
+ii:fade_in_msiô:restore_fade_in_msiô
