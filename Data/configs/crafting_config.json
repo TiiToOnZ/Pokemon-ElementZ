@@ -112,6 +112,18 @@
         "value": true
       }
     },
+    "heavy_ball": {
+      "ingredients": {
+        "black_apricorn": 1
+      },
+      "result": "heavy_ball",
+      "quantity": 1,
+      "category": "ball",
+      "unlock_condition": {
+        "type": "manual",
+        "value": true
+      }
+    },
     "blue_shard": {
       "ingredients": {
         "chesto_berry": 5,
