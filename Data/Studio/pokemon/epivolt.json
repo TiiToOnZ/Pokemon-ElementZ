@@ -1,0 +1,167 @@
+{
+  "klass": "Specie",
+  "id": 827,
+  "dbSymbol": "epivolt",
+  "forms": [
+    {
+      "form": 0,
+      "formTextId": {
+        "name": 1068,
+        "description": 0
+      },
+      "height": 0.5,
+      "weight": 9.8,
+      "type1": "ground",
+      "type2": "electric",
+      "baseHp": 55,
+      "baseAtk": 50,
+      "baseDfe": 65,
+      "baseSpd": 40,
+      "baseAts": 50,
+      "baseDfs": 55,
+      "evHp": 0,
+      "evAtk": 0,
+      "evDfe": 1,
+      "evSpd": 0,
+      "evAts": 0,
+      "evDfs": 0,
+      "evolutions": [
+        {
+          "dbSymbol": "epiorage",
+          "form": 0,
+          "conditions": [
+            {
+              "type": "minLevel",
+              "value": 23
+            }
+          ]
+        }
+      ],
+      "experienceType": 1,
+      "baseExperience": 40,
+      "baseLoyalty": 70,
+      "catchRate": 45,
+      "femaleRate": 50,
+      "breedGroups": [
+        5,
+        15
+      ],
+      "hatchSteps": 1024,
+      "babyDbSymbol": "epivolt",
+      "babyForm": 0,
+      "itemHeld": [
+        {
+          "dbSymbol": "none",
+          "chance": 0
+        },
+        {
+          "dbSymbol": "none",
+          "chance": 0
+        }
+      ],
+      "abilities": [
+        "lightning_rod",
+        "static",
+        "iron_barbs"
+      ],
+      "frontOffsetY": 0,
+      "moveSet": [
+        {
+          "klass": "LevelLearnableMove",
+          "move": "tackle",
+          "level": 1
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "defense_curl",
+          "level": 1
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "thunder_shock",
+          "level": 5
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "rollout",
+          "level": 8
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "sand_attack",
+          "level": 11
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "spark",
+          "level": 14
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "magnitude",
+          "level": 17
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "pin_missile",
+          "level": 20
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "thunder_fang",
+          "level": 24
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "dig",
+          "level": 26
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "bulldoze",
+          "level": 30
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "wild_charge",
+          "level": 34
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "drill_run",
+          "level": 38
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "curse",
+          "level": 42
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "earthquake",
+          "level": 46
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "volt_tackle",
+          "level": 50
+        }
+      ],
+      "resources": {
+        "icon": "",
+        "iconShiny": "",
+        "front": "1044",
+        "frontShiny": "1044",
+        "back": "1044",
+        "backShiny": "1044",
+        "footprint": "0027",
+        "character": "",
+        "characterShiny": "",
+        "egg": "egg0027",
+        "iconEgg": "egg0027",
+        "cry": "0027.ogg",
+        "hasFemale": false
+      }
+    }
+  ]
+}
