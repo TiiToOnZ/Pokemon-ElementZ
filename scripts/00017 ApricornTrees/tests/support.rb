@@ -27,12 +27,14 @@ module TestData
   class << self
     def items
       @items ||= begin
-        names = CSV.parse(File.read(File.join(PROJECT, '../Data/Text/Dialogs/100012.csv'), encoding: 'bom|utf-8').gsub("\r\n", "\n"))
+        names = Marshal.load(File.binread(File.join(PROJECT, '../Data/Text/Dialogs/100012.fr.dat')))
+        descriptions = Marshal.load(File.binread(File.join(PROJECT, '../Data/Text/Dialogs/100013.fr.dat')))
         hash = {}
         Dir[File.join(PROJECT, '../Data/Studio/items/*.json')].each do |path|
           data = JSON.parse(File.read(path))
-          item = Item.new(data['dbSymbol'].to_sym, data['id'], data['socket'], names[data['id'] + 1]&.[](1),
-                          "Description de #{data['dbSymbol']}", data['icon'], 0)
+          klass = data['klass'] == 'BallItem' ? Studio::BallItem : Item
+          item = klass.new(data['dbSymbol'].to_sym, data['id'], data['socket'], names[data['id']],
+                           descriptions[data['id']], data['icon'], 0)
           hash[item.db_symbol] = hash[item.id] = item
         end
         hash[:__undef__] = Item.new(:__undef__, -1, 0, '', '', '', 0)
@@ -40,6 +42,10 @@ module TestData
       end
     end
   end
+end
+
+module Studio
+  class BallItem < TestData::Item; end
 end
 
 module Configs
@@ -85,14 +91,21 @@ class QuestRecorder
 end
 
 # Import real native methods by their Ruby AST boundaries, not rewritten copies.
-def native_methods(klass, filename, names)
+def native_methods(klass, filename, names, scope: nil)
   path = File.join(NATIVE, filename)
   source = File.read(path)
+  base_line = 0
+  if scope
+    start = source.index("class #{scope} ") || source.index("class #{scope}\n")
+    raise "Native class not found: #{scope}" unless start
+    base_line = source[0...start].count("\n")
+    source = source[start...(source.index("\nclass ", start + 1) || source.size)]
+  end
   lines = source.lines
   visit = lambda do |node|
     return unless node.is_a?(RubyVM::AbstractSyntaxTree::Node)
     if node.type == :DEFN && names.include?(node.children.first)
-      klass.class_eval(lines[(node.first_lineno - 1)..(node.last_lineno - 1)].join, path, node.first_lineno)
+      klass.class_eval(lines[(node.first_lineno - 1)..(node.last_lineno - 1)].join, path, base_line + node.first_lineno)
     end
     node.children.each { |child| visit.call(child) }
   end
@@ -118,63 +131,90 @@ native_methods(Interpreter, '2_PSDK_Event_Interpreter.rb', %i[current_time trigg
 module Yuki
   module Sw
     TJN_RealTime = 7
+    Gender = 1
+    EV_AccroBike = 17
+    EV_Bicycle = 23
+    EV_Run = 52
   end
 end
 
-module RPG
-  class EventCommand
-    attr_reader :code, :parameters
-    def initialize(code = 0, indent = 0, parameters = [])
-      @code, @parameters = code, parameters
-    end
+module RPG; end
+# Actual installed data classes, including EventCommand with NO initializer.
+# Do not provide an RMXP-style constructor that PSDK itself does not provide.
+dependencies_path = File.join(NATIVE, '0_Dependencies.rb')
+dependencies_source = File.read(dependencies_path)
+start = dependencies_source.index("  class Event\n")
+finish = dependencies_source.index("  # Class representing a RMXP Map\n", start)
+RPG.module_eval(dependencies_source[start...finish], dependencies_path, dependencies_source[0...start].count("\n") + 1)
+
+def event_command(code = 0, indent = 0, parameters = [])
+  RPG::EventCommand.new.tap do |command|
+    command.code, command.indent, command.parameters = code, indent, parameters
+  end
+end
+
+def event_page(commands, graphic: '', direction: 2, pattern: 0)
+  RPG::Event::Page.new.tap do |page|
+    page.condition = RPG::Event::Page::Condition.new
+    page.graphic = RPG::Event::Page::Graphic.new
+    page.graphic.tile_id, page.graphic.character_name, page.graphic.character_hue = 0, graphic, 0
+    page.graphic.direction, page.graphic.pattern = direction, pattern
+    page.graphic.opacity, page.graphic.blend_type = 255, 0
+    page.move_type, page.move_speed, page.move_frequency = 0, 3, 3
+    page.walk_anime, page.step_anime = true, false
+    page.direction_fix, page.through, page.always_on_top = false, false, false
+    page.trigger, page.list = 0, commands
   end
 end
 
 class Game_Event
   attr_reader :id, :original_map, :original_id, :event, :direction, :pattern, :character_name, :list
+  attr_reader :erased
+  attr_accessor :move_frequency
   def initialize(id, color, map: 1, original: id, name: 'Arbre route 1', commands: nil)
     @id, @original_map, @original_id = id, map, original
-    commands ||= [RPG::EventCommand.new(108, 0, ["<apricorn_tree: #{color}>"]), RPG::EventCommand.new]
-    @event = OpenStruct.new(name: name, pages: [OpenStruct.new(list: commands)])
+    commands ||= [event_command(108, 0, ["<apricorn_tree: #{color}>"]), event_command]
+    @event = RPG::Event.new
+    @event.id, @event.name, @event.pages = id, name, [event_page(commands)]
+    @erased = false
+    @can_parallel_execute = true
     refresh
   end
-  def refresh
-    new_page = @event.pages.last
-    return if @page == new_page
-    @page = new_page
-    @list = @page&.list
-  end
-  def activated?; !@page.nil?; end
-  def erased; false; end
-  def set_appearance(name); @character_name = name; end
+  def set_appearance(name, hue = 0); @character_name = name; end
   def update_pattern; @pattern = (@pattern + 1) % 4; end
 end
+native_methods(Game_Event, '4_Systems_003_Map_Engine.rb',
+               %i[refresh refresh_page activated? clear_starting can_parallel_execute? check_event_trigger_auto start erase],
+               scope: 'Game_Event')
 
 class Game_Player
-  STATE_APPEARANCE_SUFFIX = {walking: '_walk'}
-  STATE_MOVEMENT_INFO = {walking: [3, 4]}
   attr_reader :state, :pattern, :character_name, :update_callback
+  attr_reader :move_speed, :move_frequency
+  attr_accessor :on_acro_bike
   def initialize
     @charset_base = 'player'
     @character_name = 'player_m_walk'
     @state = :walking
+    @pattern, @direction, @prelock_direction = 0, 2, 0
+    @move_speed, @move_frequency = 3, 4
   end
-  def cycling?; false; end
-  def update_move_parameter(state); end
-  def update_appearance(pattern = 0)
-    @pattern = pattern
-    @character_name = "player_m#{STATE_APPEARANCE_SUFFIX[@state]}"
-  end
+  def moving?; false; end
+  def next_event_follower; nil; end
   def set_appearance(name); @character_name = name; end
-  def enter_in_walking_state
-    @state = :walking
-    update_appearance(0)
-  end
   def look_to(id); end
 end
+File.readlines(File.join(NATIVE, '4_Systems_003_Map_Engine.rb')).each_with_index do |line, i|
+  next unless line.match?(/^  (STATE_APPEARANCE_SUFFIX|STATE_MOVEMENT_INFO) =/)
+  Game_Player.class_eval(line, File.join(NATIVE, '4_Systems_003_Map_Engine.rb'), i + 1)
+end
+native_methods(Game_Player, '4_Systems_003_Map_Engine.rb',
+               %i[update_move_parameter update_appearance chara_by_state enter_in_walking_state enter_in_running_state
+                  enter_in_surfing_state enter_in_cycling_state enter_in_acro_bike_state leave_cycling_state
+                  cycling? return_to_previous_state], scope: 'Game_Player')
+native_methods(Game_Player, '4_Systems_003_Map_Engine.rb', [:update_pattern_state], scope: 'Game_Character')
 
 class Game_Map
-  attr_accessor :map_id, :events, :need_refresh
+  attr_accessor :map_id, :events, :need_refresh, :event_erased
   def initialize
     @map_id, @events = 1, {}
   end
@@ -190,9 +230,16 @@ module Input
 end
 
 class FakeText
-  attr_accessor :text
+  attr_accessor :text, :x, :y, :width, :height, :sizeid
+  attr_reader :dispose_count
   alias multiline_text= text=
   def initialize(text); @text = text; end
+  # Headless only. Real font metrics and wrapping are checked by native_box.rb.
+  def text_width(value); value.length * 6; end
+  def dispose
+    @dispose_count = (@dispose_count || 0) + 1
+    raise 'double text disposal' if @dispose_count > 1
+  end
 end
 class FakeRect
   attr_reader :values
@@ -202,7 +249,43 @@ class FakeStack
   attr_reader :disposed
   def dispose; @disposed = true; end
 end
+class FakeSprite
+  attr_accessor :data, :visible, :zoom_x, :zoom_y, :sy, :bitmap
+  attr_reader :x, :y, :src_rect, :dispose_count
+  def initialize(*)
+    @src_rect = FakeRect.new
+    @visible = true
+    @sy = 0
+  end
+  def set_position(x, y); @x, @y = x, y; self; end
+  def dispose
+    @dispose_count = (@dispose_count || 0) + 1
+    raise 'double sprite disposal' if @dispose_count > 1
+  end
+end
+class SpriteSheet < FakeSprite; end
 module UI
+  class SpriteStack
+    attr_reader :stack
+    def initialize(*); @stack = []; end
+    def push(x, y, bitmap, *args, type: FakeSprite, rect: nil)
+      sprite = type.new(*args).set_position(x, y)
+      sprite.bitmap = bitmap
+      sprite.src_rect.set(*rect) if rect
+      @stack << sprite
+      sprite
+    end
+    def add_text(x, y, width, height, value, *args, sizeid: nil, **options)
+      result = FakeText.new(value)
+      result.x, result.y, result.width, result.height, result.sizeid = x, y, width, height, sizeid
+      @stack << result
+      result
+    end
+    def dispose
+      @stack.each(&:dispose)
+      @stack.clear
+    end
+  end
   class Window
     attr_accessor :active
     attr_reader :texts, :icons, :cursor_rect, :sprite_stack
@@ -222,10 +305,11 @@ module UI
     def dispose; @disposed = true; end
     def disposed?; @disposed; end
   end
-  class ItemSprite
-    attr_accessor :data
-  end
+  class ItemSprite < FakeSprite; end
   class GenericBase
+    class ControlButton < FakeSprite
+      attr_accessor :text
+    end
     def initialize(*); end
     def update_background_animation; end
     def dispose; end
@@ -299,13 +383,13 @@ class ApricornTest < Minitest::Test
     interpreter.setup(nil, tree.event.id, proc { apricorn_tree_sequence(tree) })
     fiber = interpreter.instance_variable_get(:@fiber)
     150.times do
-      break unless fiber.alive?
+      break unless interpreter.running?
       fiber.resume
       ApricornTrees.test_tick += 0.025
       $game_player.send($game_player.update_callback) if $game_player.update_callback
       on_tick&.call
     end
-    refute fiber.alive?, 'Harvest sequence must terminate'
+    refute interpreter.running?, 'Harvest sequence must terminate'
     interpreter
   end
 end

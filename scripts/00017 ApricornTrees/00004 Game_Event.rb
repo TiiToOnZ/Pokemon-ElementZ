@@ -5,6 +5,11 @@ module ApricornTrees
     attr_accessor :apricorn_animating
     attr_reader :apricorn_color
 
+    # Native active page, retained by reference only for the current interaction.
+    def apricorn_page
+      @page
+    end
+
     def refresh
       super
       @apricorn_color = ApricornTrees.color_from_page(@page)
@@ -19,7 +24,11 @@ module ApricornTrees
       @trigger = 0
       @interpreter = nil
       # Runtime-only event list. No RXDATA or RPG::Event page is modified.
-      @list = [RPG::EventCommand.new(355, 0, ['apricorn_tree']), RPG::EventCommand.new]
+      script = RPG::EventCommand.new
+      script.code, script.indent, script.parameters = 355, 0, ['apricorn_tree']
+      terminal = RPG::EventCommand.new
+      terminal.code, terminal.indent, terminal.parameters = 0, 0, []
+      @list = [script, terminal]
       ApricornTree.new(self).refresh unless @apricorn_animating
     end
 

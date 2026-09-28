@@ -15,13 +15,24 @@ module ApricornTrees
   end
 
   class ApricornTree
-    attr_reader :event, :color, :key
+    attr_reader :event, :color, :key, :page
 
     def initialize(event)
       @event = event
       @color = event.apricorn_color
       raise ArgumentError, 'Not an Apricorn tree' unless @color
       @key = [event.original_map, event.original_id].freeze
+      @page = event.apricorn_page
+    end
+
+    # A new page can reuse the same color: its identity still must match.
+    # Read the declaration too, so edits without a refresh cannot award a fruit.
+    def current?
+      $game_map.events[event.id].equal?(event) && !event.erased && event.activated? &&
+        event.apricorn_page.equal?(page) && [event.original_map, event.original_id] == key &&
+        event.apricorn_color == color && ApricornTrees.color_from_page(page) == color
+    rescue ArgumentError
+      false
     end
 
     def timer
@@ -66,13 +77,13 @@ module ApricornTrees
     attr_reader :session
 
     def begin_session(tree)
-      return nil if @session || !tree.available?
+      return nil if @session || !tree.current? || !tree.available?
       @session = {tree: tree, player: $game_player, state: PFM.game_state, start: monotonic}
     end
 
     def session_valid?(token)
       @session.equal?(token) && PFM.game_state.equal?(token[:state]) &&
-        $game_player.equal?(token[:player]) && $game_map.events[token[:tree].event.id].equal?(token[:tree].event) &&
+        $game_player.equal?(token[:player]) && token[:tree].current? &&
         !$game_temp.player_transferring && monotonic - token[:start] < 5.0
     end
 
@@ -82,7 +93,7 @@ module ApricornTrees
       return unless token
       token[:player].leave_apricorn_state
       token[:tree].event.apricorn_animating = false
-      token[:tree].refresh if token[:state].equal?(PFM.game_state)
+      token[:tree].refresh if token[:state].equal?(PFM.game_state) && token[:tree].current?
     end
 
     def finish_session(token)

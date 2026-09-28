@@ -92,6 +92,46 @@ class StorageTest < ApricornTest
 end
 
 class TreesTest < ApricornTest
+  def test_native_event_commands_created_through_refresh
+    blank = RPG::EventCommand.new
+    assert_nil blank.code
+    assert_nil blank.indent
+    assert_nil blank.parameters
+    assert_raises(ArgumentError) { RPG::EventCommand.new(355, 0, ['apricorn_tree']) }
+    event = tree.event # Calls the patched refresh on top of native page refresh.
+    source = Marshal.dump(event.event)
+    event.refresh
+    assert_equal [[355, 0, ['apricorn_tree']], [0, 0, []]],
+                 event.list.map { |command| [command.code, command.indent, command.parameters] }
+    assert_equal source, Marshal.dump(event.event)
+    assert_equal [108, 0], event.event.pages.first.list.map(&:code)
+  end
+
+  def test_ordinary_event_keeps_native_page_behavior
+    commands = [event_command(355, 0, ['ordinary_action']), event_command]
+    event = Game_Event.new(1, nil, commands: commands)
+    page = event.event.pages.first
+    replacement = event_page(commands, graphic: 'ordinary_npc', direction: 6, pattern: 1)
+    replacement.trigger = 2
+    replacement.condition.switch1_valid = true
+    replacement.condition.switch1_id = 400
+    event.event.pages << replacement
+    event.refresh
+    assert_same page, event.apricorn_page
+    $game_switches[400] = true
+    # Keep native automatic contact checking out of this headless test.
+    event.instance_variable_set(:@can_parallel_execute, false)
+    event.refresh
+    assert_nil event.apricorn_color
+    assert_same replacement, event.apricorn_page
+    assert_same commands, event.list
+    assert_equal ['ordinary_npc', 6, 1], [event.character_name, event.direction, event.pattern]
+    assert_equal 2, event.instance_variable_get(:@trigger)
+    assert event.instance_variable_get(:@walk_anime)
+    event.send(:update_pattern)
+    assert_equal 2, event.pattern
+  end
+
   def test_explicit_red_declaration_ignores_event_name
     t = tree(:red)
     ['Noigrumier', 'Arbre route 1', 'Event 42', 'apricorn_blue'].each do |name|
@@ -117,8 +157,8 @@ class TreesTest < ApricornTest
   end
 
   def test_old_name_and_non_comment_commands_do_not_declare_a_tree
-    [[], [RPG::EventCommand.new(355, 0, ['<apricorn_tree: red>'])],
-     [RPG::EventCommand.new(108, 0, ['A plain comment'])]].each do |commands|
+    [[], [event_command(355, 0, ['<apricorn_tree: red>'])],
+     [event_command(108, 0, ['A plain comment'])]].each do |commands|
       event = Game_Event.new(1, nil, name: 'apricorn_red', commands: commands)
       assert_nil event.apricorn_color
       assert_same commands, event.list
@@ -131,8 +171,8 @@ class TreesTest < ApricornTest
   end
 
   def test_comment_continuation_and_runtime_refresh_preserve_source_page
-    commands = [RPG::EventCommand.new(108, 0, ['Arbre du chemin']),
-                RPG::EventCommand.new(408, 0, ['  <apricorn_tree: red>  ']), RPG::EventCommand.new]
+    commands = [event_command(108, 0, ['Arbre du chemin']),
+                event_command(408, 0, ['  <apricorn_tree: red>  ']), event_command]
     event = Game_Event.new(1, nil, commands: commands)
     original = Marshal.dump(event.event)
     2.times do
@@ -146,7 +186,7 @@ class TreesTest < ApricornTest
     event.refresh
     assert_nil event.apricorn_color
     assert_nil event.list
-    event.event.pages << OpenStruct.new(list: [RPG::EventCommand.new(108, 0, ['<apricorn_tree: blue>'])])
+    event.event.pages << event_page([event_command(108, 0, ['<apricorn_tree: blue>'])])
     event.refresh
     assert_equal :blue, event.apricorn_color
     assert_equal 'apr_blue', event.character_name
@@ -154,10 +194,10 @@ class TreesTest < ApricornTest
 
   def test_malformed_or_duplicate_declarations_are_refused
     ['<apricorn_tree:>', '<apricorn_tree red>'].each do |line|
-      commands = [RPG::EventCommand.new(108, 0, [line])]
+      commands = [event_command(108, 0, [line])]
       assert_raises(ArgumentError) { Game_Event.new(1, nil, commands: commands) }
     end
-    commands = %w[red blue].map { |color| RPG::EventCommand.new(108, 0, ["<apricorn_tree: #{color}>"]) }
+    commands = %w[red blue].map { |color| event_command(108, 0, ["<apricorn_tree: #{color}>"]) }
     assert_raises(ArgumentError) { Game_Event.new(1, nil, commands: commands) }
   end
 
@@ -304,56 +344,180 @@ class TreesTest < ApricornTest
   end
 end
 
-class BoxTest < ApricornTest
-  def test_handler_navigation_details_and_consultation
-    $apricorns.add(:red, 5)
-    scene = GamePlay::ApricornBox.new
-    before = $apricorns.quantities
-    scene.send(:create_graphics)
-    assert_equal 7, scene.instance_variable_get(:@collection).icons.size
-    assert_equal :red, scene.selected_color
-    assert_equal 'Noigrume Rouge', scene.instance_variable_get(:@name).text
-    scene.move_selection(-1)
-    assert_equal :black, scene.selected_color
-    assert_equal :heavy_ball, scene.instance_variable_get(:@ball_icon).data
-    7.times { scene.move_selection(1) }
-    assert_equal :black, scene.selected_color
-    Input.key = :UP
-    scene.update_inputs
-    assert_equal :white, scene.selected_color
-    Input.key = :B
-    scene.update_inputs
-    assert_equal false, scene.instance_variable_get(:@running)
-    assert_equal before, $apricorns.quantities
-    before_use, handler = PFM::ItemDescriptor::HANDLERS.fetch(:apricorn_box)
-    assert before_use
-    parent = Object.new
-    def parent.call_scene(klass); @opened = klass; end
-    assert_equal :unused, handler.call(nil, parent)
-    assert_equal GamePlay::ApricornBox, parent.instance_variable_get(:@opened)
-    scene.dispose
-    %i[@heading @collection @detail].each do |ivar|
-      window = scene.instance_variable_get(ivar)
-      assert window.disposed?
-      assert window.sprite_stack.disposed
+class PlayerRestorationTest < ApricornTest
+  def test_walking_restores_native_movement
+    run_sequence(tree)
+    assert_equal :walking, $game_player.state
+    assert_equal [3, 4], [$game_player.move_speed, $game_player.move_frequency]
+    assert_equal 'player_m_walk', $game_player.character_name
+    assert_nil $game_player.update_callback
+  end
+
+  def test_surfing_restores_flag_appearance_and_native_speed
+    $game_switches[Yuki::Sw::Gender] = true
+    $game_player.instance_variable_set(:@surfing, true)
+    $game_player.enter_in_surfing_state
+    run_sequence(tree)
+    assert_equal :surfing, $game_player.state
+    assert $game_player.instance_variable_get(:@surfing)
+    assert_equal [4, 4], [$game_player.move_speed, $game_player.move_frequency]
+    assert_equal 'player_f_surf', $game_player.character_name
+    assert_nil $game_player.update_callback
+  end
+
+  %i[enter_in_cycling_state enter_in_acro_bike_state].each do |entry|
+    define_method("test_#{entry}_preserves_existing_dismount_policy") do
+      $game_player.send(entry)
+      assert $game_player.cycling?
+      run_sequence(tree)
+      assert_equal :walking, $game_player.state
+      refute $game_switches[Yuki::Sw::EV_Bicycle]
+      refute $game_switches[Yuki::Sw::EV_AccroBike]
+      refute $game_player.on_acro_bike
+      assert_equal [3, 4], [$game_player.move_speed, $game_player.move_frequency]
+      assert_equal 'player_m_walk', $game_player.character_name
+      assert_nil $game_player.update_callback
     end
   end
 
-  def test_all_seven_selections_zero_and_large_quantities
-    $apricorns.add(:white, 10_000)
-    before = $apricorns.quantities
-    scene = GamePlay::ApricornBox.new
-    scene.send(:create_graphics)
-    ApricornTrees::DISPLAY_ORDER.each do |color|
-      assert_equal color, scene.selected_color
-      assert_equal ApricornTrees::TYPES[color][:item], scene.instance_variable_get(:@icon).data
-      assert_includes scene.instance_variable_get(:@description).text, color.to_s
-      assert_includes scene.instance_variable_get(:@quantity).text, $apricorns[color].to_s
-      scene.move_selection(1)
+  def test_running_returns_to_walking_as_in_native_return
+    $game_player.enter_in_running_state
+    run_sequence(tree)
+    assert_equal :walking, $game_player.state
+    refute $game_switches[Yuki::Sw::EV_Run]
+    assert_equal [3, 4], [$game_player.move_speed, $game_player.move_frequency]
+    assert_nil $game_player.update_callback
+  end
+
+  def test_swamp_context_is_preserved_by_native_return
+    $game_player.instance_variable_set(:@in_swamp, true)
+    $game_player.enter_in_walking_state
+    run_sequence(tree)
+    assert_equal :swamp, $game_player.state
+    assert_equal 'player_m_swamp', $game_player.character_name
+    assert_equal [3, 4], [$game_player.move_speed, $game_player.move_frequency]
+    assert_nil $game_player.update_callback
+  end
+
+  def test_external_walking_state_does_not_leave_an_apricorn_callback
+    run_sequence(tree) { $game_player.enter_in_walking_state }
+    assert_equal :walking, $game_player.state
+    assert_nil $game_player.update_callback
+    assert_nil ApricornTrees.session
+    assert_nil $game_player.instance_variable_get(:@apricorn_started_at)
+    assert_nil $game_player.instance_variable_get(:@apricorn_previous_graphic)
+  end
+
+  def test_cleanup_never_clears_a_foreign_callback_even_if_state_is_still_apricorn
+    player = $game_player
+    def player.external_animation; end
+    run_sequence(tree) { player.instance_variable_set(:@update_callback, :external_animation) }
+    assert_equal :external_animation, player.update_callback
+    assert_nil ApricornTrees.session
+    player.instance_variable_set(:@state, :using_skill)
+    player.leave_apricorn_state
+    assert_equal :external_animation, player.update_callback
+    assert_equal :using_skill, player.state
+  end
+
+  def test_cancellation_clears_both_apricorn_callbacks_after_external_state_change
+    %i[update_enter_apricorn_state update_apricorn_state].each do |callback|
+      ApricornTrees.begin_session(tree)
+      $game_player.enter_in_apricorn_state
+      $game_player.instance_variable_set(:@update_callback, callback)
+      $game_player.enter_in_walking_state
+      ApricornTrees.cancel_session
+      assert_nil $game_player.update_callback
+      assert_nil ApricornTrees.session
+      assert_equal :walking, $game_player.state
     end
-    assert_equal before, $apricorns.quantities
   end
 end
+
+class SessionInvalidationTest < ApricornTest
+  def assert_interruption
+    t = tree
+    calls = []
+    ApricornTrees.on_acquire(:audit) { |*args| calls << args }
+    changed = false
+    frame_after_change = nil
+    run_sequence(t) do
+      next if changed
+      changed = true
+      yield t
+      frame_after_change = [t.event.character_name, t.event.direction, t.event.pattern]
+    end
+    assert_equal ApricornTrees::COLORS.to_h { |color| [color, 0] }, $apricorns.quantities
+    assert_empty PFM.game_state.quests.acquisitions
+    assert_empty calls
+    assert_nil t.timer
+    refute $game_self_switches[[*t.key, ApricornTrees::TIMER_SWITCH]]
+    assert_nil ApricornTrees.session
+    assert_nil $game_player.update_callback
+    assert_equal :walking, $game_player.state
+    refute t.event.apricorn_animating
+    assert_equal frame_after_change, [t.event.character_name, t.event.direction, t.event.pattern]
+    t
+  end
+
+  def test_erased_event_cancels_without_award
+    assert_interruption { |t| t.event.erase }
+  end
+
+  def test_no_active_page_cancels_without_award
+    assert_interruption do |t|
+      t.event.event.pages.clear
+      t.event.refresh
+    end
+  end
+
+  def test_new_non_tree_page_keeps_its_own_graphics
+    assert_interruption do |t|
+      t.event.event.pages << event_page([event_command], graphic: 'ordinary_npc', direction: 6, pattern: 3)
+      t.event.refresh
+    end
+  end
+
+  def test_new_page_with_same_color_is_a_different_logical_tree
+    assert_interruption do |t|
+      commands = [event_command(108, 0, ['<apricorn_tree: red>']), event_command]
+      t.event.event.pages << event_page(commands, direction: 4, pattern: 1)
+      t.event.refresh
+    end
+  end
+
+  def test_color_change_on_same_page_cancels
+    assert_interruption do |t|
+      t.page.list.first.parameters = ['<apricorn_tree: blue>']
+      t.event.refresh
+    end
+  end
+
+  def test_declaration_removed_without_refresh_cancels
+    assert_interruption { |t| t.page.list.first.parameters = ['Just a tree now'] }
+  end
+
+  def test_invalid_declaration_without_refresh_cancels
+    assert_interruption { |t| t.page.list.first.parameters = ['<apricorn_tree: orange>'] }
+  end
+
+  def test_replaced_event_is_not_modified
+    replacement = nil
+    assert_interruption do |t|
+      replacement = Game_Event.new(t.event.id, nil, commands: [event_command])
+      replacement.event.pages.replace([event_page([event_command], graphic: 'replacement', direction: 4, pattern: 2)])
+      replacement.refresh
+      $game_map.events[t.event.id] = replacement
+    end
+    assert_equal ['replacement', 4, 2], [replacement.character_name, replacement.direction, replacement.pattern]
+  end
+
+  def test_original_identity_change_cancels
+    assert_interruption { |t| t.event.instance_variable_set(:@original_id, 99) }
+  end
+end
+
+require_relative 'box'
 
 class CraftTest < ApricornTest
   def add_recipe(key, ingredients, result: :level_ball)

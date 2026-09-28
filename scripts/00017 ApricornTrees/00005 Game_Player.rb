@@ -10,6 +10,7 @@ module ApricornTrees
     end
 
     def enter_in_apricorn_state
+      # Preserve the existing dismount policy (also used by native fishing).
       leave_cycling_state if cycling?
       @apricorn_previous_graphic = @character_name
       @apricorn_started_at = ApricornTrees.monotonic
@@ -21,7 +22,9 @@ module ApricornTrees
 
     def update_enter_apricorn_state
       update_apricorn_state
-      @update_callback = :update_apricorn_state if apricorn_state?
+      if apricorn_state? && @update_callback == :update_enter_apricorn_state
+        @update_callback = :update_apricorn_state
+      end
     end
 
     def update_apricorn_state
@@ -35,12 +38,18 @@ module ApricornTrees
     end
 
     def leave_apricorn_state
-      return unless apricorn_state?
-      @update_callback = nil
+      # An external state change does not necessarily clear our callback.
+      if @update_callback == :update_enter_apricorn_state || @update_callback == :update_apricorn_state
+        @update_callback = nil
+      end
+      previous_graphic = @apricorn_previous_graphic
       @apricorn_started_at = nil
-      enter_in_walking_state
-      set_appearance(@apricorn_previous_graphic) if !@charset_base && @apricorn_previous_graphic
       @apricorn_previous_graphic = nil
+      # A different callback/state belongs to the system that took control.
+      # Native return_to_previous_state clears callbacks, so do not call it then.
+      return unless apricorn_state? && @update_callback.nil?
+      return_to_previous_state
+      set_appearance(previous_graphic) if !@charset_base && previous_graphic
     end
   end
 end

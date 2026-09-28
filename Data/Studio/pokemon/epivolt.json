@@ -1,38 +1,38 @@
 {
   "klass": "Specie",
-  "id": 825,
-  "dbSymbol": "apotoor",
+  "id": 827,
+  "dbSymbol": "epivolt",
   "forms": [
     {
       "form": 0,
       "formTextId": {
-        "name": 1066,
+        "name": 1068,
         "description": 0
       },
-      "height": 4,
-      "weight": 4.8,
-      "type1": "flying",
-      "type2": "dark",
-      "baseHp": 50,
-      "baseAtk": 65,
-      "baseDfe": 45,
-      "baseSpd": 70,
-      "baseAts": 40,
-      "baseDfs": 45,
+      "height": 0.5,
+      "weight": 9.8,
+      "type1": "ground",
+      "type2": "electric",
+      "baseHp": 55,
+      "baseAtk": 50,
+      "baseDfe": 65,
+      "baseSpd": 40,
+      "baseAts": 50,
+      "baseDfs": 55,
       "evHp": 0,
       "evAtk": 0,
-      "evDfe": 0,
+      "evDfe": 1,
       "evSpd": 0,
       "evAts": 0,
       "evDfs": 0,
       "evolutions": [
         {
-          "dbSymbol": "papotoo",
+          "dbSymbol": "epiorage",
           "form": 0,
           "conditions": [
             {
               "type": "minLevel",
-              "value": 21
+              "value": 23
             }
           ]
         }
@@ -47,7 +47,7 @@
         15
       ],
       "hatchSteps": 1024,
-      "babyDbSymbol": "apotoor",
+      "babyDbSymbol": "epivolt",
       "babyForm": 0,
       "itemHeld": [
         {
@@ -60,113 +60,108 @@
         }
       ],
       "abilities": [
-        "insomnia",
-        "clear_body",
-        "prankster"
+        "lightning_rod",
+        "static",
+        "iron_barbs"
       ],
       "frontOffsetY": 0,
-      "resources": {
-        "icon": "",
-        "iconShiny": "",
-        "front": "1042",
-        "frontShiny": "1042",
-        "back": "1042",
-        "backShiny": "1042",
-        "footprint": "0198",
-        "character": "",
-        "characterShiny": "",
-        "egg": "egg0198",
-        "iconEgg": "egg0198",
-        "cry": "0198.ogg",
-        "hasFemale": false
-      },
       "moveSet": [
         {
           "klass": "LevelLearnableMove",
-          "move": "peck",
+          "move": "tackle",
           "level": 1
         },
         {
           "klass": "LevelLearnableMove",
-          "move": "leer",
+          "move": "defense_curl",
           "level": 1
         },
         {
           "klass": "LevelLearnableMove",
-          "move": "astonish",
+          "move": "thunder_shock",
           "level": 5
         },
         {
           "klass": "LevelLearnableMove",
-          "move": "quick_attack",
+          "move": "rollout",
           "level": 8
         },
         {
           "klass": "LevelLearnableMove",
-          "move": "pursuit",
+          "move": "sand_attack",
           "level": 11
         },
         {
           "klass": "LevelLearnableMove",
-          "move": "pursuit",
-          "level": 12
-        },
-        {
-          "klass": "LevelLearnableMove",
-          "move": "confuse_ray",
+          "move": "spark",
           "level": 14
         },
         {
           "klass": "LevelLearnableMove",
-          "move": "wing_attack",
-          "level": 16
+          "move": "magnitude",
+          "level": 17
         },
         {
           "klass": "LevelLearnableMove",
-          "move": "taunt",
-          "level": 18
+          "move": "pin_missile",
+          "level": 20
         },
         {
           "klass": "LevelLearnableMove",
-          "move": "assurance",
-          "level": 22
+          "move": "thunder_fang",
+          "level": 24
         },
         {
           "klass": "LevelLearnableMove",
-          "move": "thief",
-          "level": 22
+          "move": "dig",
+          "level": 26
         },
         {
           "klass": "LevelLearnableMove",
-          "move": "aerial_ace",
-          "level": 25
-        },
-        {
-          "klass": "LevelLearnableMove",
-          "move": "foul_play",
+          "move": "bulldoze",
           "level": 30
         },
         {
           "klass": "LevelLearnableMove",
-          "move": "tailwind",
+          "move": "wild_charge",
           "level": 34
         },
         {
           "klass": "LevelLearnableMove",
-          "move": "nasty_plot",
+          "move": "drill_run",
           "level": 38
         },
         {
           "klass": "LevelLearnableMove",
-          "move": "brave_bird",
+          "move": "curse",
           "level": 42
         },
         {
           "klass": "LevelLearnableMove",
-          "move": "night_slash",
+          "move": "earthquake",
           "level": 46
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "volt_tackle",
+          "level": 50
         }
-      ]
+      ],
+      "resources": {
+        "icon": "",
+        "iconShiny": "",
+        "front": "1044",
+        "frontShiny": "1044",
+        "back": "1044",
+        "backShiny": "1044",
+        "footprint": "0027",
+        "character": "",
+        "characterShiny": "",
+        "egg": "egg0027",
+        "iconEgg": "egg0027",
+        "cry": "0027.ogg",
+        "hasFemale": false
+      }
     }
   ]
 }

@@ -39,6 +39,7 @@ class Interpreter
           return false unless ApricornTrees.session_valid?(token)
         end
       end
+      return false unless ApricornTrees.session_valid?(token)
       obtained = tree.harvest!
     ensure
       ApricornTrees.finish_session(token)

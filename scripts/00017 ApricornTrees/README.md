@@ -73,7 +73,11 @@ de configuration fondée sur le nom ou sur la commande Script.
 
 Une interaction avec un arbre disponible donne exactement un fruit dans
 `PFM.game_state.apricorns`. Le joueur est orienté, passe en état `:apricorn`, utilise
-`<charset_base>_m_shake` ou `<charset_base>_f_shake`, puis revient à la marche.
+`<charset_base>_m_shake` ou `<charset_base>_f_shake`, puis utilise le retour d'état
+natif PSDK. Le surf retrouve son état, son charset et sa vitesse ; le contexte
+marécage est conservé. La course revient à la marche comme dans le retour natif.
+Le comportement vélo existant est conservé : le joueur descend avant de récolter
+(comme pour la pêche native), donc termine à pied ; aucun remontage automatique.
 Les ressources `player_m_shake` et `player_f_shake` existent déjà. Un autre jeu de
 costumes doit fournir son suffixe `_shake` correspondant.
 
@@ -96,6 +100,20 @@ L'ajout du fruit et le délai persistant sont validés sans céder la main. Un v
 transitoire empêche les récoltes simultanées. Une interruption avant validation ne
 donne rien ; après validation, le délai bloque une seconde attribution. Une clause
 `ensure` restaure joueur/arbre ; un garde-fou libère une animation abandonnée.
+Seuls les callbacks `update_enter_apricorn_state` et `update_apricorn_state`
+sont nettoyés par ApricornTrees, même si l'état du joueur a changé extérieurement.
+Si un autre système a installé son propre callback, son contrôle est conservé.
+
+La session retient la référence de la page active, en plus de l'événement, de sa
+couleur et de `[original_map, original_id]`. À chaque reprise de l'animation et
+avant attribution, l'événement doit toujours être présent, actif, non effacé,
+avec la même page et la même déclaration valide. Un changement annule la récolte
+sans attribution, notification ou nouveau timer. Le nettoyage ne restaure aucune
+frame si la page/configuration ou l'événement ne correspond plus à la session.
+
+Le timeout absolu de cinq secondes reste inchangé : un gel prolongé peut annuler
+une récolte. La sauvegarde forcée concurrente pendant une Fiber reste hors périmètre
+et peut échouer à la sérialisation ; ne pas l'utiliser pendant l'interaction.
 Le texte et la fanfare d'obtention natifs sont réutilisés sans ajout au Sac.
 
 L'arbre vide reste en **L4C3** et indique qu'il n'y a plus rien à récolter.
@@ -219,13 +237,34 @@ attribution et un appel de récolte.
 
 Depuis `scripts` : `ruby "00017 ApricornTrees/tests/run.rb"`.
 Le banc charge le véritable GameState, le Sac natif, les méthodes de timer et
-d'Interpreter nécessaires et le Crafting existant. L'affichage, l'entrée utilisateur
-et certains objets de map sont simulés ; aucune sauvegarde réelle n'est ouverte.
-Base conservée : **33 tests, 339 assertions**. Après remplacement de la reconnaissance
-par nom : **38 tests, 382 assertions, aucun échec ni erreur**. Les cinq nouveaux tests
-couvrent les noms libres/ignorés, les couleurs invalides, l'absence de reconnaissance
-par ancien nom ou commande Script, les commentaires continués et leur conservation
-au rafraîchissement/changement de page, ainsi que les déclarations mal formées/doubles.
+d'Interpreter nécessaires et le Crafting existant. Il importe aussi les vraies
+classes `RPG::Event`, `Page` et `EventCommand`, les méthodes natives de sélection/
+rafraîchissement des pages, ainsi que les méthodes/constantes natives de retour
+aux modes de déplacement. L'affichage, l'entrée utilisateur et certains objets
+de map restent simulés ; aucune sauvegarde réelle n'est ouverte.
+
+Après les quatre corrections de l'audit : **58 tests, 571 assertions, aucun échec
+ni erreur**, avec Ruby local et avec **Ruby Studio 3.0.6 + LiteRGSS**. Les 38 tests
+précédents sont conservés. Les ajouts couvrent le constructeur réel et la liste
+synthétique complète, les événements ordinaires, les callbacks remplacés, les
+retours marche/course/surf/vélos/marécage et l'invalidation des arbres.
+
+`RPG::EventCommand` n'a aucun constructeur à trois arguments sous ce PSDK :
+les deux commandes runtime sont créées sans argument et leurs champs sont
+explicitement renseignés : `[355, 0, ['apricorn_tree']]` et `[0, 0, []]` pour
+`[code, indent, parameters]`. Le test `test_native_event_commands_created_through_refresh`
+échoue bien avec l'ancien corps de `refresh` réinjecté seulement en mémoire.
+
+Le Ruby de Studio ne fournit pas Minitest dans cette installation. Pour reproduire
+la suite avec les installations locales existantes, sans installer de gem :
+
+```powershell
+& 'C:/Users/thiba/AppData/Local/Programs/pokemon-studio/resources/psdk-binaries/ruby.exe' `
+  '-IC:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/minitest-5.15.0/lib' `
+  -r 'C:/Users/thiba/AppData/Local/Programs/pokemon-studio/resources/psdk-binaries/lib/LiteRGSS.so' `
+  '00017 ApricornTrees/tests/run.rb'
+```
+
 Les tests existants gardent la couverture des identités MapLinker, arbres indépendants,
 animations, repousse, migration idempotente, stockage, quêtes, Boîte et artisanat.
 Les sept copies de PNG ont aussi été comparées aux originaux (identiques).

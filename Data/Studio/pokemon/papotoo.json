@@ -1,42 +1,31 @@
 {
   "klass": "Specie",
-  "id": 825,
-  "dbSymbol": "apotoor",
+  "id": 826,
+  "dbSymbol": "papotoo",
   "forms": [
     {
       "form": 0,
       "formTextId": {
-        "name": 1066,
+        "name": 1067,
         "description": 0
       },
-      "height": 4,
-      "weight": 4.8,
+      "height": 1.3,
+      "weight": 24.5,
       "type1": "flying",
       "type2": "dark",
-      "baseHp": 50,
-      "baseAtk": 65,
-      "baseDfe": 45,
-      "baseSpd": 70,
-      "baseAts": 40,
-      "baseDfs": 45,
+      "baseHp": 75,
+      "baseAtk": 105,
+      "baseDfe": 65,
+      "baseSpd": 115,
+      "baseAts": 55,
+      "baseDfs": 70,
       "evHp": 0,
       "evAtk": 0,
       "evDfe": 0,
       "evSpd": 0,
       "evAts": 0,
       "evDfs": 0,
-      "evolutions": [
-        {
-          "dbSymbol": "papotoo",
-          "form": 0,
-          "conditions": [
-            {
-              "type": "minLevel",
-              "value": 21
-            }
-          ]
-        }
-      ],
+      "evolutions": [],
       "experienceType": 1,
       "baseExperience": 40,
       "baseLoyalty": 70,
@@ -68,10 +57,10 @@
       "resources": {
         "icon": "",
         "iconShiny": "",
-        "front": "1042",
-        "frontShiny": "1042",
-        "back": "1042",
-        "backShiny": "1042",
+        "front": "1043",
+        "frontShiny": "1043",
+        "back": "1043",
+        "backShiny": "1043",
         "footprint": "0198",
         "character": "",
         "characterShiny": "",
@@ -129,42 +118,52 @@
         {
           "klass": "LevelLearnableMove",
           "move": "assurance",
-          "level": 22
+          "level": 24
         },
         {
           "klass": "LevelLearnableMove",
           "move": "thief",
-          "level": 22
+          "level": 26
         },
         {
           "klass": "LevelLearnableMove",
           "move": "aerial_ace",
-          "level": 25
+          "level": 27
         },
         {
           "klass": "LevelLearnableMove",
           "move": "foul_play",
-          "level": 30
+          "level": 32
         },
         {
           "klass": "LevelLearnableMove",
           "move": "tailwind",
-          "level": 34
-        },
-        {
-          "klass": "LevelLearnableMove",
-          "move": "nasty_plot",
-          "level": 38
-        },
-        {
-          "klass": "LevelLearnableMove",
-          "move": "brave_bird",
-          "level": 42
+          "level": 36
         },
         {
           "klass": "LevelLearnableMove",
           "move": "night_slash",
-          "level": 46
+          "level": 38
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "nasty_plot",
+          "level": 40
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "swords_dance",
+          "level": 42
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "brave_bird",
+          "level": 44
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "roost",
+          "level": 48
         }
       ]
     }

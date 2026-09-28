@@ -1,7 +1,7 @@
 o:Configs::Project::Recipes:@categories[	{:alli{:	balli	{:medicali
 {:
 objeti:
-@data{:red_shard{
+@data{:red_shard{
 :ingredients{:cheri_berryi	:persim_berryi:pecha_berryi	:resultI"red_shard:ET:quantityi:categoryI"
 objet;T:unlock_condition{:	typeI"switch;T:idi`:lure_ball{
 ;{:blue_apricorni;I"lure_ball;T;i;I"	ball;T;{;I"manual;T:
@@ -11,7 +11,8 @@ valueT:berry_juice{
 ;{:white_apricorni;I"fast_ball;T;i;I"	ball;T;{;I"manual;T;T:friend_ball{
 ;{:green_apricorni;I"friend_ball;T;i;I"	ball;T;{;I"manual;T;T:level_ball{
 ;{:red_apricorni;I"level_ball;T;i;I"	ball;T;{;I"manual;T;T:love_ball{
-;{:pink_apricorni;I"love_ball;T;i;I"	ball;T;{;I"manual;T;T:blue_shard{
+;{:pink_apricorni;I"love_ball;T;i;I"	ball;T;{;I"manual;T;T:heavy_ball{
+;{:black_apricorni;I"heavy_ball;T;i;I"	ball;T;{;I"manual;T;T:blue_shard{
 ;{:chesto_berryi
 ;i
 ;I"blue_shard;T;i;I"
