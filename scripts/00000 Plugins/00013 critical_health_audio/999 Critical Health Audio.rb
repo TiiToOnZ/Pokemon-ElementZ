@@ -21,7 +21,7 @@ module Configs
         @sound_effect_mode = {
           filename: 'audio/se/low_health',
           volume: 100,
-          bgm_volume_reduction_percent: 50
+          bgm_volume_reduction_percent: 35
         }
         @bgm_replacement_mode = {
           filename: 'audio/bgm/battle_low_hp',

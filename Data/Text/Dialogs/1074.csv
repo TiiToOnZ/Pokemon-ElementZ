@@ -1,10 +1,10 @@
 fr
 "Salut ! Moi, c’est Archi !  \nlArchi, l’archéologue !  \nlToi aussi, tu es passionné de ruines antiques et d’énigmes en tout genre ?!  "
 "Parce que là, tu vois, je suis fasciné[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10] mais en même temps bien embêté[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]  \nlImpossible de résoudre le puzzle de cette salle[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10] et dire qu’il y en a quatre comme ça dans ces ruines !  "
-"De plus, au fond de chaque salle, il y a des interrupteurs, mais impossible de les activés[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]  \nlBref, je vais continuer à fouiller le reste des ruines, je trouverai peut-être des indices.  \nlJe te souhaite bonne chance pour résoudre ces puzzles !"
+"De plus, au fond de chaque salle, il y a des interrupteurs, mais impossible de les activer[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]  \nlBref, je vais continuer à fouiller le reste des ruines, je trouverai peut-être des indices.  \nlJe te souhaite bonne chance pour résoudre ces puzzles !"
 "Salut ! Moi, c’est Archi !  \nlArchi, l’archéologue !  \nlToi aussi, tu es passionné de ruines antiques et d’énigmes en tout genre ?!  "
 "Parce que là, tu vois, je suis fasciné[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10] mais en même temps bien embêté[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]  \nlImpossible de résoudre le puzzle de cette salle[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10] et dire qu’il y en a quatre comme ça dans ces ruines !  "
-"De plus, au fond de chaque salle, il y a des interrupteurs, mais impossible de les activés[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]  \nlBref, je vais continuer à fouiller le reste des ruines, je trouverai peut-être des indices.  \nlJe te souhaite bonne chance pour résoudre ces puzzles !"
+"De plus, au fond de chaque salle, il y a des interrupteurs, mais impossible de les activer[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]  \nlBref, je vais continuer à fouiller le reste des ruines, je trouverai peut-être des indices.  \nlJe te souhaite bonne chance pour résoudre ces puzzles !"
 :[align=center]:\s[i]Quatre interrupteurs semblent désactivés[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10] comment puis-je les activer ?\s[r]
 :[align=center]:\s[i]Un interrupteur a été activé ! \nlPlus que trois interrupteurs semblent désactivés[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10] comment puis-je les activer ?\s[r]
 :[align=center]:\s[i]Deux interrupteurs ont été activés !  \nlPlus que deux interrupteurs semblent désactivés[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10] comment puis-je les activer ?\s[r]
