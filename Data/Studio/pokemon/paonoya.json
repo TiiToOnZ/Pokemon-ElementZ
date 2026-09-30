@@ -44,7 +44,7 @@
       "femaleRate": 50,
       "breedGroups": [
         5,
-        15
+        6
       ],
       "hatchSteps": 1024,
       "babyDbSymbol": "plumino",
@@ -66,15 +66,15 @@
       ],
       "frontOffsetY": 0,
       "resources": {
-        "icon": "",
-        "iconShiny": "",
+        "icon": "1040",
+        "iconShiny": "1040",
         "front": "1040",
         "frontShiny": "1040",
         "back": "1040",
         "backShiny": "1040",
         "footprint": "0256",
-        "character": "",
-        "characterShiny": "",
+        "character": "1040",
+        "characterShiny": "1040",
         "egg": "egg0255",
         "iconEgg": "egg0255",
         "cry": "0256.ogg",
@@ -109,7 +109,12 @@
         {
           "klass": "LevelLearnableMove",
           "move": "fairy_wind",
-          "level": 14
+          "level": 12
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "fire_spin",
+          "level": 15
         },
         {
           "klass": "LevelLearnableMove",
@@ -165,6 +170,10 @@
           "klass": "LevelLearnableMove",
           "move": "hurricane",
           "level": 50
+        },
+        {
+          "klass": "EvolutionLearnableMove",
+          "move": "flame_wheel"
         }
       ]
     }

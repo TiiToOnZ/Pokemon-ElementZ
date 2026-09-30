@@ -24,9 +24,9 @@ module ApricornTrees
     [8, 0, 0.08], [8, 1, 0.08], [8, 2, 0.02]
   ].map(&:freeze).freeze
   TEXTS = {
-    fr: {empty: "Il n'y a plus de Noigrume à récolter pour le moment…", stored: 'Il est rangé dans la Boîte Noigrume.',
+    fr: {empty: ":[align=center]:\\s[i]Il n'y a plus de Noigrume à récolter pour le moment[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\\s[r]", stored: ":[align=center]:\\s[i]Il est rangé dans la Boîte Noigrume.\\s[r]",
          title: 'BOÎTE NOIGRUME', close: 'Retour', quantity: 'Quantité : %d', makes: 'Pour fabriquer', collection: 'Collection'},
-    en: {empty: 'There are no Apricorns to harvest right now…', stored: 'It was put in the Apricorn Box.',
+    en: {empty: ':[align=center]:\\s[i]There are no Apricorns to harvest right now[WAIT 10].[WAIT 10].[WAIT 10].[WAIT 10]\\s[r]', stored: ':[align=center]:\\s[i]It was put in the Apricorn Box.\\s[r]',
          title: 'APRICORN BOX', close: 'Back', quantity: 'Quantity: %d', makes: 'Used to make', collection: 'Collection'}
   }.freeze
   ACQUISITION_HOOKS = {}

@@ -33,7 +33,7 @@
       "femaleRate": 12,
       "breedGroups": [
         5,
-        5
+        4
       ],
       "hatchSteps": 8960,
       "babyDbSymbol": "eevee",
@@ -153,7 +153,7 @@
         {
           "klass": "LevelLearnableMove",
           "move": "body_slam",
-          "level": 50
+          "level": 51
         },
         {
           "klass": "LevelLearnableMove",
@@ -163,12 +163,12 @@
         {
           "klass": "LevelLearnableMove",
           "move": "brave_bird",
-          "level": 60
+          "level": 59
         },
         {
           "klass": "LevelLearnableMove",
           "move": "giga_impact",
-          "level": 65
+          "level": 63
         },
         {
           "klass": "EvolutionLearnableMove",

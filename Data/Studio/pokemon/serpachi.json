@@ -44,7 +44,7 @@
       "femaleRate": 12.5,
       "breedGroups": [
         5,
-        5
+        2
       ],
       "hatchSteps": 5120,
       "babyDbSymbol": "serpachi",
@@ -72,12 +72,12 @@
         "frontShiny": "1032",
         "back": "1032",
         "backShiny": "1032",
-        "footprint": "0023",
+        "footprint": "0147",
         "character": "",
         "characterShiny": "",
         "egg": "egg0501",
         "iconEgg": "egg0501",
-        "cry": "",
+        "cry": "0147.ogg",
         "hasFemale": false
       },
       "moveSet": [

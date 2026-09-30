@@ -10,7 +10,7 @@
         "description": 0
       },
       "height": 2.9,
-      "weight": 45.9,
+      "weight": 51.9,
       "type1": "water",
       "type2": "__undef__",
       "baseHp": 70,
@@ -44,7 +44,7 @@
       "femaleRate": 12.5,
       "breedGroups": [
         5,
-        5
+        2
       ],
       "hatchSteps": 5120,
       "babyDbSymbol": "serpachi",
@@ -72,12 +72,12 @@
         "frontShiny": "1033",
         "back": "1033",
         "backShiny": "1033",
-        "footprint": "",
+        "footprint": "0148",
         "character": "",
         "characterShiny": "",
         "egg": "egg0501",
         "iconEgg": "egg0501",
-        "cry": "",
+        "cry": "0148.ogg",
         "hasFemale": false
       },
       "moveSet": [
@@ -341,6 +341,10 @@
         {
           "klass": "TechLearnableMove",
           "move": "dive"
+        },
+        {
+          "klass": "EvolutionLearnableMove",
+          "move": "bubble_beam"
         }
       ]
     }
