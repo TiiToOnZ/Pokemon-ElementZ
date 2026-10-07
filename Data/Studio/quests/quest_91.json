@@ -1,0 +1,28 @@
+{
+  "klass": "Quest",
+  "id": 91,
+  "dbSymbol": "quest_91",
+  "isPrimary": false,
+  "resolution": "default",
+  "objectives": [
+    {
+      "objectiveMethodName": "objective_speak_to",
+      "objectiveMethodArgs": [
+        0,
+        "Ranger"
+      ],
+      "textFormatMethodName": "text_speak_to",
+      "hiddenByDefault": false
+    }
+  ],
+  "earnings": [
+    {
+      "earningMethodName": "earning_item",
+      "earningArgs": [
+        "rare_candy",
+        1
+      ],
+      "textFormatMethodName": "text_earn_item"
+    }
+  ]
+}

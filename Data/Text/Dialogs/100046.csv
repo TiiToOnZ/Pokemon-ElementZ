@@ -20,8 +20,8 @@ Revenez-en victorieux.",[~ 9],[~ 9],[~ 9],[~ 9],[~ 9],[~ 9]
 [~ 17],Attrapez 75 Pokemon différents et revenez voir le Prof. Charme à Bourg-Guignon. ,[~ 17],[~ 17],[~ 17],[~ 17],[~ 17],[~ 17]
 [~ 18],Attrapez 105 Pokemon différents et revenez voir le Prof. Charme à Bourg-Guignon. ,[~ 18],[~ 18],[~ 18],[~ 18],[~ 18],[~ 18]
 [~ 19],"Suite à l'obtention de votre partie pratique à l'école des dresseurs, allez aider le collectionneur en battant le Sbire Obscur à Cocovin. ",[~ 19],[~ 19],[~ 19],[~ 19],[~ 19],[~ 19]
-[~ 20],Retrouvez au moins 5 différents souvenirs éparpillés dans Bombance pour finalement en parler à TiiToOnZ Poketoonz.,[~ 20],[~ 20],[~ 20],[~ 20],[~ 20],[~ 20]
-[~ 21],Trouvez des informations sur les artefacts. Allez parler à l'artisan dans la Forêt Enchantée afin d'essayer d'en apprendre plus.,[~ 21],[~ 21],[~ 21],[~ 21],[~ 21],[~ 21]
+[~ 20],"Suite à votre amnésie, il va falloir retrouver la mémoire. Pour cela, pas d'autre choix que de vous balader dans Bombance et de prier pour que vos souvenirs reviennent !",[~ 20],[~ 20],[~ 20],[~ 20],[~ 20],[~ 20]
+[~ 21],Rendez-vous à la Forêt Enchantée et découvrez-la.,[~ 21],[~ 21],[~ 21],[~ 21],[~ 21],[~ 21]
 [~ 22],Retourner voir le guide de la ville dans sa maison à Cocovin.,[~ 22],[~ 22],[~ 22],[~ 22],[~ 22],[~ 22]
 [~ 23],"Collectionner les badges de Bombance afin de les ramener au Collectionneur à Cocovin. 
 Un badge de ramené, c'est un Pokemon de gagné !",[~ 23],[~ 23],[~ 23],[~ 23],[~ 23],[~ 23]
@@ -38,7 +38,7 @@ Un badge de ramené, c'est un Pokemon de gagné !",[~ 28],[~ 28],[~ 28],[~ 28],[
 [~ 29],"Collectionner les badges de Bombance afin de les ramener au Collectionneur à Cocovin. 
 Un badge de ramené, c'est un Pokemon de gagné !",[~ 29],[~ 29],[~ 29],[~ 29],[~ 29],[~ 29]
 [~ 30],,[~ 30],[~ 30],[~ 30],[~ 30],[~ 30],[~ 30]
-[~ 31],"Après avoir débarrassé le Collectionneur du super vilain qui l'embête à Cocovin, aller chercher votre carte de dresseur chez le Prof. Charme à Bourg-Guignon.",[~ 31],[~ 31],[~ 31],[~ 31],[~ 31],[~ 31]
+[~ 31],"Après avoir débarrassé le Collectionneur du voyou qui l'embête à Cocovin, aller chercher votre carte de dresseur chez le Prof. Charme à Bourg-Guignon.",[~ 31],[~ 31],[~ 31],[~ 31],[~ 31],[~ 31]
 [~ 32],"Ramenez à l'assistant du vigneron 4 champignons aquatiques : 2 d'eau douce, 1 d'eau salée et 1 de terre défunte. L’assistant se trouve dans le vignoble à Cocovin.",[~ 32],[~ 32],[~ 32],[~ 32],[~ 32],[~ 32]
 [~ 33],Ramenez la fiole anti-ivrogne au vigneron à Cocovin.,[~ 33],[~ 33],[~ 33],[~ 33],[~ 33],[~ 33]
 [~ 34],"Obtenez la PokéLoupe et la PokéTorche, découvrez à quel Pokémon appartient cette empreinte, puis revenez voir Pierrick dans la Mine Cristalline.",[~ 34],[~ 34],[~ 34],[~ 34],[~ 34],[~ 34]
@@ -118,3 +118,4 @@ Obtenir cette autorisation."
 Obtenir cette autorisation.",,,,,,
 ,Trouvez des informations sur les artefacts. ,,,,,,
 ,TEST,,,,,,
+,Revenez voir de temps en temps le Ranger de Bourg-Guignon. Il aura peut-être des missions à vous confier !,,,,,,

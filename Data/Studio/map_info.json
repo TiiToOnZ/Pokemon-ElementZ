@@ -427,7 +427,7 @@
       42
     ],
     "hasChildren": true,
-    "isExpanded": true,
+    "isExpanded": false,
     "data": {
       "klass": "MapInfoFolder",
       "textId": 3
@@ -443,7 +443,7 @@
       88
     ],
     "hasChildren": true,
-    "isExpanded": false,
+    "isExpanded": true,
     "data": {
       "klass": "MapInfoFolder",
       "textId": 4
@@ -510,7 +510,7 @@
       40
     ],
     "hasChildren": true,
-    "isExpanded": false,
+    "isExpanded": true,
     "data": {
       "klass": "MapInfoFolder",
       "textId": 5

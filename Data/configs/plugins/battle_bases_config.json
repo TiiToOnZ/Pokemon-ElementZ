@@ -1,0 +1,8 @@
+{
+  "default_base_folder": "default_bases",
+  "player_base_asset": "player_base",
+  "enemy_base_asset": "enemy_base",
+  "player_base_double_asset": "player_base_double",
+  "enemy_base_double_asset": "enemy_base_double",
+  "above_battle_base_screen_z_offset": 1
+}

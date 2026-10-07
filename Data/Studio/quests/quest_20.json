@@ -13,15 +13,6 @@
       ],
       "textFormatMethodName": "text_custom",
       "hiddenByDefault": false
-    },
-    {
-      "objectiveMethodName": "objective_speak_to",
-      "objectiveMethodArgs": [
-        0,
-        "TiiToOnZ Poketoonz"
-      ],
-      "textFormatMethodName": "text_speak_to",
-      "hiddenByDefault": false
     }
   ],
   "earnings": []

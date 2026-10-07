@@ -9,7 +9,7 @@
       "objectiveMethodName": "objective_beat_npc",
       "objectiveMethodArgs": [
         0,
-        "Sbire Obscur",
+        "Voyou",
         1
       ],
       "textFormatMethodName": "text_beat_npc",
