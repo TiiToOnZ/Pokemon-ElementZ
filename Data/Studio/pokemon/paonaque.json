@@ -54,22 +54,22 @@
         "__undef__"
       ],
       "frontOffsetY": 0,
-      "moveSet": [],
       "resources": {
         "icon": "",
         "iconShiny": "",
-        "front": "",
-        "frontShiny": "",
-        "back": "",
-        "backShiny": "",
-        "footprint": "",
+        "front": "1041",
+        "frontShiny": "1041",
+        "back": "1041",
+        "backShiny": "1041",
+        "footprint": "0256",
         "character": "",
         "characterShiny": "",
-        "egg": "",
+        "egg": "egg0255",
         "iconEgg": "",
-        "cry": "",
+        "cry": "0256.ogg",
         "hasFemale": false
-      }
+      },
+      "moveSet": []
     }
   ]
 }

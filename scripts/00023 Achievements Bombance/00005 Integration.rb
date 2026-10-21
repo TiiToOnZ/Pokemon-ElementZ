@@ -140,9 +140,9 @@ module BombanceAchievements
     end
 
     def create_icon
-      @icon = with_cache(:icon) { add_sprite(24, 11, '004', 1, 1, type: SpriteSheet) }
+      @icon = with_cache(:interface) { add_sprite(24, 11, 'achievements/trophy', 1, 1, type: SpriteSheet) }
       @icon.set_origin(@icon.width / 2, @icon.height / 2)
-      @icon.zoom = 22.0 / [@icon.width, @icon.height].max
+      @icon.zoom = 16.0 / [@icon.width, @icon.height].max
     end
   end
 

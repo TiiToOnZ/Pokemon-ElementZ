@@ -1,0 +1,167 @@
+{
+  "klass": "Specie",
+  "id": 832,
+  "dbSymbol": "ondelume",
+  "forms": [
+    {
+      "form": 0,
+      "formTextId": {
+        "name": 1073,
+        "description": 0
+      },
+      "height": 0.4,
+      "weight": 4.2,
+      "type1": "water",
+      "type2": "ghost",
+      "baseHp": 60,
+      "baseAtk": 35,
+      "baseDfe": 50,
+      "baseSpd": 40,
+      "baseAts": 65,
+      "baseDfs": 70,
+      "evHp": 0,
+      "evAtk": 0,
+      "evDfe": 0,
+      "evSpd": 0,
+      "evAts": 0,
+      "evDfs": 1,
+      "evolutions": [
+        {
+          "dbSymbol": "sepulame",
+          "form": 0,
+          "conditions": [
+            {
+              "type": "minLevel",
+              "value": 29
+            }
+          ]
+        }
+      ],
+      "experienceType": 1,
+      "baseExperience": 65,
+      "baseLoyalty": 70,
+      "catchRate": 150,
+      "femaleRate": 50,
+      "breedGroups": [
+        2,
+        11
+      ],
+      "hatchSteps": 1024,
+      "babyDbSymbol": "ondelume",
+      "babyForm": 0,
+      "itemHeld": [
+        {
+          "dbSymbol": "none",
+          "chance": 0
+        },
+        {
+          "dbSymbol": "none",
+          "chance": 0
+        }
+      ],
+      "abilities": [
+        "water_absorb",
+        "cursed_body",
+        "infiltrator"
+      ],
+      "frontOffsetY": 0,
+      "moveSet": [
+        {
+          "klass": "LevelLearnableMove",
+          "move": "will_o_wisp",
+          "level": 1
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "astonish",
+          "level": 1
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "water_gun",
+          "level": 1
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "tail_whip",
+          "level": 5
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "confuse_ray",
+          "level": 9
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "water_pulse",
+          "level": 13
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "will_o_wisp",
+          "level": 17
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "hex",
+          "level": 21
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "liquidation",
+          "level": 25
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "shadow_ball",
+          "level": 29
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "recover",
+          "level": 33
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "surf",
+          "level": 36
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "haze",
+          "level": 40
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "hydro_pump",
+          "level": 45
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "pain_split",
+          "level": 51
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "shadow_force",
+          "level": 57
+        }
+      ],
+      "resources": {
+        "icon": "",
+        "iconShiny": "",
+        "front": "1052",
+        "frontShiny": "1052",
+        "back": "1052",
+        "backShiny": "1052",
+        "footprint": "0194",
+        "character": "",
+        "characterShiny": "",
+        "egg": "egg0194",
+        "iconEgg": "",
+        "cry": "0194.ogg",
+        "hasFemale": false
+      }
+    }
+  ]
+}

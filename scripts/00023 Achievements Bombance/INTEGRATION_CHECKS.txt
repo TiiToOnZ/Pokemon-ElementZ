@@ -1,0 +1,20 @@
+Definitive project: E:\Pokemon_ElementZ\Pokemon_ElementZ
+Timestamp: 2026-10-08T14:19:21.1137144+02:00
+BOMBANCE_SCRIPTS and BOMBANCE_GRAPHICS: absent
+Manifest SHA-256 verified: 41 files
+Backup: C:\Users\thiba\AppData\Local\Temp\bombance_succes_v2_impl\backup_before_install_20261008_141920
+
+Run options: --seed 10336
+
+# Running:
+
+..................................................
+
+Finished in 0.976663s, 51.1947 runs/s, 525.2581 assertions/s.
+
+50 runs, 513 assertions, 0 failures, 0 errors, 0 skips
+Unit exit code: 0
+
+Native LiteRGSS: 616 checks passed; captures in E:/Pokemon_ElementZ/Pokemon_ElementZ/scripts/00023 Achievements Bombance/tests.
+LiteRGSS exit code: 0
+Scoped git diff --check (Windows CRLF recognized): exit code 0

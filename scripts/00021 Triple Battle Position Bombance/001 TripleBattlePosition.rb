@@ -15,7 +15,7 @@ module BombanceTripleBattlePosition
   }.freeze
 
   PLAYER_SINGLE_OFFSETS = {
-    0 => [-2, 6] # Pokémon joueur
+    0 => [0, 2] # Pokémon joueur
   }.freeze
 
   # ---------------------------------------------------------------------------
@@ -23,7 +23,7 @@ module BombanceTripleBattlePosition
   # ---------------------------------------------------------------------------
 
   ENEMY_DOUBLE_OFFSETS = {
-    0 => [-4, 9], # Premier Pokémon
+    0 => [-4, 5], # Premier Pokémon
     1 => [0, 3]   # Deuxième Pokémon
   }.freeze
 

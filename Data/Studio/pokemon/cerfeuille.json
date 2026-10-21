@@ -1,0 +1,162 @@
+{
+  "klass": "Specie",
+  "id": 836,
+  "dbSymbol": "cerfeuille",
+  "forms": [
+    {
+      "form": 0,
+      "formTextId": {
+        "name": 1077,
+        "description": 0
+      },
+      "height": 0.7,
+      "weight": 18.5,
+      "type1": "grass",
+      "type2": "fairy",
+      "baseHp": 65,
+      "baseAtk": 50,
+      "baseDfe": 65,
+      "baseSpd": 40,
+      "baseAts": 60,
+      "baseDfs": 70,
+      "evHp": 0,
+      "evAtk": 0,
+      "evDfe": 0,
+      "evSpd": 0,
+      "evAts": 0,
+      "evDfs": 1,
+      "evolutions": [
+        {
+          "dbSymbol": "cerfedral",
+          "form": 0,
+          "conditions": [
+            {
+              "type": "minLevel",
+              "value": 29
+            }
+          ]
+        }
+      ],
+      "experienceType": 1,
+      "baseExperience": 75,
+      "baseLoyalty": 70,
+      "catchRate": 120,
+      "femaleRate": 50,
+      "breedGroups": [
+        6,
+        7
+      ],
+      "hatchSteps": 1024,
+      "babyDbSymbol": "cerfeuille",
+      "babyForm": 0,
+      "itemHeld": [
+        {
+          "dbSymbol": "none",
+          "chance": 0
+        },
+        {
+          "dbSymbol": "none",
+          "chance": 0
+        }
+      ],
+      "abilities": [
+        "sap_sipper",
+        "leaf_guard",
+        "natural_cure"
+      ],
+      "frontOffsetY": 0,
+      "moveSet": [
+        {
+          "klass": "LevelLearnableMove",
+          "move": "tackle",
+          "level": 1
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "growl",
+          "level": 1
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "absorb",
+          "level": 1
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "vine_whip",
+          "level": 5
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "fairy_wind",
+          "level": 9
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "leech_seed",
+          "level": 13
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "synthesis",
+          "level": 17
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "magical_leaf",
+          "level": 21
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "charm",
+          "level": 25
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "giga_drain",
+          "level": 29
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "dazzling_gleam",
+          "level": 33
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "aromatherapy",
+          "level": 36
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "moonblast",
+          "level": 41
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "energy_ball",
+          "level": 46
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "healing_wish",
+          "level": 52
+        }
+      ],
+      "resources": {
+        "icon": "",
+        "iconShiny": "",
+        "front": "1054",
+        "frontShiny": "1054",
+        "back": "1054",
+        "backShiny": "1054",
+        "footprint": "0234",
+        "character": "",
+        "characterShiny": "",
+        "egg": "egg0540",
+        "iconEgg": "",
+        "cry": "0234.ogg",
+        "hasFemale": false
+      }
+    }
+  ]
+}

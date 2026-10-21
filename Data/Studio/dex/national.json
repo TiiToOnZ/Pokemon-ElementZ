@@ -3311,6 +3311,42 @@
     {
       "dbSymbol": "epiorage",
       "form": 0
+    },
+    {
+      "dbSymbol": "brindou",
+      "form": 0
+    },
+    {
+      "dbSymbol": "brasepi",
+      "form": 0
+    },
+    {
+      "dbSymbol": "moissardent",
+      "form": 0
+    },
+    {
+      "dbSymbol": "ondelume",
+      "form": 0
+    },
+    {
+      "dbSymbol": "sepulame",
+      "form": 0
+    },
+    {
+      "dbSymbol": "carapti",
+      "form": 0
+    },
+    {
+      "dbSymbol": "rocancrede",
+      "form": 0
+    },
+    {
+      "dbSymbol": "cerfeuille",
+      "form": 0
+    },
+    {
+      "dbSymbol": "cerfedral",
+      "form": 0
     }
   ]
 }

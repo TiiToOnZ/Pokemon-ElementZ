@@ -1,0 +1,233 @@
+{
+  "assertions": 51,
+  "fixture": "Native LiteRGSS, actual Route 1 tiles and default TJN tones; no gameplay/save writes",
+  "crop": [
+    32,
+    15,
+    20,
+    15
+  ],
+  "periods": {
+    "morning": {
+      "hour": 7.25,
+      "visible": 11,
+      "density": 0.4449462890625,
+      "opacity": 113.70849609375,
+      "sprite_count": 21
+    },
+    "day": {
+      "hour": 15,
+      "visible": 0,
+      "density": 0.0,
+      "opacity": 0.0,
+      "sprite_count": 21
+    },
+    "sunset": {
+      "hour": 20.5,
+      "visible": 9,
+      "density": 0.375,
+      "opacity": 127.5,
+      "sprite_count": 21
+    },
+    "night": {
+      "hour": 1,
+      "visible": 21,
+      "density": 1.0,
+      "opacity": 220.0,
+      "sprite_count": 21
+    }
+  },
+  "weather": {
+    "rain": {
+      "visible": 6,
+      "density": 0.25,
+      "opacity": 55.0
+    },
+    "hardrain": {
+      "visible": 0,
+      "density": 0.0,
+      "opacity": 0.0
+    },
+    "fog": {
+      "visible": 13,
+      "density": 0.55,
+      "opacity": 121.00000000000001
+    },
+    "strong_winds": {
+      "visible": 0,
+      "density": 0.0,
+      "opacity": 0.0
+    },
+    "none": {
+      "visible": 21,
+      "density": 1.0,
+      "opacity": 220.0
+    }
+  },
+  "zones": [
+    {
+      "x": 39.5,
+      "y": 24.3,
+      "width": 3.5,
+      "height": 1.6,
+      "count": 7
+    },
+    {
+      "x": 42.0,
+      "y": 18.7,
+      "width": 4.0,
+      "height": 2.8,
+      "count": 6,
+      "intensity": 0.9
+    },
+    {
+      "x": 47.5,
+      "y": 24.0,
+      "width": 3.2,
+      "height": 2.0,
+      "count": 8
+    }
+  ],
+  "alpha_witness": [
+    [
+      163,
+      165,
+      117
+    ],
+    [
+      145,
+      158,
+      53
+    ],
+    [
+      165,
+      163,
+      61
+    ],
+    [
+      144,
+      157,
+      65
+    ],
+    [
+      164,
+      164,
+      188
+    ],
+    [
+      144,
+      159,
+      52
+    ],
+    [
+      166,
+      166,
+      88
+    ],
+    [
+      203,
+      93,
+      114
+    ],
+    [
+      179,
+      77,
+      129
+    ],
+    [
+      198,
+      96,
+      191
+    ],
+    [
+      175,
+      81,
+      54
+    ],
+    [
+      202,
+      97,
+      51
+    ],
+    [
+      180,
+      82,
+      178
+    ],
+    [
+      271,
+      151,
+      193
+    ],
+    [
+      253,
+      161,
+      53
+    ],
+    [
+      275,
+      156,
+      116
+    ],
+    [
+      258,
+      166,
+      55
+    ],
+    [
+      277,
+      156,
+      168
+    ],
+    [
+      259,
+      165,
+      83
+    ],
+    [
+      276,
+      155,
+      52
+    ],
+    [
+      257,
+      164,
+      200
+    ]
+  ],
+  "ui_band": [
+    0,
+    160,
+    320,
+    176
+  ],
+  "cpu_21_update_ms": 0.10193453499996394,
+  "cpu_42_update_ms": 0.1975950500000181,
+  "cpu_21_offscreen_ms": 0.019800170000053186,
+  "render_with_ms": [
+    0.6008899999869755,
+    0.5451075000019046,
+    0.5511445000047388,
+    0.5487055000048713,
+    0.5757950000042911,
+    0.5600624999897263,
+    0.5471219999890309
+  ],
+  "render_without_ms": [
+    0.544111500003055,
+    0.516917500008276,
+    0.5018080000081682,
+    0.49974149998888606,
+    0.5073914999957196,
+    0.531415499990544,
+    0.5002770000101009
+  ],
+  "render_with_median_ms": 0.5511445000047388,
+  "render_without_median_ms": 0.5073914999957196,
+  "texture": [
+    7,
+    7
+  ],
+  "owned_textures_per_pool": 1,
+  "sprites_per_particle": 1
+}

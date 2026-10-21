@@ -1,0 +1,200 @@
+SuccÃ¨s V2 delivery - 2026-10-08T14:24:11.9154021+02:00
+Project: E:\Pokemon_ElementZ\Pokemon_ElementZ
+No commit created.
+git diff --stat counts tracked files only; new files are listed by status and the manifest below.
+
+INTEGRATED FILES (SHA-256 after installed tests)
+MODIFIED  scripts\00023 Achievements Bombance\00001 Definitions.rb  60E2C8C3AE060970F0ADEE95951AC7F3C642B37B54A93EE29807208D458F8F92
+MODIFIED  scripts\00023 Achievements Bombance\00002 StateAndEngine.rb  7D1D1324EF3BDB786C845166D6F9D3FF39ACF6014BB2CE3E0758BB08AE0B5762
+MODIFIED  scripts\00023 Achievements Bombance\00003 Notifications.rb  70E9DCDE5ED7AA2176A73E05F3437CF13A9EE02842C38DC4C2E57B2CB07910E7
+NEW  scripts\00023 Achievements Bombance\00003 Panel.rb  2497CF6D0ACB83A142B52E69A564260001DEB5EABD36D26FD9DCC6B19608CCEE
+MODIFIED  scripts\00023 Achievements Bombance\00004 Scene.rb  1A43E7D0FD72FA7766F3E30869777232C33473D83CE44704760DDE2D02534B87
+MODIFIED  scripts\00023 Achievements Bombance\00005 Integration.rb  680B464484ACFF3466B09BB757DCB4A3C327D9B7F3474F618BE98106C3829020
+NEW  scripts\00023 Achievements Bombance\FINAL_REPORT.md  B0CC3E8AE98CE4B2F1BE79DCC822E520C566A77B8476C1A164D4D374C005A744
+MODIFIED  scripts\00023 Achievements Bombance\README.md  9AAA33CA7AD2C667672168BA27B53348ED1128D6A68D9C51521C297DB1CD5B42
+MODIFIED  scripts\00023 Achievements Bombance\TEST_REPORT.md  020C23E2D0200534285FD064A3A79E65128252F31EFF1A48168F1F677F7A19FF
+NEW  scripts\00023 Achievements Bombance\tests\all.rb  56F30603DF83963A31D07AA62FF3A0869E8BDF8CC27F335D4269EA2CDC88FD40
+NEW  scripts\00023 Achievements Bombance\tests\build_trophy.rb  3ABA5FC77C95EA20E1EF0335A717D59446A20604509BAB2DA925F9160E471AF2
+MODIFIED  scripts\00023 Achievements Bombance\tests\categories_locked.png  57DE16ADD3B49F87E37ED1A9B8372EA018709B9DDA220F9AF647BEBED22E76DB
+NEW  scripts\00023 Achievements Bombance\tests\categories_scroll.png  EA1073EB55CDA5A1B821CE4216A5FB22522F4B9018E598D41771D9B2E6C3F6F7
+MODIFIED  scripts\00023 Achievements Bombance\tests\categories_unlocked.png  BC29C0E9FB482F00C8BDD3B64EB371007CB07F0A705BB1DD548748C290B6EE31
+NEW  scripts\00023 Achievements Bombance\tests\detail_partial_payment.png  751C82927D6758F23BB6F3C71658B27E2D18678F7B55A0A7B69AC353A3340C54
+NEW  scripts\00023 Achievements Bombance\tests\general_scrolled.png  0A78B474B7E077A07C74EA945A2471639CB6C68B5FA405020112255B93C4BBE9
+NEW  scripts\00023 Achievements Bombance\tests\general_v1.png  344FF64814D2FC12E92FA6F46F83A3A742217FCBB4844A204454B5E52F19FFC4
+NEW  scripts\00023 Achievements Bombance\tests\legacy_content.rb  E66F1963E1DA088A4728946781090B8953A7184378A40E29C29E489F50E168E7
+MODIFIED  scripts\00023 Achievements Bombance\tests\main_menu.png  7B122418F6A6C89BDBE091A245FA1EFB6BF1A50C33ACB098F5697C7F0899AAD0
+MODIFIED  scripts\00023 Achievements Bombance\tests\native_ui.rb  B5E3DBEC659DD3F0E0DAE71E4CB53C9F234D0C3CB5C8201B43EE8BD570F4615E
+MODIFIED  scripts\00023 Achievements Bombance\tests\notification_category.png  26214D718DAFB11DD864309F37ECB3AEB5831E0903ECC69AF877763FBACA50FC
+MODIFIED  scripts\00023 Achievements Bombance\tests\notification_tier.png  63379E8ACC42E5C00A4B2A195E55C6E91DF0FEF820877A59C99AF93BBA555014
+NEW  scripts\00023 Achievements Bombance\tests\notification_unique.png  7E48EF2AB0BB5BC05F833C2F90CFDE9E4F114AACB3E3A1635A5251197428DC5F
+NEW  scripts\00023 Achievements Bombance\tests\popup_page_1.png  C6A39A53FCA2F4E0230513CA9B6CEA610ABC5393E036757FB3058026C3A7EB21
+NEW  scripts\00023 Achievements Bombance\tests\popup_page_2.png  540956F580AE8C472EF55DBB0D74E1F30215A89AE3F8BAE874B18A3E124B34F5
+NEW  scripts\00023 Achievements Bombance\tests\popup_page_3.png  62AB3C3DA99A406D1257FFDA7B3A71AAE47A11C3418EB68DFA422DF268C17E47
+MODIFIED  scripts\00023 Achievements Bombance\tests\researcher_23.png  7A95ACB94141CC6CA4AF557298172B64DC891C3755136FE6530A143B05CFEFF3
+NEW  scripts\00023 Achievements Bombance\tests\rewards_page_1.png  98F6AC7FBE44E0EDEF4B63A46A24F2B7021D2D046E874AD61BA7594D2F2233CF
+NEW  scripts\00023 Achievements Bombance\tests\rewards_page_2.png  0956FE3A472B6DC5077BF95A5D5D962FB3DB0CDE2805FAFF45CDE563A4465BFA
+NEW  scripts\00023 Achievements Bombance\tests\rewards_page_3.png  F64AD937EAB641CC350F3585441BAD796A2433CCB6194D2C01B0A576350F2318
+MODIFIED  scripts\00023 Achievements Bombance\tests\run.rb  BCB9281D56078524F99722987CFBA3592274E49EDFBDAF53653615FED0D25E79
+NEW  scripts\00023 Achievements Bombance\tests\secret_hidden.png  C7F3728C10727D6E2FEC9F0FEBB501142615B9259BB9104042E462CA2FB4F125
+NEW  scripts\00023 Achievements Bombance\tests\source_support.rb  222934DB885E854B7540CE2B4EABC19541E9128B99113A4F4ED1CB99ADDB2ADF
+MODIFIED  scripts\00023 Achievements Bombance\tests\support.rb  BD45B986DFC74F9D9EE0ED9ECDAA0CA4BBD8CAE66F99B168AEA0E46340B14041
+MODIFIED  scripts\00023 Achievements Bombance\tests\tiers_23.png  BBF3C73CF245B7E3FE4674A6CF6E7F133E3C6D91DA01A45225204768CD44574E
+NEW  scripts\00023 Achievements Bombance\tests\tiers_middle.png  3F5E3D60F4D1B40CF8D0DA50F04092E520EBA6584AF063656F2B04B02EE24E85
+NEW  scripts\00023 Achievements Bombance\tests\tiers_scrolled.png  FB32892FDF171521AF00AFF66FEF200252758481D358D2ACF3853386319BEE11
+NEW  scripts\00023 Achievements Bombance\tests\unique_not_obtained.png  B2D6950B4AB731C68F7158DB4E6BE01989DAE9606EE4D26399441A70FBB65100
+NEW  scripts\00023 Achievements Bombance\tests\unique_obtained.png  A3DEF922DAF94E770DED87BCB835A90A2698BE08B71B18A79A74F6A971475CB5
+NEW  scripts\00023 Achievements Bombance\tests\v2.rb  AA93FC3B4CE99981FC5BFCD9E769B785644EB37DA032779D58C0FCD158C95F94
+NEW  graphics\interface\achievements\trophy.png  1E934327529313D621817D25D29594256F308489D3A80C4E9785865BC49331A1
+NEW  scripts\00023 Achievements Bombance\INTEGRATION_CHECKS.txt (generated by installed verification)
+NEW  scripts\00023 Achievements Bombance\GIT_STATE.txt (this file)
+
+SCOPED git diff --stat
+ .../00001 Definitions.rb                           |  29 +-
+ .../00002 StateAndEngine.rb                        |  83 +-
+ .../00003 Notifications.rb                         | 140 ++--
+ scripts/00023 Achievements Bombance/00004 Scene.rb | 241 ++++--
+ .../00005 Integration.rb                           |   2 +-
+ scripts/00023 Achievements Bombance/README.md      | 913 +++++++++++----------
+ scripts/00023 Achievements Bombance/TEST_REPORT.md | 245 +++---
+ .../tests/categories_locked.png                    | Bin 1629 -> 2507 bytes
+ .../tests/categories_unlocked.png                  | Bin 1583 -> 2536 bytes
+ .../tests/main_menu.png                            | Bin 2620 -> 2585 bytes
+ .../00023 Achievements Bombance/tests/native_ui.rb | 137 +++-
+ .../tests/notification_category.png                | Bin 709 -> 796 bytes
+ .../tests/notification_tier.png                    | Bin 733 -> 1522 bytes
+ .../tests/researcher_23.png                        | Bin 2420 -> 2588 bytes
+ scripts/00023 Achievements Bombance/tests/run.rb   |   8 +-
+ .../00023 Achievements Bombance/tests/support.rb   |  14 +-
+ .../00023 Achievements Bombance/tests/tiers_23.png | Bin 2420 -> 3159 bytes
+ 17 files changed, 1074 insertions(+), 738 deletions(-)
+
+SCOPED git status --short --untracked-files=all
+ M "scripts/00023 Achievements Bombance/00001 Definitions.rb"
+ M "scripts/00023 Achievements Bombance/00002 StateAndEngine.rb"
+ M "scripts/00023 Achievements Bombance/00003 Notifications.rb"
+ M "scripts/00023 Achievements Bombance/00004 Scene.rb"
+ M "scripts/00023 Achievements Bombance/00005 Integration.rb"
+ M "scripts/00023 Achievements Bombance/README.md"
+ M "scripts/00023 Achievements Bombance/TEST_REPORT.md"
+ M "scripts/00023 Achievements Bombance/tests/categories_locked.png"
+ M "scripts/00023 Achievements Bombance/tests/categories_unlocked.png"
+ M "scripts/00023 Achievements Bombance/tests/main_menu.png"
+ M "scripts/00023 Achievements Bombance/tests/native_ui.rb"
+ M "scripts/00023 Achievements Bombance/tests/notification_category.png"
+ M "scripts/00023 Achievements Bombance/tests/notification_tier.png"
+ M "scripts/00023 Achievements Bombance/tests/researcher_23.png"
+ M "scripts/00023 Achievements Bombance/tests/run.rb"
+ M "scripts/00023 Achievements Bombance/tests/support.rb"
+ M "scripts/00023 Achievements Bombance/tests/tiers_23.png"
+?? graphics/interface/achievements/trophy.png
+?? "scripts/00023 Achievements Bombance/00003 Panel.rb"
+?? "scripts/00023 Achievements Bombance/FINAL_REPORT.md"
+?? "scripts/00023 Achievements Bombance/GIT_STATE.txt"
+?? "scripts/00023 Achievements Bombance/INTEGRATION_CHECKS.txt"
+?? "scripts/00023 Achievements Bombance/tests/all.rb"
+?? "scripts/00023 Achievements Bombance/tests/build_trophy.rb"
+?? "scripts/00023 Achievements Bombance/tests/categories_scroll.png"
+?? "scripts/00023 Achievements Bombance/tests/detail_partial_payment.png"
+?? "scripts/00023 Achievements Bombance/tests/general_scrolled.png"
+?? "scripts/00023 Achievements Bombance/tests/general_v1.png"
+?? "scripts/00023 Achievements Bombance/tests/legacy_content.rb"
+?? "scripts/00023 Achievements Bombance/tests/notification_unique.png"
+?? "scripts/00023 Achievements Bombance/tests/popup_page_1.png"
+?? "scripts/00023 Achievements Bombance/tests/popup_page_2.png"
+?? "scripts/00023 Achievements Bombance/tests/popup_page_3.png"
+?? "scripts/00023 Achievements Bombance/tests/rewards_page_1.png"
+?? "scripts/00023 Achievements Bombance/tests/rewards_page_2.png"
+?? "scripts/00023 Achievements Bombance/tests/rewards_page_3.png"
+?? "scripts/00023 Achievements Bombance/tests/secret_hidden.png"
+?? "scripts/00023 Achievements Bombance/tests/source_support.rb"
+?? "scripts/00023 Achievements Bombance/tests/tiers_middle.png"
+?? "scripts/00023 Achievements Bombance/tests/tiers_scrolled.png"
+?? "scripts/00023 Achievements Bombance/tests/unique_not_obtained.png"
+?? "scripts/00023 Achievements Bombance/tests/unique_obtained.png"
+?? "scripts/00023 Achievements Bombance/tests/v2.rb"
+
+GLOBAL git status --short (includes unrelated creator changes)
+ M Data/Map013.rxdata
+ M Data/Map022.rxdata
+ M Data/Map023.rxdata
+ M Data/Map024.rxdata
+ M Data/Map027.rxdata
+ M Data/Map032.rxdata
+ M Data/Map033.rxdata
+ M Data/Map035.rxdata
+ M Data/MapInfos.rxdata
+ M Data/PSDK/SystemTags.rxdata
+ M Data/Studio/map_info.json
+ M Data/Studio/maps/map027.json
+ M Data/Studio/psdk.dat
+ M Data/Studio/quests/quest_4.json
+ M Data/Studio/quests/quest_49.json
+ M Data/System.rxdata
+ M Data/Text/Dialogs/100013.csv
+ M Data/Text/Dialogs/100013.fr.dat
+ M Data/Text/Dialogs/100045.csv
+ M Data/Text/Dialogs/100045.fr.dat
+ M Data/Text/Dialogs/100046.csv
+ M Data/Text/Dialogs/100046.fr.dat
+ M Data/Text/Dialogs/1013.csv
+ M Data/Text/Dialogs/1013.fr.dat
+ M Data/Text/Dialogs/1023.csv
+ M Data/Text/Dialogs/1023.fr.dat
+ M Data/Text/Dialogs/1032.csv
+ M Data/Text/Dialogs/1032.fr.dat
+ M Data/Text/Dialogs/1033.csv
+ M Data/Text/Dialogs/1033.fr.dat
+ M Data/Tiled/.jobs/animated_tiles.json
+ M "Data/Tiled/Maps/029 Route_1.tmx"
+ M Data/Tilesets.rxdata
+ M Data/Tilesets_tiled.rxdata
+ M Error.log
+ M graphics/tilesets/_27.png
+ M "scripts/00021 Triple Battle Position Bombance/001 TripleBattlePosition.rb"
+ M "scripts/00023 Achievements Bombance/00001 Definitions.rb"
+ M "scripts/00023 Achievements Bombance/00002 StateAndEngine.rb"
+ M "scripts/00023 Achievements Bombance/00003 Notifications.rb"
+ M "scripts/00023 Achievements Bombance/00004 Scene.rb"
+ M "scripts/00023 Achievements Bombance/00005 Integration.rb"
+ M "scripts/00023 Achievements Bombance/README.md"
+ M "scripts/00023 Achievements Bombance/TEST_REPORT.md"
+ M "scripts/00023 Achievements Bombance/tests/categories_locked.png"
+ M "scripts/00023 Achievements Bombance/tests/categories_unlocked.png"
+ M "scripts/00023 Achievements Bombance/tests/main_menu.png"
+ M "scripts/00023 Achievements Bombance/tests/native_ui.rb"
+ M "scripts/00023 Achievements Bombance/tests/notification_category.png"
+ M "scripts/00023 Achievements Bombance/tests/notification_tier.png"
+ M "scripts/00023 Achievements Bombance/tests/researcher_23.png"
+ M "scripts/00023 Achievements Bombance/tests/run.rb"
+ M "scripts/00023 Achievements Bombance/tests/support.rb"
+ M "scripts/00023 Achievements Bombance/tests/tiers_23.png"
+?? Saves/Pokemon_Party-7
+?? Saves/Pokemon_Party-7.bak
+?? graphics/interface/achievements/
+?? "scripts/00023 Achievements Bombance/00003 Panel.rb"
+?? "scripts/00023 Achievements Bombance/FINAL_REPORT.md"
+?? "scripts/00023 Achievements Bombance/GIT_STATE.txt"
+?? "scripts/00023 Achievements Bombance/INTEGRATION_CHECKS.txt"
+?? "scripts/00023 Achievements Bombance/tests/all.rb"
+?? "scripts/00023 Achievements Bombance/tests/build_trophy.rb"
+?? "scripts/00023 Achievements Bombance/tests/categories_scroll.png"
+?? "scripts/00023 Achievements Bombance/tests/detail_partial_payment.png"
+?? "scripts/00023 Achievements Bombance/tests/general_scrolled.png"
+?? "scripts/00023 Achievements Bombance/tests/general_v1.png"
+?? "scripts/00023 Achievements Bombance/tests/legacy_content.rb"
+?? "scripts/00023 Achievements Bombance/tests/notification_unique.png"
+?? "scripts/00023 Achievements Bombance/tests/popup_page_1.png"
+?? "scripts/00023 Achievements Bombance/tests/popup_page_2.png"
+?? "scripts/00023 Achievements Bombance/tests/popup_page_3.png"
+?? "scripts/00023 Achievements Bombance/tests/rewards_page_1.png"
+?? "scripts/00023 Achievements Bombance/tests/rewards_page_2.png"
+?? "scripts/00023 Achievements Bombance/tests/rewards_page_3.png"
+?? "scripts/00023 Achievements Bombance/tests/secret_hidden.png"
+?? "scripts/00023 Achievements Bombance/tests/source_support.rb"
+?? "scripts/00023 Achievements Bombance/tests/tiers_middle.png"
+?? "scripts/00023 Achievements Bombance/tests/tiers_scrolled.png"
+?? "scripts/00023 Achievements Bombance/tests/unique_not_obtained.png"
+?? "scripts/00023 Achievements Bombance/tests/unique_obtained.png"
+?? "scripts/00023 Achievements Bombance/tests/v2.rb"
+?? "scripts/00024 Weather Bombance/"
+?? scripts/psdk_scripts

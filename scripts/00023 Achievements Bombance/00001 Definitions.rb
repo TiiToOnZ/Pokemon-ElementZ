@@ -10,8 +10,8 @@ module BombanceAchievements
   CATEGORY_UNLOCKS = {researcher: {quest_ids: [49, 14, 15, 16, 17, 18, 67, 68, 69].freeze}}.freeze
 
   # Récompenses TEMPORAIRES. Chaque ligne de palier peut remplacer reward librement.
-  MONEY = {type: :money, amount: 100}.freeze
-  BALL = {type: :item, id: :poke_ball, quantity: 1}.freeze
+  MONEY = {type: :money, amount: 1000}.freeze
+  BALL = {type: :item, id: :poke_ball, quantity: 5}.freeze
   GREAT_BALLS = {type: :item, id: :great_ball, quantity: 3}.freeze
 
   DEFINITIONS = {
@@ -50,16 +50,27 @@ module BombanceAchievements
       description: 'Enregistre différentes espèces de Pokémon dans le Pokédex.',
       source: :pokedex_species, unit: 'espèces', milestone: '%{value} espèces enregistrées',
       tiers: [
-        {id: :species_5, value: 5, reward: MONEY},
-        {id: :species_15, value: 15, reward: BALL},
-        {id: :species_30, value: 30, reward: {type: :money, amount: 200}},
-        {id: :species_60, value: 60, reward: {type: :item, id: :poke_ball, quantity: 2}},
-        {id: :species_100, value: 100, reward: GREAT_BALLS},
-        {id: :species_175, value: 175, reward: MONEY},
+        {id: :species_5, value: 5, reward: [{type: :item, id: :poke_ball, quantity: 5},{type: :item, id: :potion, quantity: 2}]},
+        {id: :species_15, value: 15, reward: {type: :item, id: :exp_share, quantity: 1}},
+        {id: :species_30, value: 30, reward: [{type: :item, id: :great_ball, quantity: 5},{type: :item, id: :super_potion, quantity: 2}]},
+        # IDs describe objectives, never their screen index. Old receipts for 50/75
+        # survive their return. Removed 60/100/175/400/550/700 remain archived.
+        # New objectives use modest TEMPORARY money until creator balancing.
+        {id: :species_50, value: 50, reward: {type: :item, id: :tm27, quantity: 1}},
+        {id: :species_75, value: 75, reward: {type: :money, amount: 300, hidden: true}},
+        {id: :species_105, value: 105, reward: {type: :item, id: :king_s_rock, quantity: 1}},
+        {id: :species_140, value: 140, reward: {type: :money, amount: 300, hidden: true}},
+        {id: :species_180, value: 180, reward: [{type: :item, id: :ultra_ball, quantity: 5},{type: :item, id: :hyper_potion, quantity: 2}]},
+        {id: :species_225, value: 225, reward: {type: :money, amount: 100}},
         {id: :species_275, value: 275, reward: GREAT_BALLS},
-        {id: :species_400, value: 400, reward: MONEY},
-        {id: :species_550, value: 550, reward: GREAT_BALLS},
-        {id: :species_700, value: 700, reward: {type: :money, amount: 1000, hidden: true}}
+        {id: :species_330, value: 330, reward: {type: :money, amount: 100}},
+        {id: :species_390, value: 390, reward: {type: :money, amount: 100}},
+        {id: :species_455, value: 455, reward: {type: :money, amount: 100}},
+        {id: :species_525, value: 525, reward: {type: :money, amount: 100}},
+        {id: :species_600, value: 600, reward: {type: :money, amount: 100}},
+        {id: :species_680, value: 680, reward: {type: :money, amount: 100}},
+        {id: :species_765, value: 765, reward: {type: :money, amount: 100}},
+        {id: :species_855, value: 855, reward: {type: :money, amount: 100, hidden: true}}
       ]
     },
     researcher_forms: {

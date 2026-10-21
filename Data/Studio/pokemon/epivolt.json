@@ -38,13 +38,13 @@
         }
       ],
       "experienceType": 1,
-      "baseExperience": 40,
+      "baseExperience": 60,
       "baseLoyalty": 70,
-      "catchRate": 45,
+      "catchRate": 180,
       "femaleRate": 50,
       "breedGroups": [
         5,
-        15
+        5
       ],
       "hatchSteps": 1024,
       "babyDbSymbol": "epivolt",
@@ -65,6 +65,21 @@
         "iron_barbs"
       ],
       "frontOffsetY": 0,
+      "resources": {
+        "icon": "",
+        "iconShiny": "",
+        "front": "1044",
+        "frontShiny": "1044",
+        "back": "1044",
+        "backShiny": "1044",
+        "footprint": "0027",
+        "character": "",
+        "characterShiny": "",
+        "egg": "egg0027",
+        "iconEgg": "egg0027",
+        "cry": "0027.ogg",
+        "hasFemale": false
+      },
       "moveSet": [
         {
           "klass": "LevelLearnableMove",
@@ -146,22 +161,7 @@
           "move": "volt_tackle",
           "level": 50
         }
-      ],
-      "resources": {
-        "icon": "",
-        "iconShiny": "",
-        "front": "1044",
-        "frontShiny": "1044",
-        "back": "1044",
-        "backShiny": "1044",
-        "footprint": "0027",
-        "character": "",
-        "characterShiny": "",
-        "egg": "egg0027",
-        "iconEgg": "egg0027",
-        "cry": "0027.ogg",
-        "hasFemale": false
-      }
+      ]
     }
   ]
 }

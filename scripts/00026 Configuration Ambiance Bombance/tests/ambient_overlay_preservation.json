@@ -1,0 +1,85 @@
+{
+  "protected_files": [
+    {
+      "path": "scripts/00026 Configuration Ambiance Bombance/00000 AmbiancesConfig.rb",
+      "before": "abdd3eaf1b77b8777d03af67b4426a7ef79b4ca75d7a4df4ea3e790c577808fc",
+      "after": "f4138389559db50172949692e3d740ffeddc008dab6f3a60ae2cf443c10d2314",
+      "unchanged": false
+    },
+    {
+      "path": "scripts/00026 Configuration Ambiance Bombance/00001 Configuration.rb",
+      "before": "0f6b2b83a2ee0315daafaa040f49636d95538bbecffd667840da75ccfc3e634c",
+      "after": "0f6b2b83a2ee0315daafaa040f49636d95538bbecffd667840da75ccfc3e634c",
+      "unchanged": true
+    },
+    {
+      "path": "scripts/00026 Configuration Ambiance Bombance/00002 SessionState.rb",
+      "before": "8dd65466856d2c23d6f91c43d4fd543dd9ccb834175ddfd94168fb0adba17b8c",
+      "after": "8dd65466856d2c23d6f91c43d4fd543dd9ccb834175ddfd94168fb0adba17b8c",
+      "unchanged": true
+    },
+    {
+      "path": "scripts/00026 Configuration Ambiance Bombance/00003 Manager.rb",
+      "before": "ae2dd71de5ae51384af5954d2e97f4393a2655ba38bf136092c7f413096e822d",
+      "after": "ae2dd71de5ae51384af5954d2e97f4393a2655ba38bf136092c7f413096e822d",
+      "unchanged": true
+    },
+    {
+      "path": "scripts/00026 Configuration Ambiance Bombance/00004 MapAdapter.rb",
+      "before": "5d95ba7b93ae4189823dbf0c7a57bca69af753e4e11b8efc5138e4278d60f466",
+      "after": "5d95ba7b93ae4189823dbf0c7a57bca69af753e4e11b8efc5138e4278d60f466",
+      "unchanged": true
+    },
+    {
+      "path": "scripts/00026 Configuration Ambiance Bombance/00005 DiffuseLight.rb",
+      "before": "7388c5116411d9b8f288855f98803964fc09105d5182aa6e6d1773a79894f004",
+      "after": "7388c5116411d9b8f288855f98803964fc09105d5182aa6e6d1773a79894f004",
+      "unchanged": true
+    },
+    {
+      "path": "scripts/00026 Configuration Ambiance Bombance/00006 SunRays.rb",
+      "before": "3c0ac3e2a284d8ed96500c9d635547ff73372be54da4c9521dec0824c631724d",
+      "after": "3c0ac3e2a284d8ed96500c9d635547ff73372be54da4c9521dec0824c631724d",
+      "unchanged": true
+    },
+    {
+      "path": "scripts/00026 Configuration Ambiance Bombance/00007 Fireflies.rb",
+      "before": "f2aafd8aa751974ad677ff25651fcaa22c6fdc0d54e91ae0d47da93362b05d55",
+      "after": "f2aafd8aa751974ad677ff25651fcaa22c6fdc0d54e91ae0d47da93362b05d55",
+      "unchanged": true
+    },
+    {
+      "path": "scripts/00026 Configuration Ambiance Bombance/00008 FallingLeaves.rb",
+      "before": "7675aa16da67cfc1d5079d78d44195c362acedb7cf4d74981736bf46f055bb40",
+      "after": "7675aa16da67cfc1d5079d78d44195c362acedb7cf4d74981736bf46f055bb40",
+      "unchanged": true
+    },
+    {
+      "path": "graphics/fogs/BourgGuignon_Light.png",
+      "before": "c5919fe4de49d8b1d3bb65567cdf1553ecfda5d1c1ee3a2139885ef0481f976d",
+      "after": "c5919fe4de49d8b1d3bb65567cdf1553ecfda5d1c1ee3a2139885ef0481f976d",
+      "unchanged": true
+    },
+    {
+      "path": "Data/Tiled/Maps/023 BourgGuignon.tmx",
+      "before": "e6adf2329809edc0eeb28cbdffefcf0364ecc67eadb4daa4c2b37ce44e9aa76a",
+      "after": "e6adf2329809edc0eeb28cbdffefcf0364ecc67eadb4daa4c2b37ce44e9aa76a",
+      "unchanged": true
+    },
+    {
+      "path": "Data/Map023.rxdata",
+      "before": "1143611570b6d525400562f75be71824297b414d1a991bb9302e9be98efa8c31",
+      "after": "1143611570b6d525400562f75be71824297b414d1a991bb9302e9be98efa8c31",
+      "unchanged": true
+    }
+  ],
+  "existing_configuration_values_equal": true,
+  "v1_v4_state_comparisons": 60,
+  "v1_v4_states_equal": true,
+  "ruby_tests": 91,
+  "ruby_assertions": 26565,
+  "ruby_failures": 0,
+  "native_checks": 581,
+  "native_launch": "Game.rb / Ruby Studio 3.0.6 / PSDK 26.60",
+  "historical_v5_capture_check": "All capture checks reached; final whole-config SHA256 assertion is obsolete after V6 keys were added. No previous configuration value changed."
+}

@@ -1,0 +1,95 @@
+{
+  "morning": {
+    "changed_pixels": 7789,
+    "max_channel_difference": 71,
+    "mean_channel_difference": 1.0718619791666666
+  },
+  "day": {
+    "changed_pixels": 13561,
+    "max_channel_difference": 76,
+    "mean_channel_difference": 2.7903993055555554
+  },
+  "sunset": {
+    "changed_pixels": 9200,
+    "max_channel_difference": 54,
+    "mean_channel_difference": 1.08890625
+  },
+  "night": {
+    "changed_pixels": 4923,
+    "max_channel_difference": 41,
+    "mean_channel_difference": 0.43852864583333334
+  },
+  "rain": {
+    "changed_pixels": 10440,
+    "max_channel_difference": 6,
+    "mean_channel_difference": 0.211171875
+  },
+  "fog": {
+    "changed_pixels": 0,
+    "max_channel_difference": 0,
+    "mean_channel_difference": 0.0
+  },
+  "characters": {
+    "player_m_walk": {
+      "opaque_pixels_tested": 308,
+      "pixels_lit": 278,
+      "max_channel_difference": 83
+    },
+    "0025": {
+      "opaque_pixels_tested": 198,
+      "pixels_lit": 79,
+      "max_channel_difference": 80
+    }
+  },
+  "ui": {
+    "pixels_unchanged": 5120,
+    "pixels_lit_if_ui_hidden": 1053
+  },
+  "dialogue_viewport_unchanged_pixels": 5120,
+  "cloud_cycle": {
+    "clear": {
+      "changed_pixels": 1879,
+      "total_difference": 90653
+    },
+    "partial": {
+      "changed_pixels": 1834,
+      "total_difference": 53552
+    },
+    "shadow": {
+      "changed_pixels": 0,
+      "total_difference": 0
+    },
+    "reappeared": {
+      "changed_pixels": 1886,
+      "total_difference": 103956
+    }
+  },
+  "hourly": {
+    "11": {
+      "rays": 5,
+      "changed_pixels": 7975,
+      "total_difference": 391458
+    },
+    "15": {
+      "rays": 10,
+      "changed_pixels": 13578,
+      "total_difference": 618472
+    },
+    "18": {
+      "rays": 6,
+      "changed_pixels": 9486,
+      "total_difference": 438302
+    },
+    "1": {
+      "rays": 3,
+      "changed_pixels": 4909,
+      "total_difference": 93075
+    }
+  },
+  "native_cloud_projection_pixels_verified": 76800,
+  "player_crossing_lit_opaque_pixels": [
+    0,
+    278,
+    77
+  ]
+}

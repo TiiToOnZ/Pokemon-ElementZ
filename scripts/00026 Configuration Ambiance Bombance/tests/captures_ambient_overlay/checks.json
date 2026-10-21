@@ -1,0 +1,8 @@
+{
+  "checks": 581,
+  "night_average_luminance": {
+    "04_23h00_before": 99.68,
+    "04_23h00_after": 54.85
+  },
+  "source_sha256": "c5919fe4de49d8b1d3bb65567cdf1553ecfda5d1c1ee3a2139885ef0481f976d"
+}

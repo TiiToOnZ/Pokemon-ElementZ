@@ -1,0 +1,53 @@
+{
+  "existing_settings_preserved": true,
+  "only_added_map": 35,
+  "protected": {
+    "scripts\\00026 Configuration Ambiance Bombance\\00001 Configuration.rb": {
+      "sha256": "0f6b2b83a2ee0315daafaa040f49636d95538bbecffd667840da75ccfc3e634c",
+      "unchanged": true
+    },
+    "scripts\\00026 Configuration Ambiance Bombance\\00002 SessionState.rb": {
+      "sha256": "8dd65466856d2c23d6f91c43d4fd543dd9ccb834175ddfd94168fb0adba17b8c",
+      "unchanged": true
+    },
+    "scripts\\00026 Configuration Ambiance Bombance\\00003 Manager.rb": {
+      "sha256": "ae2dd71de5ae51384af5954d2e97f4393a2655ba38bf136092c7f413096e822d",
+      "unchanged": true
+    },
+    "scripts\\00026 Configuration Ambiance Bombance\\00004 MapAdapter.rb": {
+      "sha256": "5d95ba7b93ae4189823dbf0c7a57bca69af753e4e11b8efc5138e4278d60f466",
+      "unchanged": true
+    },
+    "scripts\\00026 Configuration Ambiance Bombance\\00005 DiffuseLight.rb": {
+      "sha256": "7388c5116411d9b8f288855f98803964fc09105d5182aa6e6d1773a79894f004",
+      "unchanged": true
+    },
+    "scripts\\00026 Configuration Ambiance Bombance\\00006 SunRays.rb": {
+      "sha256": "3c0ac3e2a284d8ed96500c9d635547ff73372be54da4c9521dec0824c631724d",
+      "unchanged": true
+    },
+    "scripts\\00026 Configuration Ambiance Bombance\\00007 Fireflies.rb": {
+      "sha256": "f2aafd8aa751974ad677ff25651fcaa22c6fdc0d54e91ae0d47da93362b05d55",
+      "unchanged": true
+    },
+    "graphics\\fogs\\eterna-forest-style-fog2.png": {
+      "sha256": "44ec324c2e6ff12da88f668dcc3f61da4839d499cc924876dcb180af91f62dcd",
+      "unchanged": true
+    }
+  },
+  "existing_map_states_compared": 60,
+  "existing_map_states_unchanged": true,
+  "new_tests": {
+    "tests": 10,
+    "assertions": 303,
+    "failures": 0
+  },
+  "historical_fixture_tests": {
+    "tests": 68,
+    "assertions": 24281,
+    "failures": 0
+  },
+  "native_capture_checks": 102,
+  "native_captures": 19,
+  "old_window_lighting_absent": true
+}

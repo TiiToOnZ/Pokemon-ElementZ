@@ -33,9 +33,9 @@
       "femaleRate": 12,
       "breedGroups": [
         5,
-        15
+        11
       ],
-      "hatchSteps": 1024,
+      "hatchSteps": 8960,
       "babyDbSymbol": "eevee",
       "babyForm": 0,
       "itemHeld": [

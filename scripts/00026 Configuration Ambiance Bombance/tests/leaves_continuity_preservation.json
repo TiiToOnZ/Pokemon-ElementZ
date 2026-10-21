@@ -1,0 +1,83 @@
+{
+  "files": [
+    {
+      "path": "scripts/00026 Configuration Ambiance Bombance/00000 AmbiancesConfig.rb",
+      "before": "abdd3eaf1b77b8777d03af67b4426a7ef79b4ca75d7a4df4ea3e790c577808fc",
+      "after": "abdd3eaf1b77b8777d03af67b4426a7ef79b4ca75d7a4df4ea3e790c577808fc",
+      "unchanged": true
+    },
+    {
+      "path": "scripts/00026 Configuration Ambiance Bombance/00001 Configuration.rb",
+      "before": "0f6b2b83a2ee0315daafaa040f49636d95538bbecffd667840da75ccfc3e634c",
+      "after": "0f6b2b83a2ee0315daafaa040f49636d95538bbecffd667840da75ccfc3e634c",
+      "unchanged": true
+    },
+    {
+      "path": "scripts/00026 Configuration Ambiance Bombance/00002 SessionState.rb",
+      "before": "8dd65466856d2c23d6f91c43d4fd543dd9ccb834175ddfd94168fb0adba17b8c",
+      "after": "8dd65466856d2c23d6f91c43d4fd543dd9ccb834175ddfd94168fb0adba17b8c",
+      "unchanged": true
+    },
+    {
+      "path": "scripts/00026 Configuration Ambiance Bombance/00003 Manager.rb",
+      "before": "ae2dd71de5ae51384af5954d2e97f4393a2655ba38bf136092c7f413096e822d",
+      "after": "ae2dd71de5ae51384af5954d2e97f4393a2655ba38bf136092c7f413096e822d",
+      "unchanged": true
+    },
+    {
+      "path": "scripts/00026 Configuration Ambiance Bombance/00004 MapAdapter.rb",
+      "before": "5d95ba7b93ae4189823dbf0c7a57bca69af753e4e11b8efc5138e4278d60f466",
+      "after": "5d95ba7b93ae4189823dbf0c7a57bca69af753e4e11b8efc5138e4278d60f466",
+      "unchanged": true
+    },
+    {
+      "path": "scripts/00026 Configuration Ambiance Bombance/00005 DiffuseLight.rb",
+      "before": "7388c5116411d9b8f288855f98803964fc09105d5182aa6e6d1773a79894f004",
+      "after": "7388c5116411d9b8f288855f98803964fc09105d5182aa6e6d1773a79894f004",
+      "unchanged": true
+    },
+    {
+      "path": "scripts/00026 Configuration Ambiance Bombance/00006 SunRays.rb",
+      "before": "3c0ac3e2a284d8ed96500c9d635547ff73372be54da4c9521dec0824c631724d",
+      "after": "3c0ac3e2a284d8ed96500c9d635547ff73372be54da4c9521dec0824c631724d",
+      "unchanged": true
+    },
+    {
+      "path": "scripts/00026 Configuration Ambiance Bombance/00007 Fireflies.rb",
+      "before": "f2aafd8aa751974ad677ff25651fcaa22c6fdc0d54e91ae0d47da93362b05d55",
+      "after": "f2aafd8aa751974ad677ff25651fcaa22c6fdc0d54e91ae0d47da93362b05d55",
+      "unchanged": true
+    },
+    {
+      "path": "scripts/00026 Configuration Ambiance Bombance/00008 FallingLeaves.rb",
+      "before": "d55fd3a1c2201cf935cce1befb084f9f278c2b87aa654ce75bfd2c882f64f963",
+      "after": "7675aa16da67cfc1d5079d78d44195c362acedb7cf4d74981736bf46f055bb40",
+      "unchanged": false
+    },
+    {
+      "path": "graphics/fogs/eterna-forest-style-fog2.png",
+      "before": "44ec324c2e6ff12da88f668dcc3f61da4839d499cc924876dcb180af91f62dcd",
+      "after": "44ec324c2e6ff12da88f668dcc3f61da4839d499cc924876dcb180af91f62dcd",
+      "unchanged": true
+    },
+    {
+      "path": "graphics/animations/bombance_ambiance/enchanted_leaves.png",
+      "before": "d1c29172272100a419fcdb13f85fcd867a1ef6e72c14454d1298d97ef3e97b8e",
+      "after": "d1c29172272100a419fcdb13f85fcd867a1ef6e72c14454d1298d97ef3e97b8e",
+      "unchanged": true
+    }
+  ],
+  "current_custom_state_comparisons": 60,
+  "custom_states_equal": true,
+  "unit_tests": {
+    "v5_tests": 15,
+    "v5_assertions": 779,
+    "legacy_v1_v4_tests": 68,
+    "legacy_assertions": 24281,
+    "failures": 0
+  },
+  "native_capture_checks": 2301,
+  "historical_capture_checks": 102,
+  "native_report": "captures_leaves_continuity/results.json",
+  "no_commit": true
+}

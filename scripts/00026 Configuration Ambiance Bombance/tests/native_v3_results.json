@@ -1,0 +1,102 @@
+{
+  "assertions": 37,
+  "fixture": "Native LiteRGSS; actual Route 1 tiles and sample characters; representative default TJN tones, not a running game",
+  "crop": [
+    32,
+    15,
+    20,
+    15
+  ],
+  "cpu_ten_rays_update_ms": 0.094256255000073,
+  "ten_rays_window": {
+    "with_rays_ms": [
+      0.5385050000040792,
+      0.5315080000036687,
+      0.5270605000077921,
+      0.5319435000092199,
+      0.5583780000051775,
+      0.5165520000082324,
+      0.5140045000007376
+    ],
+    "without_rays_ms": [
+      0.5088979999891308,
+      0.5107325000062701,
+      0.5126259999997274,
+      0.5327430000033928,
+      0.513714999997319,
+      0.5204485000103887,
+      0.5053975000009814
+    ],
+    "with_rays_median_ms": 0.5315080000036687,
+    "without_rays_median_ms": 0.5126259999997274,
+    "extra_median_ms": 0.018882000003941357
+  },
+  "hourly": {
+    "11": {
+      "density": 5.0,
+      "visible": 5,
+      "pool": 10
+    },
+    "15": {
+      "density": 10.0,
+      "visible": 10,
+      "pool": 10
+    },
+    "18": {
+      "density": 5.78125,
+      "visible": 6,
+      "pool": 10
+    },
+    "1": {
+      "density": 3.0,
+      "visible": 3,
+      "pool": 10
+    }
+  },
+  "additional_ray_textures": 1,
+  "cloud_captures": {
+    "clear": {
+      "step": 0,
+      "transmission": 1.0,
+      "origin": [
+        -119.25,
+        -91.625
+      ]
+    },
+    "partial": {
+      "step": 189,
+      "transmission": 0.5833333333333331,
+      "origin": [
+        -166.5,
+        -115.25
+      ]
+    },
+    "shadow": {
+      "step": 210,
+      "transmission": 0.0,
+      "origin": [
+        -171.75,
+        -117.875
+      ]
+    },
+    "reappeared": {
+      "step": 517,
+      "transmission": 1.0,
+      "origin": [
+        -248.5,
+        -156.25
+      ]
+    }
+  },
+  "cloud_projection": {
+    "origin": [
+      -248.5,
+      -156.25
+    ],
+    "zoom": [
+      0.5,
+      0.5
+    ],
+    "opacity": 90
+  }
+}

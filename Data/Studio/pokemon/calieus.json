@@ -40,7 +40,7 @@
       "experienceType": 3,
       "baseExperience": 63,
       "baseLoyalty": 70,
-      "catchRate": 45,
+      "catchRate": 225,
       "femaleRate": 87.5,
       "breedGroups": [
         1,
@@ -71,7 +71,7 @@
         "front": "1036",
         "frontShiny": "1036",
         "back": "1036",
-        "backShiny": "1036 - Copie",
+        "backShiny": "1036",
         "footprint": "0158",
         "character": "1036_0",
         "characterShiny": "1036_0",

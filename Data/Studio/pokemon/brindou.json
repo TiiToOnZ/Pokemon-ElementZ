@@ -1,0 +1,157 @@
+{
+  "klass": "Specie",
+  "id": 829,
+  "dbSymbol": "brindou",
+  "forms": [
+    {
+      "form": 0,
+      "formTextId": {
+        "name": 1070,
+        "description": 0
+      },
+      "height": 0.3,
+      "weight": 3.5,
+      "type1": "normal",
+      "type2": "fire",
+      "baseHp": 45,
+      "baseAtk": 55,
+      "baseDfe": 40,
+      "baseSpd": 70,
+      "baseAts": 40,
+      "baseDfs": 40,
+      "evHp": 0,
+      "evAtk": 0,
+      "evDfe": 0,
+      "evSpd": 1,
+      "evAts": 0,
+      "evDfs": 0,
+      "evolutions": [
+        {
+          "dbSymbol": "brasepi",
+          "form": 0,
+          "conditions": [
+            {
+              "type": "minLevel",
+              "value": 16
+            }
+          ]
+        }
+      ],
+      "experienceType": 1,
+      "baseExperience": 55,
+      "baseLoyalty": 70,
+      "catchRate": 255,
+      "femaleRate": 50,
+      "breedGroups": [
+        5,
+        5
+      ],
+      "hatchSteps": 1024,
+      "babyDbSymbol": "brindou",
+      "babyForm": 0,
+      "itemHeld": [
+        {
+          "dbSymbol": "none",
+          "chance": 0
+        },
+        {
+          "dbSymbol": "none",
+          "chance": 0
+        }
+      ],
+      "abilities": [
+        "run_away",
+        "hustle",
+        "limber"
+      ],
+      "frontOffsetY": 0,
+      "moveSet": [
+        {
+          "klass": "LevelLearnableMove",
+          "move": "tackle",
+          "level": 1
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "tail_whip",
+          "level": 1
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "ember",
+          "level": 5
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "quick_attack",
+          "level": 8
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "bite",
+          "level": 12
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "flame_wheel",
+          "level": 16
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "fire_fang",
+          "level": 20
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "flame_charge",
+          "level": 24
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "screech",
+          "level": 28
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "flare_blitz",
+          "level": 32
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "thunder_fang",
+          "level": 37
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "crunch",
+          "level": 42
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "double_edge",
+          "level": 48
+        },
+        {
+          "klass": "LevelLearnableMove",
+          "move": "fire_spin",
+          "level": 55
+        }
+      ],
+      "resources": {
+        "icon": "",
+        "iconShiny": "",
+        "front": "1049",
+        "frontShiny": "1049",
+        "back": "1049",
+        "backShiny": "1049",
+        "footprint": "0155",
+        "character": "",
+        "characterShiny": "",
+        "egg": "egg0418",
+        "iconEgg": "",
+        "cry": "0155.ogg",
+        "hasFemale": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "assertions": 13,
+  "fixture": "Native LiteRGSS; actual Route 1 tiles, static sample characters, representative default TJN tones; not a running game",
+  "crop": [
+    32,
+    15,
+    20,
+    15
+  ],
+  "cpu_light_update_ms": 0.003729234999991604,
+  "ruby_allocations_20000_light_updates": 680011,
+  "window_with_light_ms_samples": [
+    0.5463609999969776,
+    0.5421579999892856,
+    0.5550849999963248,
+    0.5193415000030654,
+    0.5134240000006685,
+    0.49700550000125077,
+    0.5169779999960156
+  ],
+  "window_without_light_ms_samples": [
+    0.544540999999299,
+    0.5318389999956707,
+    0.5269804999988992,
+    0.5583469999874069,
+    0.49880900000061956,
+    0.5193949999920733,
+    0.49223100000745035
+  ],
+  "window_with_light_ms_median": 0.5193415000030654,
+  "window_without_light_ms_median": 0.5269804999988992,
+  "extra_window_ms_median": -0.0076389999958337285,
+  "light_layers": 1,
+  "cached_light_textures": 1
+}

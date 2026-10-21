@@ -1,4 +1,4 @@
-# Succès Bombance — V1 finalisée
+# Succès Bombance — V2
 
 PSDK installé **6716**, Ruby Studio **3.0.6**, interface **320×240**.
 Le contenu ordinaire se configure dans **00001 Definitions.rb**.
@@ -12,12 +12,13 @@ quêtes du professeur. Aucun équilibrage définitif n'est appliqué.
 | 00001 Definitions.rb | Catégories, descriptions, déblocages métier, succès, seuils, récompenses, sources |
 | 00002 ProgressSources.rb | Adaptateurs PSDK/Zone, propriété des Pokémon et preuves d'acquisition |
 | 00002 StateAndEngine.rb | État persistant, API, reçus, synchronisation et attribution |
-| 00003 Notifications.rb | File temporaire et composants graphiques |
+| 00003 Notifications.rb | File temporaire, pagination et animation des bandeaux |
+| 00003 Panel.rb | Cadres Message 12, textes, icônes, barres et composants partagés |
 | 00004 Scene.rb | Catégories, succès, détails ; navigation et défilement |
 | 00005 Integration.rb | Hooks locaux et bouton du menu |
-| tests/ | Régressions conservées, contenu final, audit de données et rendu natif |
+| tests/ | Régressions conservées, scénarios V2 et rendu natif |
 | TEST_REPORT.md | Résultats, reproduction, limites et checklist |
-| FINAL_REPORT.md | Audit de configuration et rapport de livraison |
+| FINAL_REPORT.md | Livraison V2, captures, limites et état Git |
 
 Le dossier tests non numéroté n'est pas chargé par ScriptLoader. Aucun autre
 système ni aucune donnée Studio/RMXP n'a été modifié.
@@ -32,7 +33,7 @@ système ni aucune donnée Studio/RMXP n'a été modifié.
 | Général / Quelle chance ! | 1, 3, 5, 10, 20, 30 | compteur shinies_caught : acquisitions réelles de chromatiques | Non |
 | Général / Meilleurs amis | unique, amitié 255 | maximum de Pokemon#loyalty dans équipe/PC, hors Œufs | Oui |
 | Général / Jusqu'au bout | unique, niveau 100 | maximum de Pokemon#level dans équipe/PC, hors Œufs | Oui |
-| Chercheur / Collectionneur | 5, 15, 30, 60, 100, 175, 275, 400, 550, 700 | game.pokedex.creature_caught | Oui |
+| Chercheur / Collectionneur | 5, 15, 30, 50, 75, 105, 140, 180, 225, 275, 330, 390, 455, 525, 600, 680, 765, 855 | game.pokedex.creature_caught | Oui |
 | Chercheur / Formes & curiosités | 1, 3, 5, 10, 20, 30 | paires espèce/forme alternatives valides, creature_seen? | Oui |
 | Chercheur / Expert local | 1, 3, 5, 10, 20, toutes (27 actuellement) | collection du Pokédex de zone, entrées toutes connues | Oui |
 
@@ -200,13 +201,27 @@ Dans le palier voulu, modifier value ou reward. Exemple demandé :
 - Argent : {type: :money, amount: 2000}.
 - Un objet : {type: :item, id: :poke_ball, quantity: 1}.
 - Plusieurs exemplaires : quantity: 3.
+- Plusieurs récompenses : un Array de Hash, sans changer les clés existantes :
+
+```ruby
+{id: :crafted_100, value: 100, reward: [
+  {type: :item, id: :poke_ball, quantity: 5},
+  {type: :item, id: :potion, quantity: 2},
+  {type: :money, amount: 100}
+]},
+```
+
+Chaque ligne a son propre reçu. Un objet indisponible ne bloque pas l'argent
+ou les autres objets. Le détail affiche deux composantes par page ; ←/→
+parcourt les pages. Le bandeau les fait défiler automatiquement.
+Les récompenses de ce fichier restent centralisées et modifiables.
 - Récompense cachée : ajouter hidden: true **dans reward**.
 - Récompense cachée pour tout le succès : hidden_reward: true sur le succès.
 
 Les objets doivent exister dans Studio. poke_ball et great_ball ont été vérifiés.
 Les matériaux/noigrumes ont leur propre inventaire : ils sont refusés par le
 handler ordinaire. Les Pokémon, recettes ou récompenses externes demanderaient
-un nouveau handler, hors configuration ordinaire V1.
+un nouveau handler, hors configuration ordinaire V2.
 
 **Conserver les IDs publiés.** Changer un titre ou une récompense ne réattribue pas
 un palier déjà reçu. Une récompense pending conserve sa copie promise, même si
@@ -330,82 +345,158 @@ la rétroactivité amitié/niveau porte sur l'équipe et les boîtes du joueur.
 Aucune probabilité, capture, chaîne, quête ou mise en scène de combat n'est
 modifiée. Les tests isolés ne remplacent pas une validation d'un parcours réel.
 
-## Sauvegarde, migration et attribution
+## Sauvegarde, migration et attribution V2 → V3
 
-Le getter lazy PFM::GameState#bombance_achievements reste le point d'entrée :
+Le getter lazy de PFM::GameState appelle migrate_state. Aucun changement de
+SaveLoadTweaks, aucun fichier de sauvegarde parallèle.
 
 ```ruby
 {
-  version: 2,
+  version: 3,
   categories: {researcher: true},
-  counters: {trainer_battles_won: 5, eggs_hatched: 1, shinies_caught: 1},
-  manual: {secret_a_definir: true},
+  counters: {trainer_battles_won: 5},
+  manual: {},
   acquisition_baseline: true,
-  identity: 'identifiant aléatoire de 32 caractères hexadécimaux', # créé à la demande
+  identity: 'identité de la partie, créée à la demande',
   tiers: {
     researcher_collection: {
-      species_5: {status: :rewarded, reward: {type: :money, amount: 100}},
-      species_15: {status: :pending, reward: {type: :item, id: :poke_ball, quantity: 1}}
+      species_5: {
+        status: :pending,
+        rewards: [
+          {status: :rewarded, reward: {type: :item, id: :poke_ball, quantity: 5}},
+          {status: :pending, reward: {type: :item, id: :potion, quantity: 2}}
+        ]
+      }
     }
   }
 }
 ```
 
-Les clés categories/counters/tiers/manual manquantes deviennent {}.
-version passe de 1 à 2 sans effacer les reçus existants. Les données des sources
-calculées ne sont pas dupliquées. L'activation vide les notifications/caches et
-établit le socle des acquisitions anciennes, sans donner de récompense.
-La carte synchronise une fois par partie activée ; le menu synchronise aussi.
-Un aperçu de sauvegarde ne déclenche pas de gain. Aucune vérification permanente
-des statistiques dans update_graphics.
+Migration déterministe sans distribution : les schémas absents/1/2 deviennent 3.
+Les clés categories/counters/tiers/manual manquantes deviennent {}. Catégories,
+compteurs, preuves manuelles, identité et reçus sur les Pokémon sont conservés.
+Une version supérieure n'est pas abaissée. Réexécuter la migration ne change
+pas le résultat.
 
-Chaque Pokémon enregistré peut porter un petit Hash sérialisable :
+Un ancien reward Hash devient une composante ; un ancien Array devient plusieurs
+composantes. Le reward historique est aussi conservé pour l'audit. Un lot ancien
+rewarded rend toutes ses composantes rewarded, sans complément provenant de la
+nouvelle configuration. Un pending garde exactement la promesse enregistrée.
+Les composantes déjà normalisées et partiellement payées sont conservées.
+Une promesse absente reste en attente sans invention de récompense.
 
-```ruby
-@bombance_achievement_receipts = {
-  'identifiant de la partie' => {shiny: true, hatch: true}
-}
-```
+L'état obtenu correspond à la présence d'un reçu ; le paiement complet correspond
+à status: :rewarded. Un pending compte donc dans la progression, mais le bandeau
+« SUCCÈS DÉBLOQUÉ ! » attend le paiement intégral. Il n'existe pas de second
+bandeau annonçant un paiement partiel. L'interface distingue Obtenu / En attente /
+À obtenir pour chaque composante.
 
-Cela évite de confondre des Pokémon différents ayant le même code de personnalité
-(ce code est aussi modifié par shiny=). Les clones techniques gardent le reçu ;
-un Pokémon échangé dans une autre partie peut être acquis par cette autre partie.
-Un outil de duplication créant volontairement une nouvelle créature en clonant
-toutes les variables conserverait cette identité : il doit gérer ce cas.
+### Attribution et sac plein
 
-Les anciens IDs species_5/15/30/100 restent valides. species_50 et species_75
-restent archivés dans tiers, hors des pourcentages et de l'interface. Leur argent
-ou objet n'est jamais repris. Une ancienne dette pending est honorée lors de
-sync_all, sans bandeau correspondant à un palier disparu. species_60 et les
-nouveaux IDs sont de nouveaux paliers, indépendants des archives ; ils peuvent
-donc donner de nouveaux gains. Les anciennes récompenses promises, dont celles
-de species_100, gardent leur valeur initiale.
+Chaque composante est préparée puis commitée avant de préparer la suivante.
+Le reçu individuel est marqué juste après le commit, avant tout callback de
+quête. Un callback réentrant ne redonne pas l'objet. Un callback en erreur
+ne remet pas en attente un gain déjà distribué.
 
-Le reçu est créé pending avec une copie de la récompense. Préparation sans
-mutation active ; commit inventaire/argent et reçu synchrones ; callbacks de
-quête ensuite. Sac plein/verrouillé ou échec de préparation : réessai lors
-d'une synchronisation. Le détail indique « en attente ». Aucun bouton Réclamer.
+Le handler d'objet vérifie le verrou du sac et maxBagItemCount (99 actuellement),
+clone les collections internes, appelle Bag#add_item sur ce candidat et contrôle
+le delta exact. Le sac PSDK installé ne réalise pas d'insertion partielle :
+il ajoute la quantité entière. Si une extension n'insère qu'une partie dans le
+candidat, le delta échoue : aucune quantité n'est commitée au sac réel, toute
+la composante reste due. Il n'existe donc pas de reliquat partiellement inséré
+pour une même composante ; un lot peut en revanche être partiellement payé.
+Les collections commitées sont items, orders et shortcut.
 
-Argent, sac, compteurs et reçus sont sauvegardés ensemble par PSDK. Aucun autosave.
-Un arrêt avant sauvegarde perd ensemble les nouveaux gains et leurs reçus.
-Sprites, viewport, timers, file de notifications, Proc et définitions complètes
-ne sont jamais sérialisés dans cet état. register_reward reste l'extension
-avancée pour un nouveau type de récompense, avec un commit sans yield ni
-callback ni échec partiel.
+Exemple : 5 Balls réussies, 2 Potions bloquées → sauvegarde → chargement →
+libération de place → seulement les 2 Potions sont données. L'argent et les
+composantes non bloquées peuvent être reçus pendant que le reste attend.
 
-## Interface et progression
+Les promesses sont copiées profondément à l'obtention. Éditer reward ensuite
+ne modifie jamais un reçu existant. Les réessais ont lieu à la synchronisation
+(carte chargée, ouverture du menu Succès, changement de source, sync_all).
+Aucun bouton Réclamer, aucun autosave, aucune vérification de progression par frame.
 
-Menu natif, neuf boutons, entrée Succès après Quêtes. Seul le libellé du bouton
-Journal devient Quêtes ; l'objet, sa condition et QuestUI restent inchangés.
-Actions PSDK UP/DOWN/A/B : clavier et configuration native de manette.
+Argent, sac et reçus sont sérialisés ensemble dans GameState. Les bandeaux,
+viewports, sprites, callbacks et définitions ne sont pas sérialisés.
+register_reward conserve son contrat avancé prepare → commit → after : commit
+doit être synchrone, sans yield, sauvegarde, callback ou échec partiel.
+Seuls :money et :item sont fournis ; aucun type rare n'est ajouté.
 
-Général compte 26 unités de progression ; Chercheur 22 ; total déverrouillé 48.
-Chaque palier obtenu vaut une unité, chaque unique une unité. Un pending est
-déjà obtenu. Catégories verrouillées et secrets configurés pour être exclus
-ne faussent pas le total visible. Un unique affiche son statut ; aucune chaîne 1/1.
+### Historique Collectionneur
 
-File de notifications temporaire, un seul bandeau, différée en combat/dialogue/
-transition et pendant les panneaux incompatibles. Les gains persistent, pas les
-bandeaux. La file est vidée au rechargement. Les titres utilisent le texte lisible
-sans les emoji fournis : la police PokemonDS ne garantit pas ces glyphes.
-L'apparence générale est conservée ; le redesign reste un chantier séparé.
+Les IDs sont sémantiques, pas des indices de ligne :
+species_5 signifie l'objectif publié sous cette identité. La V2 ne renomme
+aucun ancien reçu et ne transpose jamais le quatrième ancien palier sur la
+quatrième nouvelle ligne.
+
+- IDs communs 5, 15, 30 et 275 : reçus conservés tels quels.
+- 50 et 75 : IDs de l'ancienne première V1, à nouveau visibles. Leurs éventuels
+  reçus archivés sont réutilisés ; aucune seconde récompense.
+- 60, 100, 175, 400, 550 et 700 : historiques conservés, exclus du total V2.
+  Leurs dettes restent distribuables par sync_all, sans bandeau de palier retiré.
+- 105, 140, 180, 225, 330, 390, 455, 525, 600, 680, 765 et 855 :
+  nouveaux objectifs distincts, avec récompense temporaire de 100 $ chacun.
+  Ils peuvent être obtenus rétroactivement en plus des anciennes archives :
+  c'est une nouvelle récompense, pas un renommage d'un ancien palier.
+
+Les récompenses sans reçu de 5/15/30/275 conservent la configuration actuelle ;
+50 retrouve les 2 Balls historiques, 75 les 300 $ cachés historiques.
+Les promesses sauvegardées priment toujours sur ces valeurs.
+La récompense du seuil final 855 est masquée avant obtention par le champ hidden ;
+l'objectif reste visible.
+
+**18 seuils uniquement** : 5, 15, 30, 50, 75, 105, 140, 180, 225, 275, 330,
+390, 455, 525, 600, 680, 765, 855. Toujours creature_caught ; aucune multiplication
+par les formes. La base actuelle comporte 828 espèces hors __undef__ : 855
+anticipe du contenu futur, son comportement moteur est testé avec un Pokédex simulé.
+
+Changer value sous un ID existant conserve sa récompense déjà payée, y compris
+si le nouvel objectif est supérieur. Pour publier réellement un objectif
+supplémentaire, ajouter un nouvel ID ; ne jamais recycler l'identité d'un palier.
+
+## Interface V2 et navigation
+
+Rendu 320×240, PokemonDS, fond bleu nuit, crème, sélection or ; fragments du
+Message_12 existant, sans répéter ses ornements latéraux. La coupe est le seul
+nouvel asset : graphics/interface/achievements/trophy.png, RGBA 22×22.
+Seul le chargement d'icône du bouton Succès change ; Quêtes reste distinct.
+
+- ↑/↓ : choix et défilement ; A : entrer ; B : revenir.
+- Détail : ↑/↓ pour les paliers, ←/→ pour les récompenses quand plusieurs pages.
+- Deux cartes de catégories, trois succès ou cinq paliers visibles.
+- Viewports réellement découpés ; seules les lignes visibles sont instanciées.
+- Scrollbar proportionnelle, minimum 8 px, butées, sélection x/N.
+- Sélection et décalage mémorisés par catégorie/succès tant que l'écran reste
+  ouvert ; la page de récompenses est mémorisée par palier.
+- Textes répartis sur deux lignes puis tronqués avec … ; aucun ajout de contenu
+  ne nécessite de modifier le code d'affichage.
+- Uniques : Obtenu/Non obtenu, sans faux 1/1. Secrets et récompenses cachées
+  respectent leurs paramètres, sans icône ni quantité révélée avant obtention.
+
+Général : 26 unités ; Chercheur : 30 ; total déverrouillé : 56.
+Les catégories verrouillées et les secrets exclus gardent la règle V1.
+
+Bandeau : un seul à la fois, deux composantes par page, 2,4 secondes par page,
+durée totale au moins 3,5 secondes, fondus de 0,18 seconde.
+Le son n'est joué qu'à l'ouverture. Dialogues, combat, transition, panneaux de
+quête et carte bloquent l'affichage et suspendent son temps. Un changement de
+scène supprime le bandeau courant comme en V1, les événements encore en file
+attendent la carte. Activer une sauvegarde vide cette file volatile.
+
+Les actions virtuelles PSDK sont conservées : clavier, croix et stick manette
+utilisent le même parcours. Les mappings natifs sont testés ; une manette
+physique reste à valider dans le vrai jeu.
+
+## Tests et livraison
+
+Voir [TEST_REPORT.md](TEST_REPORT.md) pour les commandes exécutables, les
+résultats mesurés et la checklist ; [FINAL_REPORT.md](FINAL_REPORT.md) pour
+la liste des fichiers, les captures et les limites de livraison.
+
+Les fixtures absentes source_support.rb et legacy_content.rb ne figurent dans
+aucun historique Git accessible. La cause exacte de cette omission n'est pas
+établie. Le premier est reconstruit à partir des classes natives et JSON actuels ;
+le second reprend la configuration retrouvée dans la sauvegarde locale avant
+finalisation. Les 27 scénarios historiques sont conservés, avec leurs attentes
+adaptées au schéma 3 et aux capacités visibles V2. Aucun ancien résultat non
+reproduit n'est présenté comme validation actuelle.

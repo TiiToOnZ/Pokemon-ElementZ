@@ -4,7 +4,7 @@ require 'minitest/autorun'
 require 'json'
 require 'ostruct'
 
-ROOT = File.expand_path('../..', __dir__)
+ROOT = ENV.fetch('BOMBANCE_SCRIPTS') { File.expand_path('../..', __dir__) }
 NATIVE = File.join(ROOT, 'psdk_scripts')
 SYSTEM = File.expand_path('..', __dir__)
 
@@ -120,6 +120,7 @@ class Drawable
 end
 class Sprite < Drawable
   attr_accessor :bitmap
+  def src_rect; @src_rect ||= Rect.new; end
   def set_bitmap(*); @width = @height = 32; self; end
 end
 class ShaderedSprite < Sprite; end
@@ -127,7 +128,13 @@ class SpriteSheet < Sprite
   def select(*); end
 end
 class Color
+  attr_accessor :alpha
   def initialize(*); end
+end
+class Rect
+  attr_accessor :x, :y, :width, :height
+  def initialize(*args); set(*args); end
+  def set(x = 0, y = 0, width = 0, height = 0); @x, @y, @width, @height = x, y, width, height; end
 end
 class Shape < Drawable
   attr_accessor :outline_color, :outline_thickness
@@ -149,7 +156,10 @@ class Text < Drawable
   def text_width(value); value.length * 6; end
 end
 class Viewport < Drawable
-  def self.create(*); new; end
+  attr_accessor :rect
+  def self.create(x = nil, y = 0, width = 320, height = 240, z = 0)
+    new.tap { |v| v.rect = OpenStruct.new(x: x.is_a?(Numeric) ? x : 0, y: y, width: width, height: height); v.z = z }
+  end
   def sort_z; end
 end
 class Clock; end

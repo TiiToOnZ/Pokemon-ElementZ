@@ -33,9 +33,9 @@
       "femaleRate": 12,
       "breedGroups": [
         5,
-        15
+        3
       ],
-      "hatchSteps": 1024,
+      "hatchSteps": 8960,
       "babyDbSymbol": "infectali",
       "babyForm": 0,
       "itemHeld": [

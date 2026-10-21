@@ -6,6 +6,33 @@
   "resolution": "default",
   "objectives": [
     {
+      "objectiveMethodName": "objective_see_pokemon",
+      "objectiveMethodArgs": [
+        "rattata",
+        1
+      ],
+      "textFormatMethodName": "text_see_pokemon",
+      "hiddenByDefault": false
+    },
+    {
+      "objectiveMethodName": "objective_see_pokemon",
+      "objectiveMethodArgs": [
+        "lotad",
+        1
+      ],
+      "textFormatMethodName": "text_see_pokemon",
+      "hiddenByDefault": false
+    },
+    {
+      "objectiveMethodName": "objective_see_pokemon",
+      "objectiveMethodArgs": [
+        "geodude",
+        1
+      ],
+      "textFormatMethodName": "text_see_pokemon",
+      "hiddenByDefault": false
+    },
+    {
       "objectiveMethodName": "objective_speak_to",
       "objectiveMethodArgs": [
         0,
@@ -26,16 +53,8 @@
     {
       "earningMethodName": "earning_item",
       "earningArgs": [
-        "poke_ball",
+        "dawn_ball",
         5
-      ],
-      "textFormatMethodName": "text_earn_item"
-    },
-    {
-      "earningMethodName": "earning_item",
-      "earningArgs": [
-        "potion",
-        2
       ],
       "textFormatMethodName": "text_earn_item"
     }

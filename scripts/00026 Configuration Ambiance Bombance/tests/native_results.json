@@ -1,0 +1,10 @@
+{
+  "assertions": 18,
+  "native_parameters_ms": 0.0022733300000254532,
+  "patched_parameters_ms": 0.0059795150000354624,
+  "extra_ms": 0.003706185000010009,
+  "native_ruby_allocations_20000_parameter_updates": 140001,
+  "ruby_allocations_20000_parameter_updates": 300016,
+  "same_map_pixel_identity": true,
+  "boundary_pixel_identity": true
+}

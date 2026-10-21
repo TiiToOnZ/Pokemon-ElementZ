@@ -4,9 +4,7 @@ module PFM
   class GameState
     def bombance_achievements
       data = (@bombance_achievements ||= {})
-      %i[categories counters tiers manual].each { |key| data[key] ||= {} }
-      data[:version] = 2
-      data
+      BombanceAchievements.migrate_state(data)
     end
   end
 end
@@ -18,6 +16,44 @@ module BombanceAchievements
   REWARD_LABELS = {}
 
   class << self
+    # Pure business-state migration: never touches inventory or current definitions.
+    # A receipt's saved promise is authoritative, including retired tier IDs.
+    def migrate_state(data)
+      %i[categories counters tiers manual].each { |key| data[key] ||= {} }
+      return data if data.fetch(:version, 1) >= 3
+      data[:tiers].each_value do |records|
+        records.each_value { |record| normalize_receipt(record) }
+      end
+      data[:version] = 3
+      data
+    end
+
+    def reward_list(reward)
+      list = reward.is_a?(Array) ? reward : [reward]
+      raise ArgumentError, 'A reward needs at least one component' if list.empty?
+      raise ArgumentError, 'Each reward must be a Hash' unless list.all? { |entry| entry.is_a?(Hash) }
+      list
+    end
+
+    def new_receipt(reward)
+      {status: :pending, rewards: reward_list(reward).map do |entry|
+        {status: :pending, reward: Marshal.load(Marshal.dump(entry))}
+      end}
+    end
+
+    def normalize_receipt(record)
+      # Preserve partially migrated entries. Never fill a missing promise from config.
+      unless record[:rewards]
+        record[:rewards] = record.key?(:reward) ? new_receipt(record[:reward])[:rewards] : []
+      end
+      record[:rewards].each do |entry|
+        entry[:status] = :rewarded if record[:status] == :rewarded
+        entry[:status] ||= :pending
+      end
+      record[:status] ||= :pending
+      record
+    end
+
     def state
       PFM.game_state.bombance_achievements
     end
@@ -200,7 +236,7 @@ module BombanceAchievements
           records = (state[:tiers][id] ||= {})
           # Pending is business state, not a request to show a banner. Snapshot the
           # promised reward so a later config edit cannot change an unpaid reward.
-          records[tier[:id]] ||= {status: :pending, reward: tier[:reward].dup}
+          records[tier[:id]] ||= new_receipt(tier[:reward])
           safely { deliver(id, tier, records.fetch(tier[:id])) }
         end
       ensure
@@ -262,11 +298,20 @@ module BombanceAchievements
       REWARD_LABELS[type] = label
     end
 
+    def reward_entries(id, tier)
+      record = tier_record(id, tier)
+      components = record ? normalize_receipt(record)[:rewards] : new_receipt(tier[:reward])[:rewards]
+      components.map do |entry|
+        reward = entry[:reward]
+        hidden = (reward[:hidden] || DEFINITIONS[id][:hidden_reward]) && !obtained?(id, tier)
+        {reward: hidden ? nil : reward, status: entry[:status], hidden: hidden}
+      end
+    end
+
     def reward_text(id, tier)
-      reward = tier_record(id, tier)&.fetch(:reward) || tier[:reward]
-      hidden = reward[:hidden] || DEFINITIONS[id][:hidden_reward]
-      return '???' if hidden && !obtained?(id, tier)
-      REWARD_LABELS.fetch(reward[:type]).call(reward)
+      reward_entries(id, tier).map do |entry|
+        entry[:hidden] ? '???' : REWARD_LABELS.fetch(entry[:reward][:type]).call(entry[:reward])
+      end.join(' + ')
     end
 
     def enqueue(event)
@@ -276,12 +321,24 @@ module BombanceAchievements
     private
 
     def deliver(id, tier, record)
-      transaction = REWARD_HANDLERS.fetch(record[:reward][:type]).call(PFM.game_state, record[:reward])
-      return unless transaction # e.g. locked or full bag: retry on the next sync
-      transaction.fetch(:commit).call
+      return if record[:status] == :rewarded
+      components = normalize_receipt(record)[:rewards]
+      return if components.empty? # Unknown promise: retain it, never invent a payment.
+      components.each do |entry|
+        next if entry[:status] == :rewarded
+        safely do
+          reward = entry.fetch(:reward)
+          transaction = REWARD_HANDLERS.fetch(reward[:type]).call(PFM.game_state, reward)
+          next unless transaction
+          # Sequential prepare/commit: the next item sees the committed inventory.
+          transaction.fetch(:commit).call
+          entry[:status] = :rewarded
+          # No callback, yield or save between inventory mutation and its receipt.
+          safely { transaction[:after]&.call }
+        end
+      end
+      return unless components.all? { |entry| entry[:status] == :rewarded }
       record[:status] = :rewarded
-      # No UI, event callback, yield or save between inventory commit and receipt.
-      safely { transaction[:after]&.call }
       enqueue(type: :tier, achievement: id, tier: tier[:id]) if tier
     end
   end

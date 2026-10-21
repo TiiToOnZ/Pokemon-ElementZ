@@ -9,7 +9,7 @@
         "name": 1066,
         "description": 0
       },
-      "height": 4,
+      "height": 0.4,
       "weight": 4.8,
       "type1": "flying",
       "type2": "dark",
@@ -20,7 +20,7 @@
       "baseAts": 40,
       "baseDfs": 45,
       "evHp": 0,
-      "evAtk": 0,
+      "evAtk": 1,
       "evDfe": 0,
       "evSpd": 0,
       "evAts": 0,
@@ -38,13 +38,13 @@
         }
       ],
       "experienceType": 1,
-      "baseExperience": 40,
+      "baseExperience": 55,
       "baseLoyalty": 70,
-      "catchRate": 45,
+      "catchRate": 180,
       "femaleRate": 50,
       "breedGroups": [
         5,
-        15
+        4
       ],
       "hatchSteps": 1024,
       "babyDbSymbol": "apotoor",
@@ -105,11 +105,6 @@
           "klass": "LevelLearnableMove",
           "move": "pursuit",
           "level": 11
-        },
-        {
-          "klass": "LevelLearnableMove",
-          "move": "pursuit",
-          "level": 12
         },
         {
           "klass": "LevelLearnableMove",

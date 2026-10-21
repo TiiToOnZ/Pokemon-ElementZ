@@ -1,0 +1,32 @@
+{
+  "morning": {
+    "changed_pixels": 23008,
+    "max_channel_difference": 15,
+    "mean_channel_difference": 0.5077864583333334
+  },
+  "day": {
+    "changed_pixels": 23370,
+    "max_channel_difference": 18,
+    "mean_channel_difference": 0.5637760416666666
+  },
+  "sunset": {
+    "changed_pixels": 22146,
+    "max_channel_difference": 17,
+    "mean_channel_difference": 0.4550911458333333
+  },
+  "night": {
+    "changed_pixels": 18432,
+    "max_channel_difference": 9,
+    "mean_channel_difference": 0.19592881944444446
+  },
+  "protected_opaque_character_pixels": 506,
+  "protected_ui_pixels": 5120,
+  "mask_max_boundary_gradient_xy": [
+    5,
+    10
+  ],
+  "mask_max_internal_gradient_xy": [
+    9,
+    14
+  ]
+}

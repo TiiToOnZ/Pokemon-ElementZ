@@ -43,7 +43,7 @@ class EngineTests < AchievementTest
     loaded = Marshal.load(Marshal.dump(@game))
     refute loaded.instance_variable_defined?(:@bombance_achievements)
     activate(loaded)
-    assert_equal({version: 2, categories: {}, counters: {}, tiers: {}, manual: {}, acquisition_baseline: true}, loaded.bombance_achievements)
+    assert_equal({version: 3, categories: {}, counters: {}, tiers: {}, manual: {}, acquisition_baseline: true}, loaded.bombance_achievements)
     BA.on_map_ready
     assert_empty received
   end
@@ -388,7 +388,7 @@ class EngineTests < AchievementTest
     with_constant(:CATEGORIES, categories) do
       scene = open_ui
       8.times { press(scene, :DOWN) }
-      assert_equal 4, scene.offset
+      assert_equal 7, scene.offset
       scene.dispose
     end
     more = BA::DEFINITIONS[ID].merge(tiers: BA::DEFINITIONS[ID][:tiers] +
@@ -400,7 +400,7 @@ class EngineTests < AchievementTest
       press(scene, :A)
       press(scene, :A)
       6.times { press(scene, :DOWN) }
-      assert_equal [6, 1], [scene.index, scene.offset]
+      assert_equal [6, 2], [scene.index, scene.offset]
       scene.dispose
     end
   end
@@ -412,7 +412,7 @@ class EngineTests < AchievementTest
     BA.unlock_category(:researcher)
     assert_equal [5], received
     tier = BA::DEFINITIONS[ID][:tiers][1]
-    assert_equal({type: :item, id: :poke_ball, quantity: 1}, BA.tier_record(ID, tier)[:reward])
+    assert_equal({type: :item, id: :poke_ball, quantity: 1}, BA.tier_record(ID, tier)[:rewards].first[:reward])
     @game.bag.remove_item(:poke_ball)
     BA.sync_all
     assert_equal [5, 15], received

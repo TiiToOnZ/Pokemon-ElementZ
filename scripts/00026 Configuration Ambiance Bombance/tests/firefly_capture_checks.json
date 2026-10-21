@@ -1,0 +1,48 @@
+{
+  "morning": {
+    "changed_pixels": 92,
+    "maximum_difference": 32
+  },
+  "day": {
+    "changed_pixels": 0,
+    "maximum_difference": 0
+  },
+  "sunset": {
+    "changed_pixels": 128,
+    "maximum_difference": 50
+  },
+  "night": {
+    "changed_pixels": 212,
+    "maximum_difference": 141
+  },
+  "rain": {
+    "changed_pixels": 45,
+    "maximum_difference": 18
+  },
+  "hardrain": {
+    "changed_pixels": 0,
+    "maximum_difference": 0
+  },
+  "fog": {
+    "changed_pixels": 148,
+    "maximum_difference": 69
+  },
+  "strong_winds": {
+    "changed_pixels": 0,
+    "maximum_difference": 0
+  },
+  "night_motion_0": {
+    "changed_pixels": 212,
+    "maximum_difference": 141
+  },
+  "night_motion_2s": {
+    "changed_pixels": 235,
+    "maximum_difference": 117
+  },
+  "night_motion_6s": {
+    "changed_pixels": 247,
+    "maximum_difference": 115
+  },
+  "ui_and_dialogue_pixels_unchanged": 10240,
+  "native_alpha_maximum_rounding_error": 1
+}

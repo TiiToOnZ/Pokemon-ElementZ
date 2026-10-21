@@ -59,14 +59,14 @@
         "iconShiny": "",
         "front": "1034",
         "frontShiny": "",
-        "back": "",
-        "backShiny": "",
+        "back": "1034",
+        "backShiny": "1034",
         "footprint": "",
         "character": "",
         "characterShiny": "",
         "egg": "egg0501",
         "iconEgg": "egg0501",
-        "cry": "",
+        "cry": "0497.ogg",
         "hasFemale": false
       },
       "moveSet": [
