@@ -6,6 +6,24 @@
   "resolution": "default",
   "objectives": [
     {
+      "objectiveMethodName": "objective_see_pokemon",
+      "objectiveMethodArgs": [
+        "caterpie",
+        1
+      ],
+      "textFormatMethodName": "text_see_pokemon",
+      "hiddenByDefault": false
+    },
+    {
+      "objectiveMethodName": "objective_see_pokemon",
+      "objectiveMethodArgs": [
+        "petilil",
+        1
+      ],
+      "textFormatMethodName": "text_see_pokemon",
+      "hiddenByDefault": false
+    },
+    {
       "objectiveMethodName": "objective_speak_to",
       "objectiveMethodArgs": [
         0,
@@ -26,8 +44,8 @@
     {
       "earningMethodName": "earning_item",
       "earningArgs": [
-        "tm27",
-        1
+        "net_ball",
+        3
       ],
       "textFormatMethodName": "text_earn_item"
     }

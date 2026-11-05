@@ -13,6 +13,24 @@
       ],
       "textFormatMethodName": "text_custom",
       "hiddenByDefault": false
+    },
+    {
+      "objectiveMethodName": "objective_custom",
+      "objectiveMethodArgs": [
+        1,
+        29
+      ],
+      "textFormatMethodName": "text_custom",
+      "hiddenByDefault": false
+    },
+    {
+      "objectiveMethodName": "objective_custom",
+      "objectiveMethodArgs": [
+        2,
+        30
+      ],
+      "textFormatMethodName": "text_custom",
+      "hiddenByDefault": false
     }
   ],
   "earnings": []

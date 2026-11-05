@@ -18,7 +18,7 @@
       },
       "levelSetup": {
         "kind": "fixed",
-        "level": 8
+        "level": 7
       },
       "randomEncounterChance": 1,
       "expandPokemonSetup": [

@@ -133,9 +133,9 @@
   ],
   "resources": {
     "sprite": "",
-    "artworkFull": "166_big",
-    "artworkSmall": "166_sma",
-    "character": "",
+    "artworkFull": "RichardROSA_big",
+    "artworkSmall": "RichardROSA_sma",
+    "character": "Richard_ROSA",
     "musics": {
       "encounter": "",
       "victory": "",

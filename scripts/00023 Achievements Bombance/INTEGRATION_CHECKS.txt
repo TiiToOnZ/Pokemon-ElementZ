@@ -18,3 +18,16 @@ Unit exit code: 0
 Native LiteRGSS: 616 checks passed; captures in E:/Pokemon_ElementZ/Pokemon_ElementZ/scripts/00023 Achievements Bombance/tests.
 LiteRGSS exit code: 0
 Scoped git diff --check (Windows CRLF recognized): exit code 0
+
+V3 JOYAU ADDENDUM — 2026-11-01
+Project: E:\Pokemon_ElementZ\Pokemon_ElementZ
+V3 source/test edits and generated captures remain under scripts\00023 Achievements Bombance.
+Ruby Studio 3.0.6, PSDK 6716; personal saves were not loaded.
+
+Run options: --seed 1013
+56 tests, 627 assertions, 0 failures, 0 errors, 0 skips
+Unit exit code: 0
+
+Native LiteRGSS: 648 checks passed; captures in the achievements tests folder.
+LiteRGSS exit code: 0
+Ruby syntax: all 7 production scripts report Syntax OK.

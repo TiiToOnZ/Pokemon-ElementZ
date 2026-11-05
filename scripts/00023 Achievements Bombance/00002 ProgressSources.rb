@@ -70,9 +70,29 @@ module BombanceAchievements
         zone_pairs(game).size
       end
 
+      def completed_zone_symbols(game)
+        zone_pairs(game).filter_map do |zone, pairs|
+          zone if pairs.all? do |symbol, form|
+            game.pokedex.creature_seen?(symbol, form) || game.pokedex.creature_caught?(symbol, form)
+          end
+        end
+      end
+
       def completed_zones(game)
-        zone_pairs(game).count do |_zone, pairs|
-          pairs.all? { |symbol, form| game.pokedex.creature_seen?(symbol, form) || game.pokedex.creature_caught?(symbol, form) }
+        completed_zone_symbols(game).size
+      end
+
+      def zone_type_counts(game, zone)
+        pairs = zone_pairs(game).fetch(zone, [])
+        pairs.each_with_object(Hash.new(0)) do |(symbol, form), counts|
+          creature_form = data_creature(symbol).forms.find { |entry| entry.form == form }
+          next unless creature_form
+
+          [creature_form.type1, creature_form.type2].each do |type|
+            type = type.db_symbol if type.respond_to?(:db_symbol)
+            type = type.to_sym if type.respond_to?(:to_sym)
+            counts[type] += 1 if GEM_ITEMS.key?(type)
+          end
         end
       end
     end
@@ -120,8 +140,17 @@ module BombanceAchievements
     def owned_pokemon_changed(pokemon)
       return unless ProgressSources.owned?(PFM.game_state, pokemon)
       return if pokemon.egg? || (pokemon.loyalty < 255 && pokemon.level < 100)
-      source_changed(:maximum_loyalty) if pokemon.loyalty >= 255
-      source_changed(:maximum_level) if pokemon.level >= 100
+      source_changed(:maximum_loyalty, pokemon: pokemon) if pokemon.loyalty >= 255
+      source_changed(:maximum_level, pokemon: pokemon) if pokemon.level >= 100
+    end
+
+    def update_completed_zone_rewards(previously_completed)
+      completed = ProgressSources.completed_zone_symbols(PFM.game_state)
+      new_zones = completed - previously_completed
+      new_zones.each_with_index do |zone, index|
+        record_zone_completion(zone)
+        source_changed(:completed_zones, progress: previously_completed.size + index + 1, zone: zone)
+      end
     end
   end
 end

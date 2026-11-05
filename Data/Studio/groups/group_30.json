@@ -9,8 +9,8 @@
   "customConditions": [
     {
       "type": "mapId",
-      "relationWithPreviousCondition": "AND",
-      "value": 34
+      "value": 34,
+      "relationWithPreviousCondition": "AND"
     },
     {
       "type": "enabledSwitch",
@@ -117,7 +117,7 @@
           "maximumLevel": 6
         }
       },
-      "randomEncounterChance": 21,
+      "randomEncounterChance": 18,
       "expandPokemonSetup": [
         {
           "type": "evs",
@@ -231,7 +231,7 @@
     },
     {
       "specie": "shellos",
-      "form": 0,
+      "form": 1,
       "shinySetup": {
         "kind": "automatic",
         "rate": -1
@@ -243,7 +243,7 @@
           "maximumLevel": 6
         }
       },
-      "randomEncounterChance": 21,
+      "randomEncounterChance": 18,
       "expandPokemonSetup": [
         {
           "type": "evs",
@@ -356,48 +356,6 @@
       ]
     },
     {
-      "specie": "wingull",
-      "form": 0,
-      "shinySetup": {
-        "kind": "automatic",
-        "rate": -1
-      },
-      "levelSetup": {
-        "kind": "minmax",
-        "level": {
-          "minimumLevel": 4,
-          "maximumLevel": 6
-        }
-      },
-      "randomEncounterChance": 4,
-      "expandPokemonSetup": [
-        {
-          "type": "evs",
-          "value": {
-            "hp": 0,
-            "atk": 0,
-            "dfe": 0,
-            "spd": 0,
-            "ats": 0,
-            "dfs": 0
-          }
-        },
-        {
-          "type": "loyalty",
-          "value": 70
-        },
-        {
-          "type": "moves",
-          "value": [
-            "__undef__",
-            "__undef__",
-            "__undef__",
-            "__undef__"
-          ]
-        }
-      ]
-    },
-    {
       "specie": "tympole",
       "form": 0,
       "shinySetup": {
@@ -411,7 +369,7 @@
           "maximumLevel": 6
         }
       },
-      "randomEncounterChance": 21,
+      "randomEncounterChance": 18,
       "expandPokemonSetup": [
         {
           "type": "evs",
@@ -496,6 +454,48 @@
         }
       },
       "randomEncounterChance": 4,
+      "expandPokemonSetup": [
+        {
+          "type": "evs",
+          "value": {
+            "hp": 0,
+            "atk": 0,
+            "dfe": 0,
+            "spd": 0,
+            "ats": 0,
+            "dfs": 0
+          }
+        },
+        {
+          "type": "loyalty",
+          "value": 70
+        },
+        {
+          "type": "moves",
+          "value": [
+            "__undef__",
+            "__undef__",
+            "__undef__",
+            "__undef__"
+          ]
+        }
+      ]
+    },
+    {
+      "specie": "ondelume",
+      "form": 0,
+      "shinySetup": {
+        "kind": "automatic",
+        "rate": -1
+      },
+      "levelSetup": {
+        "kind": "minmax",
+        "level": {
+          "minimumLevel": 4,
+          "maximumLevel": 6
+        }
+      },
+      "randomEncounterChance": 18,
       "expandPokemonSetup": [
         {
           "type": "evs",

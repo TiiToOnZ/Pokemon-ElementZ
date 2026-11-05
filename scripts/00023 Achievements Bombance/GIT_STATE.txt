@@ -1,4 +1,4 @@
-SuccÃ¨s V2 delivery - 2026-10-08T14:24:11.9154021+02:00
+Archive V2 delivery - 2026-10-08T14:24:11.9154021+02:00; latest checks are in INTEGRATION_CHECKS.txt.
 Project: E:\Pokemon_ElementZ\Pokemon_ElementZ
 No commit created.
 git diff --stat counts tracked files only; new files are listed by status and the manifest below.

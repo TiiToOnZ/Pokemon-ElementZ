@@ -2,7 +2,7 @@
   "id": 551,
   "dbSymbol": "grass_gem",
   "icon": "551",
-  "price": 200,
+  "price": 1000,
   "socket": 1,
   "position": 0,
   "isBattleUsable": false,
@@ -11,6 +11,6 @@
   "isHoldable": true,
   "isAllowingMega": false,
   "flingPower": 0,
-  "klass": "Item",
-  "isBerry": false
+  "isBerry": false,
+  "klass": "Item"
 }

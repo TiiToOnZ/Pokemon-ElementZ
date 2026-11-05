@@ -1,0 +1,16 @@
+{
+  "id": 931,
+  "dbSymbol": "joyau_primordial",
+  "icon": "697",
+  "price": 50000,
+  "socket": 1,
+  "position": 0,
+  "isBattleUsable": false,
+  "isMapUsable": false,
+  "isLimited": true,
+  "isHoldable": true,
+  "isAllowingMega": false,
+  "flingPower": 0,
+  "isBerry": false,
+  "klass": "Item"
+}

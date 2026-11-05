@@ -1,4 +1,66 @@
-# Pokémon Bombance — Livraison Succès V2
+# Pokémon Bombance — Addendum Joyaux (1 novembre 2026)
+
+La V3 fait évoluer les récompenses du système existant, exclusivement dans
+`scripts/00023 Achievements Bombance`. Elle utilise les 18 Joyaux et le Joyau
+primordial comme objets du sac dans **Objets (socket 1)**. Aucune donnée Studio,
+aucun script PSDK installé et aucun autre système n'a été modifié.
+
+## Changements V3
+
+- `00001 Definitions.rb` centralise les Joyaux et attribue les récompenses
+  demandées ; Quelle chance ! est maintenant dans Chercheur. Les IDs et toutes
+  les récompenses de Collectionneur sont conservés.
+- `00002 ProgressSources.rb` lit les types des formes rattachées à chaque zone
+  et garde un relevé des nouvelles zones complétées.
+- `00002 StateAndEngine.rb` résout chaque récompense dynamique en Hash d'objet
+  avant son reçu, puis préserve ce snapshot au rechargement. Les aperçus montrent
+  des indices et ne tirent pas de récompense à l'avance.
+- `00005 Integration.rb` transmet au moteur la zone complétée lors d'une
+  découverte ou capture au Pokédex.
+- `tests/source_support.rb`, `tests/run.rb`, `tests/v2.rb` et `tests/native_ui.rb`
+  couvrent les types/formes, les cas de migration, les nouvelles règles et l'UI.
+- `README.md` et `TEST_REPORT.md` documentent les règles et les contrôles.
+
+### Résultats exécutés
+
+La suite Ruby Succès passe : **56 tests, 627 assertions, aucun échec ni erreur**.
+Le rendu natif LiteRGSS passe **648 contrôles** sur les captures 320×240. Les
+sept scripts Ruby de production passent `ruby -c`.
+
+### APIs PSDK vérifiées
+
+- `PFM::Pokemon#data` renvoie la forme courante ; `data.type1` et `data.type2`
+  fournissent les types utilisés par les récompenses Meilleurs amis et Jusqu'au bout.
+- `UI::Dex::ZoneEncounterEnvironments.build` consomme le snapshot de
+  `ElementZ::Habitat::Catalog`; ses entrées `.key` exposent les paires
+  espèce/forme affichées par la page de zone. Les types sont lus sur ces formes
+  dans `data_creature(symbol).forms`.
+- `PFM::Bag#add_item` et `add_item_to_order` classent l'objet selon
+  `data_item(symbol).socket`; les 19 objets de Joyau vérifiés ont `socket: 1`.
+
+Les reçus contiennent uniquement des Hash sérialisables, jamais un `Proc` ou une
+lambda. Un reçu déjà présent n'est pas recalculé, et la livraison conserve le
+handler transactionnel existant.
+
+### Hypothèse restante et contrôle manuel
+
+Les anciennes sauvegardes ne contiennent aucun ordre chronologique des entrées
+Pokédex. Si elles complètent rétroactivement des succès de zone sans historique
+enregistré, la migration utilise l'ordre du catalogue courant comme repli
+déterministe. Si une seule entrée Pokédex complète plusieurs zones simultanément,
+le catalogue départage également ces événements simultanés. À partir d'événements
+distincts observés par cette version, chaque zone est enregistrée dans son ordre
+réel et le dernier palier prend le contexte exact de la zone qui le déclenche.
+
+Il reste à vérifier dans le vrai jeu une ancienne sauvegarde, les 2 types d'un
+Pokémon double type, une complétion de zone avec égalité, la dernière zone,
+l'affichage/classement des Joyaux dans le sac et l'absence de double paiement
+après sauvegarde/rechargement. Les tests isolés ne chargent pas de sauvegarde
+personnelle ni de manette physique.
+
+---
+
+# Pokémon Bombance — Livraison Succès V2 (historique)
 
 Projet définitif : **E:/Pokemon_ElementZ/Pokemon_ElementZ**.
 Le système existant est amélioré dans **scripts/00023 Achievements Bombance**.

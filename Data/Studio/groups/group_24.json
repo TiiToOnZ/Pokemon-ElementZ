@@ -231,7 +231,7 @@
     },
     {
       "specie": "rattata",
-      "form": -1,
+      "form": 0,
       "shinySetup": {
         "kind": "automatic",
         "rate": -1
@@ -243,7 +243,7 @@
           "maximumLevel": 6
         }
       },
-      "randomEncounterChance": 4,
+      "randomEncounterChance": 18,
       "expandPokemonSetup": [
         {
           "type": "evs",
@@ -268,10 +268,6 @@
             "__undef__",
             "__undef__"
           ]
-        },
-        {
-          "type": "rareness",
-          "value": 255
         }
       ]
     },
@@ -458,6 +454,48 @@
         }
       },
       "randomEncounterChance": 18,
+      "expandPokemonSetup": [
+        {
+          "type": "evs",
+          "value": {
+            "hp": 0,
+            "atk": 0,
+            "dfe": 0,
+            "spd": 0,
+            "ats": 0,
+            "dfs": 0
+          }
+        },
+        {
+          "type": "loyalty",
+          "value": 70
+        },
+        {
+          "type": "moves",
+          "value": [
+            "__undef__",
+            "__undef__",
+            "__undef__",
+            "__undef__"
+          ]
+        }
+      ]
+    },
+    {
+      "specie": "brindou",
+      "form": 0,
+      "shinySetup": {
+        "kind": "automatic",
+        "rate": -1
+      },
+      "levelSetup": {
+        "kind": "minmax",
+        "level": {
+          "minimumLevel": 4,
+          "maximumLevel": 6
+        }
+      },
+      "randomEncounterChance": 4,
       "expandPokemonSetup": [
         {
           "type": "evs",

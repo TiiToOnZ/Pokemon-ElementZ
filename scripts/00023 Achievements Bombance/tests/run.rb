@@ -43,7 +43,8 @@ class EngineTests < AchievementTest
     loaded = Marshal.load(Marshal.dump(@game))
     refute loaded.instance_variable_defined?(:@bombance_achievements)
     activate(loaded)
-    assert_equal({version: 3, categories: {}, counters: {}, tiers: {}, manual: {}, acquisition_baseline: true}, loaded.bombance_achievements)
+    assert_equal({categories: {}, counters: {}, tiers: {}, manual: {}, zone_completion_order: [], version: 3,
+                  acquisition_baseline: true}, loaded.bombance_achievements)
     BA.on_map_ready
     assert_empty received
   end
@@ -239,7 +240,7 @@ class EngineTests < AchievementTest
     BA.unlock_category(:researcher)
     calls = []
     original = BA.method(:check)
-    BA.stub(:check, ->(id) { calls << id; original.call(id) }) do
+    BA.stub(:check, ->(id, *args) { calls << id; original.call(id, *args) }) do
       @game.pokedex.mark_captured(:new_species)
       @game.pokedex.mark_captured(:new_species)
       PFM::Pokedex.new(@game).mark_captured(:foreign_species)

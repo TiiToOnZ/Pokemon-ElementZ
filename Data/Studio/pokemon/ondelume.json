@@ -65,6 +65,21 @@
         "infiltrator"
       ],
       "frontOffsetY": 0,
+      "resources": {
+        "icon": "1052",
+        "iconShiny": "1052",
+        "front": "1052",
+        "frontShiny": "1052",
+        "back": "1052",
+        "backShiny": "1052",
+        "footprint": "0194",
+        "character": "1052",
+        "characterShiny": "1052",
+        "egg": "egg0194",
+        "iconEgg": "egg0692",
+        "cry": "0194.ogg",
+        "hasFemale": false
+      },
       "moveSet": [
         {
           "klass": "LevelLearnableMove",
@@ -146,22 +161,7 @@
           "move": "shadow_force",
           "level": 57
         }
-      ],
-      "resources": {
-        "icon": "",
-        "iconShiny": "",
-        "front": "1052",
-        "frontShiny": "1052",
-        "back": "1052",
-        "backShiny": "1052",
-        "footprint": "0194",
-        "character": "",
-        "characterShiny": "",
-        "egg": "egg0194",
-        "iconEgg": "",
-        "cry": "0194.ogg",
-        "hasFemale": false
-      }
+      ]
     }
   ]
 }

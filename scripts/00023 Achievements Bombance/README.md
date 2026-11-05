@@ -1,9 +1,10 @@
-# Succès Bombance — V2
+# Succès Bombance — Joyaux Pokémon (V3)
 
 PSDK installé **6716**, Ruby Studio **3.0.6**, interface **320×240**.
-Le contenu ordinaire se configure dans **00001 Definitions.rb**.
-Les récompenses sont temporaires et s'ajoutent aux récompenses existantes des
-quêtes du professeur. Aucun équilibrage définitif n'est appliqué.
+Le contenu ordinaire se configure dans **00001 Definitions.rb**. Les récompenses
+Joyaux utilisent les objets existants du sac, classés dans **Objets (socket 1)**.
+Les succès, paliers, reçus historiques et récompenses de Collectionneur sont
+préservés.
 
 ## Organisation
 
@@ -16,9 +17,9 @@ quêtes du professeur. Aucun équilibrage définitif n'est appliqué.
 | 00003 Panel.rb | Cadres Message 12, textes, icônes, barres et composants partagés |
 | 00004 Scene.rb | Catégories, succès, détails ; navigation et défilement |
 | 00005 Integration.rb | Hooks locaux et bouton du menu |
-| tests/ | Régressions conservées, scénarios V2 et rendu natif |
+| tests/ | Régressions conservées, scénarios Joyaux et rendu natif |
 | TEST_REPORT.md | Résultats, reproduction, limites et checklist |
-| FINAL_REPORT.md | Livraison V2, captures, limites et état Git |
+| FINAL_REPORT.md | Historique V2 et addendum Joyaux |
 
 Le dossier tests non numéroté n'est pas chargé par ScriptLoader. Aucun autre
 système ni aucune donnée Studio/RMXP n'a été modifié.
@@ -30,12 +31,43 @@ système ni aucune donnée Studio/RMXP n'a été modifié.
 | Général / Combattant | 5, 15, 30, 50, 100, 200 | compteur trainer_battles_won | Non |
 | Général / Bienfaiteur | 3, 10, 20, 40, 75, 100 | clés de game.quests.finished_quests dont data_quest(id).is_primary == false | Oui |
 | Général / Éleveur | 1, 5, 15, 30, 60, 100 | compteur eggs_hatched | Non |
-| Général / Quelle chance ! | 1, 3, 5, 10, 20, 30 | compteur shinies_caught : acquisitions réelles de chromatiques | Non |
+| Chercheur / Quelle chance ! | 1, 3, 5, 10, 20, 30 | compteur shinies_caught : acquisitions réelles de chromatiques | Non |
 | Général / Meilleurs amis | unique, amitié 255 | maximum de Pokemon#loyalty dans équipe/PC, hors Œufs | Oui |
 | Général / Jusqu'au bout | unique, niveau 100 | maximum de Pokemon#level dans équipe/PC, hors Œufs | Oui |
 | Chercheur / Collectionneur | 5, 15, 30, 50, 75, 105, 140, 180, 225, 275, 330, 390, 455, 525, 600, 680, 765, 855 | game.pokedex.creature_caught | Oui |
 | Chercheur / Formes & curiosités | 1, 3, 5, 10, 20, 30 | paires espèce/forme alternatives valides, creature_seen? | Oui |
 | Chercheur / Expert local | 1, 3, 5, 10, 20, toutes (27 actuellement) | collection du Pokédex de zone, entrées toutes connues | Oui |
+
+## Récompenses Joyaux
+
+| Succès | Récompense par palier |
+|---|---|
+| Combattant, Éleveur, Quelle chance !, Formes & curiosités | 1 Joyau aléatoire parmi les 18 types |
+| Bienfaiteur | 1 Joyau primordial |
+| Meilleurs amis, Jusqu'au bout | 1 Joyau primordial et 1 Joyau d'un type du Pokémon déclencheur |
+| Expert local | 1 Joyau primordial et 1 Joyau du type dominant de la zone déclencheuse |
+| Attrapez-les tous ! | Récompenses existantes inchangées |
+
+Le Joyau primordial est exclu des tirages aléatoires. Les symboles des 18 Joyaux
+sont centralisés dans `GEM_ITEMS`. Tous les objets listés, y compris le Joyau
+primordial, ont été vérifiés dans les données Studio avec `socket: 1`; le sac
+PSDK les classe dans la poche **Objets** via son ajout d'objet natif.
+
+Les récompenses dynamiques sont résolues avant la création d'un reçu. Le reçu
+contient ensuite uniquement des récompenses concrètes `{type: :item, id: ..., quantity: 1}`.
+Les types d'un Pokémon viennent de `pokemon.data.type1/type2` (sa forme actuelle).
+Pour une zone, le système reprend les espèces/formes de la collection affichée
+par le Pokédex de zone, lit leurs `type1/type2`, puis compte chaque type présent.
+Une égalité est départagée avec `sample`. Le dernier palier Toutes les zones
+reçoit le contexte de la dernière zone complétée, sans moyenne inter-zones.
+
+La sauvegarde conserve l'ordre des zones complétées à partir des événements
+Pokédex. Les anciennes sauvegardes ne contiennent pas cet historique ; si une
+récompense rétroactive de zone doit être créée sur un tel fichier, l'ordre de
+catalogue courant sert de repli déterministe, car le Pokédex natif ne conserve
+pas l'horodatage des entrées découvertes. Si une même entrée complète plusieurs
+zones à la fois, elles sont départagées dans l'ordre du catalogue : le Pokédex
+ne produit qu'un seul événement de découverte pour ces complétions simultanées.
 
 Général est ouvert dès le début. Chercheur se débloque via la quête 49 ou les
 quêtes suivantes 14, 15, 16, 17, 18, 67, 68, 69, actives ou terminées,
@@ -218,10 +250,10 @@ Les récompenses de ce fichier restent centralisées et modifiables.
 - Récompense cachée : ajouter hidden: true **dans reward**.
 - Récompense cachée pour tout le succès : hidden_reward: true sur le succès.
 
-Les objets doivent exister dans Studio. poke_ball et great_ball ont été vérifiés.
-Les matériaux/noigrumes ont leur propre inventaire : ils sont refusés par le
-handler ordinaire. Les Pokémon, recettes ou récompenses externes demanderaient
-un nouveau handler, hors configuration ordinaire V2.
+Les objets doivent exister dans Studio. Le handler natif contrôle les limites du
+sac, puis `Bag#add_item` classe chaque Joyau selon son socket. Les objets de
+matériaux/noigrumes qui utilisent un inventaire distinct restent hors de ce
+handler ; les Joyaux ne demandent aucun nouvel inventaire ni modification Studio.
 
 **Conserver les IDs publiés.** Changer un titre ou une récompense ne réattribue pas
 un palier déjà reçu. Une récompense pending conserve sa copie promise, même si
@@ -345,7 +377,7 @@ la rétroactivité amitié/niveau porte sur l'équipe et les boîtes du joueur.
 Aucune probabilité, capture, chaîne, quête ou mise en scène de combat n'est
 modifiée. Les tests isolés ne remplacent pas une validation d'un parcours réel.
 
-## Sauvegarde, migration et attribution V2 → V3
+## Sauvegarde, migration et attribution (schéma 3)
 
 Le getter lazy de PFM::GameState appelle migrate_state. Aucun changement de
 SaveLoadTweaks, aucun fichier de sauvegarde parallèle.
@@ -356,6 +388,7 @@ SaveLoadTweaks, aucun fichier de sauvegarde parallèle.
   categories: {researcher: true},
   counters: {trainer_battles_won: 5},
   manual: {},
+  zone_completion_order: [:zone_a, :zone_b],
   acquisition_baseline: true,
   identity: 'identité de la partie, créée à la demande',
   tiers: {
@@ -373,7 +406,8 @@ SaveLoadTweaks, aucun fichier de sauvegarde parallèle.
 ```
 
 Migration déterministe sans distribution : les schémas absents/1/2 deviennent 3.
-Les clés categories/counters/tiers/manual manquantes deviennent {}. Catégories,
+La clé zone_completion_order est initialisée à [] pour les anciens schémas. Les
+clés categories/counters/tiers/manual manquantes deviennent {}. Catégories,
 compteurs, preuves manuelles, identité et reçus sur les Pokémon sont conservés.
 Une version supérieure n'est pas abaissée. Réexécuter la migration ne change
 pas le résultat.
@@ -425,23 +459,18 @@ Seuls :money et :item sont fournis ; aucun type rare n'est ajouté.
 ### Historique Collectionneur
 
 Les IDs sont sémantiques, pas des indices de ligne :
-species_5 signifie l'objectif publié sous cette identité. La V2 ne renomme
+species_5 signifie l'objectif publié sous cette identité. La refonte Joyaux ne renomme
 aucun ancien reçu et ne transpose jamais le quatrième ancien palier sur la
 quatrième nouvelle ligne.
 
 - IDs communs 5, 15, 30 et 275 : reçus conservés tels quels.
 - 50 et 75 : IDs de l'ancienne première V1, à nouveau visibles. Leurs éventuels
   reçus archivés sont réutilisés ; aucune seconde récompense.
-- 60, 100, 175, 400, 550 et 700 : historiques conservés, exclus du total V2.
+- 60, 100, 175, 400, 550 et 700 : historiques conservés, exclus du total courant.
   Leurs dettes restent distribuables par sync_all, sans bandeau de palier retiré.
-- 105, 140, 180, 225, 330, 390, 455, 525, 600, 680, 765 et 855 :
-  nouveaux objectifs distincts, avec récompense temporaire de 100 $ chacun.
-  Ils peuvent être obtenus rétroactivement en plus des anciennes archives :
-  c'est une nouvelle récompense, pas un renommage d'un ancien palier.
-
-Les récompenses sans reçu de 5/15/30/275 conservent la configuration actuelle ;
-50 retrouve les 2 Balls historiques, 75 les 300 $ cachés historiques.
-Les promesses sauvegardées priment toujours sur ces valeurs.
+- Tous les seuils courants gardent leur ID et leur récompense de configuration.
+  La refonte n'a modifié aucune récompense de Collectionneur. Les promesses
+  déjà enregistrées priment toujours sur les valeurs de configuration.
 La récompense du seuil final 855 est masquée avant obtention par le champ hidden ;
 l'objectif reste visible.
 
@@ -454,7 +483,7 @@ Changer value sous un ID existant conserve sa récompense déjà payée, y compr
 si le nouvel objectif est supérieur. Pour publier réellement un objectif
 supplémentaire, ajouter un nouvel ID ; ne jamais recycler l'identité d'un palier.
 
-## Interface V2 et navigation
+## Interface et navigation
 
 Rendu 320×240, PokemonDS, fond bleu nuit, crème, sélection or ; fragments du
 Message_12 existant, sans répéter ses ornements latéraux. La coupe est le seul

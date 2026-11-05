@@ -1,4 +1,31 @@
-# Vérification Succès V2 — 8 octobre 2026
+# Vérification Succès Joyaux — 1 novembre 2026
+
+## Résultats de la refonte Joyaux
+
+Runtime : **Ruby Studio 3.0.6 i386-mingw32**, PSDK **6716**. Vérification
+effectuée dans le projet définitif, sans charger de sauvegarde personnelle.
+
+| Suite | Résultat |
+|---|---|
+| Tests unitaires Succès (`tests/all.rb`) | **56 tests, 627 assertions, 0 échec, 0 erreur, 0 skip** |
+| Rendu natif LiteRGSS (`tests/native_ui.rb`) | **648 contrôles passés**, captures 320×240 |
+| Vérification syntaxique Ruby de production | **7 scripts, Syntax OK** |
+
+Les nouveaux cas contrôlent les 18 Joyaux aléatoires et l'exclusion du
+Primordial, la poche Objets, le déplacement des chromatiques dans Chercheur,
+les récompenses Pokémon mono/double type, le reçu Collectionneur inchangé, le
+type dominant et les égalités de zones, la dernière zone de Toutes les zones,
+ainsi que la sérialisation et l'idempotence des reçus concrets.
+
+Le test natif contrôle également la nouvelle position de Quelle chance ! et
+conserve l'accès aux 18 paliers de Collectionneur ; les captures actualisées
+incluent [Chercheur](tests/researcher_23.png), [détail Collectionneur](tests/tiers_23.png)
+et [notification](tests/notification_tier.png).
+
+Le reste de ce document conserve les résultats de la V2 comme historique ;
+ils ne remplacent pas les résultats courants ci-dessus.
+
+## Résultats V2 historiques — 8 octobre 2026
 
 Runtime réellement exécuté : **Ruby Studio 3.0.6 i386-mingw32**, PSDK **6716**.
 Aucune sauvegarde personnelle chargée ou modifiée. Données Studio lues uniquement.

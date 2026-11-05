@@ -8,6 +8,14 @@ class V2Tests < AchievementTest
     BA::DEFINITIONS[ID][:tiers].first
   end
 
+  def tier_record(achievement, tier_id)
+    BA.state.dig(:tiers, achievement, tier_id)
+  end
+
+  def with_zone_pairs(zones)
+    BA::ProgressSources.stub(:zone_pairs, ->(_game) { zones }) { yield }
+  end
+
   def reload
     @game = Marshal.load(Marshal.dump(@game))
     activate(@game)
@@ -47,12 +55,13 @@ class V2Tests < AchievementTest
     capture(15)
     BA.unlock_category(:researcher)
     assert_equal [5, 15], received
-    assert_equal 10, @game.bag.item_quantity(:poke_ball)
+    assert_equal 5, @game.bag.item_quantity(:poke_ball)
+    assert_equal 1, @game.bag.item_quantity(:exp_share)
     assert_equal 2, @game.bag.item_quantity(:potion)
     assert_equal [:rewarded, :rewarded], receipt[:rewards].map { |entry| entry[:status] }
     assert_equal 3, BA::Notifications.queue.size
     5.times { BA.check(ID) }
-    assert_equal 10, @game.bag.item_quantity(:poke_ball)
+    assert_equal 5, @game.bag.item_quantity(:poke_ball)
   end
 
   def test_partial_bag_full_save_reload_and_complete_banner
@@ -236,7 +245,7 @@ class V2Tests < AchievementTest
     native = @game.pokedex.method(:mark_captured).super_method
     140.times { |n| native.call("historic_#{n}".to_sym) }
     BA.sync_all
-    assert_equal 217, @game.money # new 105 + 140, plus old pending 60
+    assert_equal 317, @game.money # species_140's configured reward plus the old pending 60
     assert_equal :rewarded, records[:species_60][:status]
     assert_equal 0, @game.bag.item_quantity(:poke_ball)
     assert_equal [5, 15, 30, 50, 75, 105, 140, 275], received
@@ -245,7 +254,7 @@ class V2Tests < AchievementTest
     assert_equal 2, BA::Notifications.queue.count { |e| e[:type] == :tier }
     reload
     BA.sync_all
-    assert_equal 217, @game.money
+    assert_equal 317, @game.money
     assert_empty BA::Notifications.queue
   end
 
@@ -300,7 +309,8 @@ class V2Tests < AchievementTest
   end
 
   def test_custom_counter_and_real_owned_sources
-    pokemon = OpenStruct.new(egg?: false, shiny?: false, level: 100, loyalty: 255)
+    pokemon = OpenStruct.new(data: OpenStruct.new(type1: :fire, type2: :__undef__),
+      egg?: false, shiny?: false, level: 100, loyalty: 255)
     @game.actors << pokemon
     BA.sync_all
     assert_equal 'Obtenu', BA.unique_status(:best_friends)
@@ -309,6 +319,7 @@ class V2Tests < AchievementTest
     assert BA.revealed?(:trainer_wins)
     BA.increment(:eggs_hatched)
     assert BA.revealed?(:eggs)
+    BA.unlock_category(:researcher)
     BA.increment(:shinies_caught)
     assert BA.revealed?(:shinies)
     money = @game.money
@@ -342,14 +353,15 @@ class V2Tests < AchievementTest
     BA.unlock_category(:researcher)
     scene = open_ui
     press(scene, :A)
-    5.times { press(scene, :DOWN) }
-    assert_equal [5, 3], [scene.index, scene.offset]
+    4.times { press(scene, :DOWN) }
+    assert_equal [4, 2], [scene.index, scene.offset]
     press(scene, :A)
     press(scene, :B)
-    assert_equal [5, 3], [scene.index, scene.offset]
+    assert_equal [4, 2], [scene.index, scene.offset]
     press(scene, :B)
     press(scene, :DOWN)
     press(scene, :A)
+    press(scene, :DOWN)
     press(scene, :A)
     17.times { press(scene, :DOWN) }
     assert_equal [17, 13], [scene.index, scene.offset]
@@ -428,7 +440,7 @@ class V2Tests < AchievementTest
     with_rewards(rewards) do
       BA.unlock_category(:researcher)
       scene = open_ui
-      press(scene, :DOWN); press(scene, :A); press(scene, :A)
+      press(scene, :DOWN); press(scene, :A); press(scene, :DOWN); press(scene, :A)
       assert_equal 5, scene.reward_pages
       4.times { press(scene, :RIGHT) }
       assert_equal 4, scene.reward_page
@@ -478,6 +490,153 @@ class V2Tests < AchievementTest
         assert_nil n.instance_variable_get(:@panel)
       end
       assert_empty $test_log
+    end
+  end
+
+  def test_gem_rewards_are_concrete_objects_in_objets_pocket
+    expected_gems = %i[normal_gem fire_gem water_gem electric_gem grass_gem ice_gem fighting_gem poison_gem
+                       ground_gem flying_gem psychic_gem bug_gem rock_gem ghost_gem dragon_gem dark_gem steel_gem fairy_gem]
+    assert_equal expected_gems, BA::RANDOM_GEM_ITEMS
+    refute_includes BA::RANDOM_GEM_ITEMS, :joyau_primordial
+    (expected_gems + [:joyau_primordial]).each do |item_id|
+      item = TestData::ITEMS.fetch(item_id)
+      assert_equal item_id, item.db_symbol
+      assert_equal 1, item.socket, "#{item_id} must be in the Objets pocket"
+    end
+    assert_equal :researcher, BA::DEFINITIONS[:shinies][:category]
+    BA.unlock_category(:researcher)
+
+    {trainer_wins: 5, secondary_quests: 3, eggs: 1, shinies: 1, researcher_forms: 1}.each do |achievement, progress|
+      BA.check(achievement, progress: progress)
+      tier = BA::DEFINITIONS.fetch(achievement).fetch(:tiers).first
+      record = tier_record(achievement, tier[:id])
+      assert_equal :rewarded, record[:status], "#{achievement} receipt status"
+      reward = record[:rewards].first.fetch(:reward)
+      assert_equal :item, reward[:type], "#{achievement} concrete reward type"
+      assert_equal 1, reward[:quantity], "#{achievement} reward quantity"
+      assert_equal 1, TestData::ITEMS.fetch(reward[:id]).socket, "#{achievement} pocket socket"
+      assert_includes @game.bag.get_order(1), reward[:id], "#{achievement} item order"
+      if achievement == :secondary_quests
+        assert_equal :joyau_primordial, reward[:id]
+      else
+        assert_includes expected_gems, reward[:id], "#{achievement} random gem pool"
+      end
+    end
+  end
+
+  def test_pokemon_rewards_use_the_triggering_pokemon_types
+    friendship_tier = BA::DEFINITIONS[:best_friends][:tiers].first
+    level_tier = BA::DEFINITIONS[:level_100][:tiers].first
+    assert_equal [{type: :item, id: :joyau_primordial, quantity: 1},
+                  {type: :hint, label: 'Joyau d’un type du Pokémon'}], BA.reward_entries(:best_friends, friendship_tier).map { |e| e[:reward] }
+
+    friends = OpenStruct.new(data: OpenStruct.new(type1: :fire, type2: :flying), egg?: false, loyalty: 255, level: 40)
+    levelled = OpenStruct.new(data: OpenStruct.new(type1: :water, type2: :dragon), egg?: false, loyalty: 255, level: 100)
+    @game.actors.concat([friends, levelled])
+    BA.owned_pokemon_changed(levelled)
+    BA.owned_pokemon_changed(friends)
+
+    friend_rewards = tier_record(:best_friends, :completed)[:rewards].map { |entry| entry[:reward] }
+    level_rewards = tier_record(:level_100, :completed)[:rewards].map { |entry| entry[:reward] }
+    assert_equal :joyau_primordial, friend_rewards.first[:id]
+    assert_includes %i[water_gem dragon_gem], friend_rewards.last[:id]
+    assert_equal :joyau_primordial, level_rewards.first[:id]
+    assert_includes %i[water_gem dragon_gem], level_rewards.last[:id]
+    assert_equal %i[fire flying], BA.pokemon_types(friends)
+    assert_equal %i[water dragon], BA.pokemon_types(levelled)
+
+    map = Scene_Map.new
+    event = BA::Notifications.queue.find { |entry| entry[:type] == :tier && entry[:achievement] == :best_friends }
+    BA::Notifications.show(map, event)
+    assert_equal 1, BA::Notifications.instance_variable_get(:@pages)
+    assert_equal friend_rewards, BA::Notifications.instance_variable_get(:@entries).map { |entry| entry[:reward] }
+    assert_equal friend_rewards, BA.reward_entries(:best_friends, friendship_tier).map { |entry| entry[:reward] }
+  end
+
+  def test_collection_rewards_and_tier_ids_are_unchanged
+    expected = [
+      [:species_5, 5, [{type: :item, id: :poke_ball, quantity: 5}, {type: :item, id: :potion, quantity: 2}]],
+      [:species_15, 15, {type: :item, id: :exp_share, quantity: 1}],
+      [:species_30, 30, [{type: :item, id: :great_ball, quantity: 5}, {type: :item, id: :super_potion, quantity: 2}]],
+      [:species_50, 50, {type: :item, id: :tm27, quantity: 1}],
+      [:species_75, 75, {type: :money, amount: 300, hidden: true}],
+      [:species_105, 105, {type: :item, id: :king_s_rock, quantity: 1}],
+      [:species_140, 140, {type: :money, amount: 300, hidden: true}],
+      [:species_180, 180, [{type: :item, id: :ultra_ball, quantity: 5}, {type: :item, id: :hyper_potion, quantity: 2}]],
+      [:species_225, 225, {type: :money, amount: 100}],
+      [:species_275, 275, {type: :item, id: :great_ball, quantity: 3}],
+      [:species_330, 330, {type: :money, amount: 100}],
+      [:species_390, 390, {type: :money, amount: 100}],
+      [:species_455, 455, {type: :money, amount: 100}],
+      [:species_525, 525, {type: :money, amount: 100}],
+      [:species_600, 600, {type: :money, amount: 100}],
+      [:species_680, 680, {type: :money, amount: 100}],
+      [:species_765, 765, {type: :money, amount: 100}],
+      [:species_855, 855, {type: :money, amount: 100, hidden: true}]
+    ]
+    actual = BA::DEFINITIONS[:researcher_collection][:tiers].map { |tier| [tier[:id], tier[:value], tier[:reward]] }
+    assert_equal expected, actual
+  end
+
+  def test_zone_rewards_use_form_types_dominance_and_ties
+    zones = {
+      dominant: [[:charmander, 0], [:charizard, 0], [:pikachu, 0]],
+      tied: [[:pikachu, 0], [:charizard, 0]]
+    }
+    with_zone_pairs(zones) do
+      assert_equal({fire: 2, flying: 1, electric: 1}, BA::ProgressSources.zone_type_counts(@game, :dominant))
+      assert_equal({electric: 1, fire: 1, flying: 1}, BA::ProgressSources.zone_type_counts(@game, :tied))
+      BA.unlock_category(:researcher)
+      BA.check(:researcher_zones, progress: 1, zone: :dominant)
+      dominant = tier_record(:researcher_zones, :zones_1)[:rewards].map { |entry| entry[:reward][:id] }
+      assert_equal [:joyau_primordial, :fire_gem], dominant
+      BA.check(:researcher_zones, progress: 2, zone: :tied)
+      tied = tier_record(:researcher_zones, :all_zones)[:rewards].map { |entry| entry[:reward][:id] }
+      assert_equal :joyau_primordial, tied.first
+      assert_includes %i[electric_gem fire_gem flying_gem], tied.last
+    end
+  end
+
+  def test_all_zones_reward_snapshots_the_last_zone_completed
+    zones = (1..20).to_h { |n| ["area_#{n}".to_sym, [[:pikachu, 0]]] }
+    zones[:last_area] = [[:charmander, 0], [:charizard, 0]]
+    with_zone_pairs(zones) do
+      # These twenty areas are completed before Chercheur is unlocked; their order
+      # is retained so the final tier can still use the newly completed area.
+      @game.pokedex.mark_seen(:pikachu, 0, forced: true)
+      BA.unlock_category(:researcher)
+      @game.pokedex.mark_seen(:charmander, 0, forced: true)
+      @game.pokedex.mark_seen(:charizard, 0, forced: true)
+      record = tier_record(:researcher_zones, :all_zones)
+      assert record, "progress=#{BA.progress(:researcher_zones)} completed=#{BA::ProgressSources.completed_zone_symbols(@game).inspect} order=#{BA.state[:zone_completion_order].inspect} errors=#{$test_log.inspect}"
+      assert_equal [:joyau_primordial, :fire_gem], record[:rewards].map { |entry| entry[:reward][:id] }
+      assert_equal :last_area, BA.state[:zone_completion_order].last
+      snapshot = Marshal.load(Marshal.dump(record))
+      reload
+      assert_equal snapshot, tier_record(:researcher_zones, :all_zones)
+      BA.sync_all
+      assert_equal snapshot, tier_record(:researcher_zones, :all_zones)
+      assert_equal 1, @game.bag.item_quantity(:fire_gem)
+    end
+  end
+
+  def test_dynamic_receipt_is_a_stable_concrete_snapshot_after_reload
+    BA.increment(:trainer_battles_won, 5)
+    record = tier_record(:trainer_wins, :wins_5)
+    snapshot = Marshal.load(Marshal.dump(record))
+    item = snapshot[:rewards].first[:reward][:id]
+    assert_equal :item, snapshot[:rewards].first[:reward][:type]
+    assert_includes BA::RANDOM_GEM_ITEMS, item
+    assert_equal 1, @game.bag.item_quantity(item)
+
+    reload
+    with_constant(:DEFINITIONS, BA::DEFINITIONS.merge(trainer_wins: BA::DEFINITIONS[:trainer_wins].merge(
+      tiers: [BA::DEFINITIONS[:trainer_wins][:tiers].first.merge(reward: :primordial_gem)]
+    ))) do
+      3.times { BA.check(:trainer_wins, progress: 5) }
+      assert_equal snapshot, tier_record(:trainer_wins, :wins_5)
+      assert_equal 1, @game.bag.item_quantity(item)
+      assert_equal :joyau_primordial, TestData::ITEMS.fetch(:joyau_primordial).db_symbol
     end
   end
 end

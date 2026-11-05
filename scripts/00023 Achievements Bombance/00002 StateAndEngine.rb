@@ -20,6 +20,7 @@ module BombanceAchievements
     # A receipt's saved promise is authoritative, including retired tier IDs.
     def migrate_state(data)
       %i[categories counters tiers manual].each { |key| data[key] ||= {} }
+      data[:zone_completion_order] ||= []
       return data if data.fetch(:version, 1) >= 3
       data[:tiers].each_value do |records|
         records.each_value { |record| normalize_receipt(record) }
@@ -39,6 +40,161 @@ module BombanceAchievements
       {status: :pending, rewards: reward_list(reward).map do |entry|
         {status: :pending, reward: Marshal.load(Marshal.dump(entry))}
       end}
+    end
+
+    # Dynamic declarations become ordinary item hashes before entering save data.
+    # The quantity is resolved now, so the receipt permanently stores the actual items.
+    def resolve_reward(reward, context = {})
+      case reward
+      when Array
+        reward.flat_map { |entry| resolve_reward(entry, context) }
+      when Symbol
+        resolve_dynamic_reward(reward, context)
+      when Hash
+        if reward.key?(:resolver)
+          options = reward.reject { |key, _value| key == :resolver }
+          resolve_dynamic_reward(reward.fetch(:resolver), context, options)
+        else
+          [reward]
+        end
+      else
+        raise ArgumentError, "Unsupported reward declaration: #{reward.inspect}"
+      end
+    end
+
+    def preview_reward(reward)
+      case reward
+      when Array
+        reward.flat_map { |entry| preview_reward(entry) }
+      when :random_gem
+        [{type: :hint, label: 'Joyau aléatoire'}]
+      when :primordial_gem
+        [item_reward(PRIMORDIAL_GEM)]
+      when :pokemon_gem_bundle, :zone_gem_bundle
+        [item_reward(PRIMORDIAL_GEM), {type: :hint, label: 'Joyau'}]
+      when Symbol
+        raise ArgumentError, "Unknown reward preview: #{reward.inspect}"
+      when Hash
+        if reward.key?(:resolver)
+          resolver = reward.fetch(:resolver)
+          case resolver
+          when :random_gem
+            quantity = reward.fetch(:quantity, 1)
+            validate_reward_quantity(quantity)
+            Array.new(quantity) { {type: :hint, label: 'Joyau aléatoire'} }
+          when :primordial_gem
+            quantity = reward.fetch(:quantity, 1)
+            validate_reward_quantity(quantity)
+            Array.new(quantity) { item_reward(PRIMORDIAL_GEM) }
+          when :zone_gem_bundle
+            primordial_quantity = reward.fetch(:primordial_quantity, 1)
+            zone_quantity = reward.fetch(:zone_quantity, 1)
+            validate_reward_quantity(primordial_quantity)
+            validate_reward_quantity(zone_quantity)
+            Array.new(primordial_quantity) { item_reward(PRIMORDIAL_GEM) } +
+              Array.new(zone_quantity) { {type: :hint, label: 'Joyau de la zone'} }
+          else
+            preview_reward(resolver)
+          end
+        else
+          [reward]
+        end
+      else
+        raise ArgumentError, "Unsupported reward preview: #{reward.inspect}"
+      end
+    end
+
+    def validate_reward_quantity(quantity)
+      unless quantity.is_a?(Integer) && quantity.positive?
+        raise ArgumentError, 'Reward quantity must be a positive Integer'
+      end
+      quantity
+    end
+
+    def item_reward(item, quantity = 1)
+      {type: :item, id: item, quantity: quantity}
+    end
+
+    def record_zone_completion(zone)
+      order = (state[:zone_completion_order] ||= [])
+      order << zone unless order.include?(zone)
+      zone
+    end
+
+    def sync_zone_completion_history
+      ProgressSources.completed_zone_symbols(PFM.game_state).each do |zone|
+        record_zone_completion(zone)
+      end
+    end
+
+    def zone_for_tier(context)
+      tier = context[:tier]
+      completed = ProgressSources.completed_zone_symbols(PFM.game_state)
+      ordered = (state[:zone_completion_order] ||= []).select { |zone| completed.include?(zone) }
+      completed.each { |zone| ordered << zone unless ordered.include?(zone) }
+      target = tier ? tier_value(tier) : context[:progress]
+      index = target.is_a?(Integer) ? target - 1 : -1
+      ordered[index] || ordered.last || raise(ArgumentError, 'No completed zone is available for the reward')
+    end
+
+    def pokemon_types(pokemon)
+      data = pokemon&.data
+      return [] unless data
+
+      [data.type1, data.type2].filter_map do |type|
+        type = type.db_symbol if type.respond_to?(:db_symbol)
+        type = type.to_sym if type.respond_to?(:to_sym)
+        type if GEM_ITEMS.key?(type)
+      end.uniq
+    end
+
+    def pokemon_for_reward(achievement, context)
+      return context[:pokemon] if context[:pokemon]
+
+      attribute, target = case achievement
+                          when :best_friends then [:loyalty, 255]
+                          when :level_100 then [:level, 100]
+                          else raise ArgumentError, 'A Pokémon reward needs a Pokémon trigger'
+                          end
+      ProgressSources.each_owned(PFM.game_state).find do |pokemon|
+        !pokemon.egg? && pokemon.public_send(attribute) >= target
+      end || raise(ArgumentError, 'No qualifying Pokémon is available for the reward')
+    end
+
+    def resolve_dynamic_reward(resolver, context, options = {})
+      case resolver
+      when :random_gem
+        quantity = validate_reward_quantity(options.fetch(:quantity, 1))
+        # Each draw is independent: duplicate Gem types are intentionally possible.
+        Array.new(quantity) { item_reward(RANDOM_GEM_ITEMS.sample) }
+
+      when :primordial_gem
+        quantity = validate_reward_quantity(options.fetch(:quantity, 1))
+        Array.new(quantity) { item_reward(PRIMORDIAL_GEM) }
+
+      when :pokemon_gem_bundle
+        pokemon = pokemon_for_reward(context.fetch(:achievement), context)
+        type = pokemon_types(pokemon).sample
+        raise ArgumentError, 'The triggering Pokémon has no supported type' unless type
+
+        [item_reward(PRIMORDIAL_GEM), item_reward(GEM_ITEMS.fetch(type))]
+
+      when :zone_gem_bundle
+        zone = context[:zone] || zone_for_tier(context)
+        counts = ProgressSources.zone_type_counts(PFM.game_state, zone)
+        highest = counts.values.max
+        raise ArgumentError, "Zone #{zone.inspect} has no supported Pokémon types" unless highest
+
+        type = counts.select { |_key, count| count == highest }.keys.sample
+        primordial_quantity = validate_reward_quantity(options.fetch(:primordial_quantity, 1))
+        zone_quantity = validate_reward_quantity(options.fetch(:zone_quantity, 1))
+
+        Array.new(primordial_quantity) { item_reward(PRIMORDIAL_GEM) } +
+          Array.new(zone_quantity) { item_reward(GEM_ITEMS.fetch(type)) }
+
+      else
+        raise ArgumentError, "Unknown dynamic reward: #{resolver.inspect}"
+      end
     end
 
     def normalize_receipt(record)
@@ -89,6 +245,7 @@ module BombanceAchievements
       return false if category_unlocked?(id)
       state[:categories][id] = true
       enqueue(type: :category, category: id) if notify
+      sync_zone_completion_history if id == :researcher
       sync_category(id)
       true
     end
@@ -176,8 +333,8 @@ module BombanceAchievements
       set(counter, value(counter) + amount)
     end
 
-    def source_changed(source)
-      DEFINITIONS.each { |id, definition| check(id) if definition[:source] == source }
+    def source_changed(source, context = {})
+      DEFINITIONS.each { |id, definition| check(id, context) if definition[:source] == source }
     end
 
     def tier_record(id, tier)
@@ -221,14 +378,14 @@ module BombanceAchievements
       total.zero? ? 0 : done * 100 / total
     end
 
-    def check(id)
+    def check(id, context = {})
       definition = DEFINITIONS.fetch(id)
       return false unless category_unlocked?(definition[:category])
       @checking ||= {}
       return false if @checking[id]
       @checking[id] = true
       begin
-        current = progress(id)
+        current = context.fetch(:progress) { progress(id) }
         definition[:tiers].each do |tier|
           next if rewarded?(id, tier)
           target = tier_value(tier)
@@ -236,7 +393,11 @@ module BombanceAchievements
           records = (state[:tiers][id] ||= {})
           # Pending is business state, not a request to show a banner. Snapshot the
           # promised reward so a later config edit cannot change an unpaid reward.
-          records[tier[:id]] ||= new_receipt(tier[:reward])
+          unless records.key?(tier[:id])
+            resolved = safely { resolve_reward(tier[:reward], context.merge(achievement: id, tier: tier)) }
+            next unless resolved
+            records[tier[:id]] = new_receipt(resolved)
+          end
           safely { deliver(id, tier, records.fetch(tier[:id])) }
         end
       ensure
@@ -270,6 +431,7 @@ module BombanceAchievements
 
     def sync_all
       baseline_acquisitions
+      sync_zone_completion_history
       reconcile_categories
       CATEGORIES.each_key { |category| sync_category(category) }
       retry_retired_rewards
@@ -300,7 +462,11 @@ module BombanceAchievements
 
     def reward_entries(id, tier)
       record = tier_record(id, tier)
-      components = record ? normalize_receipt(record)[:rewards] : new_receipt(tier[:reward])[:rewards]
+      components = if record
+                     normalize_receipt(record)[:rewards]
+                   else
+                     preview_reward(tier[:reward]).map { |reward| {status: :pending, reward: reward} }
+                   end
       components.map do |entry|
         reward = entry[:reward]
         hidden = (reward[:hidden] || DEFINITIONS[id][:hidden_reward]) && !obtained?(id, tier)
@@ -375,4 +541,6 @@ module BombanceAchievements
       after: -> { game.quests.add_item(item, count) }
     }
   end
+
+  REWARD_LABELS[:hint] = ->(reward) { reward.fetch(:label) }
 end

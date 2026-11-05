@@ -3,7 +3,7 @@
 module BombanceAmbiance
   # Complete map image, never a repeating Plane. Native fog stays independent.
   class MapAmbientOverlay
-    Source = Struct.new(:map_id, :texture, :profile, :x, :y, :width, :height)
+    Source = Struct.new(:key, :map_id, :texture, :profile, :x, :y, :width, :height)
     attr_reader :sprites
 
     # Periodic interpolation, driven only by the TJN hour/minute variables.
@@ -28,25 +28,35 @@ module BombanceAmbiance
       camera_y = $game_map.display_y / 8.0 + manager.state.anchor_y * 16
       minute = Configuration.rays_minute
       active = []
+
       manager.ambient_sources.each do |source|
-        opacity = manager.context.tjn_enabled ? self.class.opacity(source.profile, minute).round.clamp(0, 255) : 0
+        opacity = if manager.context.tjn_enabled
+                    self.class.opacity(source.profile, minute).round.clamp(0, 255)
+                  else
+                    0
+                  end
+
         x, y = source.x - camera_x, source.y - camera_y
+
         next if opacity.zero? || x >= Graphics.width || y >= Graphics.height ||
                 x + source.width <= 0 || y + source.height <= 0
 
-        id = source.map_id
-        active << id
-        if @sources[id] != source
-          @sprites.delete(id)&.dispose
-          @sources[id] = source
+        key = source.key
+        active << key
+
+        if @sources[key] != source
+          @sprites.delete(key)&.dispose
+          @sources[key] = source
         end
-        sprite = @sprites[id] ||= create_sprite(source)
+
+        sprite = @sprites[key] ||= create_sprite(source)
         sprite.set_position(x, y)
         sprite.opacity = opacity
       end
-      (@sprites.keys - active).each do |id|
-        @sprites.delete(id).dispose
-        @sources.delete(id)
+
+      (@sprites.keys - active).each do |key|
+        @sprites.delete(key).dispose
+        @sources.delete(key)
       end
     end
 
@@ -77,13 +87,27 @@ module BombanceAmbiance
     attr_reader :ambient_sources
 
     def override_effects(map_id, **effects)
-      return super unless effects.key?(:map_ambient_overlay)
+      keys = %i[map_ambient_overlay map_ambient_windows]
+      enabled_keys = keys.select { |key| effects.key?(key) }
 
-      enabled = effects.delete(:map_ambient_overlay)
-      raise ArgumentError, 'map_ambient_overlay expects true/false' unless enabled == true || enabled == false
+      return super if enabled_keys.empty?
+
+      overrides = {}
+
+      enabled_keys.each do |key|
+        enabled = effects.delete(key)
+
+        unless enabled == true || enabled == false
+          raise ArgumentError, "#{key} expects true/false"
+        end
+
+        overrides[key] = enabled
+      end
 
       super(map_id, **effects)
-      @event_overrides[map_id] = @event_overrides[map_id].merge(map_ambient_overlay: enabled).freeze
+
+      @event_overrides[map_id] =
+        @event_overrides[map_id].merge(overrides).freeze
     end
 
     def sync_context(map)
@@ -111,16 +135,46 @@ module BombanceAmbiance
 
     def append_ambient_source(sources, id, x, y, width, height)
       settings = Configuration.resolve(id, @event_overrides[id])
-      return unless settings[:map_ambient_overlay] == true
 
-      profile = Settings::MAP_AMBIENT_OVERLAY_PROFILES.fetch(settings[:map_ambient_overlay_profile])
-      texture = settings.fetch(:map_ambient_overlay_texture)
-      raise ArgumentError, "Missing ambient overlay texture for map #{id}" if !texture || texture.empty?
+      if settings[:map_ambient_overlay] == true
+        append_texture_source(
+          sources, id, :ambience,
+          settings[:map_ambient_overlay_texture],
+          settings[:map_ambient_overlay_profile],
+          x, y, width, height
+        )
+      end
+
+      if settings[:map_ambient_windows] == true
+        append_texture_source(
+          sources, id, :windows,
+          settings[:map_ambient_windows_texture],
+          settings[:map_ambient_windows_profile],
+          x, y, width, height
+        )
+      end
+    end
+
+    def append_texture_source(sources, id, layer, texture, profile_name,
+                              x, y, width, height)
+      profile = Settings::MAP_AMBIENT_OVERLAY_PROFILES.fetch(profile_name)
+
+      if !texture || texture.empty?
+        raise ArgumentError, "Missing ambient overlay texture for map #{id}"
+      end
 
       zoom = 16.0 / profile.fetch(:pixels_per_tile) * profile.fetch(:scale)
-      sources << MapAmbientOverlay::Source.new(id, texture, profile,
-        x * 16 + profile[:offset_x] * zoom, y * 16 + profile[:offset_y] * zoom,
-        width * 16 * profile[:scale], height * 16 * profile[:scale]).freeze
+
+      sources << MapAmbientOverlay::Source.new(
+        [id, layer].freeze,
+        id,
+        texture,
+        profile,
+        x * 16 + profile[:offset_x] * zoom,
+        y * 16 + profile[:offset_y] * zoom,
+        width * 16 * profile[:scale],
+        height * 16 * profile[:scale]
+      ).freeze
     end
   end
 

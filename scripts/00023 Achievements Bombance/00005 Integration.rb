@@ -3,26 +3,30 @@
 module BombanceAchievements
   module PokedexHook
     def mark_seen(db_symbol, form = 0, **kwargs)
+      active = equal?(PFM.game_state.pokedex)
       before = creature_seen?(db_symbol, form)
+      zones_before = BombanceAchievements::ProgressSources.completed_zone_symbols(PFM.game_state) if active && !before
       result = super
-      if !before && creature_seen?(db_symbol, form) && equal?(PFM.game_state.pokedex)
+      if active && !before && creature_seen?(db_symbol, form)
         BombanceAchievements.safely do
           BombanceAchievements.source_changed(:pokedex_forms)
-          BombanceAchievements.source_changed(:completed_zones)
+          BombanceAchievements.update_completed_zone_rewards(zones_before)
         end
       end
       result
     end
 
     def mark_captured(db_symbol, form = 0)
+      active = equal?(PFM.game_state.pokedex)
       before = creature_caught
       known = creature_caught?(db_symbol, form)
+      zones_before = BombanceAchievements::ProgressSources.completed_zone_symbols(PFM.game_state) if active && !known
       result = super
-      if creature_caught != before && equal?(PFM.game_state.pokedex)
+      if active && creature_caught != before
         BombanceAchievements.safely { BombanceAchievements.source_changed(:pokedex_species) }
       end
-      if !known && creature_caught?(db_symbol, form) && equal?(PFM.game_state.pokedex)
-        BombanceAchievements.safely { BombanceAchievements.source_changed(:completed_zones) }
+      if active && !known && creature_caught?(db_symbol, form)
+        BombanceAchievements.safely { BombanceAchievements.update_completed_zone_rewards(zones_before) }
       end
       result
     end

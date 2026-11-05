@@ -75,10 +75,10 @@
         "footprint": "0422",
         "character": "0422",
         "characterShiny": "0422s",
-        "cry": "0422.ogg",
-        "hasFemale": false,
         "egg": "egg0422",
-        "iconEgg": "egg0422"
+        "iconEgg": "egg0422",
+        "cry": "0422.ogg",
+        "hasFemale": false
       },
       "moveSet": [
         {
@@ -385,10 +385,10 @@
         "footprint": "0422",
         "character": "0422_01",
         "characterShiny": "0422s_01",
-        "cry": "0422.ogg",
-        "hasFemale": false,
         "egg": "egg",
-        "iconEgg": "egg"
+        "iconEgg": "egg",
+        "cry": "0422.ogg",
+        "hasFemale": false
       },
       "moveSet": [
         {

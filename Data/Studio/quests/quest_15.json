@@ -6,6 +6,42 @@
   "resolution": "default",
   "objectives": [
     {
+      "objectiveMethodName": "objective_custom",
+      "objectiveMethodArgs": [
+        0,
+        27
+      ],
+      "textFormatMethodName": "text_custom",
+      "hiddenByDefault": false
+    },
+    {
+      "objectiveMethodName": "objective_custom",
+      "objectiveMethodArgs": [
+        1,
+        25
+      ],
+      "textFormatMethodName": "text_custom",
+      "hiddenByDefault": false
+    },
+    {
+      "objectiveMethodName": "objective_custom",
+      "objectiveMethodArgs": [
+        2,
+        26
+      ],
+      "textFormatMethodName": "text_custom",
+      "hiddenByDefault": false
+    },
+    {
+      "objectiveMethodName": "objective_custom",
+      "objectiveMethodArgs": [
+        3,
+        28
+      ],
+      "textFormatMethodName": "text_custom",
+      "hiddenByDefault": false
+    },
+    {
       "objectiveMethodName": "objective_speak_to",
       "objectiveMethodArgs": [
         0,
@@ -26,16 +62,8 @@
     {
       "earningMethodName": "earning_item",
       "earningArgs": [
-        "great_ball",
-        5
-      ],
-      "textFormatMethodName": "text_earn_item"
-    },
-    {
-      "earningMethodName": "earning_item",
-      "earningArgs": [
-        "super_potion",
-        2
+        "dawn_ball",
+        3
       ],
       "textFormatMethodName": "text_earn_item"
     }

@@ -65,6 +65,21 @@
         "limber"
       ],
       "frontOffsetY": 0,
+      "resources": {
+        "icon": "",
+        "iconShiny": "",
+        "front": "1050",
+        "frontShiny": "1050",
+        "back": "1050",
+        "backShiny": "1050",
+        "footprint": "0156",
+        "character": "",
+        "characterShiny": "",
+        "egg": "egg0418",
+        "iconEgg": "egg0418",
+        "cry": "0156.ogg",
+        "hasFemale": false
+      },
       "moveSet": [
         {
           "klass": "LevelLearnableMove",
@@ -136,22 +151,7 @@
           "move": "fire_spin",
           "level": 55
         }
-      ],
-      "resources": {
-        "icon": "",
-        "iconShiny": "",
-        "front": "1050",
-        "frontShiny": "1050",
-        "back": "1050",
-        "backShiny": "1050",
-        "footprint": "0156",
-        "character": "",
-        "characterShiny": "",
-        "egg": "egg0418",
-        "iconEgg": "",
-        "cry": "0156.ogg",
-        "hasFemale": false
-      }
+      ]
     }
   ]
 }

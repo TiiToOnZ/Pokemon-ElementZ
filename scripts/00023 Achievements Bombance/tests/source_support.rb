@@ -29,7 +29,9 @@ module TestData
   CREATURES, ZONES, GROUPS = {}, {}, {}
   Dir[File.join(ROOT, '../Data/Studio/pokemon/*.json')].each do |path|
     data = JSON.parse(File.read(path))
-    value = OpenStruct.new(db_symbol: data['dbSymbol'].to_sym, forms: data['forms'].map { |f| OpenStruct.new(form: f['form']) })
+    value = OpenStruct.new(db_symbol: data['dbSymbol'].to_sym, forms: data['forms'].map do |f|
+      OpenStruct.new(form: f['form'], type1: f['type1']&.to_sym, type2: f['type2']&.to_sym)
+    end)
     CREATURES[value.db_symbol] = CREATURES[data['id']] = value
   end
   Dir[File.join(ROOT, '../Data/Studio/zones/*.json')].each do |path|

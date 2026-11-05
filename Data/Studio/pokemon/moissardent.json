@@ -54,6 +54,21 @@
         "flash_fire"
       ],
       "frontOffsetY": 0,
+      "resources": {
+        "icon": "egg0418",
+        "iconShiny": "",
+        "front": "1051",
+        "frontShiny": "1051",
+        "back": "1051",
+        "backShiny": "1051",
+        "footprint": "0059",
+        "character": "",
+        "characterShiny": "",
+        "egg": "egg0418",
+        "iconEgg": "egg0418",
+        "cry": "0059.ogg",
+        "hasFemale": false
+      },
       "moveSet": [
         {
           "klass": "LevelLearnableMove",
@@ -125,22 +140,7 @@
           "move": "fire_spin",
           "level": 55
         }
-      ],
-      "resources": {
-        "icon": "",
-        "iconShiny": "",
-        "front": "1051",
-        "frontShiny": "1051",
-        "back": "1051",
-        "backShiny": "1051",
-        "footprint": "0059",
-        "character": "",
-        "characterShiny": "",
-        "egg": "egg0418",
-        "iconEgg": "",
-        "cry": "0059.ogg",
-        "hasFemale": false
-      }
+      ]
     }
   ]
 }

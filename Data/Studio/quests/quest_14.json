@@ -6,6 +6,42 @@
   "resolution": "default",
   "objectives": [
     {
+      "objectiveMethodName": "objective_custom",
+      "objectiveMethodArgs": [
+        0,
+        21
+      ],
+      "textFormatMethodName": "text_custom",
+      "hiddenByDefault": false
+    },
+    {
+      "objectiveMethodName": "objective_custom",
+      "objectiveMethodArgs": [
+        1,
+        23
+      ],
+      "textFormatMethodName": "text_custom",
+      "hiddenByDefault": false
+    },
+    {
+      "objectiveMethodName": "objective_custom",
+      "objectiveMethodArgs": [
+        2,
+        22
+      ],
+      "textFormatMethodName": "text_custom",
+      "hiddenByDefault": false
+    },
+    {
+      "objectiveMethodName": "objective_custom",
+      "objectiveMethodArgs": [
+        3,
+        24
+      ],
+      "textFormatMethodName": "text_custom",
+      "hiddenByDefault": false
+    },
+    {
       "objectiveMethodName": "objective_speak_to",
       "objectiveMethodArgs": [
         0,
@@ -26,8 +62,8 @@
     {
       "earningMethodName": "earning_item",
       "earningArgs": [
-        "exp_share",
-        1
+        "dusk_ball",
+        3
       ],
       "textFormatMethodName": "text_earn_item"
     }

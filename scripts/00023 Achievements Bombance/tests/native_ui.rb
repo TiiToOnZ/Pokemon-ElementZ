@@ -110,7 +110,7 @@ begin
   harness.press(scene, :A)
   check_scene(scene)
   snapshot(scene.viewport, 'general_v1')
-  5.times { harness.press(scene, :DOWN) }
+  4.times { harness.press(scene, :DOWN) }
   check_scene(scene)
   snapshot(scene.viewport, 'general_scrolled')
   harness.press(scene, :A)
@@ -128,6 +128,7 @@ begin
   harness.press(scene, :A)
   check_scene(scene)
   snapshot(scene.viewport, 'researcher_23')
+  harness.press(scene, :DOWN) # Quelle chance ! precedes Attrapez-les tous ! in Chercheur.
   harness.press(scene, :A)
   check_scene(scene)
   snapshot(scene.viewport, 'tiers_23')

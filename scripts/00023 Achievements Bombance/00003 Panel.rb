@@ -136,10 +136,22 @@ module BombanceAchievements
     end
 
     def reward_icon(x, y, reward)
-      if reward[:type] == :item
-        icon(x, y, format('%03d', data_item(reward[:id]).id))
+      item_id = case reward[:type]
+                when :hint
+                  :normal_gem
+                when :item
+                  if reward[:id] == :joyau_primordial
+                    :intriguing_stone
+                  elsif BombanceAchievements::GEM_ITEMS.value?(reward[:id])
+                    :normal_gem
+                  else
+                    reward[:id]
+                  end
+                end
+
+      if item_id
+        icon(x, y + 6, format('%03d', data_item(item_id).id))
       else
-        # Money/custom types have no fabricated item icon.
         rect(x + 6, y + 6, 19, 19, GOLD)
         text(x + 6, y + 7, 19, reward[:type] == :money ? '$' : '+', align: 1)
       end
@@ -152,7 +164,7 @@ module BombanceAchievements
     end
 
     def reward_quantity(reward)
-      return "× #{reward.fetch(:quantity, 1)}" if reward[:type] == :item
+      return "× #{reward.fetch(:quantity, 1)}" if [:item, :hint].include?(reward[:type])
       return "#{reward[:amount]} $" if reward[:type] == :money
       ''
     end
@@ -165,7 +177,7 @@ module BombanceAchievements
       end
       reward = entry[:reward]
       reward_icon(x, y, reward)
-      text(x + 32, y, w - 32, reward_name(reward))
+      text(x + 20, y, w - 24, reward_name(reward))
       text(x + 32, y + 14, w - 32, reward_quantity(reward))
       status = entry[:status] == :rewarded ? 'Obtenu' : (obtained ? 'En attente' : 'À obtenir')
       text(x + 3, y + 28, w - 6, status, color: entry[:status] == :rewarded ? GREEN : MUTED)

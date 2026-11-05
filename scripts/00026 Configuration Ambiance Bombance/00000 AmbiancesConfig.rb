@@ -12,8 +12,10 @@ module BombanceAmbiance
       rays_positions: [].freeze, rays_max: nil, lunar_rays: false,
       fireflies: false, fireflies_profile: :natural_fireflies, fireflies_zones: [].freeze,
       falling_leaves: false, falling_leaves_profile: :enchanted_leaves,
-      map_ambient_overlay: false, map_ambient_overlay_texture: nil,
-      map_ambient_overlay_profile: :village_night
+      map_ambient_overlay: false, map_ambient_overlay_texture: nil, 
+      map_ambient_overlay_profile: :village_night,
+      map_ambient_windows: false, map_ambient_windows_texture: nil,
+      map_ambient_windows_profile: :windows_night
     }.freeze
 
     # Groupes facultatifs, appliqués dans l'ordre ; une map prime sur son groupe.
@@ -23,8 +25,15 @@ module BombanceAmbiance
     # V6 : PNG complet dans graphics/fogs, sans repetition ni halo genere.
     # minutes TJN => pourcentage de max_opacity. TJN desactive => calque absent.
     MAP_AMBIENT_OVERLAY_PROFILES = {
+      windows_night: {
+        max_opacity: 255, blend_type: 0, z: 2899,
+        pixels_per_tile: 32, scale: 1.0, offset_x: 0, offset_y: 0,
+        time_points: [[0, 100].freeze, [420, 100].freeze, [540, 50].freeze,
+                      [660, 0].freeze, [1140, 0].freeze, [1200, 50].freeze,
+                      [1230, 100].freeze, [1440, 100].freeze].freeze
+      }.freeze,
       village_night: {
-        max_opacity: 128, blend_type: 0, z: 2900,
+        max_opacity: 150, blend_type: 0, z: 2900,
         pixels_per_tile: 32, scale: 1.0, offset_x: 0, offset_y: 0,
         time_points: [[0, 100].freeze, [420, 100].freeze, [540, 50].freeze,
                       [660, 0].freeze, [1140, 0].freeze, [1200, 50].freeze,
@@ -37,6 +46,9 @@ module BombanceAmbiance
         map_ambient_overlay: true,
         map_ambient_overlay_texture: 'BourgGuignon_Light',
         map_ambient_overlay_profile: :village_night,
+        map_ambient_windows: true,
+        map_ambient_windows_texture: 'BourgGuignon_Windows',
+        map_ambient_windows_profile: :windows_night,
         clouds: :native,
         diffuse_light: true,
         outdoor: true,
@@ -54,31 +66,29 @@ module BombanceAmbiance
         rays_positions: [
           # 1-3 : rayons prioritaires et lunaires
           # Place centrale
-          { x: 34.0, y: 18.0, width: 0.90, length: 0.90 }.freeze,
-          # Chemin central entre les champs
-          { x: 34.0, y: 29.0, width: 0.85, length: 0.95 }.freeze,
-          # Jardins près du bâtiment sud-est
-          { x: 53.0, y: 43.0, width: 0.85, length: 0.90 }.freeze,
+          { x: 33.5, y: 14.0, width: 1.20, length: 2.0 }.freeze,
+          # Lac
+          { x: 60.0, y: 33.0, width: 1.20, length: 2.0 }.freeze,
+          # Jardins parc
+          { x: 48.5, y: 25.0, width: 1.60, length: 4.0 }.freeze,
 
           # 4-6 : maisons et champs
           # Devant la maison nord-ouest
-          { x: 19.0, y: 17.0, width: 0.85, length: 0.85 }.freeze,
-          # Devant la maison nord-est
-          { x: 45.0, y: 17.0, width: 0.90, length: 0.85 }.freeze,
+          { x: 19.0, y: 18.0, width: 0.90, length: 0.90 }.freeze,
+          # Devant la maison milieu-ouest
+          { x: 26.0, y: 27.0, width: 0.90, length: 0.90 }.freeze,
           # Champs de tournesols ouest
-          { x: 23.0, y: 30.0, width: 0.85, length: 0.95 }.freeze,
+          { x: 27.0, y: 34.0, width: 0.90, length: 0.95 }.freeze,
 
           # 7-8 : champs et jardins
           # Champs de tournesols est
-          { x: 42.0, y: 30.0, width: 0.90, length: 0.95 }.freeze,
+          { x: 42.0, y: 39.0, width: 0.90, length: 0.95 }.freeze,
           # Jardin au nord-est
-          { x: 58.0, y: 15.0, width: 0.85, length: 0.90 }.freeze,
+          { x: 53.0, y: 11.0, width: 0.85, length: 0.90 }.freeze,
 
           # 9-10 : sud du village
-          # Bord de l'étang
-          { x: 57.0, y: 31.0, width: 0.85, length: 0.90 }.freeze,
           # Chemin de sortie sud
-          { x: 35.0, y: 45.0, width: 0.85, length: 0.90 }.freeze
+          { x: 32.0, y: 48.0, width: 0.90, length: 2.0}.freeze
         ].freeze,
 
         # Rectangles de lucioles : uniquement végétation.
@@ -86,7 +96,7 @@ module BombanceAmbiance
         fireflies_zones: [
           # ===== NORD =====
           # Fleurs près de la maison nord-ouest
-          { x: 13.0, y: 14.0, width: 3.0, height: 5.0, count: 5 }.freeze,
+          { x: 13.0, y: 14.0, width: 2.0, height: 5.0, count: 5 }.freeze,
 
           # Jardinière de la maison nord-ouest
           { x: 23.0, y: 14.0, width: 4.0, height: 1.5, count: 3 }.freeze,
@@ -95,102 +105,217 @@ module BombanceAmbiance
           { x: 40.0, y: 14.0, width: 4.0, height: 1.5, count: 3 }.freeze,
 
           # Herbes du jardin nord-est
-          { x: 53.0, y: 10.0, width: 9.0, height: 5.0, count: 7 }.freeze,
+          { x: 53.0, y: 10.0, width: 8.0, height: 5.0, count: 7 }.freeze,
 
           # ===== CHAMPS OUEST =====
+          # Jardinière de la maison
+          { x: 28.0, y: 23.0, width: 4.0, height: 1.5, count: 3 }.freeze,
+
           # Tournesols au nord de la maison
-          { x: 12.5, y: 19.0, width: 10.0, height: 3.0, count: 7 }.freeze,
+          { x: 13.0, y: 19.0, width: 7.0, height: 6.0, count: 7 }.freeze,
 
           # Grand champ de tournesols ouest
-          { x: 12.5, y: 25.0, width: 10.0, height: 11.0, count: 8 }.freeze,
+          { x: 13.0, y: 25.0, width: 7.0, height: 9.0, count: 8 }.freeze,
 
           # Champ au sud-ouest
-          { x: 23.0, y: 29.0, width: 8.0, height: 7.0, count: 7 }.freeze,
+          { x: 23.0, y: 29.0, width: 6.0, height: 7.0, count: 7 }.freeze,
 
           # ===== CHAMPS EST =====
-          # Tournesols au nord de la maison
-          { x: 36.0, y: 19.0, width: 11.0, height: 3.0, count: 7 }.freeze,
+          # Jardinière de la maison
+          { x: 35.0, y: 23.0, width: 4.0, height: 1.5, count: 3 }.freeze,
 
           # Champ de tournesols nord-est
-          { x: 47.0, y: 19.0, width: 14.0, height: 3.0, count: 7 }.freeze,
+          { x: 46.0, y: 19.0, width: 14.0, height: 2.0, count: 7 }.freeze,
 
           # Champ au sud de la maison
-          { x: 36.0, y: 29.0, width: 9.0, height: 7.0, count: 8 }.freeze,
+          { x: 36.0, y: 29.0, width: 3.0, height: 5.0, count: 4 }.freeze,
+          { x: 43.0, y: 28.0, width: 4.0, height: 3.0, count: 4 }.freeze,
 
           # ===== JARDINS SUD-EST =====
           # Fleurs près de l'étang
-          { x: 47.0, y: 24.0, width: 5.0, height: 5.0, count: 5 }.freeze,
+          { x: 47.0, y: 24.0, width: 4.0, height: 3.0, count: 5 }.freeze,
 
           # Fleurs près du bâtiment sud-est
-          { x: 43.0, y: 40.0, width: 4.0, height: 5.0, count: 5 }.freeze,
+          { x: 43.0, y: 40.0, width: 3.0, height: 4.0, count: 5 }.freeze,
+          { x: 61.0, y: 43.0, width: 2.0, height: 6.0, count: 5 }.freeze,
+
+          # Lac du village
+          { x: 58.0, y: 30.0, width: 6.0, height: 6.0, count: 5 }.freeze,
 
           # Parterres au sud du village
-          { x: 35.0, y: 45.0, width: 5.0, height: 3.0, count: 5 }.freeze
+          { x: 32.0, y: 45.0, width: 6.0, height: 3.0, count: 5 }.freeze
         ].freeze
       }.freeze,
       27 => {
-        clouds: true, diffuse_light: true, outdoor: true,
-        rays: true, rays_profile: :forest_sunlight, rays_max: 10, lunar_rays: true,
-        fireflies: true, fireflies_profile: :natural_fireflies,
+        map_ambient_overlay: true,
+        map_ambient_overlay_texture: 'Route1_Night',
+        map_ambient_overlay_profile: :village_night,
+
+        clouds: true, 
+        diffuse_light: true, 
+        outdoor: true,
+
+        rays: true, 
+        rays_profile: :forest_sunlight, 
+        rays_max: 10, 
+        lunar_rays: true,
+
+        fireflies: true, 
+        fireflies_profile: :natural_fireflies,
+        
         # Rectangles en tuiles : x/y = coin supérieur gauche, pas le centre.
         # Massif fleuri sud, clairière centrale, herbes/fleurs à l'est.               
         fireflies_zones: [
           # ===== NORD =====
           # Fleurs orangées, près de l'entrée nord
           { x: 51.0, y: 8.0, width: 2.0, height: 2.0, count: 4 }.freeze,
+          { x: 55.0, y: 16.0, width: 1.0, height: 2.0, count: 2 }.freeze,
           # Grandes hautes herbes au nord
-          { x: 60.0, y: 8.0, width: 6.0, height: 4.0, count: 6 }.freeze,
+          { x: 60.0, y: 8.0, width: 6.0, height: 5.0, count: 6 }.freeze,
           # Fleurs multicolores, extrémité nord-est
           { x: 73.0, y: 8.0, width: 2.0, height: 2.0, count: 4 }.freeze,
           # ===== CENTRE / GROTTE =====
           # Hautes herbes au-dessus de la grotte
-          { x: 64.0, y: 16.0, width: 4.0, height: 4.0, count: 5 }.freeze,
+          { x: 64.0, y: 16.0, width: 4.0, height: 3.0, count: 5 }.freeze,
           # Fleurs au pied des arbres près de la grotte
           { x: 60.0, y: 18.0, width: 2.0, height: 2.0, count: 4 }.freeze,
           # Hautes herbes au nord-est de la grotte
-          { x: 70.0, y: 14.0, width: 5.0, height: 4.0, count: 5 }.freeze,
+          { x: 70.0, y: 15.0, width: 5.0, height: 4.0, count: 5 }.freeze,
           # Fleurs à l'est de la grotte
-          { x: 72.5, y: 20.5, width: 2.0, height: 2.0, count: 4 }.freeze,
+          { x: 72.0, y: 21.0, width: 2.0, height: 1.0, count: 2 }.freeze,
           # Fleurs à l'extrémité est
-          { x: 80.5, y: 23.5, width: 2.0, height: 3.0, count: 4 }.freeze,
+          { x: 80.0, y: 24.0, width: 2.0, height: 2.0, count: 4 }.freeze,
           # ===== CENTRE-OUEST =====
           # Fleurs orangées au bord du chemin
-          { x: 45.0, y: 25.0, width: 3.0, height: 1.5, count: 4 }.freeze,
+          { x: 45.0, y: 25.0, width: 3.0, height: 1.0, count: 4 }.freeze,
           # Hautes herbes au sud de la grotte
           { x: 56.0, y: 27.0, width: 7.0, height: 3.5, count: 6 }.freeze,
           # ===== SUD-OUEST =====
           # Fleurs violettes de la clairière ouest
-          { x: 26.0, y: 31.0, width: 2.5, height: 2.5, count: 5 }.freeze,
+          { x: 26.0, y: 31.0, width: 2.0, height: 2.0, count: 5 }.freeze,
           # Hautes herbes de la clairière ouest
-          { x: 31.0, y: 31.0, width: 6.0, height: 4.0, count: 5 }.freeze,
+          { x: 31.0, y: 33.0, width: 6.0, height: 3.0, count: 5 }.freeze,
           # Fleurs roses de la clairière centrale
-          { x: 39.0, y: 31.0, width: 4.0, height: 2.5, count: 5 }.freeze,
+          { x: 39.0, y: 32.0, width: 4.0, height: 1.0, count: 3 }.freeze,
           # Hautes herbes à droite des fleurs
-          { x: 44.0, y: 31.0, width: 6.0, height: 4.0, count: 5 }.freeze,
+          { x: 45.0, y: 32.0, width: 6.0, height: 4.0, count: 5 }.freeze,
           # ===== SUD-EST =====
           # Fleurs multicolores près du panneau
           { x: 55.0, y: 36.0, width: 3.0, height: 3.0, count: 5 }.freeze,
           # Grandes hautes herbes près de la sortie sud
-          { x: 63.0, y: 36.0, width: 6.0, height: 5.0, count: 6 }.freeze
+          { x: 63.0, y: 37.0, width: 5.0, height: 5.0, count: 6 }.freeze
         ].freeze,
         # Pied de chaque rayon en TUILES locales (fractions autorisées).
         # Placements éditoriaux : aucune détection automatique des arbres.
         # width/length/opacity = multiplicateurs ; angle = ajout en degrés.
         rays_positions: [
           # 1-3 : rayons prioritaires, également lunaires
-          { x: 35.0, y: 22.5, width: 0.90, length: 1.00 }.freeze,
-          { x: 52.0, y: 22.5, width: 0.85, length: 0.90 }.freeze,
-          { x: 54.0, y: 34.5, width: 0.95, length: 1.00 }.freeze,
+          { x: 25.0, y: 31.0, width: 1.00, length: 2.00 }.freeze,
+          { x: 60.5, y: 39.0, width: 1.40, length: 1.10 }.freeze,
+          { x: 68.5, y: 23.0, width: 1.40, length: 1.00 }.freeze,
           # 4-6 : chemins et clairières
-          { x: 23.0, y: 31.5, width: 0.80, length: 0.85 }.freeze,
-          { x: 37.5, y: 29.0, width: 0.90, length: 0.90 }.freeze,
-          { x: 46.0, y: 19.5, width: 0.85, length: 0.95 }.freeze,
+          { x: 52.0, y: 9.0, width: 0.80, length: 0.85 }.freeze,
+          { x: 39.0, y: 28.0, width: 0.90, length: 2.00 }.freeze,
+          { x: 46.0, y: 21.0, width: 0.85, length: 0.95 }.freeze,
           # 7-8 : clairières du nord
-          { x: 51.0, y: 11.0, width: 0.85, length: 0.85 }.freeze,
-          { x: 65.5, y: 10.0, width: 0.95, length: 1.00 }.freeze,
+          { x: 58.5, y: 14.0, width: 0.85, length: 0.85 }.freeze,
+          { x: 69.5, y: 16.0, width: 0.85, length: 1.00 }.freeze,
+          { x: 38.0, y: 17.0, width: 0.80, length: 1.60 }.freeze,
           # 9-10 : chemins de l'est
-          { x: 72.5, y: 22.0, width: 0.85, length: 0.90 }.freeze,
-          { x: 61.0, y: 29.5, width: 0.80, length: 0.85 }.freeze
+          { x: 80.0, y: 24.0, width: 0.85, length: 0.90 }.freeze
+        ].freeze
+      }.freeze,
+      25 => {
+        map_ambient_overlay: true,
+        map_ambient_overlay_texture: 'Cocovin_Night',
+        map_ambient_overlay_profile: :village_night,
+        map_ambient_windows: true,
+        map_ambient_windows_texture: 'Cocovin_Windows',
+        map_ambient_windows_profile: :windows_night,
+        clouds: :native,
+        diffuse_light: true,
+        outdoor: true,
+
+        rays: true,
+        rays_profile: :forest_sunlight,
+        rays_max: 10,
+        lunar_rays: true,
+
+        fireflies: true,
+        fireflies_profile: :natural_fireflies,
+
+        # Pieds des rayons en coordonnées locales.
+        # Les trois premiers sont prioritaires la nuit.
+        rays_positions: [
+          # 1-3 : rayons prioritaires et lunaires
+          # Entree foret
+          { x: 83.0, y: 25.0, width: 1.20, length: 2.0 }.freeze,
+          # Terrain de combat
+          { x: 45.0, y: 29.0, width: 1.20, length: 2.0 }.freeze,
+          # Panneau village nord
+          { x: 66.0, y: 8.0, width: 1.60, length: 4.0 }.freeze,
+
+          # 4-5 : Est
+          # Panneau village Est
+          { x: 79.0, y: 23.0, width: 0.90, length: 0.90 }.freeze,
+          # Tonneau vigneron
+          { x: 73.0, y: 36.0, width: 0.90, length: 0.90 }.freeze,
+
+          # 6-8 : Ouest
+          # Pokeball N-O
+          { x: 36.0, y: 10.0, width: 0.90, length: 0.95 }.freeze,
+          # Maison Guide
+          { x: 25.0, y: 35.0, width: 0.85, length: 0.90 }.freeze,
+          # Jardin
+          { x: 17.0, y: 13.0, width: 0.90, length: 0.95 }.freeze,
+
+          # 9 : sud du village
+          # Chemin de sortie sud
+          { x: 50.0, y: 40.0, width: 0.90, length: 2.0}.freeze
+        ].freeze,
+
+        # Rectangles de lucioles : uniquement végétation.
+        # x/y = coin supérieur gauche.
+        fireflies_zones: [
+          # ===== NORD =====
+          # Fleurs près de la maison nord-ouest
+          { x: 29.0, y: 11.0, width: 3.0, height: 3.0, count: 4 }.freeze,
+
+          # Jardinière de la maison nord-ouest
+          { x: 28.0, y: 15.0, width: 3.0, height: 3.0, count: 4 }.freeze,
+
+          # Jardinière de la maison nord-est
+          { x: 59.0, y: 7.0, width: 3.0, height: 4.0, count: 5 }.freeze,
+
+          # Jardin nord-ouest
+          { x: 11.0, y: 14.0, width: 3.0, height: 6.0, count: 7 }.freeze,
+
+          # ===== OUEST =====
+          # Jardinière de la maison
+          { x: 7.0, y: 3.0, width: 7.0, height: 3.0, count: 7 }.freeze,
+
+          # ===== CHAMPS SUD =====
+          # Jardin gauche
+          { x: 40.0, y: 36.0, width: 8.0, height: 3.0, count: 7 }.freeze,
+
+          # Jardin droite
+          { x: 53.0, y: 36.0, width: 8.0, height: 3.0, count: 8 }.freeze,
+
+          # Arche
+          { x: 49.0, y: 29.0, width: 3.0, height: 2.0, count: 3 }.freeze,
+
+          # ===== EST =====
+          # Pokesoin gauche
+          { x: 69.0, y: 17.0, width: 1.0, height: 2.0, count: 2 }.freeze,
+
+          # Pokesoin droite
+          { x: 73.0, y: 17.0, width: 1.0, height: 2.0, count: 2 }.freeze,
+
+          # Caisse vigneron
+          { x: 75.0, y: 31.0, width: 2.0, height: 2.0, count: 2 }.freeze,
+
+          # Panneau village
+          { x: 77.0, y: 22.0, width: 2.0, height: 1.0, count: 2 }.freeze
         ].freeze
       }.freeze,
       # Foret Enchantee actuelle : map 35, 130 x 100, tileset 30 (_30).
@@ -267,14 +392,14 @@ module BombanceAmbiance
         texture: 'bombance_ambiance/firefly', z: 3100,
         max_per_zone: 8,
         scale: 1.75,
-        halo_strength: 1.0,
-        rgb: [255, 250, 165].freeze,
-        drift_x: 3.0,
-        drift_y: 2.5,
+        halo_strength: 1.15,
+        rgb: [240, 245, 80].freeze,
+        drift_x: 4.0,
+        drift_y: 3.0,
         move_steps: 960.0,
-        pulse_steps: 300.0,
-        pulse_min: 0.85,
-        intensity_variation: 0.05,
+        pulse_steps: 240.0,
+        pulse_min: 0.70,
+        intensity_variation: 0.15,
         transition_steps: 240, weather_transition_steps: 180,
         # [début, fin] de la période réelle TJN. Densité × count de la zone.        
         periods: {
@@ -322,8 +447,8 @@ module BombanceAmbiance
             rgb: [255, 232, 176].freeze,
             opacity: 110,
             angle: 18.0,
-            count: 10,
-            minimum: 7,
+            count: 9,
+            minimum: 6,
             peak_hour: nil
           }.freeze,
 
@@ -331,8 +456,8 @@ module BombanceAmbiance
             rgb: [255, 249, 226].freeze,
             opacity: 110,
             angle: 24.0,
-            count: 10,
-            minimum: 10,
+            count: 9,
+            minimum: 9,
             peak_hour: 15.0
           }.freeze,
 
@@ -340,17 +465,17 @@ module BombanceAmbiance
             rgb: [255, 207, 151].freeze,
             opacity: 105,
             angle: 32.0,
-            count: 10,
-            minimum: 7,
+            count: 9,
+            minimum: 6,
             peak_hour: nil
           }.freeze,
 
           night: {
-            rgb: [183, 210, 255].freeze,
-            opacity: 78,
-            angle: 24.0,
-            count: 6,
-            minimum: 4,
+            rgb: [170, 195, 235].freeze,
+            opacity: 70,
+            angle: 20.0,
+            count: 5,
+            minimum: 3,
             peak_hour: 1.0
           }.freeze
         }.freeze,
